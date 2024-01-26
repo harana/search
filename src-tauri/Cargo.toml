@@ -1,0 +1,86 @@
+[package]
+name = "harana"
+version = "0.0.0"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+[build-dependencies]
+conan2 = "0.1.0"
+swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease", features = ["build"] }
+tauri-build = { version = "1.5.0", features = [] }
+
+[dependencies]
+harana_application = { package = "application", path = "../../search-engine/src/application" }
+harana_common = { package = "common", path = "../../search-engine/src/common" }
+harana_database = { package = "database", path = "../../search-engine/src/database" }
+harana_document = { package = "document", path = "../../search-engine/src/document" }
+harana_file_crawler = { package = "file_crawler", path = "../../search-engine/src/file_crawler" }
+harana_job = { package = "job", path = "../../search-engine/src/job" }
+harana_rpc_tauri = { package = "rpc_tauri", path = "../../search-engine/src/rpc/tauri" }
+harana_search_core = { package = "search_core", path = "../../search-engine/src/search/core" }
+harana_search_extensions = { package = "search_extensions", path = "../../search-engine/src/search/extensions" }
+harana_search_file = { package = "search_file", path = "../../search-engine/src/search/file" }
+harana_search_index = { package = "search_index", path = "../../search-engine/src/search/index" }
+harana_search_jobs = { package = "search_jobs", path = "../../search-engine/src/search/jobs" }
+harana_search = { package = "search", path = "../../search-engine/src/search" }
+harana_thumbnailer = { package = "thumbnailer", path = "../../search-engine/src/thumbnailer" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../search-engine/src/thumbnailer/core" }
+
+auto-launch = "0.5"
+color-eyre = "0.6.2"
+config = "0.13"
+ctrlc = "3"
+dark-light = "1"
+log-panics = { version = "2", features = ["with-backtrace"] }
+macos-app-nap = "0.0.1"
+mid = "1"
+mouce = "0.2.43"
+plist = "1"
+raw-window-handle = "0.6"
+rgb = "0.8"
+screenshots = "0.8"
+screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
+screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
+sentry-tauri = "0.2"
+signal-hook = "0.3"
+stackblur-iter = { git = "https://github.com/harana-oss/stackblur-iter.git" }
+tauri = { version = "1", features = [ "updater", "devtools", "http-all", "protocol-all", "window-all", "devtools", "dialog-all", "fs-exists", "fs-read-dir", "fs-read-file", "global-shortcut", "global-shortcut-all", "path-all", "shell-open-api", "system-tray"] }
+tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
+tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+tracing-appender = "0.2"
+tokio = { version = "1", features = [] }
+tokio-cron-scheduler = "0.9"
+window-vibrancy = "0.4"
+time = "0.3.30"
+anyhow = "1.0.75"
+serde = "1.0.193"
+zune-image = "0.4"
+tracing-subscriber = "0.3.18"
+tracing = { version = "0.1.40", features = [] }
+
+#[patch.crates-io]
+#rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
+
+[target.'cfg(target_os="macos")'.dependencies]
+core-graphics = {version = "0.23.1" }
+core-foundation = { version = "0.9.3" }
+cocoa = { version = "0.25.0" }
+objc =  { version = "0.2.7" }
+objc_id = {version = "0.1.1" }
+objc-foundation = { version = "0.1.1" }
+swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
+
+[profile.release]
+codegen-units = 1
+incremental = false
+lto = true
+panic = "abort"
+strip = true
+opt-level = "s"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

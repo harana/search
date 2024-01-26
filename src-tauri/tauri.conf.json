@@ -1,0 +1,232 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "yarn run build",
+    "beforeDevCommand": "yarn run dev",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "harana",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "systemTray": {
+      "iconPath": "icons/32x32.png",
+      "iconAsTemplate": true
+    },
+    "allowlist": {
+      "fs": {
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "writeFile": false,
+        "scope": [
+          "**",
+          "**/*"
+        ]
+      },
+      "dialog": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": true
+      },
+      "http": {
+        "all": true,
+        "request": true
+      },
+      "path": {
+        "all": true
+      },
+      "protocol": {
+        "all": true,
+        "asset": true,
+        "assetScope": [
+          "**",
+          "**/*",
+          "$APPDATA/appIcons/*",
+          "$RESOURCE/assets/*",
+          "$RESOURCE/assets/*/*",
+          "$RESOURCE/assets/icons/connectors/*",
+          "$RESOURCE/icons/connectors/*"
+        ]
+      },
+      "window": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "Productivity",
+      "copyright": "com.harana",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "identifier": "com.harana.search",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [
+        "assets/*",
+        "assets/icons/connectors/*"
+      ],
+      "shortDescription": "",
+      "targets": ["app"],
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "macOSPrivateApi": false,
+    "security": {
+      "csp": "default-src harana: asset: ws: https://asset.localhost img-src: 'self'"
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://update.search.harana.com/{{target}}/{{arch}}/{{current_version}}"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJDM0IxQkI3NjI0NzI5RTgKUldUb0tVZGl0eHM3TERta0x3bWlyaHlERWZEUXZTZ0tCN3JIWDNPTldyNlhYajVEWGNTckw0dncKA"
+    },
+    "windows": [
+      {
+        "label": "billing",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 1000,
+        "height": 800,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "integrations",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 1000,
+        "height": 800,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "preview",
+        "fullscreen": false,
+        "resizable": true,
+        "title": "",
+        "width": 800,
+        "height": 800,
+        "visible": false,
+        "alwaysOnTop": true,
+        "decorations": false,
+        "transparent": false,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "search",
+        "fullscreen": false,
+        "resizable": true,
+        "title": "",
+        "width": 950,
+        "height": 200,
+        "visible": false,
+        "alwaysOnTop": true,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "settings",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 1000,
+        "height": 900,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "signup",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 1000,
+        "height": 800,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "thumbnail",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 800,
+        "height": 800,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": true,
+        "center": false,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      },
+      {
+        "label": "welcome",
+        "fullscreen": false,
+        "resizable": false,
+        "title": "",
+        "width": 800,
+        "height": 550,
+        "visible": false,
+        "alwaysOnTop": false,
+        "decorations": false,
+        "transparent": false,
+        "center": true,
+        "skipTaskbar": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }
+    ]
+  }
+}

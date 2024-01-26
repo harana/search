@@ -1,0 +1,4 @@
+src-tauri/index/index-storage/*
+src-tauri/index/index-storage/**/*
+*.lock
+snap*

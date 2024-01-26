@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <style>
+      #body {
+        background-color: white;
+        width: 600px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="body">
+    PREVIEW
+  </div>
+  <script>
+    html2canvas(document.querySelector("#body")).then(canvas => {
+      const imageData = canvas.toDataURL('image/png');
+      const { invoke } = window.__TAURI__.tauri;
+      invoke('save_thumbnail', { imageData });
+    });
+  </script>
+  </body>
+</html>

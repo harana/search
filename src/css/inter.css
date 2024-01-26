@@ -1,0 +1,22 @@
+/*
+Font families defined by this CSS:
+  - InterVariable  variable font for modern web browsers
+  - Inter          static fonts for older web browsers (small optical size)
+  - InterDisplay   static fonts for older web browsers (large optical size)
+
+Usage example:
+  :root { font-family: Inter, sans-serif; }
+  @supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+  }
+
+*/
+@font-face { font-family:Inter; font-style:normal; font-weight:100; font-display:swap; src:url("../fonts/Inter-Thin.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:200; font-display:swap; src:url("../fonts/Inter-ExtraLight.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:300; font-display:swap; src:url("../fonts/Inter-Light.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:400; font-display:swap; src:url("../fonts/Inter-Regular.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:500; font-display:swap; src:url("../fonts/Inter-Medium.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:600; font-display:swap; src:url("../fonts/Inter-SemiBold.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:700; font-display:swap; src:url("../fonts/Inter-Bold.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:800; font-display:swap; src:url("../fonts/Inter-ExtraBold.ttf") format("ttf"); }
+@font-face { font-family:Inter; font-style:normal; font-weight:900; font-display:swap; src:url("../fonts/Inter-Black.ttf") format("ttf"); }
