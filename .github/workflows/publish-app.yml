@@ -1,0 +1,177 @@
+name: Publish App
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"    
+
+jobs:
+  publish:
+    name: Publish
+    strategy:
+      matrix:
+        settings:
+          - host: macOS
+            target: x86_64-apple-darwin
+            bundles: app,dmg
+            os: darwin
+            arch: x86_64
+          - host: macOS
+            target: aarch64-apple-darwin
+            bundles: app,dmg
+            os: darwin
+            arch: aarch64
+          # - host: windows-latest
+          #   target: x86_64-pc-windows-msvc
+          #   bundles: msi
+          #   os: windows
+          #   arch: x86_64
+          # - host: windows-latest
+          #   target: aarch64-pc-windows-msvc
+          # - host: ubuntu-20.04
+          #   target: x86_64-unknown-linux-gnu
+          #   bundles: deb,appimage
+          #   os: linux
+          #   arch: x86_64
+          # - host: ubuntu-20.04
+          #   target: x86_64-unknown-linux-musl
+          # - host: ubuntu-20.04
+          #   target: aarch64-unknown-linux-gnu
+          #   bundles: deb # no appimage for now unfortunetly
+          # - host: ubuntu-20.04
+          #   target: aarch64-unknown-linux-musl
+    runs-on: 
+      - harana-dev-linux
+      - ${{ matrix.settings.arch }}      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get Branch/Tag
+        id: ref
+        uses: frabert/replace-string-action@v1.2
+        with:
+          pattern: 'refs\/\w+\/(.*)'
+          string: ${{ github.ref }}
+          replace-with: '$1'
+
+      - name: Get Short SHA
+        uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+        with:
+          length: 6
+
+      - name: Get Version
+        uses: haya14busa/action-cond@v1
+        id: version
+        with:
+          cond: ${{ contains(github.ref, 'tag') }}
+          if_true: ${{ steps.ref.outputs.replaced }}
+          if_false: ${{ steps.ref.outputs.replaced }}-${{ steps.short-sha.outputs.sha }}
+
+      - name: Install Apple API key
+        if: ${{ runner.os == 'macOS' }}
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys/
+          cd ~/.appstoreconnect/private_keys/
+          echo ${{ secrets.APPLE_API_KEY_BASE64 }} >> AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64
+          base64 --decode -i AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64 -o AuthKey_${{ secrets.APPLE_API_KEY }}.p8
+          rm AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64
+
+      - name: Symlink target to C:\
+        if: ${{ runner.os == 'Windows' }}
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path C:\spacedrive_target
+          New-Item -Path target -ItemType Junction -Value C:\spacedrive_target
+
+      - name: Remove 32-bit libs on Linux
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          dpkg -l | grep i386
+          sudo apt-get purge --allow-remove-essential libc6-i386 ".*:i386"
+          sudo dpkg --remove-architecture i386
+
+      - name: Cache Rust Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          save-if: ${{ inputs.save-cache }}
+          shared-key: stable-cache
+          workspaces: '.src-tauri -> target'      
+
+      - name: Install Dependencies
+        run: |
+          pnpm install
+
+      - name: Build Frontend
+        run: |
+          sbt buildFrontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_OPTIONS: "--max_old_space_size=4092"
+
+      - name: Build Tauri
+        run: |
+          mkdir -p dist
+          pnpm run css
+          cd src-tauri
+          pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
+        env:      
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+          APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
+          ENABLE_CODE_SIGNING: ${{ secrets.APPLE_PRIVATE_KEY }}
+          NODE_OPTIONS: "--max_old_space_size=8196"
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+
+      - name: Publish Artifacts
+        uses: ./.github/actions/publish-artifacts
+        with:
+          os: ${{ matrix.settings.os }}
+          arch: ${{ matrix.settings.arch }}
+          target: ${{ matrix.settings.target }}
+          profile: release
+
+      - name: Notify Slack - Success
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_FOOTER: ""
+          SLACK_MESSAGE: "✅  harana-${{ github.event.repository.name }}  | publish | ${{ steps.version.outputs.value }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_BUILDS_WEBHOOK }}
+
+      - name: Notify Slack - Failure
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_FOOTER: ""
+          SLACK_MESSAGE: "⛔️  harana-${{ github.event.repository.name }}  | publish | ${{ steps.version.outputs.value }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_BUILDS_WEBHOOK }}
+
+      - name: Output Version
+        if: success()
+        run: |
+          echo ${{ steps.version.outputs.value }}
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    name: Create Release
+    needs: build  
+    permissions:
+      contents: write
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: '*/**'
