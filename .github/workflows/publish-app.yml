@@ -83,10 +83,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          source /etc/profile
           pnpm install
 
       - name: Build Frontend
         run: |
+          source /etc/profile
           sbt buildFrontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
