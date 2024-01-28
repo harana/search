@@ -82,8 +82,8 @@ jobs:
           workspaces: '.src-tauri -> target'      
 
       - name: Install Dependencies
+        shell: bash -l {0} 
         run: |
-          source /etc/profile
           pnpm install
 
       - name: Build Frontend
