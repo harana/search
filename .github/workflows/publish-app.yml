@@ -7,7 +7,7 @@ on:
       - "v*"    
 
 jobs:
-  publish:
+  build:
     name: Publish
     strategy:
       matrix:
