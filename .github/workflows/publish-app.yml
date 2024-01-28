@@ -33,6 +33,10 @@ jobs:
             bundles: deb
     runs-on: ${{ matrix.settings.runner }}
     steps:
+      - name: Load environment variables
+        run: |
+          source /etc/profile
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -83,12 +87,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          source /etc/profile
           pnpm install
 
       - name: Build Frontend
         run: |
-          source /etc/profile
           sbt buildFrontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
