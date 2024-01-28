@@ -12,16 +12,12 @@ jobs:
     strategy:
       matrix:
         settings:
-          - host: macOS
+          - runner: harana-dev-mac
             target: x86_64-apple-darwin
             bundles: app,dmg
-            os: darwin
-            arch: x86_64
-          - host: macOS
+          - host: harana-dev-mac
             target: aarch64-apple-darwin
             bundles: app,dmg
-            os: darwin
-            arch: aarch64
           # - host: windows-latest
           #   target: x86_64-pc-windows-msvc
           #   bundles: msi
@@ -29,24 +25,13 @@ jobs:
           #   arch: x86_64
           # - host: windows-latest
           #   target: aarch64-pc-windows-msvc
-          - host: ubuntu-20.04
+          - runner: harana-dev-linux
             target: x86_64-unknown-linux-gnu
             bundles: deb,appimage
-            os: linux
-            arch: x86_64
-          - host: ubuntu-20.04
-            target: x86_64-unknown-linux-musl
-            arch: x86_64
-          - host: ubuntu-20.04
+          - runner: harana-dev-linux
             target: aarch64-unknown-linux-gnu
-            bundles: deb # no appimage for now unfortunetly
-            arch: x86_64
-          - host: ubuntu-20.04
-            target: aarch64-unknown-linux-musl
-            arch: x86_64
-    runs-on: 
-      - harana-dev-linux
-      - ${{ matrix.settings.arch }}      
+            bundles: deb
+    runs-on: ${{ matrix.settings.runner }}      
     steps:
       - name: Checkout
         uses: actions/checkout@v2
