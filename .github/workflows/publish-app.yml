@@ -74,13 +74,6 @@ jobs:
           New-Item -ItemType Directory -Force -Path C:\spacedrive_target
           New-Item -Path target -ItemType Junction -Value C:\spacedrive_target
 
-      - name: Remove 32-bit libs on Linux
-        if: ${{ runner.os == 'Linux' }}
-        run: |
-          dpkg -l | grep i386
-          apt-get purge --allow-remove-essential libc6-i386 ".*:i386"
-          dpkg --remove-architecture i386
-
       - name: Cache Rust Dependencies
         uses: Swatinem/rust-cache@v2
         with:
