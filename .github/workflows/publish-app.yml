@@ -81,15 +81,22 @@ jobs:
           shared-key: stable-cache
           workspaces: '.src-tauri -> target'      
 
+      - name: Populate Credentials
+        run: |
+          mkdir -p ~/.sbt/1.0/plugins
+          cat <<EOF > ~/.sbt/1.0/plugins/credentials.sbt
+          credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "nadenf", System.getenv("GITHUB_TOKEN"))
+          EOF
+
       - name: Install Dependencies
         run: |
           pnpm install
 
       - name: Build Frontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }} 
         run: |
           sbt buildFrontend
-        env:
-          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
 
       - name: Build Tauri
         run: |
