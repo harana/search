@@ -1,4 +1,2 @@
-addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.7")
-addSbtPlugin("com.indoorvivants" % "sbt-commandmatrix" % "0.0.5")
-addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta40")
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.13.2")
+resolvers += Resolver.url("harana", url("https://maven.pkg.github.com/harana/sbt-plugin"))(Patterns("[organisation]/[module]/[revision]/[artifact].[ext]") )
+addSbtPlugin("com.harana" % "sbt_js_jvm" % "1.0.0")
