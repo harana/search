@@ -82,17 +82,14 @@ jobs:
           workspaces: '.src-tauri -> target'      
 
       - name: Install Dependencies
-        shell: bash -l {0} 
         run: |
           pnpm install
 
       - name: Build Frontend
         run: |
-          source /etc/profile
           sbt buildFrontend
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_OPTIONS: "--max_old_space_size=4092"
+          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
 
       - name: Build Tauri
         run: |
