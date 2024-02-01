@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: harana/search-engine
-          path: search engine
+          path: search-engine
           token: ${{ secrets.READ_REPOSITORIES_TOKEN }}
 
       - name: Get Branch/Tag
