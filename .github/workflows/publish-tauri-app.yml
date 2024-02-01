@@ -28,9 +28,9 @@ jobs:
           - runner: harana-dev-linux
             target: x86_64-unknown-linux-gnu
             bundles: deb,appimage
-          - runner: harana-dev-linux
-            target: aarch64-unknown-linux-gnu
-            bundles: deb
+          # - runner: harana-dev-linux
+          #   target: aarch64-unknown-linux-gnu
+          #   bundles: deb
     runs-on: ${{ matrix.settings.runner }}
     steps:
       - name: Checkout
