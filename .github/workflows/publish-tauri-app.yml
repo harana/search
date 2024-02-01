@@ -103,7 +103,7 @@ jobs:
         run: |
           pnpm install
 
-      - name: Publish Packages
+      - name: Build Frontend
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
         run: sbt publish
