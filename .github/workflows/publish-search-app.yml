@@ -111,16 +111,20 @@ jobs:
 
       - name: Install JS Dependencies
         run: |
+          cd search
           pnpm install
 
       - name: Build Frontend
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-        run: sbt buildFrontend
+        run: |
+          cd search
+          sbt buildFrontend
 
       - name: Build Tauri
         run: |
           source /etc/profile
+          cd search
           mkdir -p dist
           pnpm run css
           cd src-tauri
