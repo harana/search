@@ -68,6 +68,7 @@ jobs:
           rm -fr /home/runner/.cargo ; mkdir /home/runner/.cargo
           rm -fr /home/runner/.ivy2 ; mkdir /home/runner/.ivy2
           rm -fr /home/runner/.sbt ; mkdir /home/runner/.sbt
+          rm -fr /opt/cache/coursier_cache/v1/https/maven.pkg.github.com/harana
           ln -s /opt/cache/cargo_cache /home/runner/.cargo/registry
           ln -s /opt/cache/coursier_cache /home/runner/.cache/coursier
           ln -s /opt/cache/ivy2_cache /home/runner/.ivy2/cache
