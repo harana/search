@@ -36,6 +36,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # Todo: Make generic checkout
+      - name: Checkout search engine repo
+        uses: actions/checkout@v4
+        with:
+          repository: harana/search-engine
+          path: search engine
+
       - name: Get Branch/Tag
         id: ref
         uses: frabert/replace-string-action@v1.2
