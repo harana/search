@@ -1,4 +1,4 @@
-name: Publish Tauri App
+name: Publish Search App
 
 on:
   workflow_dispatch:
@@ -35,7 +35,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        path: search
+        with:
+          path: search
 
       - name: Checkout search engine repo
         uses: actions/checkout@v4
