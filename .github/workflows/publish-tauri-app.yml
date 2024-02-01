@@ -107,7 +107,7 @@ jobs:
       - name: Build Frontend
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-        run: sbt publish
+        run: sbt buildFrontend
 
       - name: Build Tauri
         run: |
