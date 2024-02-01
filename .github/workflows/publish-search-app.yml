@@ -74,6 +74,10 @@ jobs:
           mkdir -p /opt/cache/coursier_cache
           mkdir -p /opt/cache/ivy2_cache
           mkdir -p /opt/cache/sbt_cache
+          mkdir -p ~/.cache
+          mkdir -p ~/.cargo
+          mkdir -p ~/.ivy2
+          mkdir -p ~/.sbt
           rm -fr /opt/cache/coursier_cache/v1/https/maven.pkg.github.com/harana
           ln -s /opt/cache/cargo_git_cache /home/runner/.cargo/git
           ln -s /opt/cache/cargo_registry_cache /home/runner/.cargo/registry
