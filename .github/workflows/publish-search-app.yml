@@ -33,10 +33,6 @@ jobs:
           #   bundles: deb
     runs-on: ${{ matrix.settings.runner }}
     steps:
-      - name: Envd
-        run: |
-          env
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -126,6 +122,11 @@ jobs:
         run: |
           cd search
           sbt buildFrontend
+
+      - name: Build Conan Libraries
+        run: |
+          cd search
+          conan install . --build missing
 
       - name: Build Tauri
         run: |
