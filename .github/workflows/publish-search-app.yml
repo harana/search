@@ -33,7 +33,7 @@ jobs:
           #   bundles: deb
     runs-on: ${{ matrix.settings.runner }}
     steps:
-      - name: Env
+      - name: Envd
         run: |
           env
 
