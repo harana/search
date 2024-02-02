@@ -41,8 +41,6 @@ plist = "1"
 raw-window-handle = "0.6"
 rgb = "0.8"
 screenshots = "0.8"
-screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
-screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 sentry-tauri = "0.2"
 signal-hook = "0.3"
 stackblur-iter = { git = "https://github.com/harana-oss/stackblur-iter.git" }
@@ -60,6 +58,10 @@ serde = "1.0.193"
 zune-image = "0.4"
 tracing-subscriber = "0.3.18"
 tracing = { version = "0.1.40", features = [] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
+screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
