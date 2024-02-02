@@ -34,7 +34,6 @@ config = "0.13"
 ctrlc = "3"
 dark-light = "1"
 log-panics = { version = "2", features = ["with-backtrace"] }
-macos-app-nap = "0.0.1"
 mid = "1"
 mouce = "0.2.43"
 plist = "1"
@@ -48,7 +47,9 @@ tauri = { version = "1", features = [ "updater", "devtools", "http-all", "protoc
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+tracing = { version = "0.1.40", features = [] }
 tracing-appender = "0.2"
+tracing-subscriber = "0.3.18"
 tokio = { version = "1", features = [] }
 tokio-cron-scheduler = "0.9"
 window-vibrancy = "0.4"
@@ -56,10 +57,9 @@ time = "0.3.30"
 anyhow = "1.0.75"
 serde = "1.0.193"
 zune-image = "0.4"
-tracing-subscriber = "0.3.18"
-tracing = { version = "0.1.40", features = [] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
+macos-app-nap = "0.0.1"
 screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 
