@@ -111,7 +111,7 @@ jobs:
           EOF
           fi
 
-      - name: Install JS Dependencies
+      - name: Install Frontend Dependencies
         run: |
           cd search
           pnpm install
@@ -126,8 +126,13 @@ jobs:
       - name: Build Conan Libraries
         run: |
           cd search-engine
+          cargo update
           conan profile detect
           conan install --build=missing -of=build -d=full_deploy .
+
+      - name: Update Tauri Dependencies
+          cd search-engine
+          cargo update
 
       - name: Build Tauri
         run: |
