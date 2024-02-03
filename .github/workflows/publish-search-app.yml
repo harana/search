@@ -131,6 +131,7 @@ jobs:
           conan install --build=missing -of=build -d=full_deploy .
 
       - name: Update Tauri Dependencies
+        run: |
           cd search-engine
           cargo update
 
