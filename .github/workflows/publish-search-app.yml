@@ -126,7 +126,6 @@ jobs:
       - name: Build Conan Libraries
         run: |
           cd search-engine
-          sudo pip install jinja2 requests conan
           conan install --build=missing -of=build -d=full_deploy .
 
       - name: Build Tauri
