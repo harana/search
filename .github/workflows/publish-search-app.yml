@@ -130,11 +130,6 @@ jobs:
           conan profile detect
           conan install --build=missing -of=build -d=full_deploy .
 
-      - name: Update Tauri Dependencies
-        run: |
-          cd search-engine
-          cargo update
-
       - name: Build Tauri
         run: |
           source /etc/profile
