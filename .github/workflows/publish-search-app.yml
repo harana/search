@@ -50,7 +50,7 @@ jobs:
         uses: frabert/replace-string-action@v1.2
         with:
           pattern: 'refs\/\w+\/(.*)'
-          string: ${{ github.ref }}
+          string: ${{ github.ref }}d
           replace-with: '$1'
 
       - name: Get Short SHA
