@@ -126,6 +126,7 @@ jobs:
       - name: Build Conan Libraries
         run: |
           cd search-engine
+          conan profile detect
           conan install --build=missing -of=build -d=full_deploy .
 
       - name: Build Tauri
