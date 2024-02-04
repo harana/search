@@ -131,6 +131,7 @@ pub async fn open_path(path: String) -> Result<(), String> {
                     .unwrap();
             }
         }
+        Ok(())
     }
 
     #[cfg(target_os = "macos")]
