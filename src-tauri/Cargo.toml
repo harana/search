@@ -38,7 +38,7 @@ fork = "0.1"
 log-panics = { version = "2", features = ["with-backtrace"] }
 mid = "1"
 mouce = "0.2.43"
-nix = { "0.27.1", features = ["user"] }
+nix = { version = "0.27.1", features = ["user"] }
 plist = "1"
 raw-window-handle = "0.6"
 rgb = "0.8"
