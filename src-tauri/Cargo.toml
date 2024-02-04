@@ -72,7 +72,7 @@ screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-r
 swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
 [patch.crates-io]
-nix = { version = "0.27", features = ["user"] }
+nix = { version = "0.27.1", features = ["user"] }
 
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
