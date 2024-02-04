@@ -67,6 +67,8 @@ fn main() {
     log_panics::init();
 
     info!("Initialising Tauri ..");
+
+    #[cfg(target_os = "macos")]
     macos_app_nap::prevent();
 
     // Log errors to Sentry
