@@ -1,3 +1,5 @@
+#![cfg(target_os = "macos")]
+
 use std::sync::Once;
 
 use cocoa::{
@@ -177,7 +179,7 @@ pub struct Monitor {
 /// Gets the Monitor with cursor
 pub fn get_monitor_with_cursor() -> Option<Monitor> {
     objc::rc::autoreleasepool(|| {
-        let mouse_location: NSPoint = unsafe { msg_send![class!(NSEvent), mouseLocation] };
+        let mouse_location: NSPoint = unsafe {   msg_send![class!(NSEvent), mouseLocation] };
         let screens: id = unsafe { msg_send![class!(NSScreen), screens] };
         let screens_iter: id = unsafe { msg_send![screens, objectEnumerator] };
         let mut next_screen: id;
