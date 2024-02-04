@@ -1,5 +1,6 @@
 use std::sync::Mutex;
 
+#[cfg(target_os = "macos")]
 use objc_id::ShareId;
 
 #[cfg(target_os = "macos")]
@@ -8,6 +9,7 @@ use crate::windows_mac::RawNSPanel;
 #[derive(Default)]
 pub struct Store {
     pub always_center_window: bool,
+    #[cfg(target_os = "macos")]
     pub panel: Option<ShareId<RawNSPanel>>
 }
 

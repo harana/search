@@ -1,6 +1,8 @@
 #[cfg(target_os = "macos")]
 extern crate objc;
+#[cfg(target_os = "macos")]
 extern crate objc_foundation;
+#[cfg(target_os = "macos")]
 extern crate objc_id;
 
 use harana_common::anyhow::Result;
@@ -10,14 +12,17 @@ use tauri;
 
 #[cfg(target_os = "linux")]
 use std::{fs::metadata, path::PathBuf};
-use std::path::PathBuf;
 use std::process::{Command, Stdio};
 
 #[cfg(target_os = "macos")]
 use objc::msg_send;
+#[cfg(target_os = "macos")]
 use objc::runtime::Class;
+#[cfg(target_os = "macos")]
 use objc::runtime::Object;
+#[cfg(target_os = "macos")]
 use objc::sel;
+#[cfg(target_os = "macos")]
 use objc::sel_impl;
 
 #[cfg(target_os = "linux")]
