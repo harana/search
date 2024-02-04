@@ -6,7 +6,6 @@ use harana_database::search_categories_list::search_categories_list;
 use harana_database::search_categories_update::search_categories_update;
 use harana_document::document::Document;
 use tauri;
-use crate::globals::DATABASE_MANAGER;
 use crate::handlers::database_core;
 
 use crate::INDEX_SEARCHER;

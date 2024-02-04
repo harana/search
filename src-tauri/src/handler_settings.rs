@@ -6,7 +6,6 @@ use harana_database::settings_upsert::settings_upsert;
 use tauri::AppHandle;
 use crate::globals::{SETTINGS_WINDOW};
 use crate::handlers::database_core;
-#[cfg(target_os = "macos")]
 use crate::windows_main::{hide_search, show_search};
 
 #[tauri::command]

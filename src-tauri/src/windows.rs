@@ -1,13 +1,10 @@
-use std::path::PathBuf;
-
 use harana_common::anyhow::Result;
 use harana_common::dashmap::DashMap;
 use harana_common::serde_json;
 use harana_database::settings_get::settings_get;
 use harana_database::state_get::state_get;
 use harana_database::state_upsert::state_upsert;
-use tauri::{App, AppHandle, Manager, TitleBarStyle, WindowBuilder, WindowUrl};
-use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
+use tauri::{App, AppHandle, Manager};
 
 use crate::globals::*;
 use crate::system_tray::{disable_system_tray, enable_system_tray};

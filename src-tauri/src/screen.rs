@@ -1,3 +1,5 @@
+#![cfg(target_os = "macos")]
+
 use std::{sync::mpsc::{sync_channel, SyncSender}};
 use std::cell::OnceCell;
 use std::sync::mpsc::Receiver;

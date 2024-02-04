@@ -425,7 +425,7 @@ fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
     panel
 }
 
-pub fn toggle_delegate(panel: ShareId<RawNSPanel>, on: bool) {
+fn toggle_delegate(panel: ShareId<RawNSPanel>, on: bool) {
     let delegate = RawNSPanelDelegate::new();
     delegate.set_panel_(panel.clone());
 

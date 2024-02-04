@@ -34,6 +34,7 @@ color-eyre = "0.6.2"
 config = "0.13"
 ctrlc = "3"
 dark-light = "1"
+fork = "0.1"
 log-panics = { version = "2", features = ["with-backtrace"] }
 mid = "1"
 mouce = "0.2.43"

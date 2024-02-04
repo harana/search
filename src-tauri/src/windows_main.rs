@@ -1,7 +1,6 @@
-use objc_id::ShareId;
 use tauri::{AppHandle, Wry};
+#[cfg(target_os = "macos")]
 use crate::windows_mac;
-use crate::windows_mac::RawNSPanel;
 
 pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool) {
     #[cfg(target_os = "macos")]
@@ -28,9 +27,4 @@ pub fn enable_auto_hide(app_handle: AppHandle<Wry>) {
 pub fn disable_auto_hide(app_handle: AppHandle<Wry>) {
     #[cfg(target_os = "macos")]
     windows_mac::disable_auto_hide(app_handle)
-}
-
-pub fn toggle_delegate(panel: ShareId<RawNSPanel>, on: bool) {
-    #[cfg(target_os = "macos")]
-    windows_mac::toggle_delegate(panel, on)
 }
