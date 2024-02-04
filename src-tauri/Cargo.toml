@@ -38,7 +38,6 @@ fork = "0.1"
 log-panics = { version = "2", features = ["with-backtrace"] }
 mid = "1"
 mouce = "0.2.43"
-nix = { version = "0.27.1", features = ["user"] }
 plist = "1"
 raw-window-handle = "0.6"
 rgb = "0.8"
@@ -66,11 +65,14 @@ core-foundation = { version = "0.9.3" }
 cocoa = { version = "0.25.0" }
 macos-app-nap = "0.0.1"
 objc =  { version = "0.2.7" }
-objc_id = {version = "0.1.1" }
+objc_id = { version = "0.1.1" }
 objc-foundation = { version = "0.1.1" }
 screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
+
+[patch.crates-io]
+nix = { version = "0.27", features = ["user"] }
 
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
