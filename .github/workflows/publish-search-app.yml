@@ -137,6 +137,7 @@ jobs:
           mkdir -p dist
           pnpm run css
           cd src-tauri
+          cargo update
           pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
         env:      
           APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
