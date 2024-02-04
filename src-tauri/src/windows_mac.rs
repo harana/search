@@ -116,7 +116,6 @@ fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
         .unwrap();
 }
 
-#[tauri::command]
 pub fn show_search(app_handle: AppHandle<Wry>) {
     unsafe {
         let welcome_window = WELCOME_WINDOW.get().unwrap();
@@ -155,7 +154,6 @@ pub fn show_search(app_handle: AppHandle<Wry>) {
     panel!(app_handle).show();
 }
 
-#[tauri::command]
 pub fn hide_search(app_handle: AppHandle<Wry>) {
     panel!(app_handle).order_out(None);
 }

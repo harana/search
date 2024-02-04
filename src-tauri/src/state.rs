@@ -2,6 +2,7 @@ use std::sync::Mutex;
 
 use objc_id::ShareId;
 
+#[cfg(target_os = "macos")]
 use crate::windows_mac::RawNSPanel;
 
 #[derive(Default)]

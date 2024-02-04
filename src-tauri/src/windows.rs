@@ -11,7 +11,7 @@ use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
 
 use crate::globals::*;
 use crate::system_tray::{disable_system_tray, enable_system_tray};
-use crate::windows_mac;
+use crate::windows_main;
 
 pub async fn create_windows(app: &mut App) -> Result<()> {
     app.set_activation_policy(tauri::ActivationPolicy::Accessory);
@@ -60,7 +60,7 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
 
     if has_onboarded {
         enable_system_tray(app.handle()).unwrap();
-        windows_mac::show_search(app.handle())
+        windows_main::show_search(app.handle())
     }else{
         disable_system_tray(app.handle()).unwrap();
     }
@@ -76,7 +76,7 @@ pub async fn init_main_window(app_handle: AppHandle) -> Result<()> {
         settings_get(c, "appearance_shortcut_key".to_string())
     ).await?.unwrap_or("CommandOrControl+Space".to_string());
 
-    windows_mac::init_main_panel(app_handle, shortcut_key, always_center);
+    windows_main::init_main_panel(app_handle, shortcut_key, always_center);
     Ok(())
 }
 

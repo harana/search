@@ -4,9 +4,10 @@ use harana_common::tauri;
 use harana_database::settings_get::settings_get;
 use harana_database::settings_upsert::settings_upsert;
 use tauri::AppHandle;
-use crate::globals::{SEARCH_WINDOW, SETTINGS_WINDOW};
+use crate::globals::{SETTINGS_WINDOW};
 use crate::handlers::database_core;
-use crate::windows_mac::{hide_search, show_search};
+#[cfg(target_os = "macos")]
+use crate::windows_main::{hide_search, show_search};
 
 #[tauri::command]
 pub async fn get_setting(key: String) -> Result<String, String> {

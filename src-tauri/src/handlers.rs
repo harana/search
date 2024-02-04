@@ -67,8 +67,8 @@ pub fn invoke_handler(invoke: tauri::Invoke<Wry>) {
             crate::handler_welcome::complete_onboarding,
             crate::handler_welcome::show_welcome,
             crate::handler_welcome::hide_welcome,
-            crate::windows_mac::show_search,
-            crate::windows_mac::hide_search
+            crate::windows_main::show_search,
+            crate::windows_main::hide_search
         ],
         invoke
     )
