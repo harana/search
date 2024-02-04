@@ -787,7 +787,7 @@ dependencies = [
  "cc",
  "cfg-if 1.0.0",
  "libc",
- "miniz_oxide 0.7.1",
+ "miniz_oxide 0.7.2",
  "object",
  "rustc-demangle",
 ]
@@ -1209,9 +1209,9 @@ dependencies = [
 
 [[package]]
 name = "bytecheck_derive"
-version = "0.6.11"
+version = "0.6.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7ec4c6f261935ad534c0c22dbef2201b45918860eb1c574b972bd213a76af61"
+checksum = "3db406d29fbcd95542e92559bed4d8ad92636d1ca8b3b72ede10b4bcc010e659"
 dependencies = [
  "proc-macro2 1.0.78",
  "quote 1.0.35",
@@ -1962,7 +1962,7 @@ dependencies = [
  "tauri",
  "temp-dir",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "tinyrand",
  "tokio",
  "tokio-rayon",
@@ -3073,7 +3073,7 @@ dependencies = [
  "config",
  "humansize",
  "tantivy 0.1.0",
- "time 0.3.33",
+ "time 0.3.34",
  "timeago",
  "uuid 1.7.0",
 ]
@@ -3182,7 +3182,7 @@ dependencies = [
  "smallvec",
  "smartstring",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "tokio",
  "tracing",
  "ulid",
@@ -3593,7 +3593,7 @@ dependencies = [
  "flume",
  "half 2.3.1",
  "lebe",
- "miniz_oxide 0.7.1",
+ "miniz_oxide 0.7.2",
  "rayon-core",
  "smallvec",
  "zune-inflate",
@@ -3931,7 +3931,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "46303f565772937ffe1d394a4fac6f411c6013172fadde9dcdb1e147a086940e"
 dependencies = [
  "crc32fast",
- "miniz_oxide 0.7.1",
+ "miniz_oxide 0.7.2",
 ]
 
 [[package]]
@@ -4760,7 +4760,7 @@ dependencies = [
  "geo-types",
  "serde",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "xml-rs 0.8.19",
 ]
 
@@ -4940,7 +4940,7 @@ dependencies = [
  "tauri-plugin-single-instance",
  "thumbnailer",
  "thumbnailer_core",
- "time 0.3.33",
+ "time 0.3.34",
  "tokio",
  "tokio-cron-scheduler",
  "tracing",
@@ -6189,7 +6189,7 @@ dependencies = [
  "database",
  "effectum",
  "log",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -6813,13 +6813,13 @@ dependencies = [
 [[package]]
 name = "libraw-sys"
 version = "0.1.1"
-source = "git+http://github.com/harana-oss/libraw-sys#85455db830df22955ff065cd517d891444613f31"
+source = "git+http://github.com/harana-oss/libraw-sys#e113a7ed024ca44c49df798ba62c7ead9648bebc"
 dependencies = [
  "cc",
  "conan2",
- "home",
  "libc",
  "pkg-config",
+ "walkdir",
 ]
 
 [[package]]
@@ -7060,7 +7060,7 @@ dependencies = [
  "dirs-next",
  "objc-foundation",
  "objc_id",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -7439,9 +7439,9 @@ dependencies = [
 
 [[package]]
 name = "miniz_oxide"
-version = "0.7.1"
+version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e7810e0be55b428ada41041c41f32c9f1a42817901b4ccf45fa3d4b6561e74c7"
+checksum = "9d811f3e15f28568be3407c8e7fdb6514c1cda3cb30683f15b6a1a1dc4ea14a7"
 dependencies = [
  "adler",
  "simd-adler32",
@@ -9036,7 +9036,7 @@ dependencies = [
  "line-wrap",
  "quick-xml 0.31.0",
  "serde",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -9089,7 +9089,7 @@ dependencies = [
  "crc32fast",
  "fdeflate",
  "flate2",
- "miniz_oxide 0.7.1",
+ "miniz_oxide 0.7.2",
 ]
 
 [[package]]
@@ -9897,9 +9897,9 @@ source = "git+https://github.com/harana-oss/remarkable-lines.git#fcbe907d6ebb0f6
 
 [[package]]
 name = "rend"
-version = "0.4.1"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2571463863a6bd50c32f94402933f03457a3fbaf697a707c5be741e459f08fd"
+checksum = "71fe3824f5629716b1589be05dacd749f6aa084c87e00e016714a8cdfccc997c"
 dependencies = [
  "bytecheck",
 ]
@@ -10258,7 +10258,7 @@ dependencies = [
  "libsqlite3-sys",
  "serde_json",
  "smallvec",
- "time 0.3.33",
+ "time 0.3.34",
  "url",
  "uuid 1.7.0",
 ]
@@ -10838,7 +10838,7 @@ dependencies = [
  "search_index",
  "serde",
  "tantivy 0.1.0",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -11127,7 +11127,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "url",
  "uuid 1.7.0",
 ]
@@ -11144,7 +11144,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "url",
  "uuid 1.7.0",
 ]
@@ -11274,7 +11274,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_with_macros",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -11463,7 +11463,7 @@ checksum = "8e7e46c8c90251d47d08b28b8a419ffb4aede0f87c2eea95e17d1d5bacbf3ef1"
 dependencies = [
  "colored 2.1.0",
  "log",
- "time 0.3.33",
+ "time 0.3.34",
  "windows-sys 0.48.0",
 ]
 
@@ -11484,7 +11484,7 @@ checksum = "acee08041c5de3d5048c8b3f6f13fafb3026b24ba43c6a695a0c76179b844369"
 dependencies = [
  "log",
  "termcolor",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -11569,7 +11569,7 @@ dependencies = [
  "serde",
  "serde_json",
  "slog",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -11582,7 +11582,7 @@ dependencies = [
  "slog",
  "term",
  "thread_local",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -11791,7 +11791,7 @@ dependencies = [
  "anyhow",
  "itertools 0.10.5",
  "peg",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -12312,7 +12312,7 @@ dependencies = [
  "tantivy-tokenizer-api",
  "tempfile",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "uuid 1.7.0",
  "winapi 0.3.9",
 ]
@@ -12352,7 +12352,7 @@ dependencies = [
  "byteorder",
  "ownedbytes",
  "serde",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -12589,7 +12589,7 @@ dependencies = [
  "tauri-utils",
  "tempfile",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "tokio",
  "url",
  "uuid 1.7.0",
@@ -12639,7 +12639,7 @@ dependencies = [
  "sha2 0.10.8",
  "tauri-utils",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "uuid 1.7.0",
  "walkdir",
 ]
@@ -12683,7 +12683,7 @@ dependencies = [
  "serde_json",
  "serde_repr",
  "tauri",
- "time 0.3.33",
+ "time 0.3.34",
 ]
 
 [[package]]
@@ -13413,9 +13413,9 @@ dependencies = [
 
 [[package]]
 name = "time"
-version = "0.3.33"
+version = "0.3.34"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00b24b79b7a07f10209f19e683ca1e289d80b1e76ffa8c2b779718566a083679"
+checksum = "c8248b6521bb14bc45b4067159b9b6ad792e2d6d754d6c41fb50e29fefe38749"
 dependencies = [
  "deranged",
  "itoa 1.0.10",
@@ -13776,7 +13776,7 @@ checksum = "3566e8ce28cc0a3fe42519fc80e6b4c943cc4c8cef275620eb8dac2d3d4e06cf"
 dependencies = [
  "crossbeam-channel",
  "thiserror",
- "time 0.3.33",
+ "time 0.3.34",
  "tracing-subscriber",
 ]
 
@@ -15714,7 +15714,7 @@ dependencies = [
  "hmac",
  "pbkdf2",
  "sha1",
- "time 0.3.33",
+ "time 0.3.34",
  "zstd 0.11.2+zstd.1.5.2",
 ]
 
