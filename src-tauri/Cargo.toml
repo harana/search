@@ -28,6 +28,7 @@ harana_search = { package = "search", path = "../../search-engine/src/search" }
 harana_thumbnailer = { package = "thumbnailer", path = "../../search-engine/src/thumbnailer" }
 harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../search-engine/src/thumbnailer/core" }
 
+anyhow = "1.0.75"
 auto-launch = "0.5"
 color-eyre = "0.6.2"
 config = "0.13"
@@ -41,39 +42,37 @@ raw-window-handle = "0.6"
 rgb = "0.8"
 screenshots = "0.8"
 sentry-tauri = "0.2"
+serde = "1.0.193"
 signal-hook = "0.3"
 stackblur-iter = { git = "https://github.com/harana-oss/stackblur-iter.git" }
 tauri = { version = "1", features = [ "updater", "devtools", "http-all", "protocol-all", "window-all", "devtools", "dialog-all", "fs-exists", "fs-read-dir", "fs-read-file", "global-shortcut", "global-shortcut-all", "path-all", "shell-open-api", "system-tray"] }
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+time = "0.3.30"
 tracing = { version = "0.1.40", features = [] }
 tracing-appender = "0.2"
 tracing-subscriber = "0.3.18"
 tokio = { version = "1", features = [] }
 tokio-cron-scheduler = "0.9"
 window-vibrancy = "0.4"
-time = "0.3.30"
-anyhow = "1.0.75"
-serde = "1.0.193"
 zune-image = "0.4"
 
 [target.'cfg(target_os = "macos")'.dependencies]
+core-graphics = {version = "0.23.1" }
+core-foundation = { version = "0.9.3" }
+cocoa = { version = "0.25.0" }
 macos-app-nap = "0.0.1"
+objc =  { version = "0.2.7" }
+objc_id = {version = "0.1.1" }
+objc-foundation = { version = "0.1.1" }
 screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
+swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
 
-[target.'cfg(target_os="macos")'.dependencies]
-core-graphics = {version = "0.23.1" }
-core-foundation = { version = "0.9.3" }
-cocoa = { version = "0.25.0" }
-objc =  { version = "0.2.7" }
-objc_id = {version = "0.1.1" }
-objc-foundation = { version = "0.1.1" }
-swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
 [profile.release]
 codegen-units = 1
