@@ -45,12 +45,6 @@ jobs:
           path: search-engine
           token: ${{ secrets.READ_REPOSITORIES_TOKEN }}
 
-      - name: Test
-        run: |
-          ls -alL .
-          ls -alL search/.github
-          ls search/.github/actions
-
       - name: Get Branch/Tag
         id: ref
         uses: frabert/replace-string-action@v1.2
@@ -160,7 +154,7 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
 
       - name: Publish Artifacts
-        uses: ./.github/actions/publish-artifacts
+        uses: ./search/.github/actions/publish-artifacts
         with:
           os: ${{ matrix.settings.os }}
           arch: ${{ matrix.settings.arch }}
