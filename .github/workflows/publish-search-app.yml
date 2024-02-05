@@ -154,13 +154,29 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
 
       - name: Publish Artifacts
-        if: startsWith(github.ref, 'refs/tags/v')
         uses: ./.github/actions/publish-artifacts
         with:
           os: ${{ matrix.settings.os }}
           arch: ${{ matrix.settings.arch }}
           target: ${{ matrix.settings.target }}
           profile: release
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    name: Create Release
+    needs: build  
+    permissions:
+      contents: write
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: '*/**'
 
       - name: Notify Slack - Success
         if: success()
@@ -182,20 +198,3 @@ jobs:
         if: success()
         run: |
           echo ${{ steps.version.outputs.value }}
-
-  release:
-    if: startsWith(github.ref, 'refs/tags/')
-    runs-on: ubuntu-latest
-    name: Create Release
-    needs: build  
-    permissions:
-      contents: write
-    steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v3
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          draft: true
-          files: '*/**'
