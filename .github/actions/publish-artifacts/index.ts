@@ -44,10 +44,10 @@ const ARCH: Arch = core.getInput('arch') as any;
 const TARGET = core.getInput('target');
 const PROFILE = core.getInput('profile');
 
-const BUNDLE_DIR = `target/${TARGET}/${PROFILE}/bundle`;
+const BUNDLE_DIR = `src-tauri/target/${TARGET}/${PROFILE}/bundle`;
 const ARTIFACTS_DIR = '.artifacts';
-const ARTIFACT_BASE = `Spacedrive-${OS}-${ARCH}`;
-const UPDATER_ARTIFACT_NAME = `Spacedrive-Updater-${OS}-${ARCH}`;
+const ARTIFACT_BASE = `harana-${OS}-${ARCH}`;
+const UPDATER_ARTIFACT_NAME = `harana-updater-${OS}-${ARCH}`;
 
 const client = artifact.create();
 

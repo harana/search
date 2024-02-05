@@ -1,17 +1,17 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from "@vitejs/plugin-react";
-import { sentryVitePlugin } from "@sentry/vite-plugin";
+//import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 // @ts-ignore
 export default defineConfig(async () => ({
   plugins: [
     react(),
-    sentryVitePlugin({
-      org: "harana",
-      project: "search",
-      authToken: process.env.SENTRY_AUTH_TOKEN
-    })
+    //sentryVitePlugin({
+    //  org: "harana",
+    //  project: "search",
+    //  authToken: process.env.SENTRY_AUTH_TOKEN
+    //})
   ],
   clearScreen: false,
   server: {
