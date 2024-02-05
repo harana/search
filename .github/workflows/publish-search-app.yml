@@ -45,6 +45,12 @@ jobs:
           path: search-engine
           token: ${{ secrets.READ_REPOSITORIES_TOKEN }}
 
+      - name: Test
+        run: |
+          ls -alL .
+          ls -alL search/.github
+          ls search/.github/actions
+
       - name: Get Branch/Tag
         id: ref
         uses: frabert/replace-string-action@v1.2
