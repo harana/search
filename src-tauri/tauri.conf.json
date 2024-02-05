@@ -79,7 +79,7 @@
         "assets/icons/connectors/*"
       ],
       "shortDescription": "",
-      "targets": ["app"],
+      "targets": ["deb", "msi", "dmg", "updater"],
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",

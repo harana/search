@@ -15,9 +15,13 @@ jobs:
           - runner: harana-dev-mac
             target: x86_64-apple-darwin
             bundles: app,dmg
+            os: darwin
+            arch: x86_64
           - runner: harana-dev-mac
             target: aarch64-apple-darwin
             bundles: app,dmg
+            os: darwin
+            arch: aarch64
           # - host: windows-latest
           #   target: x86_64-pc-windows-msvc
           #   bundles: msi
@@ -28,6 +32,8 @@ jobs:
           - runner: harana-dev-linux
             target: x86_64-unknown-linux-gnu
             bundles: deb,appimage
+            os: linux
+            arch: x86_64
           # - runner: harana-dev-linux
           #   target: aarch64-unknown-linux-gnu
           #   bundles: deb
