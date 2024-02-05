@@ -154,6 +154,7 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
 
       - name: Publish Artifacts
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: ./.github/actions/publish-artifacts
         with:
           os: ${{ matrix.settings.os }}

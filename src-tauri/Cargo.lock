@@ -3844,6 +3844,7 @@ version = "0.1.0"
 dependencies = [
  "common",
  "io",
+ "nix 0.27.1",
  "notify",
  "notify-debouncer-full",
  "walkdir",
@@ -4957,6 +4958,7 @@ dependencies = [
  "tracing-appender",
  "tracing-subscriber",
  "window-vibrancy",
+ "zbus",
  "zune-image",
 ]
 
@@ -10766,10 +10768,11 @@ dependencies = [
  "common",
  "document",
  "indexer_core",
+ "nix 0.27.1",
  "notify-rust",
  "opener_core",
- "strum 0.25.0",
- "strum_macros 0.25.3",
+ "strum 0.26.1",
+ "strum_macros 0.26.1",
  "tantivy 0.1.0",
  "thumbnailer_core",
 ]
@@ -11962,6 +11965,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "290d54ea6f91c969195bdbcd7442c8c2a2ba87da8bf60a7ee86a235d4bc1e125"
 
 [[package]]
+name = "strum"
+version = "0.26.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "723b93e8addf9aa965ebe2d11da6d7540fa2283fcea14b3371ff055f7ba13f5f"
+
+[[package]]
 name = "strum_macros"
 version = "0.24.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11979,6 +11988,19 @@ name = "strum_macros"
 version = "0.25.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "23dc1fa9ac9c169a78ba62f0b841814b7abae11bdd047b9c58f893439e309ea0"
+dependencies = [
+ "heck 0.4.1",
+ "proc-macro2 1.0.78",
+ "quote 1.0.35",
+ "rustversion",
+ "syn 2.0.48",
+]
+
+[[package]]
+name = "strum_macros"
+version = "0.26.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7a3417fc93d76740d974a01654a09777cb500428cc874ca9f45edfe0c4d4cd18"
 dependencies = [
  "heck 0.4.1",
  "proc-macro2 1.0.78",
@@ -13626,9 +13648,9 @@ dependencies = [
 
 [[package]]
 name = "tokio-cron-scheduler"
-version = "0.9.4"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de2c1fd54a857b29c6cd1846f31903d0ae8e28175615c14a277aed45c58d8e27"
+checksum = "d1215c91d6f74868e18a65bda99853e012cfb2a0e42f3438382e318277da76a0"
 dependencies = [
  "chrono",
  "cron",
@@ -15579,9 +15601,9 @@ dependencies = [
 
 [[package]]
 name = "zbus"
-version = "3.14.1"
+version = "3.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "31de390a2d872e4cd04edd71b425e29853f786dc99317ed72d73d6fcf5ebb948"
+checksum = "c45d06ae3b0f9ba1fb2671268b975557d8f5a84bb5ec6e43964f87e763d8bca8"
 dependencies = [
  "async-broadcast",
  "async-executor",
@@ -15620,9 +15642,9 @@ dependencies = [
 
 [[package]]
 name = "zbus_macros"
-version = "3.14.1"
+version = "3.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41d1794a946878c0e807f55a397187c11fc7a038ba5d868e7db4f3bd7760bc9d"
+checksum = "b4a1ba45ed0ad344b85a2bb5a1fe9830aed23d67812ea39a586e7d0136439c7d"
 dependencies = [
  "proc-macro-crate 1.3.1",
  "proc-macro2 1.0.78",
