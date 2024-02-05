@@ -41,6 +41,7 @@ pub async fn open_application(path: String) -> Result<(), String> {
             .args(["/select,", &path]) // The comma after select is not a typo
             .spawn()
             .unwrap();
+        Ok(())
     }
 
     #[cfg(target_os = "linux")]
@@ -69,6 +70,7 @@ pub async fn open_application(path: String) -> Result<(), String> {
                     .unwrap();
             }
         }
+        Ok(())
     }
 
     #[cfg(target_os = "macos")]
