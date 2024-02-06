@@ -85,11 +85,11 @@ jobs:
           mkdir -p ~/.ivy2
           mkdir -p ~/.sbt
           rm -fr /opt/cache/coursier_cache/v1/https/maven.pkg.github.com/harana
-          ln -s /opt/cache/cargo_git_cache $HOME/.cargo/git
-          ln -s /opt/cache/cargo_registry_cache $HOME/.cargo/registry
-          ln -s /opt/cache/coursier_cache $HOME/.cache/coursier
-          ln -s /opt/cache/ivy2_cache $HOME/.ivy2/cache
-          ln -s /opt/cache/sbt_cache $HOME/.sbt/boot
+          ln -s /opt/cache/cargo_git_cache $HOME/.cargo/git || true
+          ln -s /opt/cache/cargo_registry_cache $HOME/.cargo/registry || true
+          ln -s /opt/cache/coursier_cache $HOME/.cache/coursier || true
+          ln -s /opt/cache/ivy2_cache $HOME/.ivy2/cache || true
+          ln -s /opt/cache/sbt_cache $HOME/.sbt/boot || true
 
       - name: Install Apple API key
         if: ${{ runner.os == 'macOS' }}
