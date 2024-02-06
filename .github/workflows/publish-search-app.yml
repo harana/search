@@ -12,12 +12,12 @@ jobs:
     strategy:
       matrix:
         settings:
-          - runner: harana-dev-mac
+          - runner: harana-dev-mac-x86
             target: x86_64-apple-darwin
             bundles: app,dmg
             os: darwin
             arch: x86_64
-          - runner: harana-dev-macstudio
+          - runner: harana-dev-mac-arm64
             target: aarch64-apple-darwin
             bundles: app,dmg
             os: darwin
