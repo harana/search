@@ -153,7 +153,7 @@ jobs:
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
           APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
           ENABLE_CODE_SIGNING: ${{ secrets.APPLE_PRIVATE_KEY }}
-          FFMPEG_DIR: Users/github/.conan2/p/b/ffmpe4f423bfc61572/p
+          FFMPEG_DIR: /Users/github/.conan2/p/b/ffmpe4f423bfc61572/p
           NODE_OPTIONS: "--max_old_space_size=8196"
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
