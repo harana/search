@@ -117,30 +117,32 @@ jobs:
           EOF
           fi
 
-      - name: Install Frontend Dependencies
-        run: |
-          cd search
-          pnpm install
+      # - name: Install Frontend Dependencies
+      #   run: |
+      #     cd search
+      #     pnpm install
 
-      - name: Build Frontend
-        env:
-          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-        run: |
-          cd search
-          sbt buildFrontend
+      # - name: Build Frontend
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
+      #   run: |
+      #     cd search
+      #     sbt buildFrontend
 
-      - name: Build Conan Libraries
-        run: |
-          cd search-engine
-          cargo update
-          conan profile detect || true
-          conan install --build=missing -of=build -d=full_deploy .
+      # - name: Build Conan Libraries
+      #   run: |
+      #     cd search-engine
+      #     cargo update
+      #     conan profile detect || true
+      #     conan install --build=missing -of=build -d=full_deploy .
 
       - name: Build Tauri
         run: |
           source /etc/profile
           cd search
           echo $FFMPEG_DIR
+          echo $HOME
+          ls $FFMPEG_DIR/*
           # mkdir -p dist
           # pnpm run css
           # cd src-tauri
