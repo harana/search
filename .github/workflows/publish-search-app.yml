@@ -142,7 +142,7 @@ jobs:
           cd search
           echo $FFMPEG_DIR
           echo $HOME
-          ls $FFMPEG_DIR/*
+          ls $FFMPEG_DIR
           # mkdir -p dist
           # pnpm run css
           # cd src-tauri
