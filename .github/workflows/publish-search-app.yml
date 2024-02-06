@@ -117,37 +117,34 @@ jobs:
           EOF
           fi
 
-      # - name: Install Frontend Dependencies
-      #   run: |
-      #     cd search
-      #     pnpm install
+      - name: Install Frontend Dependencies
+        run: |
+          cd search
+          pnpm install
 
-      # - name: Build Frontend
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-      #   run: |
-      #     cd search
-      #     sbt buildFrontend
+      - name: Build Frontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
+        run: |
+          cd search
+          sbt buildFrontend
 
-      # - name: Build Conan Libraries
-      #   run: |
-      #     cd search-engine
-      #     cargo update
-      #     conan profile detect || true
-      #     conan install --build=missing -of=build -d=full_deploy .
+      - name: Build Conan Libraries
+        run: |
+          cd search-engine
+          cargo update
+          conan profile detect || true
+          conan install --build=missing -of=build -d=full_deploy .
 
       - name: Build Tauri
         run: |
           source /etc/profile
           cd search
-          echo $FFMPEG_DIR
-          echo $HOME
-          ls $FFMPEG_DIR
-          # mkdir -p dist
-          # pnpm run css
-          # cd src-tauri
-          # cargo update
-          # pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
+          mkdir -p dist
+          pnpm run css
+          cd src-tauri
+          cargo update
+          pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
         env:      
           APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
           APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
@@ -156,7 +153,7 @@ jobs:
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
           APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
           ENABLE_CODE_SIGNING: ${{ secrets.APPLE_PRIVATE_KEY }}
-          FFMPEG_DIR: "$HOME/.conan2/p/b/ffmpe4f423bfc61572/p"          
+          FFMPEG_DIR: "Users/github/.conan2/p/b/ffmpe4f423bfc61572/p"          
           NODE_OPTIONS: "--max_old_space_size=8196"
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
