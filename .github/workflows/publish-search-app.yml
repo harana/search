@@ -96,9 +96,9 @@ jobs:
         run: |
           mkdir -p ~/.appstoreconnect/private_keys/
           cd ~/.appstoreconnect/private_keys/
-          echo ${{ secrets.APPLE_API_KEY_BASE64 }} >> AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64
-          base64 --decode -i AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64 -o AuthKey_${{ secrets.APPLE_API_KEY }}.p8
-          rm AuthKey_${{ secrets.APPLE_API_KEY }}.p8.base64
+          echo ${{ secrets.APPLE_API_KEY }} >> AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8.base64
+          base64 --decode -i AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8.base64 -o AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8
+          rm AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8.base64
 
       - name: Symlink target to C:\
         if: ${{ runner.os == 'Windows' }}
