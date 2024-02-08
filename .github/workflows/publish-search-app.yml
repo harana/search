@@ -134,7 +134,7 @@ jobs:
           cd search-engine
           cargo update
           conan profile detect || true
-          conan install --build=missing -of=build -d=full_deploy .
+          conan install --build=missing --build=ffmpeg -of=build -d=full_deploy .
 
       - name: Build Tauri
         run: |
