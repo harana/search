@@ -138,6 +138,8 @@ jobs:
 
       - name: Build Tauri
         run: |
+          FFMPEG_PROJECT=`conan cache path --folder build ffmpeg/6.1:$(conan list "ffmpeg/6.1:*" | sed -n '7p' | tr -d ' ')`
+          export ${FFMPEG_PROJECT%?}p
           source /etc/profile
           cd search
           mkdir -p dist
@@ -152,8 +154,7 @@ jobs:
           APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
           APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
-          ENABLE_CODE_SIGNING: ${{ secrets.APPLE_PRIVATE_KEY }}
-          FFMPEG_DIR: /Users/github/.conan2/p/b/ffmpe4f423bfc61572/p
+          ENABLE_CODE_SIGNING: ${{ secrets.APPLE_CERTIFICATE }}
           NODE_OPTIONS: "--max_old_space_size=8196"
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
