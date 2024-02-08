@@ -139,7 +139,7 @@ jobs:
       - name: Build Tauri
         run: |
           FFMPEG_PROJECT=`conan cache path --folder build ffmpeg/6.1:$(conan list "ffmpeg/6.1:*" | sed -n '7p' | tr -d ' ')`
-          export FFMPEG_DIR=${FFMPEG_PROJECT%?}p
+          export FFMPEG_DIR="${FFMPEG_PROJECT%?}p"
           source /etc/profile
           cd search
           mkdir -p dist
