@@ -118,6 +118,7 @@ jobs:
 
       - name: Build Frontend
         run: |
+          rm -fr $COURSIER_HOME/v1/https/maven.pkg.github.com/harana
           cd search
           sbt buildFrontend
         env:
