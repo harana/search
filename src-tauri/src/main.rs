@@ -163,18 +163,6 @@ fn main() {
                 }
             });
 
-            async_runtime::spawn(async {
-                info!("Crawling filesystem ..");
-                let files_count = database_files(move |c| {
-                    files_count_all(c)
-                }).await.unwrap();
-
-                if files_count == 0 {
-                    let file_manager = FILE_MANAGER.get().unwrap();
-                    let _ = file_manager.crawl_path("test".to_string(), Path::new("/Users/naden/Developer/harana/search-engine/test_files")).await;
-                }
-            });
-
             // Start saving window positions
             info!("Saving window positions ..");
             async_runtime::spawn(async {
@@ -192,6 +180,7 @@ fn main() {
             });
 
             Ok(())
+
         })
         .build(tauri::generate_context!()).expect("Invalid Tauri configuration")
         .run(|app, event| match event {
