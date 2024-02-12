@@ -73,18 +73,6 @@ jobs:
           if_true: ${{ steps.ref.outputs.replaced }}
           if_false: ${{ steps.ref.outputs.replaced }}-${{ steps.short-sha.outputs.sha }}
 
-      - name: Setup Cache
-        run: |
-          mkdir -p /opt/cache/cargo_git_cache
-          mkdir -p /opt/cache/cargo_registry_cache
-          mkdir -p /opt/cache/coursier_cache
-          mkdir -p /opt/cache/ivy2_cache
-          mkdir -p /opt/cache/sbt_cache
-          mkdir -p ~/.cache
-          mkdir -p ~/.cargo
-          mkdir -p ~/.ivy2
-          mkdir -p ~/.sbt
-
       - name: Install Apple API key
         if: ${{ runner.os == 'macOS' }}
         run: |

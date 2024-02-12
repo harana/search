@@ -15,7 +15,7 @@ export default defineConfig(async () => ({
   ],
   clearScreen: false,
   server: {
-    port: 1420,
+    port: 20420,
     strictPort: true,
   },
   envPrefix: ['VITE_', 'TAURI_'],
