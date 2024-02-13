@@ -181,8 +181,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
               case Keys.Left =>
                 val cardState = Circuit.state(_.cardState, false)
-                println("Card middle horizontal index = " + cardState.middleHorizontalIndex)
-
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>
