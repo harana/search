@@ -69,7 +69,7 @@ macro_rules! nsstring_to_string {
 static INIT: Once = Once::new();
 static PANEL_LABEL: &str = "search";
 
-pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool) {
+pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool, show_devtools: bool) {
     INIT.call_once(|| {
         info!("Initialising NS Panel ..");
         let search_window = app_handle.get_window(PANEL_LABEL).unwrap();
@@ -77,7 +77,10 @@ pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_cent
 
         set_state!(app_handle, always_center_window, always_center);
         set_state!(app_handle, panel, Some(create_main_panel(&search_window)));
-        search_window.open_devtools();
+
+        if show_devtools {
+            search_window.open_devtools();
+        }
 
         info!("Registering shortcut ..");
         register_shortcut(app_handle, shortcut);

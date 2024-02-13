@@ -4,7 +4,7 @@ use crate::windows_mac;
 
 pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool) {
     #[cfg(target_os = "macos")]
-    windows_mac::init_main_panel(app_handle, shortcut, always_center)
+    windows_mac::init_main_panel(app_handle, shortcut, always_center, true)
 }
 
 #[tauri::command]

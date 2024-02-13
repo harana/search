@@ -53,6 +53,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             }
 
           case Panel.Integration =>
+
             event.preventDefault()
             event.stopPropagation()
 
@@ -103,13 +104,13 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             }
 
           case Panel.Document =>
-            val documents = value.searchResults.find(_._1 == value.selectedIntegration.get).get._2
 
             event.preventDefault()
             event.stopPropagation()
 
-            key match {
+            val documents = value.searchResults.find(_._1 == value.selectedIntegration.get).get._2
 
+            key match {
               case Keys.Down =>
                 if (event.getModifierState("Control") || event.getModifierState("Meta"))
                   action(SelectDocument(documents.last.id, true))
@@ -167,6 +168,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             }
 
           case Panel.Cards =>
+
             event.preventDefault()
             event.stopPropagation()
 
@@ -179,6 +181,8 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
               case Keys.Left =>
                 val cardState = Circuit.state(_.cardState, false)
+                println("Card middle horizontal index = " + cardState.middleHorizontalIndex)
+
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>

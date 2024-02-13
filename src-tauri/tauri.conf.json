@@ -2,8 +2,8 @@
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
     "beforeBuildCommand": "pnpm run build",
-    "beforeDevCommand": "pnpm run dev -- --port 20420",
-    "devPath": "http://localhost:20420",
+    "beforeDevCommand": "pnpm run dev",
+    "devPath": "http://localhost:1420",
     "distDir": "../dist",
     "withGlobalTauri": true
   },
@@ -88,7 +88,7 @@
     },
     "macOSPrivateApi": false,
     "security": {
-      "csp": "default-src harana: asset: ws: https://asset.localhost img-src: 'self'"
+      "csp": "default-src harana: webkit-pdfjs-viewer: asset: https://asset.localhost blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "updater": {
       "active": true,

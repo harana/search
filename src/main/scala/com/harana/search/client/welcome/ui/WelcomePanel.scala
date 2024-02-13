@@ -36,8 +36,8 @@ import scala.scalajs.js.Dynamic.{literal => css}
           div(className := "lg:pr-8 lg:pt-4")(
             div(className := "lg:max-w-lg")(
               state.selectedStep match {
-                case 2 => Step1Panel()
-                case 1 => Step2Panel()
+                case 1 => Step1Panel()
+                case 2 => Step2Panel()
               }
             )
           )
