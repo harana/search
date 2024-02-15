@@ -12,6 +12,8 @@ import diode._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
 
 class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
+  val cardState = Circuit.state(_.cardState, false)
+
   override def handle = {
 
     case Backspace =>
@@ -30,16 +32,10 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
           case Panel.Search =>
             key match {
               case Keys.Down =>
-                if (value.searchResults.nonEmpty)
-                  action(SelectIntegration(value.searchResults.head._1))
-                else
-                  action(NoChange)
+                action(if (value.searchResults.nonEmpty) SelectIntegration(value.searchResults.head._1) else NoChange)
 
               case Keys.Enter =>
-                if (value.searchApplication.nonEmpty)
-                  action(OpenApplication)
-                else
-                  action(NoChange)
+                action(if (value.searchApplication.nonEmpty) OpenApplication else NoChange)
 
               case Keys.Space =>
                 if (value.searchTerm.isEmpty || value.searchTerm.get.isBlank) {
@@ -140,10 +136,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 action(Backspace)
 
               case Keys.Enter =>
-                if (event.shiftKey)
-                  action(OpenParentFolder)
-                else
-                  action(Open)
+                action(if (event.shiftKey) OpenParentFolder else Open)
 
               case Keys.Space =>
                 if (value.selectedDocument.nonEmpty && value.allowPreview)
@@ -173,35 +166,26 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
             key match {
               case Keys.Down =>
-                val cardState = Circuit.state(_.cardState, false)
                 action(if (cardState.middleVerticalIndex < cardState.cards(cardState.middleHorizontalIndex).size -1 ) SelectVerticalBottomCard else NoChange)
 
               case Keys.Up =>
-                val cardState = Circuit.state(_.cardState, false)
                 action(if (cardState.middleVerticalIndex > 0) SelectVerticalTopCard else NoChange)
 
               case Keys.Left =>
-                val cardState = Circuit.state(_.cardState, false)
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>
-                val cardState = Circuit.state(_.cardState, false)
                 action(if (cardState.middleHorizontalIndex < cardState.cards.size - 1) SelectHorizontalRightCard else NoChange)
 
               case Keys.Backspace | Keys.Delete =>
                 action(Backspace)
 
               case Keys.Enter =>
-                if (event.shiftKey)
-                  action(OpenParentFolder)
-                else
-                  action(Open)
+                action(if (event.shiftKey) OpenParentFolder else Open)
 
               case Keys.Space =>
-                if (value.selectedDocument.nonEmpty && value.allowPreview)
-                  action(ShowPreview(value.selectedDocument.get))
-                else
-                  action(NoChange)
+                val shouldShowPreview = if (value.selectedDocument.nonEmpty && value.allowPreview)
+                action(if (shouldShowPreview) ShowPreview(value.selectedDocument.get) else NoChange)
 
               case _ =>
                 action(NoChange)
