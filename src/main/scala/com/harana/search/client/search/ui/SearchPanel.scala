@@ -28,8 +28,8 @@ import scala.scalajs.js.JSConverters._
   type Props = Unit
 
   val documentsRef = React.createRef[Virtuoso.RefType]
-  val integrationsRef = React.createRef[Virtuoso.RefType]
   val inputRef = React.createRef[HTMLInputElement]
+  val integrationsRef = React.createRef[Virtuoso.RefType]
 
   val component = FunctionalComponent[Unit] { _ =>
 
@@ -44,17 +44,23 @@ import scala.scalajs.js.JSConverters._
 
         window.addEventListener("keydown", keyDownListener, false)
         window.addEventListener("keyup", keyUpListener, false)
-        window.onblur = (_: FocusEvent) =>
-          Circuit.dispatch(Hide)
+        window.onblur = (_: FocusEvent) => Circuit.dispatch(Hide)
 
-        window.onfocus = (_: FocusEvent) =>
-          Circuit.dispatch(
-            ActionBatch(
-              UpdateFocusedPanel(Panel.Search),
-              UpdateSelectedIntegration(None),
-              UpdateSelectedDocument(None)
-            )
-          )
+        window.onfocus = (_: FocusEvent) => {
+          val state = Circuit.state(_.searchState, false)
+          if (state.focusedPanel != Panel.Search) {
+            inputRef.current.blur()
+          }
+        }
+
+// TODO: Add preference
+//          Circuit.dispatch(
+//            ActionBatch(
+//              UpdateFocusedPanel(Panel.Search),
+//              UpdateSelectedIntegration(None),
+//              UpdateSelectedDocument(None)
+//            )
+//          )
 
         () => {
           window.removeEventListener("keydown", keyDownListener, false)
@@ -117,7 +123,7 @@ import scala.scalajs.js.JSConverters._
     val dragRegionAttr = new CustomAttribute[Boolean]("data-tauri-drag-region")
 
     Transition(show = true, as = Fragment.component, appear = true)(
-      Dialog(as = "div", className = "relative z-10", onClose = (closing: Boolean) => println("Closing"))(
+      Dialog(as = "div", className = "relative z-10", onClose = (_: Boolean) => {})(
         TransitionChild(
           as = Fragment.component,
           enter = "ease-out duration-300", enterFrom = "opacity-0", enterTo = "opacity-100",
@@ -149,7 +155,8 @@ import scala.scalajs.js.JSConverters._
                       Circuit.dispatch(Search(if (value.isEmpty) None else Some(value)))
                     }
                   ),
-                  ApplicationHint(),
+
+                  when(state.focusedPanel == Panel.Search)(ApplicationHint()),
                   when(state.searchResults.nonEmpty) {
                     PopoverButton(
                       onClick = () => Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> 680.0).toJSDictionary),
@@ -202,7 +209,7 @@ import scala.scalajs.js.JSConverters._
 
                     // Cards
                     div(dragRegionAttr := true, className := "text-md mw-350 h-750 pl-3 flex-none flex-col items-center divide-y divide-gray-100 overflow-y-auto sm:flex")(
-                      CardPanel()
+                      CardPanel().withKey(state.selectedDocumentId.getOrElse("-1"))
                     )
                   )
                 ),

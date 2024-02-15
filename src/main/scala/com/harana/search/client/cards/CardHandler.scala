@@ -36,8 +36,8 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
 
     case UpdateMiddleHorizontalIndex(index: Int) =>
       updated(value.copy(
-        horizontalLeftCard = if (index > 0) Some(value.cards(index-1).head) else None,
-        horizontalRightCard = if (index < value.cards.size - 1) Some(value.cards(index+1).head) else None,
+        horizontalLeftCard = if (index > 0) Some(value.cards(index - 1).head) else None,
+        horizontalRightCard = if (index < value.cards.size - 1) Some(value.cards(index + 1).head) else None,
         middleCard = Some(value.cards(index).head),
         middleHorizontalIndex = index,
         verticalTopCard = None,
@@ -45,7 +45,7 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
       ))
 
     case UpdateMiddleVerticalIndex(index: Int) =>
-      val verticalCards = value.cards((value.middleHorizontalIndex))
+      val verticalCards = value.cards(value.middleHorizontalIndex)
       updated(value.copy(
         middleCard = Some(verticalCards(index)),
         middleVerticalIndex = index,

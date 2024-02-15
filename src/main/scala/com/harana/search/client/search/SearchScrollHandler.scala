@@ -20,13 +20,16 @@ import scala.util.Try
 class SearchScrollHandler extends ActionHandler(zoomTo(_.searchState)) {
 
   def scrollToRef(ref: ReactRef[Virtuoso.RefType], scrollIndex: Int) = {
-    val promise = Promise[Unit]()
-    ref.current.scrollIntoView(new ScrollIntoViewLocation {
-      override val index = scrollIndex
-      override val done = () => promise.complete(Try(()))
-    })
+    if (ref == null) noChange
+    else {
+      val promise = Promise[Unit]()
+      ref.current.scrollIntoView(new ScrollIntoViewLocation {
+        override val index = scrollIndex
+        override val done = () => promise.complete(Try(()))
+      })
 
-    effectOnly(Effect(promise.future.map(_ => NoChange)))
+      effectOnly(Effect(promise.future.map(_ => NoChange)))
+    }
   }
 
   override def handle = {

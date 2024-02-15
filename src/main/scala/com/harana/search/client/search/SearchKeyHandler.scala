@@ -136,7 +136,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 action(SelectHorizontalRightCard) >>
                 action(ScrollToDocument(value.selectedDocumentId.get))
 
-
               case Keys.Backspace | Keys.Delete =>
                 action(Backspace)
 
@@ -174,17 +173,20 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
             key match {
               case Keys.Down =>
-                action(SelectVerticalBottomCard)
+                val cardState = Circuit.state(_.cardState, false)
+                action(if (cardState.middleVerticalIndex < cardState.cards(cardState.middleHorizontalIndex).size -1 ) SelectVerticalBottomCard else NoChange)
 
               case Keys.Up =>
-                action(SelectVerticalTopCard)
+                val cardState = Circuit.state(_.cardState, false)
+                action(if (cardState.middleVerticalIndex > 0) SelectVerticalTopCard else NoChange)
 
               case Keys.Left =>
                 val cardState = Circuit.state(_.cardState, false)
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>
-                action(SelectHorizontalRightCard)
+                val cardState = Circuit.state(_.cardState, false)
+                action(if (cardState.middleHorizontalIndex < cardState.cards.size - 1) SelectHorizontalRightCard else NoChange)
 
               case Keys.Backspace | Keys.Delete =>
                 action(Backspace)

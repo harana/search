@@ -22,7 +22,7 @@ import scala.scalajs.js
     val state = Circuit.state(_.searchState, true)
 
     when(state.searchApplication,
-      div(className := "application-hint")(
+      div(className := "application-hint pr-10")(
         img(src := convertFileSrc(state.searchApplication.get.targetIconPath)),
         span(state.searchApplication.get.name)
       )

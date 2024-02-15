@@ -13,8 +13,6 @@ import scala.util.Random
 object MetadataCard extends Card {
 
   def apply(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
-    println(document.metadata.toString)
-
     div(className := s"flex-none card-default bg-gradient-to-br from-pink-500 to-orange-400")(
       Icons.integration(integration, Some("default-icon"))
     )

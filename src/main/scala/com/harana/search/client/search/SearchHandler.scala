@@ -31,8 +31,8 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
     case Init(preferences) =>
       noChange
 
-        //        Tauri.subscribe("select_previous_document", (_: String) => Circuit.dispatch(SelectPreviousDocument))
-//        Tauri.subscribe("select_next_document", (_: String) => Circuit.dispatch(SelectNextDocument))
+    //        Tauri.subscribe("select_previous_document", (_: String) => Circuit.dispatch(SelectPreviousDocument))
+    //        Tauri.subscribe("select_next_document", (_: String) => Circuit.dispatch(SelectNextDocument))
 
     case LoadIntegrations =>
       noChange
@@ -160,7 +160,6 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
 
     case SelectDocument(documentId, scroll) =>
       val doc = document(documentId);
-
       effectOnly(
         if (value.selectedDocumentId.isEmpty || value.selectedDocumentId.get != documentId) {
           Effect(
@@ -169,17 +168,18 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
           Effect(
             Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))
           ) +
-          action(LoadThumbnail(documentId)) >>
           action(
             ActionBatch(
+              LoadThumbnail(documentId),
               UpdateCards(List(List("thumbnail"), List("file"))),
               UpdateFocusedPanel(Panel.Document),
               UpdateSelectedDocument(Some(documentId)),
               if (scroll) ScrollToDocument(documentId) else NoChange
             )
           )
-        } else
+        } else {
           action(NoChange)
+        }
       )
 
     case LoadThumbnail(documentId) =>
@@ -226,13 +226,17 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       updated(value.copy(integrations = integrations))
 
     case UpdateFocusedPanel(panel) =>
-      if (SearchPanel.inputRef.current != null)
-        if (panel == Panel.Search) {
-          SearchPanel.inputRef.current.focus()
-        } else
-          SearchPanel.inputRef.current.blur()
-
-      updated(value.copy(errorMessage = None, focusedPanel = panel))
+      if (value.focusedPanel == panel)
+        noChange
+      else {
+        if (SearchPanel.inputRef.current != null) {
+          if (panel == Panel.Search)
+            SearchPanel.inputRef.current.focus()
+          else
+            SearchPanel.inputRef.current.blur()
+        }
+        updated(value.copy(errorMessage = None, focusedPanel = panel))
+      }
 
     case UpdateSearchApplication(application) =>
       updated(value.copy(searchApplication = application))
