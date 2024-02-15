@@ -164,12 +164,20 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             event.preventDefault()
             event.stopPropagation()
 
+            val hasVerticalCards = cardState.cards.nonEmpty && cardState.cards(cardState.middleHorizontalIndex).nonEmpty
+
             key match {
               case Keys.Down =>
-                action(if (cardState.middleVerticalIndex < cardState.cards(cardState.middleHorizontalIndex).size -1 ) SelectVerticalBottomCard else NoChange)
+                if (hasVerticalCards)
+                  action(if (cardState.middleVerticalIndex < cardState.cards(cardState.middleHorizontalIndex).size -1) SelectVerticalBottomCard else NoChange)
+                else
+                  action(SelectNextDocument)
 
               case Keys.Up =>
-                action(if (cardState.middleVerticalIndex > 0) SelectVerticalTopCard else NoChange)
+                if (hasVerticalCards)
+                  action(if (cardState.middleVerticalIndex > 0) SelectVerticalTopCard else SelectPreviousDocument)
+                else
+                  action(SelectPreviousDocument)
 
               case Keys.Left =>
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
@@ -184,7 +192,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 action(if (event.shiftKey) OpenParentFolder else Open)
 
               case Keys.Space =>
-                val shouldShowPreview = if (value.selectedDocument.nonEmpty && value.allowPreview)
+                val shouldShowPreview = value.selectedDocument.nonEmpty && value.allowPreview
                 action(if (shouldShowPreview) ShowPreview(value.selectedDocument.get) else NoChange)
 
               case _ =>
