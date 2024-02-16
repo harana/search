@@ -1,3 +1,4 @@
+use std::env;
 use harana_common::anyhow::Result;
 use harana_common::dashmap::DashMap;
 use harana_common::serde_json;
@@ -74,7 +75,8 @@ pub async fn init_main_window(app_handle: AppHandle) -> Result<()> {
         settings_get(c, "appearance_shortcut_key".to_string())
     ).await?.unwrap_or("CommandOrControl+Space".to_string());
 
-    windows_main::init_main_panel(app_handle, shortcut_key, always_center);
+    let debug = env::var("HARANA_DEBUG").is_ok();
+    windows_main::init_main_panel(app_handle, shortcut_key, always_center, debug);
     Ok(())
 }
 

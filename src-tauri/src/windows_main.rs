@@ -2,9 +2,9 @@ use tauri::{AppHandle, Wry};
 #[cfg(target_os = "macos")]
 use crate::windows_mac;
 
-pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool) {
+pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool, show_devtools: bool) {
     #[cfg(target_os = "macos")]
-    windows_mac::init_main_panel(app_handle, shortcut, always_center, true)
+    windows_mac::init_main_panel(app_handle, shortcut, always_center, show_devtools)
 }
 
 #[tauri::command]
