@@ -128,12 +128,9 @@ jobs:
           FFMPEG_PROJECT=`conan cache path --folder build ffmpeg/6.1:$(conan list "ffmpeg/6.1:*" | sed -n '7p' | tr -d ' ')`
           export FFMPEG_DIR="${FFMPEG_PROJECT%?}p"
           source /etc/profile
-          cd search
-          mkdir -p dist
-          pnpm run css
-          cd src-tauri
-          cargo update
-          pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
+          cd search && pnpm run css
+          cd src-tauri && cargo update
+          cd .. && pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
         env:      
           APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
           APPLE_API_KEY: ${{ secrets.APPLE_API_KEY_ID }}

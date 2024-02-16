@@ -183,7 +183,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>
-                action(if (cardState.middleHorizontalIndex < cardState.cards.size - 1) SelectHorizontalRightCard else NoChange)
+                action(SelectHorizontalRightCard)
 
               case Keys.Backspace | Keys.Delete =>
                 action(Backspace)

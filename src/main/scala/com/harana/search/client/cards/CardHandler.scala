@@ -47,7 +47,7 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
         middleCard = Some(value.cards(index).head),
         middleHorizontalIndex = index,
         verticalTopCard = None,
-        verticalBottomCard = if (value.cards(index).size > 1) Some(value.cards(index)(1)) else None
+        verticalBottomCard = value.cards(index).lift(1)
       ))
 
     case UpdateMiddleVerticalIndex(index: Int) =>
