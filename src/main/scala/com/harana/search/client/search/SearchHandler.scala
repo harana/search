@@ -239,6 +239,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       }
 
     case UpdateSearchApplication(application) =>
+      println("Updating search application to: " + application)
       updated(value.copy(searchApplication = application))
 
     case UpdateSearchResults(results) =>

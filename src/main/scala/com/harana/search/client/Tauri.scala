@@ -53,14 +53,19 @@ object Tauri {
   def invoke[T](cmd: String, args: Map[String, Any] = Map()): Future[T] =
     invokeAny(cmd, args, (s: Any) => s.asInstanceOf[T], (s: Any) => s.asInstanceOf[T])
 
-  def invokeAsAction(cmd: String, args: Map[String, Any] = Map()): Future[diode.Action] =
+  def invokeAsAction(cmd: String, args: Map[String, Any] = Map()): Future[Action] =
     invokeAsAction(cmd, args, (_: Any) => NoChange, (_: Any) => NoChange)
 
   def invokeAsAction[A <: diode.Action, B <: diode.Action](cmd: String,
                      args: Map[String, Any],
                      onSuccess: Any => A,
-                     onFailure: Any => B): Future[diode.Action] =
-    invokeAny[diode.Action, diode.Action, diode.Action](cmd, args, onSuccess, onFailure)
+                     onFailure: Any => B): Future[Action] =
+    invokeAny[Unit, Unit, Unit](
+      cmd,
+      args,
+      _ => Circuit.dispatch(onSuccess()),
+      _ => Circuit.dispatch(onFailure())
+    ).map(_ => NoChange)
 
   def invokeAny[T, A <: T, B <: T](cmd: String,
                                    args: Map[String, Any],

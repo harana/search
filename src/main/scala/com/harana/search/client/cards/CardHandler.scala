@@ -2,7 +2,7 @@ package com.harana.search.client.cards
 
 import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.cards.CardStore._
-import com.harana.web.actions.Init
+import com.harana.web.actions.{Init, NoChange}
 import diode.Effect.action
 import diode._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
@@ -15,10 +15,16 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
       noChange
 
     case SelectHorizontalLeftCard =>
-      effectOnly(action(UpdateMiddleHorizontalIndex(value.middleHorizontalIndex - 1)))
+      if (value.middleHorizontalIndex > 0)
+        effectOnly(action(UpdateMiddleHorizontalIndex(value.middleHorizontalIndex - 1)))
+      else
+        noChange
 
    case SelectHorizontalRightCard =>
-     effectOnly(action(UpdateMiddleHorizontalIndex(value.middleHorizontalIndex + 1)))
+     if (value.middleHorizontalIndex < value.cards.size - 1)
+      effectOnly(action(UpdateMiddleHorizontalIndex(value.middleHorizontalIndex + 1)))
+     else
+       noChange
 
     case SelectVerticalTopCard =>
       effectOnly(action(UpdateMiddleVerticalIndex(value.middleVerticalIndex - 1)))
