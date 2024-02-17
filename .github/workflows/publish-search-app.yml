@@ -11,7 +11,9 @@ env:
   CONAN_HOME: /opt/cache/conan
   COURSIER_HOME: /opt/cache/coursier
   IVY_HOME: /opt/cache/ivy2
+  NPM_CONFIG_CACHE: /opt/cache/npm
   SBT_HOME: /opt/cache/sbt
+  XDG_CONFIG_HOME: /opt/cache/pnpm
 
 jobs:
   build:
@@ -99,7 +101,6 @@ jobs:
       - name: Populate Credentials
         run: |
           mkdir -p $SBT_HOME/1.0/plugins
-
           if [ ! -f '$SBT_HOME/1.0/plugins/credentials.sbt' ]; then
             cat <<EOF > $SBT_HOME/1.0/plugins/credentials.sbt
             credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "nadenf", System.getenv("GITHUB_TOKEN"))
