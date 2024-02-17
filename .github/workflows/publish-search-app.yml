@@ -6,6 +6,14 @@ on:
     tags:
       - "v*"    
 
+env:
+  CARGO_HOME: /opt/cache/cargo
+  CONAN_HOME: /opt/cache/conan
+  COURSIER_HOME: /opt/cache/coursier
+  GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+  IVY_HOME: /opt/cache/ivy2
+  SBT_HOME: /opt/cache/sbt
+
 jobs:
   build:
     name: Publish
@@ -91,10 +99,10 @@ jobs:
 
       - name: Populate Credentials
         run: |
-          mkdir -p $HOME/.sbt/1.0/plugins
+          mkdir -p $SBT_HOME/1.0/plugins
 
-          if [ ! -f '$HOME/.sbt/1.0/plugins/credentials.sbt' ]; then
-            cat <<EOF > $HOME/.sbt/1.0/plugins/credentials.sbt
+          if [ ! -f '$SBT_HOME/1.0/plugins/credentials.sbt' ]; then
+            cat <<EOF > $SBT_HOME/1.0/plugins/credentials.sbt
             credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "nadenf", System.getenv("GITHUB_TOKEN"))
           EOF
           fi
@@ -110,17 +118,12 @@ jobs:
           cd search
           sbt \
           -ivy $IVY_HOME \
-          -Dsbt.boot.directory=$SBT_HOME \
+          -Dsbt.boot.directory=$SBT_HOME/boot \
           -Dsbt.coursier.home=$COURSIER_HOME \
           -Dsbt.global.base=$SBT_HOME \
           -Dsbt.ivy.home=$IVY_HOME \
           -Divy.home=$IVY_HOME \
           buildFrontend
-        env:
-          COURSIER_HOME: /opt/cache/coursier
-          GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
-          IVY_HOME: /opt/cache/ivy2
-          SBT_HOME: /opt/cache/sbt
 
       - name: Build Conan Libraries
         run: |
@@ -128,8 +131,6 @@ jobs:
           cargo update
           conan profile detect || true
           conan install --build=missing --build=ffmpeg/6.1 -of=build -d=full_deploy .
-        env:
-          CONAN_HOME: /opt/cache/conan
 
       - name: Build Tauri
         run: |
@@ -146,7 +147,6 @@ jobs:
           APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }} 
           APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
-          CARGO_HOME: /opt/cache/cargo
           ENABLE_CODE_SIGNING: ${{ secrets.APPLE_CERTIFICATE }}
           NODE_OPTIONS: "--max_old_space_size=8196"
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
