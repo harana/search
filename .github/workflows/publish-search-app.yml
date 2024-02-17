@@ -111,14 +111,14 @@ jobs:
           sbt \
           -ivy $IVY_HOME \
           -Dsbt.boot.directory=$SBT_HOME \
-          -Dsbt.global.base=$SBT_HOME \
           -Dsbt.coursier.home=$COURSIER_HOME \
+          -Dsbt.global.base=$SBT_HOME \
           -Dsbt.ivy.home=$IVY_HOME \
           -Divy.home=$IVY_HOME \
           buildFrontend
         env:
           COURSIER_HOME: /opt/cache/coursier
-          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
           IVY_HOME: /opt/cache/ivy2
           SBT_HOME: /opt/cache/sbt
 
