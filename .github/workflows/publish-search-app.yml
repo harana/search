@@ -10,7 +10,7 @@ env:
   CARGO_HOME: /opt/cache/cargo
   CONAN_HOME: /opt/cache/conan
   COURSIER_HOME: /opt/cache/coursier
-  GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
   IVY_HOME: /opt/cache/ivy2
   SBT_HOME: /opt/cache/sbt
 
