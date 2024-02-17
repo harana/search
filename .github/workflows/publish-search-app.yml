@@ -106,9 +106,6 @@ jobs:
             credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "nadenf", System.getenv("GITHUB_TOKEN"))
           EOF
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-
 
       - name: Install Frontend Dependencies
         run: |
@@ -127,6 +124,8 @@ jobs:
           -Dsbt.ivy.home=$IVY_HOME \
           -Dsbt.repository.config=$SBT_HOME/repositories \
           buildFrontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
 
       - name: Build Conan Libraries
         run: |
