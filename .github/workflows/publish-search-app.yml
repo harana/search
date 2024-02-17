@@ -117,7 +117,7 @@ jobs:
 
       - name: Build Frontend
         run: |
-          rm -fr $COURSIER_HOME/v1/https/maven.pkg.github.com/harana
+          rm -fr $COURSIER_HOME/cache/https/maven.pkg.github.com/harana/sbt-plugin
           cd search
           sbt \
           -Divy.home=$IVY_HOME \
