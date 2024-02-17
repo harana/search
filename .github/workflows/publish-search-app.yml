@@ -108,11 +108,15 @@ jobs:
         run: |
           rm -fr $COURSIER_HOME/v1/https/maven.pkg.github.com/harana
           cd search
-          sbt buildFrontend
+          sbt \
+          -Dsbt.coursier.home=$COURSIER_HOME \
+          -Dsbt.ivy.home=$IVY_HOME \
+          -Divy.home=$IVY_HOME \
+          buildFrontend
         env:
-          COURSIER_HOME: /opt/cache
+          COURSIER_HOME: /opt/cache/coursier
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_TOKEN }}
-          IVY_HOME: /opt/cache
+          IVY_HOME: /opt/cache/ivy2
 
       - name: Build Conan Libraries
         run: |
@@ -121,7 +125,7 @@ jobs:
           conan profile detect || true
           conan install --build=missing --build=ffmpeg/6.1 -of=build -d=full_deploy .
         env:
-          CONAN_USER_HOME: /opt/cache
+          CONAN_HOME: /opt/cache/conan
 
       - name: Build Tauri
         run: |
@@ -138,7 +142,7 @@ jobs:
           APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }} 
           APPLE_PROVIDER_SHORT_NAME: ${{ secrets.APPLE_PROVIDER_SHORT_NAME }}
-          CARGO_HOME: /opt/cache
+          CARGO_HOME: /opt/cache/cargo
           ENABLE_CODE_SIGNING: ${{ secrets.APPLE_CERTIFICATE }}
           NODE_OPTIONS: "--max_old_space_size=8196"
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
