@@ -134,7 +134,6 @@ fn main() {
                 let tauri_data_path = TAURI_DATA_PATH.get().unwrap();
                 let thumbnails_path = THUMBNAILS_PATH.get().unwrap();
 
-                let _ = DATABASE_MANAGER.set(DatabaseManager::new(tauri_data_path).await);
                 let _ = INDEX_THUMBNAILER.set(IndexThumbnailer::new(thumbnails_path, 400, 400).await);
 
                 let hash_handler: Box<dyn JobHandler> = Box::new(JobHandlerHash::new(DATABASE_MANAGER.get().unwrap(), INDEX_MANAGER.get().unwrap()));
@@ -147,7 +146,7 @@ fn main() {
                     ("thumbnail".to_string(), thumbnail_handler)
                 ]);
 
-                let _ = JOB_MANAGER.set(JobManager::new(tauri_data_path, 30, DATABASE_MANAGER.get().unwrap(), job_handlers).await);
+                let _ = JOB_MANAGER.set(JobManager::new(DATABASE_PATH.get().unwrap(), 30, DATABASE_MANAGER.get().unwrap(), job_handlers).await);
                 let _ = FILE_MANAGER.set(FileManager::new(DATABASE_MANAGER.get().unwrap(), INDEX_MANAGER.get().unwrap(), JOB_MANAGER.get().unwrap()).await);
             });
 
