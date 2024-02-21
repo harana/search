@@ -78,9 +78,6 @@ swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "aut
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
 
-[patch.crates-io]
-openssl-sys = { version = "=0.9.99" }
-
 [profile.release]
 codegen-units = 1
 incremental = false
