@@ -6,7 +6,7 @@ object SettingsStore {
 
   case class State(selectedSection: Section)
 
-  val initialState = State(Section.Billing)
+  val initialState = State(Section.General)
 
   case object HideSettings extends DiodeAction
 

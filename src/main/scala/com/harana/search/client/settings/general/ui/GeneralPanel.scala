@@ -33,7 +33,7 @@ import scala.scalajs.js.Dynamic.{literal => css}
       div(className := "col-span-3")(
         div(className := "mb-2")(Heading("Appearance")),
         div(className := "py-2")(
-          ShortcutPicker(),
+//          ShortcutPicker(),
           Listbox(
             "appearance_language",
             selectedItem = state.appearanceLanguage,
@@ -47,7 +47,7 @@ import scala.scalajs.js.Dynamic.{literal => css}
           Listbox(
             "appearance_font_size",
             selectedItem = state.appearanceFontSize.toString,
-            items = List("Medium").map(_.asInstanceOf[js.Any]),
+            items = List("14"),
             itemId = item => item.toString,
             itemTitle = item => item.toString,
             label = Some("Font Size"),
@@ -80,7 +80,6 @@ import scala.scalajs.js.Dynamic.{literal => css}
            headers = List("Switch"),
            rows = List(
              List(Switch("start_at_login", Some("Start at Login"), state.startupStartAtLogin, _ => Circuit.dispatch(UpdateStartupStartAtLogin(!state.startupStartAtLogin)), "px-4 py-2")),
-             List(Switch("show_in_dock", Some("Show in Dock"), state.startupShowInDock, _ => Circuit.dispatch(UpdateStartupShowInDock(!state.startupShowInDock)), "px-4 py-2"))
            )
          ),
          div(className := "mb-2", style := css("paddingTop" -> "40px"))(Heading("Privacy")),
@@ -89,7 +88,6 @@ import scala.scalajs.js.Dynamic.{literal => css}
            headers = List("Switch"),
            rows = List(
              List(Switch("share_error_reports", Some("Share Error Reports"), state.privacyShareErrorReports, _ => Circuit.dispatch(UpdatePrivacyShareErrorReports(!state.privacyShareErrorReports)), "px-4 py-2")),
-             List(Switch("share_usage_data", Some("Share Usage Data"), state.privacyShareUsageData, _ => Circuit.dispatch(UpdatePrivacyShareUsageData(!state.privacyShareUsageData)), "px-4 py-2"))
            )
          )
        )

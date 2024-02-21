@@ -18,7 +18,7 @@ object GeneralStore {
                    startupShowInDock: Boolean,
                    startupStartAtLogin: Boolean)
 
-  val initialState = State(true, 14, "English", "Command", "Shift", "Space", true, Theme.System, true, true, true, true)
+  val initialState = State(true, 14, "English", "Command", "Shift", "Space", true, Theme.Light, true, true, true, true)
 
   case class UpdateAppearanceAlwaysCenterWindow(alwaysCenterWindow: Boolean) extends DiodeAction
   case class UpdateAppearanceFontSize(fontSize: Int) extends DiodeAction

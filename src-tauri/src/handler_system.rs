@@ -62,6 +62,11 @@ pub fn emit_thumbnail_message(name: String, payload: String) {
 }
 
 #[tauri::command]
+pub fn open_url(url: String) -> Result<(), String> {
+    open::that(url).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
 pub fn quit_app(app_handle: AppHandle<Wry>) {
     app_handle.exit(0)
 }

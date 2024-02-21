@@ -38,6 +38,7 @@ fork = "0.1"
 log-panics = { version = "2", features = ["with-backtrace"] }
 mid = "1"
 mouce = "0.2.43"
+open = "5"
 plist = "1"
 raw-window-handle = "0.6"
 rgb = "0.8"

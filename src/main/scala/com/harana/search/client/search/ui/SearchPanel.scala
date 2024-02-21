@@ -78,18 +78,17 @@ import scala.scalajs.js.JSConverters._
       ),
       List(
         ("Support", "Description about support", ShowSupport, "bg-gray-200", QuestionMarkCircleOutlineIcon()),
-        ("Feedback", "Description about support", ShowFeedback, "bg-gray-200", ChatBubbleLeftEllipsisOutlineIcon())
       ),
-      if (authState.loggedIn)
-        List(
-          ("Billing", "Description about billing", ShowBilling, "bg-gray-200", CreditCardOutlineIcon()),
-          ("Logout", "Description about logout", ShowLogin, "bg-gray-200", ArrowRightStartOnRectangleIcon()),
-        )
-      else
-        List(
-          ("Login", "Description about logout", ShowLogin, "bg-gray-200", ArrowRightEndOnRectangleIcon()),
-          ("Free Trial of Harana+", "350+ integrations, AI indexing and more.", ShowHaranaPlus, "bg-emerald-300", PlusIcon())
-        )
+//      if (authState.loggedIn)
+//        List(
+//          ("Billing", "Description about billing", ShowBilling, "bg-gray-200", CreditCardOutlineIcon()),
+//          ("Logout", "Description about logout", ShowLogin, "bg-gray-200", ArrowRightStartOnRectangleIcon()),
+//        )
+//      else
+//        List(
+//          ("Login", "Description about logout", ShowLogin, "bg-gray-200", ArrowRightEndOnRectangleIcon()),
+//          ("Free Trial of Harana+", "350+ integrations, AI indexing and more.", ShowHaranaPlus, "bg-emerald-300", PlusIcon())
+//        )
     )
 
     val popoverPanel =

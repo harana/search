@@ -26,7 +26,7 @@ class SearchMenuHandler extends ActionHandler(zoomTo(_.searchState)) {
     case ShowFeedback =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_feedback").map((_: js.Any) => NoChange)
+          Tauri.invoke("open_url").map((_: js.Any) => NoChange)
         )
       )
 
@@ -54,9 +54,8 @@ class SearchMenuHandler extends ActionHandler(zoomTo(_.searchState)) {
     case ShowSupport =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_support").map((_: js.Any) => NoChange)
+          Tauri.invoke("open_url", Map("url" -> "https://github.com/harana/search/issues")).map((_: js.Any) => NoChange)
         )
       )
-
   }
 }

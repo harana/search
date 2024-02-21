@@ -54,6 +54,7 @@ pub fn invoke_handler(invoke: tauri::Invoke<Wry>) {
             crate::handler_system::emit_preview_message,
             crate::handler_system::emit_search_message,
             crate::handler_system::get_previews_path,
+            crate::handler_system::open_url,
             crate::handler_system::update_metric,
             crate::handler_system::get_thumbnails_path,
             crate::handler_system::update_window_size,

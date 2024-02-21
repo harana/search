@@ -26,12 +26,12 @@ import scala.scalajs.js
   val component = FunctionalComponent[Unit] { _ =>
 
     val navigationItems = List(
-      ("General", "Description about general", PhotoOutlineIcon("text-gray-400"), Section.Appearance),
+      ("General", "Description about general", PhotoOutlineIcon("text-gray-400"), Section.General),
       ("Categories", "Description about categories", ListBulletOutlineIcon("text-gray-400"), Section.Categories),
-      ("Folders", "Description about folders", FolderOpenOutlineIcon("text-gray-400"), Section.Folders),
-      ("Indexing", "Description about indexing", CloudOutlineIcon("text-gray-400"), Section.Indexing),
-      ("Billing", "Description about billing", CreditCardOutlineIcon("text-gray-400"), Section.Billing),
-      ("Developer", "Description about developer", CreditCardOutlineIcon("text-gray-400"), Section.Developer),
+//      ("Folders", "Description about folders", FolderOpenOutlineIcon("text-gray-400"), Section.Folders),
+//      ("Indexing", "Description about indexing", CloudOutlineIcon("text-gray-400"), Section.Indexing),
+//      ("Billing", "Description about billing", CreditCardOutlineIcon("text-gray-400"), Section.Billing),
+//      ("Developer", "Description about developer", CreditCardOutlineIcon("text-gray-400"), Section.Developer),
     )
 
     val state = Circuit.state(_.settingsState, true)
@@ -103,12 +103,12 @@ import scala.scalajs.js
         main(drag := true, className := "bg-gray-50 py-12 lg:pl-72 w-full")(
           div(className := "px-10")(
             state.selectedSection match {
-              case Section.Appearance => GeneralPanel()
               case Section.AI => AiPanel()
               case Section.Billing => BillingPanel()
               case Section.Categories => CategoriesPanel()
               case Section.Developer => DeveloperPanel()
               case Section.Folders => FoldersPanel()
+              case Section.General => GeneralPanel()
               case Section.Indexing => IndexingPanel()
               case Section.Rules => RulesPanel()
               case Section.Integration(_) => IntegrationPanel()
