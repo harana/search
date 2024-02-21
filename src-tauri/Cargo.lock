@@ -4933,7 +4933,6 @@ dependencies = [
  "objc-foundation",
  "objc_id",
  "open 5.0.1",
- "openssl-sys",
  "plist",
  "raw-window-handle 0.6.0",
  "rgb",
@@ -8376,8 +8375,7 @@ dependencies = [
 [[package]]
 name = "openssl-sys"
 version = "0.9.99"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22e1bf214306098e4832460f797824c05d25aacdf896f64a985fb0fd992454ae"
+source = "git+https://github.com/sfackler/rust-openssl.git?tag=openssl-sys-v0.9.99#cc2850fff7c4b0d50a23e09059b0040044dd9616"
 dependencies = [
  "cc",
  "libc",
