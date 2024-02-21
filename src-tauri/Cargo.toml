@@ -75,9 +75,9 @@ screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
-#[patch.crates-io]
-#rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
+[patch.crates-io]
 openssl-sys = "=0.9.99"
+#rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
 
 [profile.release]
 codegen-units = 1
