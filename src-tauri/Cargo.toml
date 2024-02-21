@@ -77,6 +77,7 @@ swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "aut
 
 #[patch.crates-io]
 #rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
+openssl-sys = "=0.9.99"
 
 [profile.release]
 codegen-units = 1
@@ -89,3 +90,4 @@ opt-level = "s"
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
+
