@@ -7,8 +7,8 @@ Search everything, instantly.
 </p>
 
 <p align="center">
-  <a href="https://github.com/harana/search/releases/download/untagged-1c59ea4fa3970f33c1e8/harana-darwin-aarch64.dmg">macOS Apple</a> ·
-  <a href="https://github.com/harana/search/releases/download/untagged-1c59ea4fa3970f33c1e8/harana-darwin-x86_64.dmg">macOS Intel</a> ·
+  <a href="https://github.com/harana/search/releases/download/untagged-77d937caf71cfca642f6/harana-darwin-aarch64.dmg">macOS Apple</a> ·
+  <a href="https://github.com/harana/search/releases/download/untagged-77d937caf71cfca642f6/harana-darwin-x86_64.dmg">macOS Intel</a> ·
   Windows ·
   Linux
   <br />

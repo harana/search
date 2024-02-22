@@ -8374,8 +8374,9 @@ dependencies = [
 
 [[package]]
 name = "openssl-sys"
-version = "0.9.99"
-source = "git+https://github.com/sfackler/rust-openssl.git?tag=openssl-sys-v0.9.99#cc2850fff7c4b0d50a23e09059b0040044dd9616"
+version = "0.9.100"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ae94056a791d0e1217d18b6cbdccb02c61e3054fc69893607f4067e3bb0b1fd1"
 dependencies = [
  "cc",
  "libc",
