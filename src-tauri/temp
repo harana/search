@@ -1,0 +1,1700 @@
+cc v1.0.83
+[build-dependencies]
+├── ring v0.16.20
+│   ├── ring feature "alloc"
+│   │   └── ring feature "default"
+│   │       └── dmgwiz v0.2.4
+│   │           ├── dmgwiz feature "crypto"
+│   │           │   └── dmgwiz feature "default"
+│   │           │       └── indexer_diskimage v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/diskimage)
+│   │           │           └── indexer_diskimage feature "default"
+│   │           │               └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer)
+│   │           │                   └── indexer feature "default"
+│   │           │                       └── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions)
+│   │           │                           └── search_extensions feature "default"
+│   │           │                               ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri)
+│   │           │                               │   ├── harana feature "custom-protocol"
+│   │           │                               │   │   └── harana feature "default" (command-line)
+│   │           │                               │   └── harana feature "default" (command-line)
+│   │           │                               ├── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search)
+│   │           │                               │   └── search feature "default"
+│   │           │                               │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │                               ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file)
+│   │           │                               │   └── search_file feature "default"
+│   │           │                               │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │                               │       └── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search) (*)
+│   │           │                               ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index)
+│   │           │                               │   └── search_index feature "default"
+│   │           │                               │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │                               │       ├── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search) (*)
+│   │           │                               │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │           │                               │       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs)
+│   │           │                               │           └── search_jobs feature "default"
+│   │           │                               │               ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │                               │               ├── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search) (*)
+│   │           │                               │               └── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │           │                               └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │           ├── dmgwiz feature "default" (*)
+│   │           ├── dmgwiz feature "openssl"
+│   │           │   └── dmgwiz feature "crypto" (*)
+│   │           └── dmgwiz feature "ring"
+│   │               └── dmgwiz feature "crypto" (*)
+│   ├── ring feature "default" (*)
+│   ├── ring feature "dev_urandom_fallback"
+│   │   └── ring feature "default" (*)
+│   └── ring feature "once_cell"
+│       └── ring feature "dev_urandom_fallback" (*)
+└── ring v0.17.8
+    └── rustls-webpki v0.102.2
+        ├── rustls-webpki feature "alloc"
+        │   └── rustls-webpki feature "std"
+        │       └── rustls v0.22.2
+        │           ├── rustls feature "default"
+        │           │   ├── ureq v2.9.6
+        │           │   │   ├── ureq feature "default"
+        │           │   │   │   └── hf-hub v0.3.2
+        │           │   │   │       ├── hf-hub feature "default"
+        │           │   │   │       │   ├── candle-datasets v0.3.3
+        │           │   │   │       │   │   └── candle-datasets feature "default"
+        │           │   │   │       │   │       └── candle-examples v0.3.2
+        │           │   │   │       │   │           └── candle-examples feature "default"
+        │           │   │   │       │   │               ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │               └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core)
+        │           │   │   │       │   │                   └── indexer_core feature "default"
+        │           │   │   │       │   │                       ├── indexer_airbyte v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/airbyte)
+        │           │   │   │       │   │                       │   └── indexer_airbyte feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_application v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/application)
+        │           │   │   │       │   │                       │   └── indexer_application feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_archive v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/archive)
+        │           │   │   │       │   │                       │   └── indexer_archive feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_audio v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/audio)
+        │           │   │   │       │   │                       │   └── indexer_audio feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_book v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/book)
+        │           │   │   │       │   │                       │   └── indexer_book feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_calendar v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/calendar)
+        │           │   │   │       │   │                       │   └── indexer_calendar feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_certificate v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/certificate)
+        │           │   │   │       │   │                       │   └── indexer_certificate feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/code)
+        │           │   │   │       │   │                       │   └── indexer_code feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact)
+        │           │   │   │       │   │                       │   └── indexer_codeartifact feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_contact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/contact)
+        │           │   │   │       │   │                       │   └── indexer_contact feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_data v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/data)
+        │           │   │   │       │   │                       │   └── indexer_data feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_diskimage v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/diskimage) (*)
+        │           │   │   │       │   │                       ├── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document)
+        │           │   │   │       │   │                       │   └── indexer_document feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_email v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/email)
+        │           │   │   │       │   │                       │   └── indexer_email feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_font v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/font)
+        │           │   │   │       │   │                       │   └── indexer_font feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_game v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/game)
+        │           │   │   │       │   │                       │   └── indexer_game feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_graphics v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/graphics)
+        │           │   │   │       │   │                       │   └── indexer_graphics feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_hardware v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/hardware)
+        │           │   │   │       │   │                       │   └── indexer_hardware feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image)
+        │           │   │   │       │   │                       │   └── indexer_image feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map)
+        │           │   │   │       │   │                       │   └── indexer_map feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/noop)
+        │           │   │   │       │   │                       │   └── indexer_noop feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_science v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/science)
+        │           │   │   │       │   │                       │   └── indexer_science feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── indexer_video v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/video)
+        │           │   │   │       │   │                       │   └── indexer_video feature "default"
+        │           │   │   │       │   │                       │       └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   │                       ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core)
+        │           │   │   │       │   │                       │   └── search_core feature "default"
+        │           │   │   │       │   │                       │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+        │           │   │   │       │   │                       │       ├── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search) (*)
+        │           │   │   │       │   │                       │       ├── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+        │           │   │   │       │   │                       │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+        │           │   │   │       │   │                       │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+        │           │   │   │       │   │                       │       ├── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_aiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/aiff)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_aiff feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer)
+        │           │   │   │       │   │                       │       │           └── thumbnailer feature "default"
+        │           │   │   │       │   │                       │       │               ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+        │           │   │   │       │   │                       │       │               └── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_avif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/avif)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_avif feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_bmp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/bmp)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_bmp feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/code)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_code feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_dds v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/dds)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_dds feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_epub feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_flac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/flac)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_flac feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_gif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/gif)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_gif feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_heif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/heif)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_heif feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_ico v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ico)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_ico feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_ipynb v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ipynb)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_ipynb feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_jpeg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/jpeg)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_jpeg feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_json v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/json)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_json feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_m4a v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/m4a)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_m4a feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_mac feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_md v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/md)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_md feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_mp3 v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mp3)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_mp3 feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/noop)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_noop feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_png v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/png)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_png feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_pnm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/pnm)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_pnm feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_ppm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ppm)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_ppm feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_psd v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/psd)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_psd feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_qoi v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/qoi)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_qoi feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_raw feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_svg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/svg)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_svg feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_tex v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tex)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_tex feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_tga v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tga)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_tga feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_three feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_tiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tiff)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_tiff feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_txt v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/txt)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_txt feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       ├── thumbnailer_wav v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/wav)
+        │           │   │   │       │   │                       │       │   └── thumbnailer_wav feature "default"
+        │           │   │   │       │   │                       │       │       └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       │       └── thumbnailer_webp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/webp)
+        │           │   │   │       │   │                       │           └── thumbnailer_webp feature "default"
+        │           │   │   │       │   │                       │               └── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+        │           │   │   │       │   │                       ├── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+        │           │   │   │       │   │                       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+        │           │   │   │       │   │                       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+        │           │   │   │       │   │                       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+        │           │   │   │       │   ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+        │           │   │   │       │   └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+        │           │   │   │       └── hf-hub feature "online"
+        │           │   │   │           └── hf-hub feature "default" (*)
+        │           │   │   ├── ureq feature "gzip"
+        │           │   │   │   └── ureq feature "default" (*)
+        │           │   │   ├── ureq feature "json"
+        │           │   │   │   └── hf-hub v0.3.2 (*)
+        │           │   │   ├── ureq feature "native-tls"
+        │           │   │   │   └── hf-hub v0.3.2 (*)
+        │           │   │   └── ureq feature "tls"
+        │           │   │       └── ureq feature "default" (*)
+        │           │   └── ureq v2.9.6
+        │           │       ├── ureq feature "default"
+        │           │       │   [build-dependencies]
+        │           │       │   ├── filament-bindings v0.2.2
+        │           │       │   │   ├── filament-bindings feature "assimp"
+        │           │       │   │   │   └── filament-bindings feature "default"
+        │           │       │   │   │       └── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three) (*)
+        │           │       │   │   ├── filament-bindings feature "default" (*)
+        │           │       │   │   ├── filament-bindings feature "prebuilt"
+        │           │       │   │   │   └── filament-bindings feature "default" (*)
+        │           │       │   │   └── filament-bindings feature "russimp-sys-static"
+        │           │       │   │       ├── filament-bindings feature "assimp" (*)
+        │           │       │   │       └── filament-bindings feature "prebuilt" (*)
+        │           │       │   └── russimp-sys-static v1.0.1
+        │           │       │       └── filament-bindings v0.2.2 (*)
+        │           │       │       ├── russimp-sys-static feature "prebuilt"
+        │           │       │       │   └── filament-bindings feature "prebuilt" (*)
+        │           │       │       └── russimp-sys-static feature "static-link"
+        │           │       │           └── russimp-sys-static feature "prebuilt" (*)
+        │           │       ├── ureq feature "gzip"
+        │           │       │   └── ureq feature "default" (*)
+        │           │       └── ureq feature "tls"
+        │           │           └── ureq feature "default" (*)
+        │           ├── rustls feature "log"
+        │           │   └── rustls feature "logging"
+        │           │       └── rustls feature "default" (*)
+        │           ├── rustls feature "logging" (*)
+        │           ├── rustls feature "ring"
+        │           │   └── rustls feature "default" (*)
+        │           └── rustls feature "tls12"
+        │               └── rustls feature "default" (*)
+        │       └── rustls-webpki feature "default"
+        │           ├── ureq v2.9.6 (*)
+        │           └── ureq v2.9.6 (*)
+        ├── rustls-webpki feature "default" (*)
+        ├── rustls-webpki feature "ring"
+        │   ├── rustls feature "ring" (*)
+        │   └── rustls-webpki feature "default" (*)
+        └── rustls-webpki feature "std" (*)
+    ├── ring feature "alloc"
+    │   ├── ring feature "default"
+    │   │   └── rustls v0.22.2 (*)
+    │   └── rustls-webpki feature "alloc" (*)
+    ├── ring feature "default" (*)
+    └── ring feature "dev_urandom_fallback"
+        └── ring feature "default" (*)
+├── cc feature "default"
+│   ├── embed-resource v2.4.1
+│   │   └── embed-resource feature "default"
+│   │       └── tauri-winres v0.1.1
+│   │           └── tauri-winres feature "default"
+│   │               └── tauri-build v1.5.1
+│   │                   └── tauri-build feature "default"
+│   │                       [build-dependencies]
+│   │                       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   └── openssl-src v300.2.3+3.2.1
+│       ├── openssl-src feature "default"
+│       │   [build-dependencies]
+│       │   └── openssl-sys v0.9.100
+│       │       ├── openssl-sys feature "default"
+│       │       │   └── openssl v0.10.63
+│       │       │       ├── openssl feature "default"
+│       │       │       │   └── dmgwiz v0.2.4 (*)
+│       │       │       └── openssl feature "vendored"
+│       │       │           └── dmgwiz v0.2.4 (*)
+│       │       ├── openssl-sys feature "openssl-src"
+│       │       │   └── openssl-sys feature "vendored"
+│       │       │       └── openssl feature "vendored" (*)
+│       │       └── openssl-sys feature "vendored" (*)
+│       └── openssl-src feature "legacy"
+│           [build-dependencies]
+│           └── openssl-sys v0.9.100 (*)
+│   [build-dependencies]
+│   ├── backtrace v0.3.69
+│   │   ├── backtrace feature "default"
+│   │   │   ├── anyhow v1.0.80
+│   │   │   │   ├── anyhow feature "backtrace"
+│   │   │   │   │   └── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common)
+│   │   │   │   │       └── common feature "default"
+│   │   │   │   │           ├── application v0.1.0 (/Users/naden/Developer/harana/search-engine/src/application)
+│   │   │   │   │           │   └── application feature "default"
+│   │   │   │   │           │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database)
+│   │   │   │   │           │   └── database feature "default"
+│   │   │   │   │           │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           │       ├── job v0.1.0 (/Users/naden/Developer/harana/search-engine/src/job)
+│   │   │   │   │           │       │   └── job feature "default"
+│   │   │   │   │           │       │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           │       │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           │       │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       │       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           │       ├── search v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search) (*)
+│   │   │   │   │           │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           ├── document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/document)
+│   │   │   │   │           │   └── document feature "default"
+│   │   │   │   │           │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           │       ├── indexer_airbyte v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/airbyte) (*)
+│   │   │   │   │           │       ├── indexer_application v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/application) (*)
+│   │   │   │   │           │       ├── indexer_archive v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/archive) (*)
+│   │   │   │   │           │       ├── indexer_audio v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/audio) (*)
+│   │   │   │   │           │       ├── indexer_book v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/book) (*)
+│   │   │   │   │           │       ├── indexer_calendar v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/calendar) (*)
+│   │   │   │   │           │       ├── indexer_certificate v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/certificate) (*)
+│   │   │   │   │           │       ├── indexer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/code) (*)
+│   │   │   │   │           │       ├── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   │   │   │   │           │       ├── indexer_contact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/contact) (*)
+│   │   │   │   │           │       ├── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │   │   │   │           │       ├── indexer_data v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/data) (*)
+│   │   │   │   │           │       ├── indexer_diskimage v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/diskimage) (*)
+│   │   │   │   │           │       ├── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │           │       ├── indexer_email v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/email) (*)
+│   │   │   │   │           │       ├── indexer_font v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/font) (*)
+│   │   │   │   │           │       ├── indexer_game v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/game) (*)
+│   │   │   │   │           │       ├── indexer_graphics v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/graphics) (*)
+│   │   │   │   │           │       ├── indexer_hardware v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/hardware) (*)
+│   │   │   │   │           │       ├── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image) (*)
+│   │   │   │   │           │       ├── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │   │   │   │           │       ├── indexer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/noop) (*)
+│   │   │   │   │           │       ├── indexer_science v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/science) (*)
+│   │   │   │   │           │       ├── indexer_video v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/video) (*)
+│   │   │   │   │           │       ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │   │   │   │           │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       ├── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           │       ├── thumbnailer_aiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/aiff) (*)
+│   │   │   │   │           │       ├── thumbnailer_avif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/avif) (*)
+│   │   │   │   │           │       ├── thumbnailer_bmp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/bmp) (*)
+│   │   │   │   │           │       ├── thumbnailer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/code) (*)
+│   │   │   │   │           │       ├── thumbnailer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/core)
+│   │   │   │   │           │       │   └── thumbnailer_core feature "default"
+│   │   │   │   │           │       │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           │       │       ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │   │   │   │           │       │       ├── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+│   │   │   │   │           │       │       ├── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_aiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/aiff) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_avif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/avif) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_bmp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/bmp) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/code) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_dds v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/dds) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_flac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/flac) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_gif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/gif) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_heif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/heif) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_ico v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ico) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_ipynb v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ipynb) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_jpeg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/jpeg) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_json v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/json) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_m4a v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/m4a) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_md v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/md) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_mp3 v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mp3) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/noop) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_png v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/png) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_pnm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/pnm) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_ppm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ppm) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_psd v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/psd) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_qoi v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/qoi) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_svg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/svg) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_tex v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tex) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_tga v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tga) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_tiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tiff) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_txt v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/txt) (*)
+│   │   │   │   │           │       │       ├── thumbnailer_wav v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/wav) (*)
+│   │   │   │   │           │       │       └── thumbnailer_webp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/webp) (*)
+│   │   │   │   │           │       ├── thumbnailer_dds v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/dds) (*)
+│   │   │   │   │           │       ├── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub) (*)
+│   │   │   │   │           │       ├── thumbnailer_flac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/flac) (*)
+│   │   │   │   │           │       ├── thumbnailer_gif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/gif) (*)
+│   │   │   │   │           │       ├── thumbnailer_heif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/heif) (*)
+│   │   │   │   │           │       ├── thumbnailer_ico v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ico) (*)
+│   │   │   │   │           │       ├── thumbnailer_ipynb v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ipynb) (*)
+│   │   │   │   │           │       ├── thumbnailer_jpeg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/jpeg) (*)
+│   │   │   │   │           │       ├── thumbnailer_json v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/json) (*)
+│   │   │   │   │           │       ├── thumbnailer_m4a v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/m4a) (*)
+│   │   │   │   │           │       ├── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │   │   │   │           │       ├── thumbnailer_md v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/md) (*)
+│   │   │   │   │           │       ├── thumbnailer_mp3 v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mp3) (*)
+│   │   │   │   │           │       ├── thumbnailer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/noop) (*)
+│   │   │   │   │           │       ├── thumbnailer_png v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/png) (*)
+│   │   │   │   │           │       ├── thumbnailer_pnm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/pnm) (*)
+│   │   │   │   │           │       ├── thumbnailer_ppm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ppm) (*)
+│   │   │   │   │           │       ├── thumbnailer_psd v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/psd) (*)
+│   │   │   │   │           │       ├── thumbnailer_qoi v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/qoi) (*)
+│   │   │   │   │           │       ├── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw) (*)
+│   │   │   │   │           │       ├── thumbnailer_svg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/svg) (*)
+│   │   │   │   │           │       ├── thumbnailer_tex v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tex) (*)
+│   │   │   │   │           │       ├── thumbnailer_tga v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tga) (*)
+│   │   │   │   │           │       ├── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three) (*)
+│   │   │   │   │           │       ├── thumbnailer_tiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tiff) (*)
+│   │   │   │   │           │       ├── thumbnailer_txt v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/txt) (*)
+│   │   │   │   │           │       ├── thumbnailer_wav v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/wav) (*)
+│   │   │   │   │           │       └── thumbnailer_webp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/webp) (*)
+│   │   │   │   │           ├── file_crawler v0.1.0 (/Users/naden/Developer/harana/search-engine/src/file_crawler)
+│   │   │   │   │           │   └── file_crawler feature "default"
+│   │   │   │   │           │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           ├── file_watcher v0.1.0 (/Users/naden/Developer/harana/search-engine/src/file_watcher)
+│   │   │   │   │           │   └── file_watcher feature "default"
+│   │   │   │   │           │       └── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │   │   │   │           ├── indexer_airbyte v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/airbyte) (*)
+│   │   │   │   │           ├── indexer_application v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/application) (*)
+│   │   │   │   │           ├── indexer_archive v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/archive) (*)
+│   │   │   │   │           ├── indexer_audio v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/audio) (*)
+│   │   │   │   │           ├── indexer_book v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/book) (*)
+│   │   │   │   │           ├── indexer_calendar v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/calendar) (*)
+│   │   │   │   │           ├── indexer_certificate v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/certificate) (*)
+│   │   │   │   │           ├── indexer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/code) (*)
+│   │   │   │   │           ├── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   │   │   │   │           ├── indexer_contact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/contact) (*)
+│   │   │   │   │           ├── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │   │   │   │           ├── indexer_data v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/data) (*)
+│   │   │   │   │           ├── indexer_diskimage v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/diskimage) (*)
+│   │   │   │   │           ├── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │           ├── indexer_email v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/email) (*)
+│   │   │   │   │           ├── indexer_font v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/font) (*)
+│   │   │   │   │           ├── indexer_game v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/game) (*)
+│   │   │   │   │           ├── indexer_graphics v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/graphics) (*)
+│   │   │   │   │           ├── indexer_hardware v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/hardware) (*)
+│   │   │   │   │           ├── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image) (*)
+│   │   │   │   │           ├── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │   │   │   │           ├── indexer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/noop) (*)
+│   │   │   │   │           ├── indexer_science v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/science) (*)
+│   │   │   │   │           ├── indexer_video v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/video) (*)
+│   │   │   │   │           ├── io v0.1.0 (/Users/naden/Developer/harana/search-engine/src/io)
+│   │   │   │   │           │   └── io feature "default"
+│   │   │   │   │           │       ├── file_crawler v0.1.0 (/Users/naden/Developer/harana/search-engine/src/file_crawler) (*)
+│   │   │   │   │           │       ├── file_watcher v0.1.0 (/Users/naden/Developer/harana/search-engine/src/file_watcher) (*)
+│   │   │   │   │           │       ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │   │   │   │           │       ├── indexer_airbyte v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/airbyte) (*)
+│   │   │   │   │           │       ├── indexer_application v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/application) (*)
+│   │   │   │   │           │       ├── indexer_archive v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/archive) (*)
+│   │   │   │   │           │       ├── indexer_audio v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/audio) (*)
+│   │   │   │   │           │       ├── indexer_book v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/book) (*)
+│   │   │   │   │           │       ├── indexer_calendar v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/calendar) (*)
+│   │   │   │   │           │       ├── indexer_certificate v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/certificate) (*)
+│   │   │   │   │           │       ├── indexer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/code) (*)
+│   │   │   │   │           │       ├── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   │   │   │   │           │       ├── indexer_contact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/contact) (*)
+│   │   │   │   │           │       ├── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │   │   │   │           │       ├── indexer_data v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/data) (*)
+│   │   │   │   │           │       ├── indexer_diskimage v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/diskimage) (*)
+│   │   │   │   │           │       ├── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │           │       ├── indexer_email v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/email) (*)
+│   │   │   │   │           │       ├── indexer_font v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/font) (*)
+│   │   │   │   │           │       ├── indexer_game v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/game) (*)
+│   │   │   │   │           │       ├── indexer_graphics v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/graphics) (*)
+│   │   │   │   │           │       ├── indexer_hardware v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/hardware) (*)
+│   │   │   │   │           │       ├── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image) (*)
+│   │   │   │   │           │       ├── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │   │   │   │           │       ├── indexer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/noop) (*)
+│   │   │   │   │           │       ├── indexer_science v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/science) (*)
+│   │   │   │   │           │       ├── indexer_video v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/video) (*)
+│   │   │   │   │           │       ├── opener v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener)
+│   │   │   │   │           │       │   └── opener feature "default"
+│   │   │   │   │           │       │       └── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+│   │   │   │   │           │       ├── opener_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener/core)
+│   │   │   │   │           │       │   └── opener_core feature "default"
+│   │   │   │   │           │       │       ├── opener v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener) (*)
+│   │   │   │   │           │       │       ├── opener_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener/noop)
+│   │   │   │   │           │       │       │   └── opener_noop feature "default"
+│   │   │   │   │           │       │       │       └── opener v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener) (*)
+│   │   │   │   │           │       │       ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │   │   │   │           │       │       └── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+│   │   │   │   │           │       ├── opener_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener/noop) (*)
+│   │   │   │   │           │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       ├── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           │       ├── tantivy v0.1.0 (/Users/naden/Developer/harana/search-engine/src/tantivy)
+│   │   │   │   │           │       │   └── tantivy feature "default"
+│   │   │   │   │           │       │       ├── document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/document) (*)
+│   │   │   │   │           │       │       ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │   │   │   │           │       │       ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           │       │       ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           │       │       └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           │       ├── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+│   │   │   │   │           │       ├── thumbnailer_aiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/aiff) (*)
+│   │   │   │   │           │       ├── thumbnailer_avif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/avif) (*)
+│   │   │   │   │           │       ├── thumbnailer_bmp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/bmp) (*)
+│   │   │   │   │           │       ├── thumbnailer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/code) (*)
+│   │   │   │   │           │       ├── thumbnailer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/core) (*)
+│   │   │   │   │           │       ├── thumbnailer_dds v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/dds) (*)
+│   │   │   │   │           │       ├── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub) (*)
+│   │   │   │   │           │       ├── thumbnailer_flac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/flac) (*)
+│   │   │   │   │           │       ├── thumbnailer_gif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/gif) (*)
+│   │   │   │   │           │       ├── thumbnailer_heif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/heif) (*)
+│   │   │   │   │           │       ├── thumbnailer_ico v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ico) (*)
+│   │   │   │   │           │       ├── thumbnailer_ipynb v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ipynb) (*)
+│   │   │   │   │           │       ├── thumbnailer_jpeg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/jpeg) (*)
+│   │   │   │   │           │       ├── thumbnailer_json v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/json) (*)
+│   │   │   │   │           │       ├── thumbnailer_m4a v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/m4a) (*)
+│   │   │   │   │           │       ├── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │   │   │   │           │       ├── thumbnailer_md v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/md) (*)
+│   │   │   │   │           │       ├── thumbnailer_mp3 v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mp3) (*)
+│   │   │   │   │           │       ├── thumbnailer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/noop) (*)
+│   │   │   │   │           │       ├── thumbnailer_png v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/png) (*)
+│   │   │   │   │           │       ├── thumbnailer_pnm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/pnm) (*)
+│   │   │   │   │           │       ├── thumbnailer_ppm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ppm) (*)
+│   │   │   │   │           │       ├── thumbnailer_psd v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/psd) (*)
+│   │   │   │   │           │       ├── thumbnailer_qoi v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/qoi) (*)
+│   │   │   │   │           │       ├── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw) (*)
+│   │   │   │   │           │       ├── thumbnailer_svg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/svg) (*)
+│   │   │   │   │           │       ├── thumbnailer_tex v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tex) (*)
+│   │   │   │   │           │       ├── thumbnailer_tga v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tga) (*)
+│   │   │   │   │           │       ├── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three) (*)
+│   │   │   │   │           │       ├── thumbnailer_tiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tiff) (*)
+│   │   │   │   │           │       ├── thumbnailer_txt v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/txt) (*)
+│   │   │   │   │           │       ├── thumbnailer_wav v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/wav) (*)
+│   │   │   │   │           │       └── thumbnailer_webp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/webp) (*)
+│   │   │   │   │           ├── job v0.1.0 (/Users/naden/Developer/harana/search-engine/src/job) (*)
+│   │   │   │   │           ├── opener_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener/core) (*)
+│   │   │   │   │           ├── opener_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/opener/noop) (*)
+│   │   │   │   │           ├── rpc_tauri v0.1.0 (/Users/naden/Developer/harana/search-engine/src/rpc/tauri)
+│   │   │   │   │           │   └── rpc_tauri feature "default"
+│   │   │   │   │           │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │           ├── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │   │   │   │           ├── search_extensions v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/extensions) (*)
+│   │   │   │   │           ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   │   │           ├── search_index v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/index) (*)
+│   │   │   │   │           ├── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   │   │   │           ├── tantivy v0.1.0 (/Users/naden/Developer/harana/search-engine/src/tantivy) (*)
+│   │   │   │   │           ├── thumbnailer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer) (*)
+│   │   │   │   │           ├── thumbnailer_aiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/aiff) (*)
+│   │   │   │   │           ├── thumbnailer_avif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/avif) (*)
+│   │   │   │   │           ├── thumbnailer_bmp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/bmp) (*)
+│   │   │   │   │           ├── thumbnailer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/code) (*)
+│   │   │   │   │           ├── thumbnailer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/core) (*)
+│   │   │   │   │           ├── thumbnailer_dds v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/dds) (*)
+│   │   │   │   │           ├── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub) (*)
+│   │   │   │   │           ├── thumbnailer_flac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/flac) (*)
+│   │   │   │   │           ├── thumbnailer_gif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/gif) (*)
+│   │   │   │   │           ├── thumbnailer_heif v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/heif) (*)
+│   │   │   │   │           ├── thumbnailer_ico v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ico) (*)
+│   │   │   │   │           ├── thumbnailer_ipynb v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ipynb) (*)
+│   │   │   │   │           ├── thumbnailer_jpeg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/jpeg) (*)
+│   │   │   │   │           ├── thumbnailer_json v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/json) (*)
+│   │   │   │   │           ├── thumbnailer_m4a v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/m4a) (*)
+│   │   │   │   │           ├── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │   │   │   │           ├── thumbnailer_md v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/md) (*)
+│   │   │   │   │           ├── thumbnailer_mp3 v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mp3) (*)
+│   │   │   │   │           ├── thumbnailer_noop v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/noop) (*)
+│   │   │   │   │           ├── thumbnailer_png v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/png) (*)
+│   │   │   │   │           ├── thumbnailer_pnm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/pnm) (*)
+│   │   │   │   │           ├── thumbnailer_ppm v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/ppm) (*)
+│   │   │   │   │           ├── thumbnailer_psd v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/psd) (*)
+│   │   │   │   │           ├── thumbnailer_qoi v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/qoi) (*)
+│   │   │   │   │           ├── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw) (*)
+│   │   │   │   │           ├── thumbnailer_svg v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/svg) (*)
+│   │   │   │   │           ├── thumbnailer_tex v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tex) (*)
+│   │   │   │   │           ├── thumbnailer_tga v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tga) (*)
+│   │   │   │   │           ├── thumbnailer_three v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/three) (*)
+│   │   │   │   │           ├── thumbnailer_tiff v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/tiff) (*)
+│   │   │   │   │           ├── thumbnailer_txt v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/txt) (*)
+│   │   │   │   │           ├── thumbnailer_wav v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/wav) (*)
+│   │   │   │   │           └── thumbnailer_webp v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/webp) (*)
+│   │   │   │   │   [build-dependencies]
+│   │   │   │   │   └── candle-examples v0.3.2 (*)
+│   │   │   │   ├── anyhow feature "default"
+│   │   │   │   │   ├── argmin v0.7.0
+│   │   │   │   │   │   ├── argmin feature "bincode"
+│   │   │   │   │   │   │   └── argmin feature "serde1"
+│   │   │   │   │   │   │       └── argmin feature "default"
+│   │   │   │   │   │   │           └── rucrf v0.3.2
+│   │   │   │   │   │   │               ├── rucrf feature "alloc"
+│   │   │   │   │   │   │               │   └── rucrf feature "std"
+│   │   │   │   │   │   │               │       └── rucrf feature "train"
+│   │   │   │   │   │   │               │           └── rucrf feature "default"
+│   │   │   │   │   │   │               │               └── vibrato v0.5.1
+│   │   │   │   │   │   │               │                   ├── vibrato feature "default"
+│   │   │   │   │   │   │               │                   │   └── tantivy-vibrato v0.3.0 (https://github.com/harana-oss/tantivy-vibrato.git#2751a5d5)
+│   │   │   │   │   │   │               │                   │       └── tantivy-vibrato feature "default"
+│   │   │   │   │   │   │               │                   │           └── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │               │                   ├── vibrato feature "rucrf"
+│   │   │   │   │   │   │               │                   │   └── vibrato feature "train"
+│   │   │   │   │   │   │               │                   │       └── vibrato feature "default" (*)
+│   │   │   │   │   │   │               │                   └── vibrato feature "train" (*)
+│   │   │   │   │   │   │               ├── rucrf feature "argmin"
+│   │   │   │   │   │   │               │   └── rucrf feature "train" (*)
+│   │   │   │   │   │   │               ├── rucrf feature "argmin-math"
+│   │   │   │   │   │   │               │   └── rucrf feature "train" (*)
+│   │   │   │   │   │   │               ├── rucrf feature "crossbeam-channel"
+│   │   │   │   │   │   │               │   └── rucrf feature "train" (*)
+│   │   │   │   │   │   │               ├── rucrf feature "default" (*)
+│   │   │   │   │   │   │               ├── rucrf feature "std" (*)
+│   │   │   │   │   │   │               └── rucrf feature "train" (*)
+│   │   │   │   │   │   ├── argmin feature "default" (*)
+│   │   │   │   │   │   ├── argmin feature "serde"
+│   │   │   │   │   │   │   └── argmin feature "serde1" (*)
+│   │   │   │   │   │   ├── argmin feature "serde1" (*)
+│   │   │   │   │   │   ├── argmin feature "serde_json"
+│   │   │   │   │   │   │   └── argmin feature "serde1" (*)
+│   │   │   │   │   │   ├── argmin feature "slog"
+│   │   │   │   │   │   │   └── argmin feature "slog-logger"
+│   │   │   │   │   │   │       └── argmin feature "default" (*)
+│   │   │   │   │   │   ├── argmin feature "slog-async"
+│   │   │   │   │   │   │   └── argmin feature "slog-logger" (*)
+│   │   │   │   │   │   ├── argmin feature "slog-json"
+│   │   │   │   │   │   │   └── argmin feature "serde1" (*)
+│   │   │   │   │   │   ├── argmin feature "slog-logger" (*)
+│   │   │   │   │   │   └── argmin feature "slog-term"
+│   │   │   │   │   │       └── argmin feature "slog-logger" (*)
+│   │   │   │   │   ├── argmin-math v0.2.1
+│   │   │   │   │   │   ├── argmin-math feature "default"
+│   │   │   │   │   │   │   └── rucrf v0.3.2 (*)
+│   │   │   │   │   │   ├── argmin-math feature "num-complex_0_4"
+│   │   │   │   │   │   │   ├── argmin-math feature "primitives"
+│   │   │   │   │   │   │   │   └── argmin v0.7.0 (*)
+│   │   │   │   │   │   │   │   ├── argmin-math feature "default" (*)
+│   │   │   │   │   │   │   │   └── argmin-math feature "vec"
+│   │   │   │   │   │   │   │       └── argmin-math feature "default" (*)
+│   │   │   │   │   │   │   └── argmin-math feature "vec" (*)
+│   │   │   │   │   │   ├── argmin-math feature "primitives" (*)
+│   │   │   │   │   │   └── argmin-math feature "vec" (*)
+│   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   ├── compose v0.1.0 (https://github.com/lnx-search/compose.git?tag=0.1.0#893cfa12)
+│   │   │   │   │   │   └── compose feature "default"
+│   │   │   │   │   │       └── tantivy v0.1.0 (/Users/naden/Developer/harana/search-engine/src/tantivy) (*)
+│   │   │   │   │   ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   ├── jpeg2k v0.6.6
+│   │   │   │   │   │   ├── jpeg2k feature "default"
+│   │   │   │   │   │   │   └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │   │   │   │   │   ├── jpeg2k feature "file-io"
+│   │   │   │   │   │   │   └── jpeg2k feature "default" (*)
+│   │   │   │   │   │   ├── jpeg2k feature "image"
+│   │   │   │   │   │   │   └── jpeg2k feature "default" (*)
+│   │   │   │   │   │   ├── jpeg2k feature "openjpeg-sys"
+│   │   │   │   │   │   │   └── jpeg2k feature "default" (*)
+│   │   │   │   │   │   └── jpeg2k feature "threads"
+│   │   │   │   │   │       └── jpeg2k feature "default" (*)
+│   │   │   │   │   ├── prost-derive v0.6.1 (proc-macro)
+│   │   │   │   │   │   └── prost-derive feature "default"
+│   │   │   │   │   │       └── prost v0.6.1
+│   │   │   │   │   │           ├── prost feature "default"
+│   │   │   │   │   │           │   ├── prost-build v0.6.1
+│   │   │   │   │   │           │   │   └── prost-build feature "default"
+│   │   │   │   │   │           │   │       [build-dependencies]
+│   │   │   │   │   │           │   │       └── vlsir v3.0.0
+│   │   │   │   │   │           │   │           └── vlsir feature "default"
+│   │   │   │   │   │           │   │               └── layout21protos v3.0.0-pre.2
+│   │   │   │   │   │           │   │                   └── layout21protos feature "default"
+│   │   │   │   │   │           │   │                       ├── layout21converters v3.0.0-pre.2
+│   │   │   │   │   │           │   │                       │   └── layout21converters feature "default"
+│   │   │   │   │   │           │   │                       │       └── indexer_hardware v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/hardware) (*)
+│   │   │   │   │   │           │   │                       └── layout21raw v3.0.0-pre.2
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "default"
+│   │   │   │   │   │           │   │                           │   └── layout21converters v3.0.0-pre.2 (*)
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "gds"
+│   │   │   │   │   │           │   │                           │   └── layout21raw feature "default" (*)
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "gds21"
+│   │   │   │   │   │           │   │                           │   └── layout21raw feature "gds" (*)
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "layout21protos"
+│   │   │   │   │   │           │   │                           │   └── layout21raw feature "proto"
+│   │   │   │   │   │           │   │                           │       └── layout21raw feature "default" (*)
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "lef"
+│   │   │   │   │   │           │   │                           │   └── layout21raw feature "default" (*)
+│   │   │   │   │   │           │   │                           ├── layout21raw feature "lef21"
+│   │   │   │   │   │           │   │                           │   └── layout21raw feature "lef" (*)
+│   │   │   │   │   │           │   │                           └── layout21raw feature "proto" (*)
+│   │   │   │   │   │           │   └── prost-types v0.6.1
+│   │   │   │   │   │           │       └── prost-types feature "default"
+│   │   │   │   │   │           │           ├── prost-build v0.6.1 (*)
+│   │   │   │   │   │           │           └── vlsir v3.0.0 (*)
+│   │   │   │   │   │           └── prost feature "prost-derive"
+│   │   │   │   │   │               └── prost feature "default" (*)
+│   │   │   │   │   ├── prost-derive v0.8.0 (proc-macro)
+│   │   │   │   │   │   └── prost-derive feature "default"
+│   │   │   │   │   │       └── prost v0.8.0
+│   │   │   │   │   │           ├── prost feature "default"
+│   │   │   │   │   │           │   └── vlsir v3.0.0 (*)
+│   │   │   │   │   │           ├── prost feature "prost-derive"
+│   │   │   │   │   │           │   └── prost feature "default" (*)
+│   │   │   │   │   │           └── prost feature "std"
+│   │   │   │   │   │               └── prost feature "default" (*)
+│   │   │   │   │   ├── rofl-parser v0.1.26
+│   │   │   │   │   │   └── rofl-parser feature "default"
+│   │   │   │   │   │       └── indexer_game v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/game) (*)
+│   │   │   │   │   ├── srt_parser v0.1.15
+│   │   │   │   │   │   └── srt_parser feature "default"
+│   │   │   │   │   │       └── indexer_video v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/video) (*)
+│   │   │   │   │   ├── tauri v1.6.0
+│   │   │   │   │   │   ├── tauri feature "base64"
+│   │   │   │   │   │   │   └── tauri feature "updater"
+│   │   │   │   │   │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "bytes"
+│   │   │   │   │   │   │   └── tauri feature "http-api"
+│   │   │   │   │   │   │       ├── tauri feature "http-request"
+│   │   │   │   │   │   │       │   └── tauri feature "http-all"
+│   │   │   │   │   │   │       │       ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │       │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       └── tauri feature "updater" (*)
+│   │   │   │   │   │   ├── tauri feature "compression"
+│   │   │   │   │   │   │   └── tauri feature "default"
+│   │   │   │   │   │   │       ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       ├── sentry-tauri v0.2.0
+│   │   │   │   │   │   │       │   └── sentry-tauri feature "default"
+│   │   │   │   │   │   │       │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       ├── tauri-plugin-autostart v0.0.0 (https://github.com/tauri-apps/plugins-workspace?branch=v1#58176114)
+│   │   │   │   │   │   │       │   └── tauri-plugin-autostart feature "default"
+│   │   │   │   │   │   │       │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       ├── tauri-plugin-log v0.0.0 (https://github.com/tauri-apps/plugins-workspace?branch=v1#58176114)
+│   │   │   │   │   │   │       │   ├── tauri-plugin-log feature "colored"
+│   │   │   │   │   │   │       │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       │   └── tauri-plugin-log feature "default"
+│   │   │   │   │   │   │       │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │       └── tauri-plugin-single-instance v0.0.0 (https://github.com/tauri-apps/plugins-workspace?branch=v1#58176114)
+│   │   │   │   │   │   │           └── tauri-plugin-single-instance feature "default"
+│   │   │   │   │   │   │               └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "custom-protocol"
+│   │   │   │   │   │   │   └── harana feature "custom-protocol" (*)
+│   │   │   │   │   │   ├── tauri feature "default" (*)
+│   │   │   │   │   │   ├── tauri feature "devtools"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "dialog"
+│   │   │   │   │   │   │   ├── tauri feature "dialog-ask"
+│   │   │   │   │   │   │   │   ├── tauri feature "dialog-all"
+│   │   │   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │   │   └── tauri feature "updater" (*)
+│   │   │   │   │   │   │   ├── tauri feature "dialog-message"
+│   │   │   │   │   │   │   │   └── tauri feature "dialog-all" (*)
+│   │   │   │   │   │   │   ├── tauri feature "dialog-open"
+│   │   │   │   │   │   │   │   └── tauri feature "dialog-all" (*)
+│   │   │   │   │   │   │   └── tauri feature "dialog-save"
+│   │   │   │   │   │   │       └── tauri feature "dialog-all" (*)
+│   │   │   │   │   │   ├── tauri feature "dialog-all" (*)
+│   │   │   │   │   │   ├── tauri feature "dialog-ask" (*)
+│   │   │   │   │   │   ├── tauri feature "dialog-message" (*)
+│   │   │   │   │   │   ├── tauri feature "dialog-open" (*)
+│   │   │   │   │   │   ├── tauri feature "dialog-save" (*)
+│   │   │   │   │   │   ├── tauri feature "fs-exists"
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "fs-extract-api"
+│   │   │   │   │   │   │   └── tauri feature "updater" (*)
+│   │   │   │   │   │   ├── tauri feature "fs-read-dir"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "fs-read-file"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "global-shortcut"
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   │   └── tauri feature "global-shortcut-all"
+│   │   │   │   │   │   │       ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "global-shortcut-all" (*)
+│   │   │   │   │   │   ├── tauri feature "http-all" (*)
+│   │   │   │   │   │   ├── tauri feature "http-api" (*)
+│   │   │   │   │   │   ├── tauri feature "http-request" (*)
+│   │   │   │   │   │   ├── tauri feature "indexmap"
+│   │   │   │   │   │   │   └── tauri feature "http-api" (*)
+│   │   │   │   │   │   ├── tauri feature "macos-private-api"
+│   │   │   │   │   │   │   └── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   ├── tauri feature "minisign-verify"
+│   │   │   │   │   │   │   └── tauri feature "updater" (*)
+│   │   │   │   │   │   ├── tauri feature "objc-exception"
+│   │   │   │   │   │   │   └── tauri feature "default" (*)
+│   │   │   │   │   │   ├── tauri feature "open"
+│   │   │   │   │   │   │   └── tauri feature "shell-open-api"
+│   │   │   │   │   │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "path-all"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "protocol-all"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "protocol-asset"
+│   │   │   │   │   │   │   └── tauri feature "protocol-all" (*)
+│   │   │   │   │   │   ├── tauri feature "regex"
+│   │   │   │   │   │   │   └── tauri feature "shell-open-api" (*)
+│   │   │   │   │   │   ├── tauri feature "reqwest"
+│   │   │   │   │   │   │   └── tauri feature "http-api" (*)
+│   │   │   │   │   │   ├── tauri feature "rfd"
+│   │   │   │   │   │   │   └── tauri feature "dialog" (*)
+│   │   │   │   │   │   ├── tauri feature "shell-open-api" (*)
+│   │   │   │   │   │   ├── tauri feature "system-tray"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "tauri-runtime-wry"
+│   │   │   │   │   │   │   ├── tauri feature "devtools" (*)
+│   │   │   │   │   │   │   ├── tauri feature "global-shortcut" (*)
+│   │   │   │   │   │   │   ├── tauri feature "macos-private-api" (*)
+│   │   │   │   │   │   │   ├── tauri feature "objc-exception" (*)
+│   │   │   │   │   │   │   ├── tauri feature "system-tray" (*)
+│   │   │   │   │   │   │   └── tauri feature "wry"
+│   │   │   │   │   │   │       └── tauri feature "default" (*)
+│   │   │   │   │   │   ├── tauri feature "time"
+│   │   │   │   │   │   │   └── tauri feature "updater" (*)
+│   │   │   │   │   │   ├── tauri feature "updater" (*)
+│   │   │   │   │   │   ├── tauri feature "window-all"
+│   │   │   │   │   │   │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│   │   │   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   │   │   ├── tauri feature "window-center"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-close"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-create"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-hide"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-maximize"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-minimize"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-print"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-request-user-attention"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-always-on-top"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-closable"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-content-protected"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-cursor-grab"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-cursor-icon"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-cursor-position"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-cursor-visible"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-decorations"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-focus"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-fullscreen"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-icon"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-ignore-cursor-events"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-max-size"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-maximizable"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-min-size"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-minimizable"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-position"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-resizable"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-size"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-skip-taskbar"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-set-title"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-show"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-start-dragging"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-unmaximize"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "window-unminimize"
+│   │   │   │   │   │   │   └── tauri feature "window-all" (*)
+│   │   │   │   │   │   ├── tauri feature "wry" (*)
+│   │   │   │   │   │   └── tauri feature "zip"
+│   │   │   │   │   │       └── tauri feature "fs-extract-api" (*)
+│   │   │   │   │   ├── tauri-build v1.5.1 (*)
+│   │   │   │   │   ├── wasm-metadata v0.10.20
+│   │   │   │   │   │   └── wasm-metadata feature "default"
+│   │   │   │   │   │       └── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   │   │   │   │   ├── webarchive v0.2.1
+│   │   │   │   │   │   └── webarchive feature "default"
+│   │   │   │   │   │       └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │   └── xcodeproj v0.3.0
+│   │   │   │   │       ├── xcodeproj feature "default"
+│   │   │   │   │       │   ├── indexer_certificate v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/certificate) (*)
+│   │   │   │   │       │   └── indexer_code v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/code) (*)
+│   │   │   │   │       ├── xcodeproj feature "tracing"
+│   │   │   │   │       │   └── xcodeproj feature "with_tracing"
+│   │   │   │   │       │       └── xcodeproj feature "default" (*)
+│   │   │   │   │       ├── xcodeproj feature "tracing-appender"
+│   │   │   │   │       │   └── xcodeproj feature "with_tracing" (*)
+│   │   │   │   │       ├── xcodeproj feature "tracing-subscriber"
+│   │   │   │   │       │   └── xcodeproj feature "with_tracing" (*)
+│   │   │   │   │       └── xcodeproj feature "with_tracing" (*)
+│   │   │   │   │   [build-dependencies]
+│   │   │   │   │   └── candle-examples v0.3.2 (*)
+│   │   │   │   └── anyhow feature "std"
+│   │   │   │       └── anyhow feature "default" (*)
+│   │   │   ├── color-eyre v0.6.2
+│   │   │   │   ├── color-eyre feature "capture-spantrace"
+│   │   │   │   │   └── color-eyre feature "default"
+│   │   │   │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   ├── color-eyre feature "color-spantrace"
+│   │   │   │   │   └── color-eyre feature "capture-spantrace" (*)
+│   │   │   │   ├── color-eyre feature "default" (*)
+│   │   │   │   ├── color-eyre feature "tracing-error"
+│   │   │   │   │   └── color-eyre feature "capture-spantrace" (*)
+│   │   │   │   └── color-eyre feature "track-caller"
+│   │   │   │       └── color-eyre feature "default" (*)
+│   │   │   ├── error-chain v0.10.0
+│   │   │   │   ├── error-chain feature "backtrace"
+│   │   │   │   │   └── error-chain feature "default"
+│   │   │   │   │       └── quick-xml v0.9.4
+│   │   │   │   │           └── quick-xml feature "default"
+│   │   │   │   │               └── dotext_ed8fc7b v0.1.2
+│   │   │   │   │                   └── dotext_ed8fc7b feature "default"
+│   │   │   │   │                       └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   ├── error-chain feature "default" (*)
+│   │   │   │   └── error-chain feature "example_generated"
+│   │   │   │       └── error-chain feature "default" (*)
+│   │   │   ├── error-chain v0.12.4
+│   │   │   │   ├── error-chain feature "backtrace"
+│   │   │   │   │   └── error-chain feature "default"
+│   │   │   │   │       └── gpx v0.9.1
+│   │   │   │   │           ├── gpx feature "default"
+│   │   │   │   │           │   └── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │   │   │   │           ├── gpx feature "serde"
+│   │   │   │   │           │   └── gpx feature "use-serde"
+│   │   │   │   │           │       └── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │   │   │   │           └── gpx feature "use-serde" (*)
+│   │   │   │   ├── error-chain feature "default" (*)
+│   │   │   │   └── error-chain feature "example_generated"
+│   │   │   │       └── error-chain feature "default" (*)
+│   │   │   ├── failure v0.1.8
+│   │   │   │   ├── failure feature "backtrace"
+│   │   │   │   │   └── failure feature "std"
+│   │   │   │   │       └── failure feature "default"
+│   │   │   │   │           └── quick-xml v0.14.0
+│   │   │   │   │               ├── quick-xml feature "default"
+│   │   │   │   │               │   └── msoffice_shared v0.1.1
+│   │   │   │   │               │       └── msoffice_shared feature "default"
+│   │   │   │   │               │           ├── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │               │           └── msoffice_pptx v0.2.1
+│   │   │   │   │               │               └── msoffice_pptx feature "default"
+│   │   │   │   │               │                   └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │   │   │   │               └── quick-xml feature "failure"
+│   │   │   │   │                   └── quick-xml feature "default" (*)
+│   │   │   │   ├── failure feature "default" (*)
+│   │   │   │   ├── failure feature "derive"
+│   │   │   │   │   └── failure feature "default" (*)
+│   │   │   │   ├── failure feature "failure_derive"
+│   │   │   │   │   └── failure feature "derive" (*)
+│   │   │   │   └── failure feature "std" (*)
+│   │   │   ├── log-panics v2.1.0
+│   │   │   │   ├── log-panics feature "backtrace"
+│   │   │   │   │   └── log-panics feature "with-backtrace"
+│   │   │   │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   ├── log-panics feature "default"
+│   │   │   │   │   └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │   │   │   └── log-panics feature "with-backtrace" (*)
+│   │   │   ├── sentry-backtrace v0.31.8
+│   │   │   │   └── sentry-backtrace feature "default"
+│   │   │   │       ├── sentry v0.31.8
+│   │   │   │       │   ├── sentry feature "backtrace"
+│   │   │   │       │   │   └── sentry feature "default"
+│   │   │   │       │   │       └── sentry-tauri v0.2.0 (*)
+│   │   │   │       │   ├── sentry feature "contexts"
+│   │   │   │       │   │   └── sentry feature "default" (*)
+│   │   │   │       │   ├── sentry feature "debug-images"
+│   │   │   │       │   │   └── sentry feature "default" (*)
+│   │   │   │       │   ├── sentry feature "default" (*)
+│   │   │   │       │   ├── sentry feature "httpdate"
+│   │   │   │       │   │   └── sentry feature "reqwest"
+│   │   │   │       │   │       └── sentry feature "transport"
+│   │   │   │       │   │           └── sentry feature "default" (*)
+│   │   │   │       │   ├── sentry feature "native-tls"
+│   │   │   │       │   │   └── sentry feature "transport" (*)
+│   │   │   │       │   ├── sentry feature "panic"
+│   │   │   │       │   │   └── sentry feature "default" (*)
+│   │   │   │       │   ├── sentry feature "reqwest" (*)
+│   │   │   │       │   ├── sentry feature "sentry-backtrace"
+│   │   │   │       │   │   └── sentry feature "backtrace" (*)
+│   │   │   │       │   ├── sentry feature "sentry-contexts"
+│   │   │   │       │   │   └── sentry feature "contexts" (*)
+│   │   │   │       │   ├── sentry feature "sentry-debug-images"
+│   │   │   │       │   │   └── sentry feature "debug-images" (*)
+│   │   │   │       │   ├── sentry feature "sentry-panic"
+│   │   │   │       │   │   └── sentry feature "panic" (*)
+│   │   │   │       │   ├── sentry feature "tokio"
+│   │   │   │       │   │   └── sentry feature "reqwest" (*)
+│   │   │   │       │   └── sentry feature "transport" (*)
+│   │   │   │       └── sentry-panic v0.31.8
+│   │   │   │           └── sentry-panic feature "default"
+│   │   │   │               └── sentry v0.31.8 (*)
+│   │   │   └── sentry-backtrace v0.32.2
+│   │   │       └── sentry-backtrace feature "default"
+│   │   │           ├── sentry v0.32.2
+│   │   │           │   ├── sentry feature "backtrace"
+│   │   │           │   │   └── sentry feature "default"
+│   │   │           │   │       └── sentry-rust-minidump v0.6.5
+│   │   │           │   │           └── sentry-rust-minidump feature "default"
+│   │   │           │   │               └── sentry-tauri v0.2.0 (*)
+│   │   │           │   ├── sentry feature "contexts"
+│   │   │           │   │   └── sentry feature "default" (*)
+│   │   │           │   ├── sentry feature "debug-images"
+│   │   │           │   │   └── sentry feature "default" (*)
+│   │   │           │   ├── sentry feature "default" (*)
+│   │   │           │   ├── sentry feature "httpdate"
+│   │   │           │   │   └── sentry feature "reqwest"
+│   │   │           │   │       └── sentry feature "transport"
+│   │   │           │   │           └── sentry feature "default" (*)
+│   │   │           │   ├── sentry feature "native-tls"
+│   │   │           │   │   └── sentry feature "transport" (*)
+│   │   │           │   ├── sentry feature "panic"
+│   │   │           │   │   └── sentry feature "default" (*)
+│   │   │           │   ├── sentry feature "reqwest" (*)
+│   │   │           │   ├── sentry feature "sentry-backtrace"
+│   │   │           │   │   └── sentry feature "backtrace" (*)
+│   │   │           │   ├── sentry feature "sentry-contexts"
+│   │   │           │   │   └── sentry feature "contexts" (*)
+│   │   │           │   ├── sentry feature "sentry-debug-images"
+│   │   │           │   │   └── sentry feature "debug-images" (*)
+│   │   │           │   ├── sentry feature "sentry-panic"
+│   │   │           │   │   └── sentry feature "panic" (*)
+│   │   │           │   ├── sentry feature "tokio"
+│   │   │           │   │   └── sentry feature "reqwest" (*)
+│   │   │           │   └── sentry feature "transport" (*)
+│   │   │           └── sentry-panic v0.32.2
+│   │   │               └── sentry-panic feature "default"
+│   │   │                   └── sentry v0.32.2 (*)
+│   │   ├── backtrace feature "gimli-symbolize"
+│   │   │   └── color-eyre v0.6.2 (*)
+│   │   └── backtrace feature "std"
+│   │       └── backtrace feature "default" (*)
+│   ├── blake3 v1.5.0
+│   │   ├── blake3 feature "default"
+│   │   │   ├── io v0.1.0 (/Users/naden/Developer/harana/search-engine/src/io) (*)
+│   │   │   ├── search_file v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/file) (*)
+│   │   │   └── search_jobs v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/jobs) (*)
+│   │   └── blake3 feature "std"
+│   │       └── blake3 feature "default" (*)
+│   ├── bzip2-sys v0.1.11+1.0.8
+│   │   └── bzip2-sys feature "default"
+│   │       └── bzip2 v0.4.4
+│   │           └── bzip2 feature "default"
+│   │               ├── dmgwiz v0.2.4 (*)
+│   │               ├── zip v0.5.13
+│   │               │   ├── zip feature "bzip2"
+│   │               │   │   └── zip feature "default"
+│   │               │   │       ├── msoffice_pptx v0.2.1 (*)
+│   │               │   │       └── msoffice_shared v0.1.1 (*)
+│   │               │   ├── zip feature "default" (*)
+│   │               │   ├── zip feature "deflate"
+│   │               │   │   └── zip feature "default" (*)
+│   │               │   ├── zip feature "flate2"
+│   │               │   │   └── zip feature "deflate" (*)
+│   │               │   └── zip feature "time"
+│   │               │       └── zip feature "default" (*)
+│   │               └── zip v0.6.6
+│   │                   ├── candle-core v0.3.3
+│   │                   │   ├── candle-core feature "accelerate"
+│   │                   │   │   ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │                   │   │   └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │                   │   └── candle-core feature "default"
+│   │                   │       ├── candle-datasets v0.3.3 (*)
+│   │                   │       ├── candle-examples v0.3.2 (*)
+│   │                   │       ├── candle-nn v0.3.3
+│   │                   │       │   └── candle-nn feature "default"
+│   │                   │       │       ├── candle-datasets v0.3.3 (*)
+│   │                   │       │       ├── candle-examples v0.3.2 (*)
+│   │                   │       │       ├── candle-transformers v0.3.3
+│   │                   │       │       │   └── candle-transformers feature "default"
+│   │                   │       │       │       ├── candle-examples v0.3.2 (*)
+│   │                   │       │       │       ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │                   │       │       │       └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │                   │       │       ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │                   │       │       └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │                   │       ├── candle-transformers v0.3.3 (*)
+│   │                   │       ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │                   │       └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │                   └── tauri v1.6.0 (*)
+│   │                   ├── zip feature "aes"
+│   │                   │   └── zip feature "aes-crypto"
+│   │                   │       └── zip feature "default"
+│   │                   │           ├── io v0.1.0 (/Users/naden/Developer/harana/search-engine/src/io) (*)
+│   │                   │           ├── jars v0.1.1
+│   │                   │           │   └── jars feature "default"
+│   │                   │           │       └── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   │                   │           └── tantivy v0.1.0 (/Users/naden/Developer/harana/search-engine/src/tantivy) (*)
+│   │                   ├── zip feature "aes-crypto" (*)
+│   │                   ├── zip feature "bzip2"
+│   │                   │   └── kml v0.8.5
+│   │                   │       ├── kml feature "default"
+│   │                   │       │   └── indexer_map v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/map) (*)
+│   │                   │       ├── kml feature "geo-types"
+│   │                   │       │   └── kml feature "default" (*)
+│   │                   │       └── kml feature "zip"
+│   │                   │           └── kml feature "default" (*)
+│   │                   │   └── zip feature "default" (*)
+│   │                   ├── zip feature "constant_time_eq"
+│   │                   │   └── zip feature "aes-crypto" (*)
+│   │                   ├── zip feature "default" (*)
+│   │                   ├── zip feature "deflate"
+│   │                   │   ├── calamine v0.24.0
+│   │                   │   │   └── calamine feature "default"
+│   │                   │   │       └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │                   │   ├── docx-rust v0.1.6
+│   │                   │   │   └── docx-rust feature "default"
+│   │                   │   │       └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │                   │   ├── epub v2.1.1
+│   │                   │   │   └── epub feature "default"
+│   │                   │   │       └── thumbnailer_epub v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/epub) (*)
+│   │                   │   ├── epub v2.1.1 (https://github.com/danigm/epub-rs#38e091ab)
+│   │                   │   │   └── epub feature "default"
+│   │                   │   │       └── indexer_book v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/book) (*)
+│   │                   │   ├── kml v0.8.5 (*)
+│   │                   │   └── pbix v0.1.0
+│   │                   │       └── pbix feature "default"
+│   │                   │           └── indexer_document v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/document) (*)
+│   │                   │   └── zip feature "default" (*)
+│   │                   ├── zip feature "flate2"
+│   │                   │   └── zip feature "deflate" (*)
+│   │                   ├── zip feature "hmac"
+│   │                   │   └── zip feature "aes-crypto" (*)
+│   │                   ├── zip feature "pbkdf2"
+│   │                   │   └── zip feature "aes-crypto" (*)
+│   │                   ├── zip feature "sha1"
+│   │                   │   └── zip feature "aes-crypto" (*)
+│   │                   ├── zip feature "time"
+│   │                   │   └── kml v0.8.5 (*)
+│   │                   │   └── zip feature "default" (*)
+│   │                   └── zip feature "zstd"
+│   │                       └── kml v0.8.5 (*)
+│   │                       └── zip feature "default" (*)
+│   ├── esaxx-rs v0.1.10
+│   │   ├── tokenizers v0.13.4
+│   │   │   └── tokenizers feature "onig"
+│   │   │       └── candle-examples v0.3.2 (*)
+│   │   └── tokenizers v0.15.2
+│   │       ├── tokenizers feature "clap"
+│   │       │   └── tokenizers feature "cli"
+│   │       │       └── tokenizers feature "default"
+│   │       │           ├── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │       │           └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │       ├── tokenizers feature "cli" (*)
+│   │       ├── tokenizers feature "default" (*)
+│   │       ├── tokenizers feature "esaxx_fast"
+│   │       │   └── tokenizers feature "default" (*)
+│   │       ├── tokenizers feature "indicatif"
+│   │       │   └── tokenizers feature "progressbar"
+│   │       │       └── tokenizers feature "default" (*)
+│   │       ├── tokenizers feature "onig"
+│   │       │   └── candle-datasets v0.3.3 (*)
+│   │       │   └── tokenizers feature "default" (*)
+│   │       └── tokenizers feature "progressbar" (*)
+│   │   ├── esaxx-rs feature "cc"
+│   │   │   └── esaxx-rs feature "cpp"
+│   │   │       └── tokenizers feature "esaxx_fast" (*)
+│   │   └── esaxx-rs feature "cpp" (*)
+│   ├── ffmpeg-sys-next v6.1.0
+│   │   └── ffmpeg-next v6.1.1
+│   │       ├── ffmpeg-next feature "codec"
+│   │       │   └── metadata v0.1.8
+│   │       │       └── metadata feature "default"
+│   │       │           └── indexer v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer) (*)
+│   │       │   └── ffmpeg-next feature "format"
+│   │       │       └── metadata v0.1.8 (*)
+│   │       └── ffmpeg-next feature "format" (*)
+│   │   ├── ffmpeg-sys-next feature "avcodec"
+│   │   │   ├── ffmpeg-next feature "codec" (*)
+│   │   │   └── ffmpeg-sys-next feature "avformat"
+│   │   │       └── ffmpeg-next feature "format" (*)
+│   │   └── ffmpeg-sys-next feature "avformat" (*)
+│   ├── filament-bindings v0.2.2 (*)
+│   ├── findshlibs v0.10.2
+│   │   └── findshlibs feature "default"
+│   │       ├── sentry-debug-images v0.31.8
+│   │       │   └── sentry-debug-images feature "default"
+│   │       │       └── sentry v0.31.8 (*)
+│   │       └── sentry-debug-images v0.32.2
+│   │           └── sentry-debug-images feature "default"
+│   │               └── sentry v0.32.2 (*)
+│   ├── jbig2dec-sys v0.19.0
+│   │   └── jbig2dec-sys feature "default"
+│   │       └── jbig2dec v0.3.1
+│   │           ├── jbig2dec feature "default"
+│   │           │   └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   │           └── jbig2dec feature "png"
+│   │               └── jbig2dec feature "default" (*)
+│   ├── libdeflate-sys v1.19.0
+│   │   └── libdeflate-sys feature "default"
+│   │       └── libdeflater v1.19.0
+│   │           └── libdeflater feature "default"
+│   │               └── indexer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/core) (*)
+│   ├── libraw-sys v0.1.1 (http://github.com/harana-oss/libraw-sys#c4f56c51)
+│   │   └── libraw-sys feature "default"
+│   │       └── libraw v1.0.0 (https://github.com/harana-oss/libraw-rs.git#91e490a8)
+│   │           └── libraw feature "default"
+│   │               ├── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image) (*)
+│   │               └── thumbnailer_raw v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/raw) (*)
+│   ├── libsqlite3-sys v0.27.0
+│   │   ├── libsqlite3-sys feature "bundled"
+│   │   │   └── rusqlite feature "bundled"
+│   │   │       └── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       └── effectum feature "bundled-sqlite"
+│   │   │           └── effectum feature "default"
+│   │   │               └── job v0.1.0 (/Users/naden/Developer/harana/search-engine/src/job) (*)
+│   │   ├── libsqlite3-sys feature "bundled_bindings"
+│   │   │   ├── rusqlite feature "modern_sqlite"
+│   │   │   │   ├── rusqlite feature "bundled" (*)
+│   │   │   │   └── rusqlite feature "modern-full"
+│   │   │   │       └── effectum v0.4.1
+│   │   │   │           ├── effectum feature "bundled-sqlite" (*)
+│   │   │   │           └── effectum feature "default" (*)
+│   │   │   └── libsqlite3-sys feature "bundled" (*)
+│   │   ├── libsqlite3-sys feature "cc"
+│   │   │   └── libsqlite3-sys feature "bundled" (*)
+│   │   ├── libsqlite3-sys feature "default"
+│   │   │   └── rusqlite v0.30.0
+│   │   │       └── rusqlite_migration v1.1.0
+│   │   │           └── rusqlite_migration feature "default"
+│   │   │               ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │               └── effectum v0.4.1 (*)
+│   │   │       ├── rusqlite feature "array"
+│   │   │       │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   └── effectum v0.4.1 (*)
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "backup"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "blob"
+│   │   │       │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   └── effectum v0.4.1 (*)
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "bundled" (*)
+│   │   │       ├── rusqlite feature "chrono"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "collation"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "column_decltype"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "csv"
+│   │   │       │   └── rusqlite feature "csvtab"
+│   │   │       │       └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "csvtab" (*)
+│   │   │       ├── rusqlite feature "default"
+│   │   │       │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   ├── deadpool-sqlite v0.7.0
+│   │   │       │   │   ├── deadpool-sqlite feature "default"
+│   │   │       │   │   │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   │   │   └── effectum v0.4.1 (*)
+│   │   │       │   │   └── deadpool-sqlite feature "rt_tokio_1"
+│   │   │       │   │       └── deadpool-sqlite feature "default" (*)
+│   │   │       │   ├── effectum v0.4.1 (*)
+│   │   │       │   └── lrcat-extractor v0.4.1 (https://github.com/harana-oss/lrcat-extractor.git#4afde763)
+│   │   │       │       ├── lrcat-extractor feature "binaries"
+│   │   │       │       │   └── lrcat-extractor feature "default"
+│   │   │       │       │       └── indexer_image v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/image) (*)
+│   │   │       │       ├── lrcat-extractor feature "clap"
+│   │   │       │       │   └── lrcat-extractor feature "binaries" (*)
+│   │   │       │       └── lrcat-extractor feature "default" (*)
+│   │   │       ├── rusqlite feature "extra_check"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "functions"
+│   │   │       │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   └── effectum v0.4.1 (*)
+│   │   │       │   ├── rusqlite feature "modern-full" (*)
+│   │   │       │   └── rusqlite feature "window"
+│   │   │       │       └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "hooks"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "i128_blob"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "limits"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "load_extension"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "modern_sqlite" (*)
+│   │   │       ├── rusqlite feature "serde_json"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "series"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "time"
+│   │   │       │   ├── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   └── effectum v0.4.1 (*)
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "trace"
+│   │   │       │   └── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "unlock_notify"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "url"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "uuid"
+│   │   │       │   └── rusqlite feature "modern-full" (*)
+│   │   │       ├── rusqlite feature "vtab"
+│   │   │       │   ├── rusqlite feature "array" (*)
+│   │   │       │   ├── rusqlite feature "csvtab" (*)
+│   │   │       │   ├── rusqlite feature "modern-full" (*)
+│   │   │       │   └── rusqlite feature "series" (*)
+│   │   │       ├── rusqlite feature "window" (*)
+│   │   │       └── rusqlite feature "winsqlite3"
+│   │   │           └── database v0.1.0 (/Users/naden/Developer/harana/search-engine/src/database) (*)
+│   │   ├── libsqlite3-sys feature "min_sqlite_version_3_14_0"
+│   │   │   └── libsqlite3-sys feature "default" (*)
+│   │   ├── libsqlite3-sys feature "pkg-config"
+│   │   │   └── libsqlite3-sys feature "min_sqlite_version_3_14_0" (*)
+│   │   ├── libsqlite3-sys feature "unlock_notify"
+│   │   │   └── rusqlite feature "unlock_notify" (*)
+│   │   ├── libsqlite3-sys feature "vcpkg"
+│   │   │   └── libsqlite3-sys feature "min_sqlite_version_3_14_0" (*)
+│   │   └── libsqlite3-sys feature "winsqlite3"
+│   │       └── rusqlite feature "winsqlite3" (*)
+│   ├── lz4-sys v1.9.4
+│   │   └── lz4-sys feature "default"
+│   │       └── lz4 v1.24.0
+│   │           └── parquet v47.0.0
+│   │               ├── parquet feature "arrow"
+│   │               │   └── parquet feature "default"
+│   │               │       └── indexer_data v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/data) (*)
+│   │               ├── parquet feature "arrow-array"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-buffer"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-cast"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-data"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-ipc"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-schema"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "arrow-select"
+│   │               │   └── parquet feature "arrow" (*)
+│   │               ├── parquet feature "base64"
+│   │               │   ├── parquet feature "arrow" (*)
+│   │               │   └── parquet feature "default" (*)
+│   │               ├── parquet feature "brotli"
+│   │               │   └── parquet feature "default" (*)
+│   │               ├── parquet feature "default" (*)
+│   │               ├── parquet feature "flate2"
+│   │               │   └── parquet feature "default" (*)
+│   │               ├── parquet feature "lz4"
+│   │               │   └── parquet feature "default" (*)
+│   │               ├── parquet feature "snap"
+│   │               │   └── parquet feature "default" (*)
+│   │               └── parquet feature "zstd"
+│   │                   └── parquet feature "default" (*)
+│   ├── lzfse-sys v1.0.0
+│   │   └── lzfse-sys feature "default"
+│   │       └── lzfse v0.1.0
+│   │           └── lzfse feature "default"
+│   │               └── dmgwiz v0.2.4 (*)
+│   ├── lzma-sys v0.1.20
+│   │   └── lzma-sys feature "default"
+│   │       └── xz2 v0.1.7
+│   │           └── xz2 feature "default"
+│   │               └── xz v0.1.0
+│   │                   └── xz feature "default"
+│   │                       └── deb-rust v0.1.2 (https://github.com/harana-oss/deb-rust.git?branch=main#d35fc447)
+│   │                           └── deb-rust feature "default"
+│   │                               └── indexer_codeartifact v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/codeartifact) (*)
+│   ├── mac-notification-sys v0.6.1
+│   │   └── mac-notification-sys feature "default"
+│   │       └── notify-rust v4.10.0
+│   │           ├── notify-rust feature "async"
+│   │           │   └── notify-rust feature "z"
+│   │           │       └── notify-rust feature "default"
+│   │           │           └── search_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/search/core) (*)
+│   │           ├── notify-rust feature "default" (*)
+│   │           ├── notify-rust feature "serde"
+│   │           │   └── notify-rust feature "z" (*)
+│   │           ├── notify-rust feature "z" (*)
+│   │           └── notify-rust feature "zbus"
+│   │               └── notify-rust feature "z" (*)
+│   ├── macos-app-nap v0.0.1
+│   │   └── macos-app-nap feature "default"
+│   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   ├── objc_exception v0.1.2
+│   │   └── objc_exception feature "default"
+│   │       └── objc v0.2.7
+│   │           ├── objc feature "default"
+│   │           │   ├── cacao v0.4.0-beta2
+│   │           │   │   ├── cacao feature "appkit"
+│   │           │   │   │   └── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │           │   │   │   └── cacao feature "default"
+│   │           │   │   │       └── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │           │   │   ├── cacao feature "autolayout"
+│   │           │   │   │   └── cacao feature "default" (*)
+│   │           │   │   ├── cacao feature "default" (*)
+│   │           │   │   └── cacao feature "quicklook"
+│   │           │   │       └── thumbnailer_mac v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/mac) (*)
+│   │           │   ├── cocoa v0.24.1
+│   │           │   │   └── cocoa feature "default"
+│   │           │   │       ├── tao v0.12.2
+│   │           │   │       │   └── tao feature "serde"
+│   │           │   │       │       └── wry v0.19.0
+│   │           │   │       │           ├── wry feature "file-drop"
+│   │           │   │       │           │   └── thumbnailer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/core) (*)
+│   │           │   │       │           └── wry feature "protocol"
+│   │           │   │       │               └── thumbnailer_core v0.1.0 (/Users/naden/Developer/harana/search-engine/src/thumbnailer/core) (*)
+│   │           │   │       ├── tao v0.16.7
+│   │           │   │       │   ├── tao feature "dirs-next"
+│   │           │   │       │   │   └── tao feature "tray"
+│   │           │   │       │   │       └── wry feature "tray"
+│   │           │   │       │   │           └── tauri-runtime-wry feature "system-tray"
+│   │           │   │       │   │               └── tauri feature "system-tray" (*)
+│   │           │   │       │   ├── tao feature "libappindicator"
+│   │           │   │       │   │   └── tao feature "tray" (*)
+│   │           │   │       │   ├── tao feature "serde"
+│   │           │   │       │   │   └── wry v0.24.7
+│   │           │   │       │   │       ├── wry feature "devtools"
+│   │           │   │       │   │       │   └── tauri-runtime-wry feature "devtools"
+│   │           │   │       │   │       │       └── tauri feature "devtools" (*)
+│   │           │   │       │   │       ├── wry feature "file-drop"
+│   │           │   │       │   │       │   └── tauri-runtime-wry v0.14.4
+│   │           │   │       │   │       │       ├── tauri-runtime-wry feature "default"
+│   │           │   │       │   │       │       │   └── tauri v1.6.0 (*)
+│   │           │   │       │   │       │       ├── tauri-runtime-wry feature "devtools" (*)
+│   │           │   │       │   │       │       ├── tauri-runtime-wry feature "global-shortcut"
+│   │           │   │       │   │       │       │   └── tauri feature "global-shortcut" (*)
+│   │           │   │       │   │       │       ├── tauri-runtime-wry feature "macos-private-api"
+│   │           │   │       │   │       │       │   └── tauri feature "macos-private-api" (*)
+│   │           │   │       │   │       │       ├── tauri-runtime-wry feature "objc-exception"
+│   │           │   │       │   │       │       │   └── tauri feature "objc-exception" (*)
+│   │           │   │       │   │       │       └── tauri-runtime-wry feature "system-tray" (*)
+│   │           │   │       │   │       ├── wry feature "fullscreen"
+│   │           │   │       │   │       │   └── tauri-runtime-wry feature "macos-private-api" (*)
+│   │           │   │       │   │       ├── wry feature "objc-exception"
+│   │           │   │       │   │       │   └── tauri-runtime-wry feature "objc-exception" (*)
+│   │           │   │       │   │       ├── wry feature "protocol"
+│   │           │   │       │   │       │   └── tauri-runtime-wry v0.14.4 (*)
+│   │           │   │       │   │       ├── wry feature "transparent"
+│   │           │   │       │   │       │   └── tauri-runtime-wry feature "macos-private-api" (*)
+│   │           │   │       │   │       └── wry feature "tray" (*)
+│   │           │   │       │   └── tao feature "tray" (*)
+│   │           │   │       ├── tauri v1.6.0 (*)
+│   │           │   │       ├── tauri-runtime-wry v0.14.4 (*)
+│   │           │   │       ├── wry v0.19.0 (*)
+│   │           │   │       └── wry v0.24.7 (*)
+│   │           │   ├── cocoa v0.25.0
+│   │           │   │   └── cocoa feature "default"
+│   │           │   │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   │       └── window-vibrancy v0.4.3
+│   │           │   │           └── window-vibrancy feature "default"
+│   │           │   │               └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   ├── cocoa-foundation v0.1.2
+│   │           │   │   └── cocoa-foundation feature "default"
+│   │           │   │       ├── cocoa v0.24.1 (*)
+│   │           │   │       ├── cocoa v0.25.0 (*)
+│   │           │   │       └── macos-app-nap v0.0.1 (*)
+│   │           │   ├── dark-light v1.0.0
+│   │           │   │   └── dark-light feature "default"
+│   │           │   │       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   ├── macos-app-nap v0.0.1 (*)
+│   │           │   ├── objc-foundation v0.1.1
+│   │           │   │   └── objc-foundation feature "default"
+│   │           │   │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   │       ├── mac-notification-sys v0.6.1 (*)
+│   │           │   │       ├── rfd v0.10.0
+│   │           │   │       │   ├── rfd feature "common-controls-v6"
+│   │           │   │       │   │   └── tauri v1.6.0 (*)
+│   │           │   │       │   ├── rfd feature "default"
+│   │           │   │       │   │   └── tauri v1.6.0 (*)
+│   │           │   │       │   ├── rfd feature "glib-sys"
+│   │           │   │       │   │   └── rfd feature "gtk3"
+│   │           │   │       │   │       └── tauri v1.6.0 (*)
+│   │           │   │       │   │       └── rfd feature "default" (*)
+│   │           │   │       │   ├── rfd feature "gobject-sys"
+│   │           │   │       │   │   └── rfd feature "gtk3" (*)
+│   │           │   │       │   ├── rfd feature "gtk-sys"
+│   │           │   │       │   │   └── rfd feature "gtk3" (*)
+│   │           │   │       │   ├── rfd feature "gtk3" (*)
+│   │           │   │       │   └── rfd feature "lazy_static"
+│   │           │   │       │       └── rfd feature "gtk3" (*)
+│   │           │   │       └── screencapturekit-sys v0.1.0 (https://github.com/harana-oss/screencapturekit-rs#3a744e81)
+│   │           │   │           └── screencapturekit-sys feature "default"
+│   │           │   │               ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   │               └── screencapturekit v0.1.0 (https://github.com/harana-oss/screencapturekit-rs#3a744e81)
+│   │           │   │                   └── screencapturekit feature "default"
+│   │           │   │                       └── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   ├── objc_id v0.1.1
+│   │           │   │   └── objc_id feature "default"
+│   │           │   │       ├── cacao v0.4.0-beta2 (*)
+│   │           │   │       ├── harana v0.0.0 (/Users/naden/Developer/harana/search/src-tauri) (*)
+│   │           │   │       ├── mac-notification-sys v0.6.1 (*)
+│   │           │   │       ├── objc-foundation v0.1.1 (*)
+│   │           │   │       ├── rfd v0.10.0 (*)
+│   │           │   │       ├── screencapturekit-sys v0.1.0 (https://github.com/harana-oss/screencapturekit-rs#3a744e81) (*)
+│   │           │   │       ├── wry v0.19.0 (*)
+│   │           │   │       └── wry v0.24.7 (*)
+│   │           │   ├── rfd v0.10.0 (*)
+│   │           │   ├── screencapturekit-sys v0.1.0 (https://github.com/harana-oss/screencapturekit-rs#3a744e81) (*)
+│   │           │   ├── tao v0.12.2 (*)
+│   │           │   ├── tao v0.16.7 (*)
+│   │           │   ├── tauri v1.6.0 (*)
+│   │           │   ├── window-vibrancy v0.4.3 (*)
+│   │           │   ├── wry v0.19.0 (*)
+│   │           │   └── wry v0.24.7 (*)
+│   │           ├── objc feature "exception"
+│   │           │   └── screencapturekit-sys v0.1.0 (https://github.com/harana-oss/screencapturekit-rs#3a744e81) (*)
+│   │           │   └── wry feature "objc-exception" (*)
+│   │           └── objc feature "objc_exception"
+│   │               └── objc feature "exception" (*)
+│   ├── onig_sys v69.8.1
+│   │   └── onig v6.4.0
+│   │       ├── tokenizers v0.13.4 (*)
+│   │       └── tokenizers v0.15.2 (*)
+│   ├── openjpeg-sys v1.0.10
+│   │   └── jpeg2k v0.6.6 (*)
+│   │   └── openjpeg-sys feature "threads"
+│   │       └── jpeg2k feature "threads" (*)
+│   ├── openssl-sys v0.9.100 (*)
+│   ├── psm v0.1.21
+│   │   └── psm feature "default"
+│   │       └── stacker v0.1.15
+│   │           └── stacker feature "default"
+│   │               └── chumsky v0.9.3
+│   │                   ├── chumsky feature "ahash"
+│   │                   │   └── chumsky feature "default"
+│   │                   │       └── rfc2047-decoder v1.0.5
+│   │                   │           └── rfc2047-decoder feature "default"
+│   │                   │               └── eml-parser v0.1.4
+│   │                   │                   └── eml-parser feature "default"
+│   │                   │                       └── indexer_email v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/email) (*)
+│   │                   ├── chumsky feature "default" (*)
+│   │                   ├── chumsky feature "spill-stack"
+│   │                   │   └── chumsky feature "default" (*)
+│   │                   ├── chumsky feature "stacker"
+│   │                   │   └── chumsky feature "spill-stack" (*)
+│   │                   └── chumsky feature "std"
+│   │                       ├── chumsky feature "default" (*)
+│   │                       └── chumsky feature "spill-stack" (*)
+│   ├── stacker v0.1.15 (*)
+│   ├── tao v0.12.2 (*)
+│   ├── tao v0.16.7 (*)
+│   └── zstd-sys v2.0.9+zstd.1.5.5
+│       ├── zstd-safe v5.0.2+zstd.1.5.2
+│       │   ├── zstd-safe feature "arrays"
+│       │   │   └── zstd feature "arrays"
+│       │   │       └── zstd feature "default"
+│       │   │           ├── deb-rust v0.1.2 (https://github.com/harana-oss/deb-rust.git?branch=main#d35fc447) (*)
+│       │   │           └── zip v0.6.6 (*)
+│       │   ├── zstd-safe feature "legacy"
+│       │   │   └── zstd feature "legacy"
+│       │   │       └── zstd feature "default" (*)
+│       │   ├── zstd-safe feature "std"
+│       │   │   └── zstd v0.11.2+zstd.1.5.2
+│       │   │       ├── zstd feature "arrays" (*)
+│       │   │       ├── zstd feature "default" (*)
+│       │   │       ├── zstd feature "legacy" (*)
+│       │   │       └── zstd feature "zdict_builder"
+│       │   │           └── zstd feature "default" (*)
+│       │   └── zstd-safe feature "zdict_builder"
+│       │       └── zstd feature "zdict_builder" (*)
+│       ├── zstd-safe v6.0.6
+│       │   ├── zstd-safe feature "arrays"
+│       │   │   └── zstd feature "arrays"
+│       │   │       └── zstd feature "default"
+│       │   │           ├── indexer_graphics v0.1.0 (/Users/naden/Developer/harana/search-engine/src/indexer/graphics) (*)
+│       │   │           └── tantivy-sstable v0.2.0
+│       │   │               └── tantivy-sstable feature "default"
+│       │   │                   └── tantivy-columnar v0.2.0
+│       │   │                       └── tantivy-columnar feature "default"
+│       │   │                           └── tantivy v0.21.1
+│       │   │                               ├── tantivy feature "default"
+│       │   │                               │   ├── common v0.1.0 (/Users/naden/Developer/harana/search-engine/src/common) (*)
+│       │   │                               │   └── tantivy-vibrato v0.3.0 (https://github.com/harana-oss/tantivy-vibrato.git#2751a5d5) (*)
+│       │   │                               ├── tantivy feature "fs4"
+│       │   │                               │   └── tantivy feature "mmap"
+│       │   │                               │       └── tantivy feature "default" (*)
+│       │   │                               ├── tantivy feature "lz4-compression"
+│       │   │                               │   └── tantivy feature "default" (*)
+│       │   │                               ├── tantivy feature "lz4_flex"
+│       │   │                               │   └── tantivy feature "lz4-compression" (*)
+│       │   │                               ├── tantivy feature "memmap2"
+│       │   │                               │   └── tantivy feature "mmap" (*)
+│       │   │                               ├── tantivy feature "mmap" (*)
+│       │   │                               ├── tantivy feature "stopwords"
+│       │   │                               │   └── tantivy feature "default" (*)
+│       │   │                               └── tantivy feature "tempfile"
+│       │   │                                   └── tantivy feature "mmap" (*)
+│       │   ├── zstd-safe feature "experimental"
+│       │   │   └── zstd feature "experimental"
+│       │   │       └── tantivy-sstable v0.2.0 (*)
+│       │   ├── zstd-safe feature "legacy"
+│       │   │   └── zstd feature "legacy"
+│       │   │       └── zstd feature "default" (*)
+│       │   ├── zstd-safe feature "std"
+│       │   │   └── zstd v0.12.4
+│       │   │       └── parquet v47.0.0 (*)
+│       │   │       ├── zstd feature "arrays" (*)
+│       │   │       ├── zstd feature "default" (*)
+│       │   │       ├── zstd feature "experimental" (*)
+│       │   │       ├── zstd feature "legacy" (*)
+│       │   │       └── zstd feature "zdict_builder"
+│       │   │           └── zstd feature "default" (*)
+│       │   └── zstd-safe feature "zdict_builder"
+│       │       └── zstd feature "zdict_builder" (*)
+│       └── zstd-safe v7.0.0
+│           └── zstd-safe feature "std"
+│               └── zstd v0.13.0
+│                   └── parquet v50.0.0
+│                       ├── parquet feature "arrow"
+│                       │   └── parquet feature "default"
+│                       │       └── candle-datasets v0.3.3 (*)
+│                       ├── parquet feature "arrow-array"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-buffer"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-cast"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-data"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-ipc"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-schema"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "arrow-select"
+│                       │   └── parquet feature "arrow" (*)
+│                       ├── parquet feature "base64"
+│                       │   ├── parquet feature "arrow" (*)
+│                       │   └── parquet feature "default" (*)
+│                       ├── parquet feature "brotli"
+│                       │   └── parquet feature "default" (*)
+│                       ├── parquet feature "default" (*)
+│                       ├── parquet feature "flate2"
+│                       │   └── parquet feature "default" (*)
+│                       ├── parquet feature "lz4"
+│                       │   └── parquet feature "default" (*)
+│                       ├── parquet feature "lz4_flex"
+│                       │   └── parquet feature "lz4" (*)
+│                       ├── parquet feature "snap"
+│                       │   └── parquet feature "default" (*)
+│                       └── parquet feature "zstd"
+│                           └── parquet feature "default" (*)
+│       ├── zstd-sys feature "experimental"
+│       │   └── zstd-safe feature "experimental" (*)
+│       ├── zstd-sys feature "legacy"
+│       │   ├── zstd-safe feature "legacy" (*)
+│       │   └── zstd-safe feature "legacy" (*)
+│       ├── zstd-sys feature "std"
+│       │   ├── zstd-safe feature "std" (*)
+│       │   ├── zstd-safe feature "std" (*)
+│       │   └── zstd-safe feature "std" (*)
+│       └── zstd-sys feature "zdict_builder"
+│           ├── zstd-safe feature "zdict_builder" (*)
+│           └── zstd-safe feature "zdict_builder" (*)
+├── cc feature "jobserver"
+│   └── cc feature "parallel"
+│       [build-dependencies]
+│       └── zstd-sys v2.0.9+zstd.1.5.5 (*)
+└── cc feature "parallel" (*)

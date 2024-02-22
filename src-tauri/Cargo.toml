@@ -75,6 +75,9 @@ screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
+[patch.crates-io]
+zstd-sys = { git = "https://github.com/harana-oss/zstd-rs.git" }
+
 [profile.release]
 codegen-units = 1
 incremental = false
@@ -86,4 +89,3 @@ opt-level = "s"
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
-
