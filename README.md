@@ -49,15 +49,6 @@ Search everything, instantly.
 * For cloud searches e.g. Notion we do build a searchable index on our servers. But it is encrypted and only readable by you. 
 * We do use Sentry for crash reporting however this can be disabled.
 
-## Vision
-
-Over the coming decades AI is expected to put many people out of work. 
-
-If we want to fight back then we need to make people more productive. And that starts with getting you the information you need as quickly as possible. 
-
-We see a free, open source, community-driven desktop app as being the first step in this journey. We are starting with search but over time want to have an open ecosystem of third party plugins that extends it in ways we couldn't even imagine.
-
-
 ## Roadmap
 
 * Developer search e.g. Crates, NPM, Maven. 
