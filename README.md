@@ -50,7 +50,7 @@ Search everything, instantly.
 
 * We do not track your behaviour or capture any telemetry or user analytics.
 * All searches and file indexing is done locally and never shared.
-* For cloud searches e.g. Notion we do build a searchable index on our servers. But it is encrypted and only readable by you. 
+* For cloud sources we do build a searchable index on our servers. But it is encrypted and only readable by you. 
 * We do use Sentry for crash reporting however this can be disabled.
 
 <br/>
