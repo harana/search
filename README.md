@@ -82,3 +82,6 @@ Please refer to the [security policy](SECURITY.md) for information on how to res
 * [SBT Plugin](http://github.com/harana/sbt-plugin) - Scala SBT plugin abstracting common configuration
 * [SDK](http://github.com/harana/sdk) - Scala SDK for the UI
 * [Web](http://github.com/harana/web) - React / Scala.js related components
+
+* [Platform](http://github.com/harana/platform) - Terraform workspaces/modules for the Data Platform
+* [Platform Images](http://github.com/harana/platform-images) - Ansible/Packer playbooks for Docker images and AMIs
