@@ -39,7 +39,7 @@ Search everything, instantly.
 * PDF and Image OCR using Google Tesseract. 
 * Text summarisation using Google Bert.
 * Speech to text indexing for movies, podcasts etc using OpenAI Whisper.
-* Image object detection using YOLO.
+* Video and image object detection using YOLO.
 * Fallback to macOS Quicklook when needed. 
 
 ## Privacy
