@@ -17,6 +17,7 @@ Search everything, instantly.
 
 
 <br/>
+
 ## Features
 
 <b>Fast and Minimal</b>
@@ -44,6 +45,7 @@ Search everything, instantly.
 * Fallback to macOS Quicklook when needed. 
 
 <br/>
+
 ## Privacy
 
 * We do not track your behaviour or capture any telemetry or user analytics.
@@ -52,6 +54,7 @@ Search everything, instantly.
 * We do use Sentry for crash reporting however this can be disabled.
 
 <br/>
+
 ## Roadmap
 
 * Developer search e.g. Crates, NPM, Maven. 
@@ -60,16 +63,19 @@ Search everything, instantly.
 * AdaptiveCard support to allow publishing cards into Teams, Windows Feed etc.
 
 <br/>
+
 ## Developer Guide
 
 Please refer to the [contributing guide](CONTRIBUTING.md) for how to install and contribute.
 
 <br/>
+
 ## Security Policy
 
 Please refer to the [security policy](SECURITY.md) for information on how to responsibly report a security vulnerability or issue.
 
 <br/>
+
 ## Related Repositories
 
 * [Search Engine](http://github.com/harana/search-engine) - Rust search core e.g. indexing, search, thumbnails
