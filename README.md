@@ -57,8 +57,10 @@ Search everything, instantly.
 
 ## Roadmap
 
-* Developer search e.g. Crates, NPM, Maven. 
+* Developer search e.g. Crates, NPM, Maven.
+* Cloud search e.g. Airtable, Notion.
 * Windows and Linux support.
+* Kubernetes platform for running data services yourself.
 * WebAssembly plugin SDK for indexing, thumbnail generation etc.
 * AdaptiveCard support to allow publishing cards into Teams, Windows Feed etc.
 
