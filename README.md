@@ -16,6 +16,7 @@ Search everything, instantly.
 </p>
 
 
+<br/>
 ## Features
 
 <b>Fast and Minimal</b>
@@ -42,6 +43,7 @@ Search everything, instantly.
 * Video and image object detection using YOLO.
 * Fallback to macOS Quicklook when needed. 
 
+<br/>
 ## Privacy
 
 * We do not track your behaviour or capture any telemetry or user analytics.
@@ -49,6 +51,7 @@ Search everything, instantly.
 * For cloud searches e.g. Notion we do build a searchable index on our servers. But it is encrypted and only readable by you. 
 * We do use Sentry for crash reporting however this can be disabled.
 
+<br/>
 ## Roadmap
 
 * Developer search e.g. Crates, NPM, Maven. 
@@ -56,14 +59,17 @@ Search everything, instantly.
 * WebAssembly plugin SDK for indexing, thumbnail generation etc.
 * AdaptiveCard support to allow publishing cards into Teams, Windows Feed etc.
 
+<br/>
 ## Developer Guide
 
 Please refer to the [contributing guide](CONTRIBUTING.md) for how to install and contribute.
 
+<br/>
 ## Security Policy
 
 Please refer to the [security policy](SECURITY.md) for information on how to responsibly report a security vulnerability or issue.
 
+<br/>
 ## Related Repositories
 
 * [Search Engine](http://github.com/harana/search-engine) - Rust search core e.g. indexing, search, thumbnails
