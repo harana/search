@@ -81,4 +81,4 @@ Please refer to the [security policy](SECURITY.md) for information on how to res
 * [Search Engine](http://github.com/harana/search-engine) - Rust search core e.g. indexing, search, thumbnails
 * [SBT Plugin](http://github.com/harana/sbt-plugin) - Scala SBT plugin abstracting common configuration
 * [SDK](http://github.com/harana/sdk) - Scala SDK for the UI
-* [Web](http://github.com/harana/web) - Scala.js related components
+* [Web](http://github.com/harana/web) - React / Scala.js related components
