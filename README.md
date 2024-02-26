@@ -1,6 +1,6 @@
-<h3 align="center">
+<h2 align="center">
 Search everything, instantly.
-</h3>
+</h2>
 
 <p align="center">
   <img width="600" src="docs/assets/screenshot.png" alt="Screenshot">
@@ -76,7 +76,7 @@ Please refer to the [security policy](SECURITY.md) for information on how to res
 
 <br/>
 
-## Related Repositories
+## Related
 
 * [Search Engine](http://github.com/harana/search-engine) - Rust search core e.g. indexing, search, thumbnails
 * [SBT Plugin](http://github.com/harana/sbt-plugin) - Scala SBT plugin abstracting common configuration
