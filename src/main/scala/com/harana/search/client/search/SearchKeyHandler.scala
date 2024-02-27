@@ -28,6 +28,9 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
     case KeyDown(key, event) =>
       effectOnly {
+
+        println("Focused panel = " + value.focusedPanel.toString)
+
         value.focusedPanel match {
           case Panel.Search =>
             key match {
