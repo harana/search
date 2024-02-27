@@ -130,7 +130,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
             )
           ) >> action(ScrollToFirstDocument)
         else
-          action(NoChange)
+          action(UpdateFocusedPanel(Panel.Integration))
       )
 
     case SelectPreviousDocument =>
@@ -177,9 +177,8 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
               if (scroll) ScrollToDocument(documentId) else NoChange
             )
           )
-        } else {
-          action(NoChange)
-        }
+        } else
+          action(UpdateFocusedPanel(Panel.Document))
       )
 
     case LoadThumbnail(documentId) =>
@@ -239,7 +238,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       }
 
     case UpdateSearchApplication(application) =>
-      println("Updating search application to: " + application)
+      //println("Updating search application to: " + application)
       updated(value.copy(searchApplication = application))
 
     case UpdateSearchResults(results) =>

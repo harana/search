@@ -28,9 +28,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
     case KeyDown(key, event) =>
       effectOnly {
-
-        println("Focused panel = " + value.focusedPanel.toString)
-
         value.focusedPanel match {
           case Panel.Search =>
             key match {
@@ -183,7 +180,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                   action(SelectPreviousDocument)
 
               case Keys.Left =>
-                action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 1) UpdateFocusedPanel(Panel.Document) else NoChange)
+                action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 0) UpdateFocusedPanel(Panel.Document) else NoChange)
 
               case Keys.Right =>
                 action(SelectHorizontalRightCard)
