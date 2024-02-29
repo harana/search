@@ -12,8 +12,8 @@ object IndexingStore {
                    pauseBatteryLifeRemainingValue: Int,
                    pauseCpuMaximumTemperatureEnabled: Boolean,
                    pauseCpuMaximumTemperatureValue: Int,
-                   pauseCpuMaximumUtilisationEnabled: Boolean,
-                   pauseCpuMaximumUtilisationValue: Int,
+                   pauseCpuMaximumUsageEnabled: Boolean,
+                   pauseCpuMaximumUsageValue: Int,
                    pauseHoursBetweenEnabled: Boolean,
                    pauseHoursBetweenStart: Int,
                    pauseHoursBetweenEnd: Int)
@@ -31,8 +31,8 @@ object IndexingStore {
   case class UpdatePauseCpuMaximumTemperatureEnabled(enabled: Boolean) extends DiodeAction
   case class UpdatePauseCpuMaximumTemperatureValue(value: Int) extends DiodeAction
 
-  case class UpdatePauseCpuMaximumUtilisationEnabled(enabled: Boolean) extends DiodeAction
-  case class UpdatePauseCpuMaximumUtilisationValue(value: Int) extends DiodeAction
+  case class UpdatePauseCpuMaximumUsageEnabled(enabled: Boolean) extends DiodeAction
+  case class UpdatePauseCpuMaximumUsageValue(value: Int) extends DiodeAction
 
   case class UpdatePauseHoursBetweenEnabled(enabled: Boolean) extends DiodeAction
   case class UpdatePauseHoursBetweenStart(value: Int) extends DiodeAction

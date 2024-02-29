@@ -64,8 +64,8 @@ import scala.scalajs.js.|
                       div(className := "whitespace-nowrap pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-4")(
                         Switch("pause_cpu_temperatures",
                           label = Some("CPU Temperature greater than"),
-                          state.pauseCpuTemperatureEnabled,
-                          _ => Circuit.dispatch(UpdatePauseCpuTemperatureEnabled(!state.pauseCpuTemperatureEnabled))
+                          state.pauseCpuMaximumTemperatureEnabled,
+                          _ => Circuit.dispatch(UpdatePauseCpuMaximumTemperatureEnabled(!state.pauseCpuMaximumTemperatureEnabled))
                         ),
                       )
                     ),
@@ -73,7 +73,7 @@ import scala.scalajs.js.|
                       div(className := "whitespace-nowrap px-1 pr-3 text-sm text-gray-500")(
                         Listbox(
                           "cpu_temperatures_list",
-                          selectedItem = state.pauseCpuTemperatureValue,
+                          selectedItem = state.pauseCpuMaximumTemperatureValue,
                           items = (10 to 120).toList,
                           itemId = item => item.toString,
                           itemTitle = item => s"${item.toString}C",
@@ -86,18 +86,18 @@ import scala.scalajs.js.|
                   tr(
                     td(colSpan := 3, className := "py-2")(
                       div(className := "whitespace-nowrap pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-4")(
-                        Switch("pause_cpu_utilisation",
-                          label = Some("CPU Utilisation greater than"),
-                          state.pauseCpuUtilisationEnabled,
-                          _ => Circuit.dispatch(UpdatePauseCpuUtilisationEnabled(!state.pauseCpuUtilisationEnabled))
+                        Switch("pause_cpu_usage",
+                          label = Some("CPU Usage greater than"),
+                          state.pauseCpuMaximumUsageEnabled,
+                          _ => Circuit.dispatch(UpdatePauseCpuMaximumUsageEnabled(!state.pauseCpuMaximumUsageEnabled))
                         ),
                       )
                     ),
                     td(className := "py-2")(
                       div(className := "whitespace-nowrap px-1 pr-3 text-sm text-gray-500")(
                         Listbox(
-                          "cpu_utilisations_list",
-                          selectedItem = state.pauseCpuUtilisationValue,
+                          "cpu_usage_list",
+                          selectedItem = state.pauseCpuMaximumUsageValue,
                           items = (0 to 100).toList,
                           itemId = item => item.toString,
                           itemTitle = item => s"${item.toString}%",

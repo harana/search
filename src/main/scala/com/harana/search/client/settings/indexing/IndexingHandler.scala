@@ -18,7 +18,7 @@ class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
         Tauri.setting("indexer_pause_cpu_maximum_temperature_enabled", value => UpdatePauseCpuMaximumTemperatureEnabled(value.toBoolean)) +
         Tauri.setting("indexer_pause_cpu_maximum_temperature_value", value => UpdatePauseCpuMaximumTemperatureValue(value.toInt)) +
         Tauri.setting("indexer_pause_cpu_maximum_usage_enabled", value => UpdatePauseCpuMaximumTemperatureEnabled(value.toBoolean)) +
-        Tauri.setting("indexer_pause_cpu_maximum_usage_value", value => UpdatePauseCpuMaximumUtilisationValue(value.toInt)) +
+        Tauri.setting("indexer_pause_cpu_maximum_usage_value", value => UpdatePauseCpuMaximumUsageValue(value.toInt)) +
         Tauri.setting("indexer_pause_hours_between_enabled", value => UpdatePauseHoursBetweenEnabled(value.toBoolean)) +
         Tauri.setting("indexer_pause_hours_between_start", value => UpdatePauseHoursBetweenStart(value.toInt)) +
         Tauri.setting("indexer_pause_hours_between_end", value => UpdatePauseHoursBetweenEnd(value.toInt))
@@ -55,14 +55,14 @@ class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
         effect => updated(value.copy(pauseCpuMaximumTemperatureValue = newValue), effect)
       )
 
-    case UpdatePauseCpuMaximumUtilisationEnabled(enabled) =>
+    case UpdatePauseCpuMaximumUsageEnabled(enabled) =>
       Tauri.update_setting("indexer_pause_cpu_maximum_usage_enabled", enabled.toString,
-        effect => updated(value.copy(pauseCpuMaximumUtilisationEnabled = enabled), effect)
+        effect => updated(value.copy(pauseCpuMaximumUsageEnabled = enabled), effect)
       )
 
-    case UpdatePauseCpuMaximumUtilisationValue(newValue) =>
+    case UpdatePauseCpuMaximumUsageValue(newValue) =>
       Tauri.update_setting("indexer_pause_cpu_maximum_usage_value", newValue.toString,
-        effect => updated(value.copy(pauseCpuMaximumUtilisationValue = newValue), effect)
+        effect => updated(value.copy(pauseCpuMaximumUsageValue = newValue), effect)
       )
 
     case UpdatePauseHoursBetweenEnabled(enabled) =>
