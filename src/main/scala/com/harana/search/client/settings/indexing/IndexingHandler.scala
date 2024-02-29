@@ -2,15 +2,9 @@ package com.harana.search.client.settings.indexing
 
 import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.Tauri
-import com.harana.search.client.models.{IndexerStatus, Theme}
-import com.harana.search.client.settings.ai.AiStore.UpdateAiModels
-import com.harana.search.client.settings.general.GeneralStore.UpdateAppearanceTheme
 import com.harana.search.client.settings.indexing.IndexingStore._
 import com.harana.web.actions.Init
-import diode.ActionResult.NoChange
 import diode._
-import io.circe.parser.decode
-import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
 
 class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
   override def handle = {
@@ -18,10 +12,13 @@ class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
     case Init(_) =>
       effectOnly(
         Tauri.list("list_indexer_statuses", list => UpdateIndexerStatuses(list)) +
-        Tauri.setting("indexer_pause_cpu_temperature_enabled", value => UpdatePauseCpuTemperatureEnabled(value.toBoolean)) +
-        Tauri.setting("indexer_pause_cpu_temperature_value", value => UpdatePauseCpuTemperatureValue(value.toInt)) +
-        Tauri.setting("indexer_pause_cpu_utilisation_enabled", value => UpdatePauseCpuTemperatureEnabled(value.toBoolean)) +
-        Tauri.setting("indexer_pause_cpu_utilisation_value", value => UpdatePauseCpuUtilisationValue(value.toInt)) +
+        Tauri.setting("indexer_pause_ac_power_required", value => UpdatePauseAcPowerRequired(value.toBoolean)) +
+        Tauri.setting("indexer_pause_battery_life_remaining_enabled", value => UpdatePauseBatteryLifeRemainingEnabled(value.toBoolean)) +
+        Tauri.setting("indexer_pause_battery_life_remaining_value", value => UpdatePauseBatteryLifeRemainingValue(value.toInt)) +
+        Tauri.setting("indexer_pause_cpu_maximum_temperature_enabled", value => UpdatePauseCpuMaximumTemperatureEnabled(value.toBoolean)) +
+        Tauri.setting("indexer_pause_cpu_maximum_temperature_value", value => UpdatePauseCpuMaximumTemperatureValue(value.toInt)) +
+        Tauri.setting("indexer_pause_cpu_maximum_usage_enabled", value => UpdatePauseCpuMaximumTemperatureEnabled(value.toBoolean)) +
+        Tauri.setting("indexer_pause_cpu_maximum_usage_value", value => UpdatePauseCpuMaximumUtilisationValue(value.toInt)) +
         Tauri.setting("indexer_pause_hours_between_enabled", value => UpdatePauseHoursBetweenEnabled(value.toBoolean)) +
         Tauri.setting("indexer_pause_hours_between_start", value => UpdatePauseHoursBetweenStart(value.toInt)) +
         Tauri.setting("indexer_pause_hours_between_end", value => UpdatePauseHoursBetweenEnd(value.toInt))
@@ -33,24 +30,39 @@ class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
     case UpdateOverallProgress(progress) =>
       updated(value.copy(overallProgress = progress))
 
-    case UpdatePauseCpuTemperatureEnabled(enabled) =>
-      Tauri.update_setting("indexer_pause_cpu_temperature_enabled", enabled.toString,
-        effect => updated(value.copy(pauseCpuTemperatureEnabled = enabled), effect)
+    case UpdatePauseAcPowerRequired(required) =>
+      Tauri.update_setting("indexer_pause_ac_power_required", required.toString,
+        effect => updated(value.copy(pauseAcPowerRequired = required), effect)
       )
 
-    case UpdatePauseCpuTemperatureValue(cpuTemperatureValue) =>
-      Tauri.update_setting("indexer_pause_cpu_temperature_value", cpuTemperatureValue.toString,
-        effect => updated(value.copy(pauseCpuTemperatureValue = cpuTemperatureValue), effect)
+    case UpdatePauseBatteryLifeRemainingEnabled(enabled) =>
+      Tauri.update_setting("indexer_pause_battery_life_remaining_enabled", enabled.toString,
+        effect => updated(value.copy(pauseBatteryLifeRemainingEnabled = enabled), effect)
       )
 
-    case UpdatePauseCpuUtilisationEnabled(enabled) =>
-      Tauri.update_setting("indexer_pause_cpu_temperature_value", enabled.toString,
-        effect => updated(value.copy(pauseCpuTemperatureEnabled = enabled), effect)
+    case UpdatePauseBatteryLifeRemainingValue(newValue) =>
+      Tauri.update_setting("indexer_pause_battery_life_remaining_value", newValue.toString,
+        effect => updated(value.copy(pauseBatteryLifeRemainingValue = newValue), effect)
       )
 
-    case UpdatePauseCpuUtilisationValue(cpuUtilisationValue) =>
-      Tauri.update_setting("indexer_pause_cpu_utilisation_value", cpuUtilisationValue.toString,
-        effect => updated(value.copy(pauseCpuUtilisationValue = cpuUtilisationValue), effect)
+    case UpdatePauseCpuMaximumTemperatureEnabled(enabled) =>
+      Tauri.update_setting("indexer_pause_cpu_maximum_temperature_enabled", enabled.toString,
+        effect => updated(value.copy(pauseCpuMaximumTemperatureEnabled = enabled), effect)
+      )
+
+    case UpdatePauseCpuMaximumTemperatureValue(newValue) =>
+      Tauri.update_setting("indexer_pause_cpu_maximum_temperature_value", newValue.toString,
+        effect => updated(value.copy(pauseCpuMaximumTemperatureValue = newValue), effect)
+      )
+
+    case UpdatePauseCpuMaximumUtilisationEnabled(enabled) =>
+      Tauri.update_setting("indexer_pause_cpu_maximum_usage_enabled", enabled.toString,
+        effect => updated(value.copy(pauseCpuMaximumUtilisationEnabled = enabled), effect)
+      )
+
+    case UpdatePauseCpuMaximumUtilisationValue(newValue) =>
+      Tauri.update_setting("indexer_pause_cpu_maximum_usage_value", newValue.toString,
+        effect => updated(value.copy(pauseCpuMaximumUtilisationValue = newValue), effect)
       )
 
     case UpdatePauseHoursBetweenEnabled(enabled) =>
@@ -58,14 +70,14 @@ class IndexingHandler extends ActionHandler(zoomTo(_.indexingState)) {
         effect => updated(value.copy(pauseHoursBetweenEnabled = enabled), effect)
       )
 
-    case UpdatePauseHoursBetweenStart(startValue) =>
-      Tauri.update_setting("indexer_pause_hours_between_start", startValue.toString,
-        effect => updated(value.copy(pauseHoursBetweenStart = startValue), effect)
+    case UpdatePauseHoursBetweenStart(newValue) =>
+      Tauri.update_setting("indexer_pause_hours_between_start", newValue.toString,
+        effect => updated(value.copy(pauseHoursBetweenStart = newValue), effect)
       )
 
-    case UpdatePauseHoursBetweenEnd(endValue) =>
-      Tauri.update_setting("indexer_pause_hours_between_end", endValue.toString,
-        effect => updated(value.copy(pauseHoursBetweenEnd = endValue), effect)
+    case UpdatePauseHoursBetweenEnd(newValue) =>
+      Tauri.update_setting("indexer_pause_hours_between_end", newValue.toString,
+        effect => updated(value.copy(pauseHoursBetweenEnd = newValue), effect)
       )
   }
 }

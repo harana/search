@@ -10,6 +10,7 @@ use harana_search_index::manager::IndexManager;
 use harana_search_index::searcher::IndexSearcher;
 use harana_search_index::thumbnailer::IndexThumbnailer;
 use tauri::{AppHandle, Window, Wry};
+use crate::handler_settings::get_setting;
 
 pub static mut ONBOARDED: bool = true;
 
@@ -42,3 +43,11 @@ pub static PREVIEW_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static WELCOME_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 
 pub static SEARCH_WINDOW_POSITIONS: OnceCell<DashMap<String, (f64, f64)>> = OnceCell::new();
+
+pub async fn bool_setting(key: &str) -> bool {
+    get_setting(key.to_string()).await.unwrap() == "true"
+}
+
+pub async fn int_setting(key: &str) -> u8 {
+    get_setting(key.to_string()).await.unwrap().parse::<u8>().unwrap()
+}

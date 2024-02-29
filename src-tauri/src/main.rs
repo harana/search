@@ -25,6 +25,7 @@ use tauri::{async_runtime, Manager};
 use crate::directories::setup_directories;
 
 use crate::globals::*;
+use crate::handler_settings::get_setting;
 use crate::handler_state::{get_state, update_state};
 use crate::handlers::{database_files, invoke_handler};
 use crate::logging::logging;
@@ -146,7 +147,22 @@ fn main() {
                     ("thumbnail".to_string(), thumbnail_handler)
                 ]);
 
-                let _ = JOB_MANAGER.set(JobManager::new(DATABASE_PATH.get().unwrap(), 30, DATABASE_MANAGER.get().unwrap(), job_handlers).await);
+                let _ = JOB_MANAGER.set(JobManager::new(
+                    DATABASE_PATH.get().unwrap(),
+                    30,
+                    DATABASE_MANAGER.get().unwrap(),
+                    job_handlers,
+                    bool_setting("indexer_pause_ac_power_required").await,
+                    bool_setting("indexer_pause_battery_life_remaining_enabled").await,
+                    int_setting("indexer_pause_battery_life_remaining_value").await,
+                    bool_setting("indexer_pause_cpu_maximum_temperature_enabled").await,
+                    int_setting("indexer_pause_cpu_maximum_temperature_value").await,
+                    bool_setting("indexer_pause_cpu_maximum_usage_enabled").await,
+                    int_setting("indexer_pause_cpu_maximum_usage_value").await,
+                    bool_setting("indexer_pause_hours_between_enabled").await,
+                    int_setting("indexer_pause_hours_between_start").await,
+                    int_setting("indexer_pause_hours_between_end").await
+                ).await);
                 let _ = FILE_MANAGER.set(FileManager::new(DATABASE_MANAGER.get().unwrap(), INDEX_MANAGER.get().unwrap(), JOB_MANAGER.get().unwrap()).await);
             });
 

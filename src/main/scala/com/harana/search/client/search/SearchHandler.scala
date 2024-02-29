@@ -190,7 +190,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
             action    =  UpdateSelectedThumbnail(if (exists.toBoolean) Some(url) else None)
           } yield action).recover {
             case e: Exception =>
-              e.printStackTrace()
+                e.printStackTrace()
               NoChange
           }
         )
