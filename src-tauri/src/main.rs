@@ -7,6 +7,7 @@ use harana_application::manager::ApplicationManager;
 use harana_common::{serde_json, tauri};
 use harana_common::hashbrown::HashMap;
 use harana_common::log::info;
+use harana_common::num_cpus;
 use harana_common::thread_pools::build_default_pools;
 use harana_common::uuid::Uuid;
 use harana_database::files_count_all::files_count_all;
@@ -149,7 +150,8 @@ fn main() {
 
                 let _ = JOB_MANAGER.set(JobManager::new(
                     DATABASE_PATH.get().unwrap(),
-                    30,
+                    num_cpus::get() / 2,
+                    1,
                     DATABASE_MANAGER.get().unwrap(),
                     job_handlers,
                     bool_setting("indexer_pause_ac_power_required").await,
