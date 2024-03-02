@@ -139,7 +139,7 @@ jobs:
           FFMPEG_PROJECT=`conan cache path --folder build ffmpeg/6.1:$(conan list "ffmpeg/6.1:*" | sed -n '7p' | tr -d ' ')`
           export FFMPEG_DIR="${FFMPEG_PROJECT%?}p"
           source /etc/profile
-          cd search && pnpm run css
+          cd search && pnpm run update-assets
           cd src-tauri && cargo update
           cd .. && pnpm tauri build --ci -v --target ${{ matrix.settings.target }} --bundles ${{ matrix.settings.bundles }},updater
         env:      
