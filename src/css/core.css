@@ -25,12 +25,12 @@
 
 @font-face {
     font-family: Figtree;
-    src: url(../fonts/Figtree-VariableFont_wght.ttf);
+    src: url('../fonts/Figtree-VariableFont_wght.ttf');
 }
 
 @font-face {
     font-family: SofiaPro;
-    src: url(../fonts/SofiaMedium.ttf);
+    src: url('../fonts/SofiaMedium.ttf');
 }
 
 .application-hint {
@@ -56,6 +56,11 @@
     font-size: 22px;
 }
 
+kbd {
+    height: 45px;
+    margin: 15px;
+}
+
 .headline {
     font-family: Figtree;
     font-size: 1rem;
@@ -67,7 +72,6 @@
     -webkit-text-fill-color: transparent;
     color: rgb(38, 53, 100);
 }
-
 
 html {
     overflow: hidden;

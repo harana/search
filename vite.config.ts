@@ -14,6 +14,11 @@ export default defineConfig(async () => ({
     //})
   ],
   clearScreen: false,
+  resolve: {
+    alias: {
+      '@assets': resolve(__dirname, 'src/assets'),
+    },
+  },
   server: {
     port: 1420,
     strictPort: true,
