@@ -5079,7 +5079,6 @@ dependencies = [
  "rpc_tauri",
  "screencapturekit",
  "screencapturekit-sys",
- "screenshots",
  "search",
  "search_core",
  "search_extensions",
@@ -10868,23 +10867,6 @@ dependencies = [
  "objc-foundation",
  "objc_id",
  "once_cell",
-]
-
-[[package]]
-name = "screenshots"
-version = "0.8.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a11115337e3893986040bf6825f2e0870a1233e054cedab55bceb64c84a519bc"
-dependencies = [
- "core-foundation 0.9.4",
- "core-graphics 0.23.1",
- "dbus",
- "image 0.24.8",
- "log",
- "percent-encoding",
- "thiserror",
- "windows 0.52.0",
- "xcb",
 ]
 
 [[package]]
