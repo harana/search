@@ -45,11 +45,11 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         effectOnly(
           action(
             ActionBatch(
-              UpdateSelectedIntegration(None),
-              UpdateSelectedDocument(None),
               UpdateSearchApplication(None),
+              UpdateSearchResults(List.empty),
               UpdateSearchTerm(None),
-              UpdateSearchResults(List.empty)
+              UpdateSelectedDocument(None),
+              UpdateSelectedIntegration(None)
             )
           )
         )
@@ -62,21 +62,21 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
                 .toList
                 .sortBy(pair => Integrations.get(pair._1).title.toLowerCase)
               UpdateSearchResults(results)
-            }}
+            }
+            }
           ) +
-          Effect(
-            Tauri.invoke("search_application", Map("query" -> term.get)).map { (result: js.UndefOr[RawApplication]) => {
-              UpdateSearchApplication(result.toOption.map(Application.apply))
-            }}
-          ) +
-          action(
-            ActionBatch(
-              UpdateSelectedIntegration(None),
-              UpdateSelectedDocument(None),
-              //UpdateSearchApplication(None),
-              UpdateSearchTerm(term)
+            Effect(
+              Tauri.invoke("search_application", Map("query" -> term.get)).map { (result: js.UndefOr[RawApplication]) => {
+                UpdateSearchApplication(result.toOption.map(Application.apply))
+              }}
+            ) +
+            action(
+              ActionBatch(
+                UpdateSearchTerm(term),
+                UpdateSelectedDocument(None),
+                UpdateSelectedIntegration(None)
+              )
             )
-          )
         )
       }
 
@@ -165,18 +165,18 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
           Effect(
             Tauri.invoke[Unit]("emit_preview_message", Map("name" -> "preview_document_changed", "payload" -> doc.asJson.noSpaces)).map(_ => NoChange)
           ) +
-          Effect(
-            Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))
-          ) +
-          action(
-            ActionBatch(
-              LoadThumbnail(documentId),
-              UpdateCards(List(List("thumbnail"), List("file"))),
-              UpdateFocusedPanel(Panel.Document),
-              UpdateSelectedDocument(Some(documentId)),
-              if (scroll) ScrollToDocument(documentId) else NoChange
+            Effect(
+              Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))
+            ) +
+            action(
+              ActionBatch(
+                LoadThumbnail(documentId),
+                UpdateCards(List(List("thumbnail"), List("file"))),
+                UpdateFocusedPanel(Panel.Document),
+                UpdateSelectedDocument(Some(documentId)),
+                if (scroll) ScrollToDocument(documentId) else NoChange
+              )
             )
-          )
         } else
           action(UpdateFocusedPanel(Panel.Document))
       )
@@ -184,15 +184,12 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
     case LoadThumbnail(documentId) =>
       effectOnly(
         Effect(
-          (for {
-            exists    <- Tauri.invoke[String]("has_thumbnail", Map("documentId" -> documentId))
-            url       =  s"${zoomTo(_.systemState).value.thumbnailsUrl}/$documentId.png"
-            action    =  UpdateSelectedThumbnail(if (exists.toBoolean) Some(url) else None)
-          } yield action).recover {
-            case e: Exception =>
-                e.printStackTrace()
-              NoChange
-          }
+          for {
+            exists        <- Tauri.invoke[String]("has_thumbnail", Map("documentId" -> documentId))
+            url           =  s"${zoomTo(_.systemState).value.thumbnailsUrl}/$documentId.png"
+            thumbnails    =  value.loadedThumbnails + (documentId -> url)
+            action        =  if (exists.toBoolean) UpdateLoadedThumbnails(thumbnails) else NoChange
+          } yield action
         )
       )
 
@@ -237,8 +234,10 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         updated(value.copy(errorMessage = None, focusedPanel = panel))
       }
 
+    case UpdateLoadedThumbnails(thumbnails) =>
+      updated(value.copy(loadedThumbnails = thumbnails))
+
     case UpdateSearchApplication(application) =>
-      println("Updating search application to: " + application)
       updated(value.copy(searchApplication = application))
 
     case UpdateSearchResults(results) =>
@@ -271,8 +270,5 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
             selectedDocument = Some(document(documentId.get))
           )
         )
-
-    case UpdateSelectedThumbnail(thumbnail) =>
-        updated(value.copy(selectedThumbnail = thumbnail))
   }
 }

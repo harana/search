@@ -55,5 +55,6 @@ class SearchScrollHandler extends ActionHandler(zoomTo(_.searchState)) {
 
     case ScrollToLastIntegration =>
       scrollToRef(SearchPanel.integrationsRef, value.searchResults.length - 1)
+
   }
 }

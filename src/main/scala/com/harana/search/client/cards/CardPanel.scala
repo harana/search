@@ -19,25 +19,27 @@ import slinky.web.html._
 
     val buttonClass = "relative inline-flex bg-white py-2 text-xs font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
 
-    when(searchState.selectedDocument.nonEmpty && searchState.selectedIntegration.nonEmpty)(
+    when(searchState.selectedDocument.nonEmpty && searchState.selectedIntegration.nonEmpty) {
+      val thumbnail = searchState.loadedThumbnails.get(searchState.selectedDocument.get.id)
+
       span(className := "justify-center")(
         div(className := "card-stack")(
           div(className := "container")(
             div(className := "cards")(
               div(className := s"card card-middle ${if (state.middleCard.isEmpty) "card-hidden"}")(
-                Card(state.middleCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, searchState.selectedThumbnail)
+                Card(state.middleCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, thumbnail)
               ),
               div(className := s"card card-horizontal-left ${if (state.horizontalLeftCard.isEmpty) "card-hidden"}", onClick := (_ => Circuit.dispatch(SelectHorizontalLeftCard)))(
-                Card(state.horizontalLeftCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, searchState.selectedThumbnail)
+                Card(state.horizontalLeftCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, thumbnail)
               ),
               div(className := s"card card-horizontal-right ${if (state.horizontalRightCard.isEmpty) "card-hidden"}", onClick := (_ => Circuit.dispatch(SelectHorizontalRightCard)))(
-                Card(state.horizontalRightCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, searchState.selectedThumbnail)
+                Card(state.horizontalRightCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, thumbnail)
               ),
               div(className := s"card card-vertical-top ${if (state.verticalTopCard.isEmpty) "card-hidden"}", onClick := (_ => Circuit.dispatch(SelectVerticalTopCard)))(
-                Card(state.verticalTopCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, searchState.selectedThumbnail)
+                Card(state.verticalTopCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, thumbnail)
               ),
               div(className := s"card card-vertical-bottom ${if (state.verticalBottomCard.isEmpty) "card-hidden"}", onClick := (_ => Circuit.dispatch(SelectVerticalBottomCard)))(
-                Card(state.verticalBottomCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, searchState.selectedThumbnail)
+                Card(state.verticalBottomCard, searchState.selectedDocument.get, searchState.selectedIntegration.get, thumbnail)
               )
             )
           )
@@ -48,6 +50,6 @@ import slinky.web.html._
           button(onClick := (_ => Circuit.dispatch(OpenParentFolder)), `type` := "button", className := s"-ml-px px-3 rounded-r-md $buttonClass")("Show Folder")
         )
       )
-    )
+    }
   }
 }

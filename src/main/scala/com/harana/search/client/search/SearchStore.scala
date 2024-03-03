@@ -15,6 +15,7 @@ object SearchStore {
                    integrations: List[Integration],
                    focusedPanel: Panel,
                    errorMessage: Option[String],
+                   loadedThumbnails: Map[DocumentId, String],
                    searchApplication: Option[Application],
                    searchResults: List[(IntegrationId, List[Document])],
                    searchTerm: Option[String],
@@ -22,10 +23,9 @@ object SearchStore {
                    selectedCardVertical: Int,
                    selectedIntegration: Option[IntegrationId],
                    selectedDocumentId: Option[DocumentId],
-                   selectedDocument: Option[Document],
-                   selectedThumbnail: Option[String])
+                   selectedDocument: Option[Document])
 
-  val initialState = State(false, Integrations.list, Panel.Search, None, None, List(), None, 1, 1, None, None, None, None)
+  val initialState = State(false, Integrations.list, Panel.Search, None, Map(), None, List(), None, 1, 1, None, None, None)
 
   case class KeyDown(key: Int, event: KeyboardEvent) extends DiodeAction
   case class KeyUp(key: Int, event: KeyboardEvent) extends DiodeAction
@@ -69,6 +69,7 @@ object SearchStore {
   case class UpdateErrorMessage(message: Option[String]) extends DiodeAction
   case class UpdateIntegrations(integrations: List[Integration]) extends DiodeAction
   case class UpdateFocusedPanel(panel: Panel) extends DiodeAction
+  case class UpdateLoadedThumbnails(thumbnails: Map[DocumentId, String]) extends DiodeAction
   case class UpdateSelectedCardHorizontal(index: Int) extends DiodeAction
   case class UpdateSelectedCardVertical(index: Int) extends DiodeAction
   case class UpdateSearchApplication(application: Option[Application]) extends DiodeAction
@@ -76,5 +77,4 @@ object SearchStore {
   case class UpdateSearchTerm(term: Option[SearchTerm]) extends DiodeAction
   case class UpdateSelectedDocument(documentId: Option[DocumentId]) extends DiodeAction
   case class UpdateSelectedIntegration(connector: Option[IntegrationId]) extends DiodeAction
-  case class UpdateSelectedThumbnail(thumbnail: Option[String]) extends DiodeAction
 }
