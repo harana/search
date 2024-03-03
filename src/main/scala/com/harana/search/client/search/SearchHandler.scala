@@ -65,15 +65,15 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
             }}
           ) +
           Effect(
-            Tauri.invoke("search_applications", Map("query" -> term.get)).map { (results: js.Array[RawApplication]) => {
-              UpdateSearchApplication(results.headOption.map(Application.apply))
+            Tauri.invoke("search_application", Map("query" -> term.get)).map { (result: js.UndefOr[RawApplication]) => {
+              UpdateSearchApplication(result.toOption.map(Application.apply))
             }}
           ) +
           action(
             ActionBatch(
               UpdateSelectedIntegration(None),
               UpdateSelectedDocument(None),
-              UpdateSearchApplication(None),
+              //UpdateSearchApplication(None),
               UpdateSearchTerm(term)
             )
           )
@@ -238,7 +238,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       }
 
     case UpdateSearchApplication(application) =>
-      //println("Updating search application to: " + application)
+      println("Updating search application to: " + application)
       updated(value.copy(searchApplication = application))
 
     case UpdateSearchResults(results) =>

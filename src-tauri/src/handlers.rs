@@ -10,7 +10,7 @@ pub fn invoke_handler(invoke: tauri::Invoke<Wry>) {
             crate::handler_account::logout,
             crate::handler_ai_models::list_ai_models,
             crate::handler_ai_models::update_ai_model,
-            crate::handler_application::search_applications,
+            crate::handler_application::search_application,
             crate::handler_auth::show_signup,
             crate::handler_auth::hide_signup,
             crate::handler_billing::list_invoices,
