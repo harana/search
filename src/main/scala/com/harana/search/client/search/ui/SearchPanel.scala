@@ -74,10 +74,10 @@ import scala.scalajs.js.JSConverters._
 
     val settingGroups = List(
       List(
-        ("Settings", "Description about settings", ShowSettings, "bg-gray-200", PhotoOutlineIcon())
+        ("Settings", "", ShowSettings, "bg-gray-200", PhotoOutlineIcon())
       ),
       List(
-        ("Support", "Description about support", ShowSupport, "bg-gray-200", QuestionMarkCircleOutlineIcon()),
+        ("Support", "", ShowSupport, "bg-gray-200", QuestionMarkCircleOutlineIcon()),
       ),
 //      if (authState.loggedIn)
 //        List(

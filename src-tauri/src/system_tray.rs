@@ -1,5 +1,5 @@
 use harana_common::anyhow::Result;
-use tauri::{AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayHandle, SystemTrayMenu, SystemTrayMenuItem};
+use tauri::{AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem};
 use tauri::api::shell;
 
 use crate::globals::*;

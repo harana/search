@@ -29,6 +29,8 @@ import scala.scalajs.js.Dynamic.{literal => css}
                                  "Arrow Up", "Arrow Down", "Arrow Left", "Arrow Right", "Home", "End",
                                  "Page Up", "Page Down", "Escape")
 
+    println("Selected item = " + state.appearanceLanguage)
+
     div(className := "grid grid-cols-5 gap-x-10 gap-y-8")(
       div(className := "col-span-3")(
         div(className := "mb-2")(Heading("Appearance")),

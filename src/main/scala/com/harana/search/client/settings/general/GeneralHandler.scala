@@ -13,6 +13,7 @@ class GeneralHandler extends ActionHandler(zoomTo(_.generalState)) {
     case Init(_) =>
       effectOnly(
         Tauri.setting("appearance_always_center_window", value => UpdateAppearanceAlwaysCenterWindow(value.toBoolean)) +
+        Tauri.setting("appearance_font_size", value => UpdateAppearanceFontSize(value.toInt)) +
         Tauri.setting("appearance_language", value => UpdateAppearanceLanguage(value)) +
         Tauri.setting("appearance_shortcut_key", value =>
           ActionBatch(
@@ -30,6 +31,11 @@ class GeneralHandler extends ActionHandler(zoomTo(_.generalState)) {
     case UpdateAppearanceAlwaysCenterWindow(alwaysCenterWindow) =>
       Tauri.update_setting("appearance_always_center_window", alwaysCenterWindow.toString,
         effect => updated(value.copy(appearanceAlwaysCenterWindow = alwaysCenterWindow), effect)
+      )
+
+    case UpdateAppearanceFontSize(fontSize) =>
+      Tauri.update_setting("appearance_font_size", fontSize.toString,
+        effect => updated(value.copy(appearanceFontSize = fontSize), effect)
       )
 
     case UpdateAppearanceLanguage(language) =>
