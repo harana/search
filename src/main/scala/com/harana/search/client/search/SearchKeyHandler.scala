@@ -114,10 +114,13 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                   action(SelectNextDocument)
 
               case Keys.Up =>
-                if (event.getModifierState("Control") || event.getModifierState("Meta"))
-                  action(SelectDocument(documents.head.id, true))
+                if (value.selectedDocument.get == documents.head)
+                  action(SearchFocused)
                 else
-                  action(SelectPreviousDocument)
+                  if (event.getModifierState("Control") || event.getModifierState("Meta"))
+                    action(SelectDocument(documents.head.id, true))
+                  else
+                    action(SelectPreviousDocument)
 
               case Keys.Left =>
                 action(
@@ -177,7 +180,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 if (hasVerticalCards)
                   action(if (cardState.middleVerticalIndex > 0) SelectVerticalTopCard else SelectPreviousDocument)
                 else
-                  action(SelectPreviousDocument)
+                  action(SearchFocused)
 
               case Keys.Left =>
                 action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 0) UpdateFocusedPanel(Panel.Document) else NoChange)

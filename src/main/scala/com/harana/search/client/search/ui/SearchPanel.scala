@@ -46,12 +46,8 @@ import scala.scalajs.js.JSConverters._
         window.addEventListener("keyup", keyUpListener, false)
         window.onblur = (_: FocusEvent) => Circuit.dispatch(Hide)
 
-        window.onfocus = (_: FocusEvent) => {
-          val state = Circuit.state(_.searchState, false)
-          if (state.focusedPanel != Panel.Search) {
-            inputRef.current.blur()
-          }
-        }
+        if (inputRef.current != null)
+          inputRef.current.blur()
 
 // TODO: Add preference
 //          Circuit.dispatch(
