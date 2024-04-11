@@ -1,0 +1,175 @@
+{
+  "virtualerp-campaigns": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-content": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-customers": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-interactions": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-leads": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-metrics": [
+
+  ],
+  "virtualerp-segments": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-web-analytics": [
+    {
+      "id": "1",
+      "title": "Bounce Rate",
+      "subtitle": "User Behaviour",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "2",
+      "title": "Conversion Rate",
+      "subtitle": "Conversion Tracking",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "3",
+      "title": "Exit Rate",
+      "subtitle": "Content Analysis",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "4",
+      "title": "Pageviews",
+      "subtitle": "Content Analysis",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "5",
+      "title": "Pages per Session",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "6",
+      "title": "Referral Traffic",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "7",
+      "title": "Search Engine Traffic",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "8",
+      "title": "Session Duration",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "9",
+      "title": "Sessions",
+      "subtitle": "Site Performance",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "10",
+      "title": "Time on Page",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "11",
+      "title": "Top Exit Pages",
+      "subtitle": "User Behaviour",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "12",
+      "title": "Traffic Sources",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    }
+  ]
+}

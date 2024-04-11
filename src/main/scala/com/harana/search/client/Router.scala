@@ -4,6 +4,7 @@ import com.harana.js.reactRouterDom.components._
 import com.harana.search.client.checkout.ui.CheckoutPanel
 import com.harana.search.client.integrations.ui.IntegrationsPanel
 import com.harana.search.client.login.ui.LoginPanel
+import com.harana.search.client.main.ui.MainPanel
 import com.harana.search.client.preview.ui.PreviewPanel
 import com.harana.search.client.search.ui.SearchPanel
 import com.harana.search.client.settings.ui.SettingsPanel
@@ -43,20 +44,19 @@ object Router {
         div(
           Helmet(
             meta(new CustomAttribute[String]("charSet") := "utf-8"),
-            meta(name := "viewport", content := "width=device-width, initial-scale=1, shrink-to-fit=no"),
+            meta(name := "viewport", content := "width := device-width, initial-scale=1, shrink-to-fit=no"),
             meta(name := "theme-color", content := "#000000"),
             link(rel := "shortcut icon", href := "/favicon.ico"),
             style(`type` := "text/css")(ReactIpynbRendererCSS.toString),
           ),
           Routes(
-            Route.PathRouteProps.path("/").element(SearchPanel.component(())).build,
+            Route.PathRouteProps.path("/").element(MainPanel.component(())).build,
             Route.PathRouteProps.path("/auth/signup").element(SignupPanel.component(())).build,
             Route.PathRouteProps.path("/cart").element(CheckoutPanel.component(())).build,
             Route.PathRouteProps.path("/changelog").element(CheckoutPanel.component(())).build,
             Route.PathRouteProps.path("/integrations").element(IntegrationsPanel.component(())).build,
             Route.PathRouteProps.path("/login").element(LoginPanel.component(())).build,
             Route.PathRouteProps.path("/preview").element(PreviewPanel.component(())).build,
-            Route.PathRouteProps.path("/search").element(SearchPanel.component(())).build,
             Route.PathRouteProps.path("/settings").element(SettingsPanel.component(())).build,
             Route.PathRouteProps.path("/support").element(SupportPanel.component(())).build,
             Route.PathRouteProps.path("/thumbnail/:id").element(ThumbnailPanel.component(())).build,

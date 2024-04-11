@@ -4,7 +4,7 @@ import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.Tauri
 import com.harana.search.client.models.{Document, Integrations, RawDocument}
 import com.harana.search.client.search.SearchStore._
-import com.harana.search.client.search.ui.{Panel, SearchPanel}
+import com.harana.search.client.search.ui.{SearchColumn, SearchPanel}
 import com.harana.web.actions._
 import com.harana.web.external.tauri.Asset
 import com.harana.web.external.virtuoso.{ScrollIntoViewLocation, Virtuoso}
@@ -23,10 +23,12 @@ class SearchScrollHandler extends ActionHandler(zoomTo(_.searchState)) {
     if (ref == null) noChange
     else {
       val promise = Promise[Unit]()
-      ref.current.scrollIntoView(new ScrollIntoViewLocation {
-        override val index = scrollIndex
-        override val done = () => promise.complete(Try(()))
-      })
+      if (ref.current != null) {
+        ref.current.scrollIntoView(new ScrollIntoViewLocation {
+          override val index = scrollIndex
+          override val done = () => promise.complete(Try(()))
+        })
+      }
 
       effectOnly(Effect(promise.future.map(_ => NoChange)))
     }

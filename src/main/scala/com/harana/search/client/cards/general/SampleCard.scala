@@ -10,7 +10,7 @@ import slinky.web.html._
 
 object SampleCard extends Card {
 
-  def apply(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
+  def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default")(
       img(style := literal("max-width" -> "320px"), src := convertFileSrc(s"assets/card.jpg"))
     )

@@ -2,18 +2,21 @@ package com.harana.search.client.search
 
 import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.cards.CardStore.UpdateCards
+import com.harana.search.client.main.MainStore.UpdateActivePanel
+import com.harana.search.client.main.ui.Panel
 import com.harana.search.client.models.Document.DocumentId
 import com.harana.search.client.models.{Application, Document, Integrations, RawApplication, RawDocument}
 import com.harana.search.client.search.SearchStore._
-import com.harana.search.client.search.ui.{Panel, SearchPanel}
+import com.harana.search.client.search.ui.{SearchColumn, SearchPanel}
 import com.harana.search.client.{Circuit, Tauri}
 import com.harana.web.actions._
 import diode.Effect.action
 import diode._
 import io.circe.syntax._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
-import typings.std.global.console
+import typings.std.global.{console, window}
 
+import scala.concurrent.Future
 import scala.scalajs.js
 
 class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
@@ -54,9 +57,10 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
           )
         )
       else {
+        val searchTerm = if (term.get == "s") "Sample1" else term.get
         effectOnly(
           Effect(
-            Tauri.invoke("search", Map("query" -> term.get)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
+            Tauri.invoke("search", Map("query" -> searchTerm)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
               val results = jsResults.toMap.view
                 .map(pair => (pair._1, pair._2.toList.sortBy(_.title.toLowerCase).map(rd => Document(rd, pair._1))))
                 .toList
@@ -118,19 +122,22 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       Tauri.invoke("open_path", Map("path" -> document(value.selectedDocumentId.get).parentFolderPath.get))
       noChange
 
+    case Share =>
+      effectOnly(action(UpdateActivePanel(Panel.Share)))
+
     case SelectIntegration(integrationId) =>
       effectOnly(
         if (value.selectedIntegration.isEmpty || value.selectedIntegration.get != integrationId)
           action(
             ActionBatch(
               ScrollToIntegration(integrationId),
-              UpdateFocusedPanel(Panel.Integration),
+              UpdateFocusedPanel(SearchColumn.Integration),
               UpdateSelectedDocument(None),
               UpdateSelectedIntegration(Some(integrationId)),
             )
           ) >> action(ScrollToFirstDocument)
         else
-          action(UpdateFocusedPanel(Panel.Integration))
+          action(UpdateFocusedPanel(SearchColumn.Integration))
       )
 
     case SelectPreviousDocument =>
@@ -159,26 +166,23 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       )
 
     case SelectDocument(documentId, scroll) =>
-      val doc = document(documentId);
+      val doc = document(documentId)
       effectOnly(
         if (value.selectedDocumentId.isEmpty || value.selectedDocumentId.get != documentId) {
           Effect(
             Tauri.invoke[Unit]("emit_preview_message", Map("name" -> "preview_document_changed", "payload" -> doc.asJson.noSpaces)).map(_ => NoChange)
-          ) +
-            Effect(
-              Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))
-            ) +
+          ) + (if (doc.path.isDefined) Effect(Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))) else Effect.action(NoChange)) +
             action(
               ActionBatch(
                 LoadThumbnail(documentId),
-                UpdateCards(List(List("thumbnail"), List("file"))),
-                UpdateFocusedPanel(Panel.Document),
+                UpdateCards(doc.cards.map(c => List(c))),
+                UpdateFocusedPanel(SearchColumn.Document),
                 UpdateSelectedDocument(Some(documentId)),
                 if (scroll) ScrollToDocument(documentId) else NoChange
               )
             )
         } else
-          action(UpdateFocusedPanel(Panel.Document))
+          action(UpdateFocusedPanel(SearchColumn.Document))
       )
 
     case LoadThumbnail(documentId) =>
@@ -208,7 +212,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         ActionBatch(
           UpdateSelectedIntegration(None),
           UpdateSelectedDocument(None),
-          UpdateFocusedPanel(Panel.Search)
+          UpdateFocusedPanel(SearchColumn.Search)
         )
       ))
 
@@ -226,7 +230,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         noChange
       else {
         if (SearchPanel.inputRef.current != null) {
-          if (panel == Panel.Search)
+          if (panel == SearchColumn.Search)
             SearchPanel.inputRef.current.focus()
           else
             SearchPanel.inputRef.current.blur()

@@ -5,6 +5,7 @@ import com.harana.search.client.cards.{CardHandler, CardStore}
 import com.harana.search.client.checkout.{CheckoutHandler, CheckoutStore}
 import com.harana.search.client.integrations.{IntegrationsHandler, IntegrationsStore}
 import com.harana.search.client.login.{LoginHandler, LoginStore}
+import com.harana.search.client.main.{MainHandler, MainStore}
 import com.harana.search.client.preview.{PreviewHandler, PreviewStore}
 import com.harana.search.client.search.{SearchHandler, SearchKeyHandler, SearchMenuHandler, SearchScrollHandler, SearchStore}
 import com.harana.search.client.settings.ai.{AiHandler, AiStore}
@@ -16,6 +17,7 @@ import com.harana.search.client.settings.general.{GeneralHandler, GeneralStore}
 import com.harana.search.client.settings.indexing.{IndexingHandler, IndexingStore}
 import com.harana.search.client.settings.rules.{RulesHandler, RulesStore}
 import com.harana.search.client.settings.{SettingsHandler, SettingsStore}
+import com.harana.search.client.share.{ShareHandler, ShareKeyHandler, ShareStore}
 import com.harana.search.client.support.{SupportHandler, SupportStore}
 import com.harana.search.client.system.{SystemHandler, SystemStore}
 import com.harana.search.client.thumbnail.{ThumbnailHandler, ThumbnailStore}
@@ -34,10 +36,12 @@ case class State(aiState: AiStore.State,
                  indexingState: IndexingStore.State,
                  integrationsState: IntegrationsStore.State,
                  loginState: LoginStore.State,
+                 mainState: MainStore.State,
                  previewState: PreviewStore.State,
                  rulesState: RulesStore.State,
                  searchState: SearchStore.State,
                  settingsState: SettingsStore.State,
+                 shareState: ShareStore.State,
                  supportState: SupportStore.State,
                  systemState: SystemStore.State,
                  thumbnailState: ThumbnailStore.State,
@@ -59,14 +63,16 @@ object Circuit extends BaseCircuit[State] {
       IndexingStore.initialState,
       IntegrationsStore.initialState,
       LoginStore.initialState,
+      MainStore.initialState,
       PreviewStore.initialState,
       RulesStore.initialState,
       SearchStore.initialState,
       SettingsStore.initialState,
+      ShareStore.initialState,
       SupportStore.initialState,
       SystemStore.initialState,
       ThumbnailStore.initialState,
-      WelcomeStore.initialState,
+      WelcomeStore.initialState
     )
 
   lazy val handlers =
@@ -83,6 +89,7 @@ object Circuit extends BaseCircuit[State] {
       new IndexingHandler,
       new IntegrationsHandler,
       new LoginHandler,
+      new MainHandler,
       new PreviewHandler,
       new RulesHandler,
       new SearchHandler,
@@ -90,6 +97,8 @@ object Circuit extends BaseCircuit[State] {
       new SearchMenuHandler,
       new SearchScrollHandler,
       new SettingsHandler,
+      new ShareHandler,
+      new ShareKeyHandler,
       new SupportHandler,
       new SystemHandler,
       new ThumbnailHandler,

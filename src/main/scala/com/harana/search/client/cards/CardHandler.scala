@@ -33,12 +33,15 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
       effectOnly(action(UpdateMiddleVerticalIndex(value.middleVerticalIndex + 1)))
 
     case UpdateCards(cards) =>
-      updated(value.copy(cards = cards), action(
-        ActionBatch(
-          UpdateMiddleHorizontalIndex(0),
-          UpdateMiddleVerticalIndex(0)
-        )
-      ))
+      if (cards.nonEmpty)
+        updated(value.copy(cards = cards), action(
+          ActionBatch(
+            UpdateMiddleHorizontalIndex(0),
+            UpdateMiddleVerticalIndex(0)
+          )
+        ))
+      else
+        noChange
 
     case UpdateMiddleHorizontalIndex(index: Int) =>
       updated(value.copy(

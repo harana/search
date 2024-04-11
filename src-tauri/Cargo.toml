@@ -28,36 +28,36 @@ harana_search = { package = "search", path = "../../search-engine/src/search" }
 harana_thumbnailer = { package = "thumbnailer", path = "../../search-engine/src/thumbnailer" }
 harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../search-engine/src/thumbnailer/core" }
 
-anyhow = "1.0.75"
+anyhow = "1.0.81"
 auto-launch = "0.5"
-color-eyre = "0.6.2"
+color-eyre = "0.6.3"
 config = "0.14"
 ctrlc = "3"
 dark-light = "1"
 fork = "0.1"
 log-panics = { version = "2", features = ["with-backtrace"] }
 mid = "1"
-mouce = "0.2.43"
+mouce = "0.2.44"
 open = "5"
 plist = "1"
 raw-window-handle = "0.6"
 rgb = "0.8"
 sentry-tauri = "0.2"
-serde = "1.0.193"
+serde = "1.0.197"
 signal-hook = "0.3"
 stackblur-iter = { git = "https://github.com/harana-oss/stackblur-iter.git" }
 tauri = { version = "1", features = [ "updater", "devtools", "http-all", "protocol-all", "window-all", "devtools", "dialog-all", "fs-exists", "fs-read-dir", "fs-read-file", "global-shortcut", "global-shortcut-all", "path-all", "shell-open-api", "system-tray"] }
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
-time = "0.3.30"
+time = "0.3.34"
 tracing = { version = "0.1.40", features = [] }
 tracing-appender = "0.2"
 tracing-subscriber = "0.3.18"
 tokio = { version = "1", features = [] }
 tokio-cron-scheduler = "0.10"
 window-vibrancy = "0.5"
-xcap = "0.0.4"
+xcap = "0.0.8"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 zbus = "4.1.2"
@@ -74,17 +74,14 @@ screencapturekit = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 screencapturekit-sys = { git = "https://github.com/harana-oss/screencapturekit-rs" }
 swift-rs = { git = "https://github.com/Brendonovich/swift-rs.git", branch = "autorelease" }
 
-[patch.crates-io]
-zstd-sys = { git = "https://github.com/harana-oss/zstd-rs.git" }
-
 [profile.release]
 codegen-units = 1
 incremental = false
 lto = true
+opt-level = "s"
 panic = "abort"
 strip = true
-opt-level = "s"
 
 [features]
-default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
+default = ["custom-protocol"]

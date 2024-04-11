@@ -1,0 +1,654 @@
+{
+  "virtualerp-campaigns": [
+    {
+      "id": "1",
+      "title": "Abandoned Cart",
+      "subtitle": "Email",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Back to School Sale",
+      "subtitle": "Seasonal",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Black Friday Sale",
+      "subtitle": "Seasonal",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Cyber Monday Sale",
+      "subtitle": "Seasonal",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "Labor Day Sale",
+      "subtitle": "Seasonal",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Viewer Email Drip",
+      "subtitle": "Email",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-customers": [
+    {
+      "id": "1",
+      "title": "Alex Johnson",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Brenda Lee",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Carlos Gomez",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Diana Smith",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "Ethan Wright",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Fiona Chen",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "7",
+      "title": "Gregory Hughes",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "8",
+      "title": "Hannah Kim",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "9",
+      "title": "Isabella Martinez",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "10",
+      "title": "Jake Patel",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-metrics": [
+    {
+      "id": "1",
+      "title": "Average Handle Time",
+      "subtitle": "Effiency",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Average Resolution Time",
+      "subtitle": "Efficiency",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Customer Churn Rate",
+      "subtitle": "Outcome",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Customer Effort Score",
+      "subtitle": "Satisfaction",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "Customer Lifetime Value",
+      "subtitle": "Financial",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Customer Retention Rate",
+      "subtitle": "Outcome",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "7",
+      "title": "Customer Satisfaction Score",
+      "subtitle": "Satisfaction",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "8",
+      "title": "First Contact Resolution",
+      "subtitle": "Efficiency",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "9",
+      "title": "Net Promoter Score",
+      "subtitle": "Loyalty",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "10",
+      "title": "Number of Issues Resolved",
+      "subtitle": "Efficiency",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "11",
+      "title": "Response Time",
+      "subtitle": "Efficiency",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "11",
+      "title": "Ticket Backlog",
+      "subtitle": "Workload",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-orders": [
+    {
+      "id": "1",
+      "title": "Isabella Johnson",
+      "subtitle": "#4010 / 1m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Ming Zhao",
+      "subtitle": "#4011 / 1m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Liam Brown",
+      "subtitle": "#4012 / 2m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Emma Garcia",
+      "subtitle": "#4013 / 6m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "Lucas Williams",
+      "subtitle": "#4014 / 7m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Nora Andersen",
+      "subtitle": "#4015 / 15m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "7",
+      "title": "Hugo Dubois",
+      "subtitle": "#4016 / 21m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "8",
+      "title": "Ella Schmidt",
+      "subtitle": "#4017 / 1h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "9",
+      "title": "Anika Sharma",
+      "subtitle": "#4018 / 1h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "10",
+      "title": "Yara Al-Farsi",
+      "subtitle": "#4019 / 2h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-products": [
+    {
+      "id": "1",
+      "title": "Bamboo Coffee Table",
+      "subtitle": "Living Room Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Compact Shoe Organizer",
+      "subtitle": "Storage Solutions",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Contemporary Wall Mirror",
+      "subtitle": "Home Decor",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Ergonomic Office Chair",
+      "subtitle": "Office Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "Floating Nightstand",
+      "subtitle": "Bedroom Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Industrial Bar Stool",
+      "subtitle": "Dining Room Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "7",
+      "title": "Leather Recliner Chair",
+      "subtitle": "Living Room Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "8",
+      "title": "Minimalist Desk Lamp",
+      "subtitle": "Lighting",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "9",
+      "title": "Modular Sectional Sofa",
+      "subtitle": "Living Room Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "10",
+      "title": "Oakwood Dining Table",
+      "subtitle": "Dining Room Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "11",
+      "title": "Rustic Bookshelf Unit",
+      "subtitle": "Storage Solutions",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "12",
+      "title": "Scandinavian Bed Frame",
+      "subtitle": "Bedroom Furniture",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-support-tickets": [
+    {
+      "id": "1",
+      "title": "Benjamin Jones",
+      "subtitle": "#1010 / 5m",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "2",
+      "title": "Aurelia Smith",
+      "subtitle": "#1011 / 1h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "3",
+      "title": "Dominic Ford",
+      "subtitle": "#1003 / 2h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "4",
+      "title": "Finn Smith",
+      "subtitle": "#1017 / 2h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "5",
+      "title": "Grace Ford",
+      "subtitle": "#1022 / 1d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "6",
+      "title": "Luna Zimmerman",
+      "subtitle": "#1023 / 2d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "7",
+      "title": "Nora Vasquez",
+      "subtitle": "#1024 / 2d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "8",
+      "title": "Sophia Owens",
+      "subtitle": "#1025 / 3d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "9",
+      "title": "Willa Ford",
+      "subtitle": "#1009 / 1w",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "10",
+      "title": "Xander Jones",
+      "subtitle": "#1010 / 1w",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    }
+  ],
+  "virtualerp-web-analytics": [
+    {
+      "id": "1",
+      "title": "Bounce Rate",
+      "subtitle": "User Behaviour",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "2",
+      "title": "Conversion Rate",
+      "subtitle": "Conversion Tracking",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "3",
+      "title": "Exit Rate",
+      "subtitle": "Content Analysis",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "4",
+      "title": "Pageviews",
+      "subtitle": "Content Analysis",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "5",
+      "title": "Pages per Session",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "6",
+      "title": "Referral Traffic",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "7",
+      "title": "Search Engine Traffic",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "8",
+      "title": "Session Duration",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "9",
+      "title": "Sessions",
+      "subtitle": "Site Performance",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "10",
+      "title": "Time on Page",
+      "subtitle": "User Engagement",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "11",
+      "title": "Top Exit Pages",
+      "subtitle": "User Behaviour",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    },
+    {
+      "id": "12",
+      "title": "Traffic Sources",
+      "subtitle": "Traffic Acquisition",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_marketing_funnel"]
+    }
+  ]
+}

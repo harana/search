@@ -76,7 +76,10 @@ pub async fn init_main_window(app_handle: AppHandle) -> Result<()> {
     ).await?.unwrap_or("CommandOrControl+Space".to_string());
 
     let debug = env::var("HARANA_DEBUG").is_ok();
-    windows_main::init_main_panel(app_handle, shortcut_key, always_center, debug);
+    windows_main::init_main_panel(app_handle.clone(), shortcut_key, always_center, debug);
+    if debug {
+        windows_main::disable_auto_hide(app_handle.clone());
+    }
     Ok(())
 }
 

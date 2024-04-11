@@ -7,6 +7,7 @@ use cocoa::{
     base::{BOOL, id, nil, NO, YES},
     foundation::{NSPoint, NSRect},
 };
+use cocoa::appkit::NSWindow;
 use harana_common::log::info;
 use objc::{
     class,
@@ -76,7 +77,10 @@ pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_cent
         let _ = SEARCH_WINDOW.set(search_window.clone());
 
         set_state!(app_handle, always_center_window, always_center);
-        set_state!(app_handle, panel, Some(create_main_panel(&search_window)));
+
+        unsafe {
+            set_state!(app_handle, panel, Some(create_main_panel(&search_window)));
+        }
 
         if show_devtools {
             search_window.open_devtools();
@@ -403,11 +407,15 @@ impl RawNSPanelDelegate {
     }
 }
 
-fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
+unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
     // Convert NSWindow Object to NSPanel
     let handle: id = window.ns_window().unwrap() as _;
     let panel = RawNSPanel::from(handle);
     let panel = panel.share();
+
+
+    // Disable shadow
+    handle.setHasShadow_(BOOL::from(false));
 
     // Set panel above the main menu window level
     // panel.set_level(NSMainMenuWindowLevel + 1);

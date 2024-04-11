@@ -5,14 +5,13 @@ import com.harana.search.client.{Circuit, Tauri}
 import com.harana.search.client.cards.CardStore._
 import com.harana.search.client.models.Integrations
 import com.harana.search.client.search.SearchStore._
-import com.harana.search.client.search.ui.{Keys, Panel}
+import com.harana.search.client.search.ui.{Keys, SearchColumn}
 import com.harana.web.actions.NoChange
 import diode.Effect.action
 import diode._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
 
 class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
-  val cardState = Circuit.state(_.cardState, false)
 
   override def handle = {
 
@@ -20,7 +19,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
       effectOnly(
         action(
           ActionBatch(
-            UpdateFocusedPanel(Panel.Search),
+            UpdateFocusedPanel(SearchColumn.Search),
             UpdateSearchTerm(value.searchTerm.map(s => if (s.nonEmpty) s.dropRight(1) else s))
           )
         )
@@ -29,7 +28,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
     case KeyDown(key, event) =>
       effectOnly {
         value.focusedPanel match {
-          case Panel.Search =>
+          case SearchColumn.Search =>
             key match {
               case Keys.Down =>
                 action(if (value.searchResults.nonEmpty) SelectIntegration(value.searchResults.head._1) else NoChange)
@@ -48,7 +47,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 action(NoChange)
             }
 
-          case Panel.Integration =>
+          case SearchColumn.Integration =>
 
             event.preventDefault()
             event.stopPropagation()
@@ -93,13 +92,13 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
 
                 val selectedIntegration = Integrations.get(value.selectedIntegration.get)
 
-                if (prefixIntegration.nonEmpty || !selectedIntegration.title.toLowerCase.startsWith(key))
+                if (prefixIntegration.nonEmpty && !selectedIntegration.title.toLowerCase.startsWith(key))
                   action(SelectIntegration(prefixIntegration.get.id))
                  else
                   action(NoChange)
             }
 
-          case Panel.Document =>
+          case SearchColumn.Document =>
 
             event.preventDefault()
             event.stopPropagation()
@@ -125,13 +124,13 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
               case Keys.Left =>
                 action(
                   ActionBatch(
-                    UpdateFocusedPanel(Panel.Integration),
+                    UpdateFocusedPanel(SearchColumn.Integration),
                     UpdateSelectedDocument(None)
                   )
                 )
 
               case Keys.Right =>
-                action(UpdateFocusedPanel(Panel.Cards)) +
+                action(UpdateFocusedPanel(SearchColumn.Cards)) +
                 action(SelectHorizontalRightCard) >>
                 action(ScrollToDocument(value.selectedDocumentId.get))
 
@@ -162,11 +161,12 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                 }
             }
 
-          case Panel.Cards =>
+          case SearchColumn.Cards =>
 
             event.preventDefault()
             event.stopPropagation()
 
+            val cardState = Circuit.state(_.cardState, false)
             val hasVerticalCards = cardState.cards.nonEmpty && cardState.cards(cardState.middleHorizontalIndex).nonEmpty
 
             key match {
@@ -183,7 +183,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
                   action(SearchFocused)
 
               case Keys.Left =>
-                action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 0) UpdateFocusedPanel(Panel.Document) else NoChange)
+                action(SelectHorizontalLeftCard) + action(if (cardState.middleHorizontalIndex == 0) UpdateFocusedPanel(SearchColumn.Document) else NoChange)
 
               case Keys.Right =>
                 action(SelectHorizontalRightCard)
@@ -211,10 +211,10 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             Tauri.invoke("hide_search")
             action(NoChange)
           } else
-            if (value.focusedPanel != Panel.Search)
+            if (value.focusedPanel != SearchColumn.Search)
               action(
                 ActionBatch(
-                  UpdateFocusedPanel(Panel.Search),
+                  UpdateFocusedPanel(SearchColumn.Search),
                   Search(value.searchTerm)
                 )
               )

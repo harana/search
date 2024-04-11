@@ -1,0 +1,172 @@
+{
+  "virtualerp-accounts": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-accounts-payable": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-accounts-receivables": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-budgets": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-cost-centres": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-employees": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-financial-statements": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-metrics": [
+    {
+      "id": "1",
+      "title": "Customer Acquisition Cost",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "2",
+      "title": "Customer Lifetime Value",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "3",
+      "title": "Days Sales Outstanding",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "4",
+      "title": "Debt-to-Equity Ratio",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "5",
+      "title": "EBITDA",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "6",
+      "title": "Gross Profit Margin",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "7",
+      "title": "Inventory Turnover",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "8",
+      "title": "Net Promoter Score",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "9",
+      "title": "Operating Cash Flow",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "10",
+      "title": "Return on Investment",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    },
+    {
+      "id": "11",
+      "title": "Stock Price",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_finance_stockprice", "table"]
+    }
+  ],
+  "virtualerp-organizational-units": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ]
+}

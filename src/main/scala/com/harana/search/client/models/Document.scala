@@ -9,6 +9,7 @@ import scala.scalajs.js
 trait RawDocument extends js.Object {
   val id: DocumentId
   val title: String
+  val subtitle: String
   val description: String
   val author: String
   val primary_tokens: js.Set[String]
@@ -32,6 +33,7 @@ trait RawDocument extends js.Object {
 case class Document(id: DocumentId,
                     integrationId: IntegrationId,
                     title: String,
+                    subtitle: Option[String],
                     description: Option[String],
                     author: Option[String],
                     primaryTokens: Set[String],
@@ -58,6 +60,7 @@ object Document {
       rd.id,
       integrationId,
       rd.title,
+      Option(rd.subtitle),
       Option(rd.description),
       Option(rd.author),
       rd.primary_tokens.toSet,

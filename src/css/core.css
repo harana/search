@@ -107,7 +107,6 @@ table tbody tr:last-of-type td:last-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 25px;
     transition: background .4s ease-in;
 }
 
@@ -133,8 +132,8 @@ table tbody tr:last-of-type td:last-of-type {
 }
 
 .card-stack .container {
-    width: 300px;
-    height: 320px;
+    width: 330px;
+    height: 330px;
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
@@ -365,6 +364,10 @@ table tbody tr:last-of-type td:last-of-type {
 
 .h-150 {
     height: 150px;
+}
+
+.h-175 {
+    height: 175px;
 }
 
 .h-200 {
@@ -727,6 +730,10 @@ table tbody tr:last-of-type td:last-of-type {
     min-width: 325px;
 }
 
+.mw-335 {
+    min-width: 335px;
+}
+
 .mw-350 {
     min-width: 350px;
 }
@@ -1075,6 +1082,10 @@ table tbody tr:last-of-type td:last-of-type {
     width: 150px;
 }
 
+.w-175 {
+    width: 175px;
+}
+
 .w-200 {
     width: 200px;
 }
@@ -1085,6 +1096,10 @@ table tbody tr:last-of-type td:last-of-type {
 
 .w-300 {
     width: 300px;
+}
+
+.w-335 {
+    width: 335px;
 }
 
 .w-350 {

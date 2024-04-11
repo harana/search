@@ -1,4 +1,4 @@
-use harana_common::anyhow::{Error,Result};
+use harana_common::anyhow::{Result};
 use mid::get;
 
 use crate::handler_state::get_state;

@@ -150,7 +150,7 @@ pub async fn open_path(path: String) -> Result<(), String> {
                     Ok(())
                 }
             }
-            Err(e) => {
+            Err(_) => {
                 Err("unknown_error".to_string())
             }
         }

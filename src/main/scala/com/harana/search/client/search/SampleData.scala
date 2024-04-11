@@ -56,6 +56,7 @@ object SampleData {
       id = Random.short,
       integrationId = Integrations.get("local-document").id,
       title = title,
+      subtitle = None,
       description = None,
       author = None,
       primaryTokens = Set(),

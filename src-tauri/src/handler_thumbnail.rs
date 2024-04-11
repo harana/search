@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use harana_common::{base64_simd, serde_json, tauri};
+use harana_common::{base64_simd, tauri};
 use harana_common::anyhow::Result;
 use harana_common::file_format::FileFormat;
 use harana_common::log::debug;

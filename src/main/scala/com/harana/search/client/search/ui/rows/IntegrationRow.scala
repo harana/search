@@ -1,8 +1,8 @@
 package com.harana.search.client.search.ui.rows
 
-import com.harana.search.client.models.Integration
+import com.harana.search.client.models.{Integration, Integrations}
 import com.harana.search.client.search.SearchStore.SelectIntegration
-import com.harana.search.client.{Circuit, Icons}
+import com.harana.search.client.Circuit
 import com.harana.web.external.tailwind.SolidIcons.ChevronRightIcon
 import slinky.core.FunctionalComponent
 import slinky.core.annotations.react
@@ -21,8 +21,8 @@ import slinky.web.html._
         a(href := "#", onClick := (_ => Circuit.dispatch(SelectIntegration(props.integration.id))))(
           div(className := s"flex cursor-default select-none items-center rounded-md px-2 py-2 ${if (props.active) "bg-gray-100 text-gray-900" else ""}")(
             div(className := "flex w-full")(
-              div(className := "flex-none w-40")(
-                Icons.integration(props.integration.id, Some(s"h-5 w-5 flex-none ${if (props.active) "text-gray-900" else "text-gray-500"}"))
+              div(className := "flex-none w-30")(
+                div(className := s"h-5 w-5 flex-none ${if (props.active) "text-gray-900" else "text-gray-500"}")(Integrations.get(props.integration.id).icon)
               ),
               div(className := "grow grid grid-cols-1")(
                 div(className := "col-span-2 truncate")(

@@ -1,0 +1,180 @@
+{
+  "virtualerp-companies": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-contacts": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-customers": [
+    {
+      "id": "1",
+      "title": "Adobe",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "2",
+      "title": "Boeing",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "3",
+      "title": "Cisco Systems",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "4",
+      "title": "Dell",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "5",
+      "title": "eBay",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "6",
+      "title": "FedEx",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "7",
+      "title": "General Electric",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "8",
+      "title": "Intel",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "9",
+      "title": "Lockheed Martin",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "10",
+      "title": "Netflix",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "11",
+      "title": "Oracle",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    },
+    {
+      "id": "12",
+      "title": "Siemens",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_sales_bar", "demo_sales_bar"]
+    }
+  ],
+  "virtualerp-interactions": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-invoices": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-leads": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-opportunities": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-products": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "virtualerp-sales-orders": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ]
+}

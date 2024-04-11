@@ -3,7 +3,7 @@ package com.harana.search.client.search
 import com.harana.search.client.models.Document.DocumentId
 import com.harana.search.client.models.Integration.IntegrationId
 import com.harana.search.client.models.{Application, Document, Integration, Integrations}
-import com.harana.search.client.search.ui.Panel
+import com.harana.search.client.search.ui.SearchColumn
 import diode.{Action => DiodeAction}
 import org.scalajs.dom.KeyboardEvent
 
@@ -13,7 +13,7 @@ object SearchStore {
 
   case class State(allowPreview: Boolean,
                    integrations: List[Integration],
-                   focusedPanel: Panel,
+                   focusedPanel: SearchColumn,
                    errorMessage: Option[String],
                    loadedThumbnails: Map[DocumentId, String],
                    searchApplication: Option[Application],
@@ -25,7 +25,7 @@ object SearchStore {
                    selectedDocumentId: Option[DocumentId],
                    selectedDocument: Option[Document])
 
-  val initialState = State(false, Integrations.list, Panel.Search, None, Map(), None, List(), None, 1, 1, None, None, None)
+  val initialState = State(false, Integrations.list, SearchColumn.Search, None, Map(), None, List(), None, 1, 1, None, None, None)
 
   case class KeyDown(key: Int, event: KeyboardEvent) extends DiodeAction
   case class KeyUp(key: Int, event: KeyboardEvent) extends DiodeAction
@@ -41,6 +41,7 @@ object SearchStore {
   case object Open extends DiodeAction
   case object OpenApplication extends DiodeAction
   case object OpenParentFolder extends DiodeAction
+  case object Share extends DiodeAction
 
   case object Hide extends DiodeAction
   case class ShowPreview(document: Document) extends DiodeAction
@@ -68,7 +69,7 @@ object SearchStore {
   case class UpdateAllowPreview(preview: Boolean) extends DiodeAction
   case class UpdateErrorMessage(message: Option[String]) extends DiodeAction
   case class UpdateIntegrations(integrations: List[Integration]) extends DiodeAction
-  case class UpdateFocusedPanel(panel: Panel) extends DiodeAction
+  case class UpdateFocusedPanel(panel: SearchColumn) extends DiodeAction
   case class UpdateLoadedThumbnails(thumbnails: Map[DocumentId, String]) extends DiodeAction
   case class UpdateSelectedCardHorizontal(index: Int) extends DiodeAction
   case class UpdateSelectedCardVertical(index: Int) extends DiodeAction

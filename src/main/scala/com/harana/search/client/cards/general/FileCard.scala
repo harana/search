@@ -9,7 +9,7 @@ import slinky.web.html._
 
 object FileCard extends Card {
 
-  def apply(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
+  def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-top bg-gradient-to-r from-slate-500 to-gray-400")(
       when(document.accessed, div(className := "card-file-row")(div("Accessed"), div(document.accessed))),
       when(document.created, div(className := "card-file-row")(div("Created"), div(document.created))),
@@ -19,4 +19,3 @@ object FileCard extends Card {
     )
   }
 }
-

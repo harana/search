@@ -1,0 +1,278 @@
+{
+  "developer-maven": [
+    {
+      "id": "1",
+      "title": "Spark Project Catalyst",
+      "subtitle": "org.apache.spark → spark-catalyst",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "2",
+      "title": "Spark Project Core",
+      "subtitle": "org.apache.spark → spark-core",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "3",
+      "title": "Spark Project GraphX",
+      "subtitle": "org.apache.spark → spark-graphx",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "4",
+      "title": "Spark Project Hive",
+      "subtitle": "org.apache.spark → spark-hive",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "5",
+      "title": "Spark Project Streaming",
+      "subtitle": "org.apache.spark → spark-streaming",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "6",
+      "title": "Spark Project SQL",
+      "subtitle": "org.apache.spark → spark-sql",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "7",
+      "title": "Spark Project Tags",
+      "subtitle": "org.apache.spark → spark-tags",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "8",
+      "title": "Spark Project YARN",
+      "subtitle": "org.apache.spark → spark-yarn",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    }
+  ],
+  "developer-meteor": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-nimble": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-npm": [
+    {
+      "id": "1",
+      "title": "express",
+      "subtitle": "Fast, unopinionated, minimalist web framework",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "2",
+      "title": "express-validator",
+      "subtitle": "Express middleware for the validator module",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "3",
+      "title": "regexp.prototype.flags",
+      "subtitle": "ES6 spec-compliant RegExp.prototype.flags shim",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "4",
+      "title": "cors",
+      "subtitle": "Node.js CORS middleware",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "5",
+      "title": "express-fileupload",
+      "subtitle": "Simple express file upload middleware that wraps around Busboy",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "6",
+      "title": "express-handlebars",
+      "subtitle": "A Handlebars view engine for Express which doesn't suck.",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "7",
+      "title": "string.prototype.matchall",
+      "subtitle": "Spec-compliant polyfill for String.prototype.matchAll",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "8",
+      "title": "emoji-regex",
+      "subtitle": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "9",
+      "title": "is-regex",
+      "subtitle": "Is this value a JS regex? Works cross-realm/iframe, and despite ES6 @@toStringTag",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    },
+    {
+      "id": "10",
+      "title": "ignore",
+      "subtitle": "Ignore is a manager and filter for .gitignore rules, the one used by eslint, gitbook and many others",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_software_table", "demo_software_table"]
+    }
+  ],
+  "developer-nuget": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-packagist": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-pub": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-puppet": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-purescript": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-python": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-racket": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-rubygems": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ],
+  "developer-swift": [
+    {
+      "id": "1",
+      "title": "Title",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": []
+    }
+  ]
+}

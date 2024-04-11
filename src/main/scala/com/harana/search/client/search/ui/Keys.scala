@@ -11,4 +11,5 @@ object Keys {
   val Up = 38
   val Right = 39
   val Down = 40
+  val S = 83
 }

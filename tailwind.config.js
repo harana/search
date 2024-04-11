@@ -6,10 +6,11 @@ const colors = require('tailwindcss/colors')
 export default {
     content: [
         "./src/css/*",
+        "./src/css/*",
         "./src/fonts/*",
         "./src/html/*",
-        "./src/**/*.{js,ts,jsx,tsx,scala}",
-        "./target/*",
+        "./src/main/*.{js,ts,jsx,tsx,scala}",
+        "./target/*.{js,ts,jsx,tsx,scala,html}",
     ],
     theme: {
         colors: {
