@@ -22,7 +22,6 @@ class SystemHandler extends ActionHandler(zoomTo(_.systemState)) {
             appIconsUrl       =  convertFileSrc(appIconsPath)
 
             isDebug           <- Tauri.invoke[String]("is_debug")
-            isDemo            <- Tauri.invoke[String]("is_demo")
 
             previewsPath      <- Tauri.invoke[String]("get_previews_path")
             previewsUrl       =  convertFileSrc(previewsPath)
@@ -49,6 +48,9 @@ class SystemHandler extends ActionHandler(zoomTo(_.systemState)) {
 
     case UpdateIsDebug(debug) =>
       updated(value.copy(isDebug = debug))
+
+    case UpdateIsDemo(demo) =>
+      updated(value.copy(isDemo = demo))
 
     case UpdatePreviewsUrl(url) =>
       updated(value.copy(previewsUrl = url))

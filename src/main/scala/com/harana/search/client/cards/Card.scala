@@ -53,7 +53,7 @@ object Card {
       "demo_software_table"               -> DemoSoftwareTableCard,
       "empty"                             -> EmptyCard,
       "feed"                              -> DemoCustomerTimelineCard,
-      "file"                              -> FileCard,
+      "file_info"                         -> FileInfoCard,
       "map"                               -> MapCard,
       "metadata"                          -> MetadataCard,
       "notes"                             -> NotesCard,

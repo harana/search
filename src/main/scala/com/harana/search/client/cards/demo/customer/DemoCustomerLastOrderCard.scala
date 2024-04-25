@@ -37,5 +37,5 @@ object DemoCustomerLastOrderCard extends Card {
       )
     )
 
-  override def title = Some("Last Order")
+  override def title = Some("Previous Order")
 }

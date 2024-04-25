@@ -24,6 +24,7 @@ harana_search_extensions = { package = "search_extensions", path = "../../search
 harana_search_file = { package = "search_file", path = "../../search-engine/src/search/file" }
 harana_search_index = { package = "search_index", path = "../../search-engine/src/search/index" }
 harana_search_jobs = { package = "search_jobs", path = "../../search-engine/src/search/jobs" }
+harana_search_tantivy = { package = "search_tantivy", path = "../../search-engine/src/search/tantivy" }
 harana_search = { package = "search", path = "../../search-engine/src/search" }
 harana_thumbnailer = { package = "thumbnailer", path = "../../search-engine/src/thumbnailer" }
 harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../search-engine/src/thumbnailer/core" }
@@ -63,9 +64,9 @@ xcap = "0.0.8"
 zbus = "4.1.2"
 
 [target.'cfg(target_os = "macos")'.dependencies]
-core-graphics = {version = "0.23.1" }
+cocoa = "0.25"
+core-graphics = { version = "0.23.1" }
 core-foundation = { version = "0.9.3" }
-cocoa = { version = "0.25.0" }
 macos-app-nap = "0.0.1"
 objc =  { version = "0.2.7" }
 objc_id = { version = "0.1.1" }

@@ -57,17 +57,15 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
           )
         )
       else {
-        val searchTerm = if (term.get == "s") "Sample1" else term.get
         effectOnly(
           Effect(
-            Tauri.invoke("search", Map("query" -> searchTerm)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
+            Tauri.invoke("search", Map("query" -> term.get)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
               val results = jsResults.toMap.view
                 .map(pair => (pair._1, pair._2.toList.sortBy(_.title.toLowerCase).map(rd => Document(rd, pair._1))))
                 .toList
                 .sortBy(pair => Integrations.get(pair._1).title.toLowerCase)
               UpdateSearchResults(results)
-            }
-            }
+            }}
           ) +
             Effect(
               Tauri.invoke("search_application", Map("query" -> term.get)).map { (result: js.UndefOr[RawApplication]) => {
@@ -168,7 +166,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
     case SelectDocument(documentId, scroll) =>
       val doc = document(documentId)
       effectOnly(
-        if (value.selectedDocumentId.isEmpty || value.selectedDocumentId.get != documentId) {
+        if (value.selectedDocumentId.isEmpty || value.selectedDocumentId.get != documentId)
           Effect(
             Tauri.invoke[Unit]("emit_preview_message", Map("name" -> "preview_document_changed", "payload" -> doc.asJson.noSpaces)).map(_ => NoChange)
           ) + (if (doc.path.isDefined) Effect(Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))) else Effect.action(NoChange)) +
@@ -181,7 +179,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
                 if (scroll) ScrollToDocument(documentId) else NoChange
               )
             )
-        } else
+        else
           action(UpdateFocusedPanel(SearchColumn.Document))
       )
 
@@ -218,6 +216,9 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
 
     case UpdateAllowPreview(preview) =>
       updated(value.copy(allowPreview = preview))
+
+    case UpdateAllowShare(share) =>
+      updated(value.copy(allowShare = share))
 
     case UpdateErrorMessage(message) =>
       updated(value.copy(errorMessage = message))

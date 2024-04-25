@@ -12,7 +12,7 @@ object DemoBuildingThumbnailCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default")(
-      img(style := literal("max-width" -> "320px"), src := convertFileSrc(s"assets/demos/floorplan.png"))
+      img(style := literal("maxWidth" -> "320px"), src := convertFileSrc(s"assets/demos/floorplan.png"))
     )
   }
 

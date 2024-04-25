@@ -12,6 +12,7 @@ object SearchStore {
   type SearchTerm = String
 
   case class State(allowPreview: Boolean,
+                   allowShare: Boolean,
                    integrations: List[Integration],
                    focusedPanel: SearchColumn,
                    errorMessage: Option[String],
@@ -25,7 +26,7 @@ object SearchStore {
                    selectedDocumentId: Option[DocumentId],
                    selectedDocument: Option[Document])
 
-  val initialState = State(false, Integrations.list, SearchColumn.Search, None, Map(), None, List(), None, 1, 1, None, None, None)
+  val initialState = State(false, false, Integrations.list, SearchColumn.Search, None, Map(), None, List(), None, 1, 1, None, None, None)
 
   case class KeyDown(key: Int, event: KeyboardEvent) extends DiodeAction
   case class KeyUp(key: Int, event: KeyboardEvent) extends DiodeAction
@@ -67,6 +68,7 @@ object SearchStore {
   case object ScrollToLastIntegration extends DiodeAction
 
   case class UpdateAllowPreview(preview: Boolean) extends DiodeAction
+  case class UpdateAllowShare(share: Boolean) extends DiodeAction
   case class UpdateErrorMessage(message: Option[String]) extends DiodeAction
   case class UpdateIntegrations(integrations: List[Integration]) extends DiodeAction
   case class UpdateFocusedPanel(panel: SearchColumn) extends DiodeAction

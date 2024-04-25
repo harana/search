@@ -7,8 +7,7 @@ use cocoa::{
     base::{BOOL, id, nil, NO, YES},
     foundation::{NSPoint, NSRect},
 };
-use cocoa::appkit::NSWindow;
-use harana_common::log::info;
+use cocoa::appkit::{NSMainMenuWindowLevel, NSWindow};
 use objc::{
     class,
     declare::ClassDecl,
@@ -70,12 +69,10 @@ macro_rules! nsstring_to_string {
 static INIT: Once = Once::new();
 static PANEL_LABEL: &str = "search";
 
-pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_center: bool, show_devtools: bool) {
+pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
     INIT.call_once(|| {
-        info!("Initialising NS Panel ..");
         let search_window = app_handle.get_window(PANEL_LABEL).unwrap();
         let _ = SEARCH_WINDOW.set(search_window.clone());
-
         set_state!(app_handle, always_center_window, always_center);
 
         unsafe {
@@ -85,13 +82,10 @@ pub fn init_main_panel(app_handle: AppHandle<Wry>, shortcut: String, always_cent
         if show_devtools {
             search_window.open_devtools();
         }
-
-        info!("Registering shortcut ..");
-        register_shortcut(app_handle, shortcut);
     });
 }
 
-fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
+pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
     let mut shortcut_manager = app_handle.global_shortcut_manager();
     let window = app_handle.get_window(PANEL_LABEL).unwrap();
 
@@ -129,7 +123,6 @@ pub fn show_search(app_handle: AppHandle<Wry>) {
     unsafe {
         let welcome_window = WELCOME_WINDOW.get().unwrap();
         if ONBOARDED && welcome_window.is_visible().unwrap() {
-            info!("Hiding welcome window ..");
             welcome_window.hide().unwrap();
         }
     }
@@ -387,7 +380,6 @@ impl RawNSPanelDelegate {
 
     /// Hide panel when it's no longer the key window
     extern "C" fn window_did_resign_key(this: &Object, _: Sel, _: id) {
-        //println!("WINDOW DID RESIGN KEY")
         let panel: id = unsafe { *this.get_ivar("panel") };
         let _: () = unsafe { msg_send![panel, orderOut: nil] };
     }
@@ -408,31 +400,21 @@ impl RawNSPanelDelegate {
 }
 
 unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
-    // Convert NSWindow Object to NSPanel
     let handle: id = window.ns_window().unwrap() as _;
     let panel = RawNSPanel::from(handle);
     let panel = panel.share();
 
-
-    // Disable shadow
     handle.setHasShadow_(BOOL::from(false));
+    panel.set_level(NSMainMenuWindowLevel + 1);
+    panel.set_style_mask(NSWindowStyleMaskNonActivatingPanel);
 
-    // Set panel above the main menu window level
-    // panel.set_level(NSMainMenuWindowLevel + 1);
-
-    // Ensure that the panel can display over the top of fullscreen apps
     panel.set_collection_behaviour(
         NSWindowCollectionBehavior::NSWindowCollectionBehaviorTransient
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorFullScreenAuxiliary,
     );
 
-    // Ensures panel does not activate
-    panel.set_style_mask(NSWindowStyleMaskNonActivatingPanel);
-
-    // Setup delegate for an NSPanel to listen for window resign key and hide the panel
     toggle_delegate(panel.clone(), true);
-
     panel
 }
 

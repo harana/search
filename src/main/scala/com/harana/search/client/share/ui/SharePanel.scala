@@ -15,9 +15,13 @@ import scala.scalajs.js.JSConverters._
 
   val component = FunctionalComponent[Unit] { _ =>
 
-    Tauri.invoke("update_window_size", Map("width" -> 960.0, "height" -> 465.0).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("width" -> 960.0, "height" -> 680.0).toJSDictionary)
 
     val buttonClass = "relative inline-flex bg-white py-2 text-xs font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+
+    val recentUrls = List(
+      ("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=200&h=200&q=90", "Emma Clarke", "Frontend Developer"),
+    )
 
     val personUrls = List(
       ("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=200&h=200&q=90", "Emma Clarke", "Frontend Developer"),
@@ -32,7 +36,7 @@ import scala.scalajs.js.JSConverters._
         div(className := "sm:col-span-1 pr-6")(
           h2(className := "text-sm text-gray-600 mb-4")("Recent"),
           ul(role := "grid gap-x-8 gap-y-8")(
-            personUrls.map(p => person(p._1, p._2, p._3, personUrls.indexOf(p) == 0))
+            recentUrls.map(p => person(p._1, p._2, p._3, personUrls.indexOf(p) == 0))
           )
         ),
         div(className := "sm:col-span-1 pr-6")(
@@ -58,7 +62,7 @@ import scala.scalajs.js.JSConverters._
   }
 
   def person(url: String, name: String, role: String, selected: Boolean) =
-    li(className := s"mb-2 p-2 ${if (selected) "ring-2 ring-inset ring-emerald-600 rounded-md"}")(
+    li(className := s"mb-2 p-2 ${if (selected) "ring-1 ring-inset ring-emerald-600 rounded-md"}")(
       div(className := "flex items-center gap-x-6 gap-y-6")(
         img(className := "h-10 w-10 rounded-full", src := url),
         div(

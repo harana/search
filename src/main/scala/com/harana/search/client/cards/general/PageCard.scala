@@ -12,7 +12,7 @@ object PageCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default bg-gradient-to-r from-teal-200 to-lime-200")(
-      span("default-icon")(Integrations.get(integration).icon)
+      span(className := "default-icon")(Integrations.get(integration).icon)
     )
   }
 }

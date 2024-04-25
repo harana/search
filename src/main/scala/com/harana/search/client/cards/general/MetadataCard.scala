@@ -13,7 +13,7 @@ object MetadataCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default bg-gradient-to-br from-pink-500 to-orange-400")(
-      span("default-icon")(Integrations.get(integration).icon)
+      span(className := "default-icon")(Integrations.get(integration).icon)
     )
   }
 }

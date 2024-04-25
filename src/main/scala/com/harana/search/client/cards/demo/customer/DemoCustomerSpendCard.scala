@@ -57,5 +57,5 @@ object DemoCustomerSpendCard extends Card {
       )
     )
 
-  override val title = Some("Total Spend")
+  override val title = Some("Recent Spend")
 }

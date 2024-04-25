@@ -12,7 +12,7 @@ object VideoPlayCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default bg-gradient-to-r from-purple-500 to-pink-500")(
-      span("default-icon")(Integrations.get(integration).icon)
+      span(className := "default-icon")(Integrations.get(integration).icon)
     )
   }
 }

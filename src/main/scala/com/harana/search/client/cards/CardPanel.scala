@@ -64,7 +64,7 @@ import slinky.web.html._
           button(disabled := !searchState.allowPreview, onClick := (_ => Circuit.dispatch(ShowPreview(searchState.selectedDocument.get))), `type` := "button", className := s"rounded-l-md px-3 $buttonClass ${if (!searchState.allowPreview) "disabled:opacity-50" }")("Preview"),
           button(disabled := searchState.selectedDocument.get.path.isEmpty, onClick := (_ => Circuit.dispatch(Open)), `type` := "button", className := s"-ml-px px-3 $buttonClass ${if (searchState.selectedDocument.get.path.isEmpty) "disabled:opacity-50" }")("Open"),
           button(disabled := searchState.selectedDocument.get.parentFolderPath.isEmpty, onClick := (_ => Circuit.dispatch(OpenParentFolder)), `type` := "button", className := s"-ml-px px-3 $buttonClass ${if (searchState.selectedDocument.get.parentFolderPath.isEmpty) "disabled:opacity-50" }")("Show Folder"),
-          button(onClick := (_ => Circuit.dispatch(Share)), `type` := "button", className := s"-ml-px px-3 rounded-r-md $buttonClass")("Share")
+          button(disabled := !searchState.allowShare, onClick := (_ => Circuit.dispatch(Share)), `type` := "button", className := s"-ml-px px-3 rounded-r-md $buttonClass ${if (!searchState.allowShare) "disabled:opacity-50" }")("Share")
         ),
         span(className := "inline-flex right justify-center rounded-md pt-6 pb-15 mr--4")(
         ),

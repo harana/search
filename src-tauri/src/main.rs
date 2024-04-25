@@ -150,7 +150,8 @@ fn main() {
 
                 let _ = JOB_MANAGER.set(JobManager::new(
                     DATABASE_PATH.get().unwrap(),
-                    num_cpus::get() / 2,
+                    1,
+                    // num_cpus::get() / 4,
                     1,
                     DATABASE_MANAGER.get().unwrap(),
                     job_handlers,

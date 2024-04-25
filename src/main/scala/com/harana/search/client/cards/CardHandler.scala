@@ -33,33 +33,36 @@ class CardHandler extends ActionHandler(zoomTo(_.cardState)) {
       effectOnly(action(UpdateMiddleVerticalIndex(value.middleVerticalIndex + 1)))
 
     case UpdateCards(cards) =>
-      if (cards.nonEmpty)
-        updated(value.copy(cards = cards), action(
-          ActionBatch(
-            UpdateMiddleHorizontalIndex(0),
-            UpdateMiddleVerticalIndex(0)
-          )
+      updated(value.copy(cards = cards), action(
+        ActionBatch(
+          UpdateMiddleHorizontalIndex(0),
+          UpdateMiddleVerticalIndex(0)
+        )
+      ))
+
+    case UpdateMiddleHorizontalIndex(index: Int) =>
+      if (index < value.cards.size)
+        updated(value.copy(
+          horizontalLeftCard = if (index > 0) Some(value.cards(index - 1).head) else None,
+          horizontalRightCard = if (index < value.cards.size - 1) Some(value.cards(index + 1).head) else None,
+          middleCard = Some(value.cards(index).head),
+          middleHorizontalIndex = index,
+          verticalTopCard = None,
+          verticalBottomCard = value.cards(index).lift(1)
         ))
       else
         noChange
 
-    case UpdateMiddleHorizontalIndex(index: Int) =>
-      updated(value.copy(
-        horizontalLeftCard = if (index > 0) Some(value.cards(index - 1).head) else None,
-        horizontalRightCard = if (index < value.cards.size - 1) Some(value.cards(index + 1).head) else None,
-        middleCard = Some(value.cards(index).head),
-        middleHorizontalIndex = index,
-        verticalTopCard = None,
-        verticalBottomCard = value.cards(index).lift(1)
-      ))
-
     case UpdateMiddleVerticalIndex(index: Int) =>
-      val verticalCards = value.cards(value.middleHorizontalIndex)
-      updated(value.copy(
-        middleCard = Some(verticalCards(index)),
-        middleVerticalIndex = index,
-        verticalTopCard = if (index > 0) Some(verticalCards(index-1)) else None,
-        verticalBottomCard = if (index < verticalCards.size - 1) Some(verticalCards(index+1)) else None
-      ))
+      val verticalCards = if (value.cards.isEmpty) List() else value.cards(value.middleHorizontalIndex)
+      if (index < verticalCards.size)
+        updated(value.copy(
+          middleCard = Some(verticalCards(index)),
+          middleVerticalIndex = index,
+          verticalTopCard = if (index > 0) Some(verticalCards(index-1)) else None,
+          verticalBottomCard = if (index < verticalCards.size - 1) Some(verticalCards(index+1)) else None
+        ))
+      else
+        noChange
   }
 }

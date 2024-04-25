@@ -9,11 +9,11 @@ use tauri::{App, AppHandle, Manager};
 
 use crate::globals::*;
 use crate::system_tray::{disable_system_tray, enable_system_tray};
-use crate::windows_main;
+use crate::{windows_mac, windows_main};
 
 pub async fn create_windows(app: &mut App) -> Result<()> {
     #[cfg(target_os = "macos")]
-    app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+    app.set_activation_policy(tauri::ActivationPolicy::Prohibited);
 
     let billing_window = app.get_window("billing").unwrap();
     billing_window.eval("window.location.replace('/billing')").unwrap();
@@ -42,7 +42,6 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
     // Load previous search positions
     let positions = DATABASE_MANAGER.get().unwrap().core(|c| Ok({
         if let Some(json) = state_get(c, "window_positions".to_string())? {
-            println!("Found JSON: {}", json.as_str());
             serde_json::from_str(json.as_str()).unwrap()
         }else{
             DashMap::new()
@@ -58,6 +57,11 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
     init_main_window(app.handle()).await.unwrap();
 
     if has_onboarded {
+        let shortcut_key = DATABASE_MANAGER.get().unwrap().core(move |c|
+            settings_get(c, "appearance_shortcut_key".to_string())
+        ).await?.unwrap();
+        windows_mac::register_shortcut(app.handle(), shortcut_key.to_string());
+
         enable_system_tray(app.handle()).unwrap();
         windows_main::show_search(app.handle())
     }else{
@@ -71,12 +75,8 @@ pub async fn init_main_window(app_handle: AppHandle) -> Result<()> {
         settings_get(c, "appearance_always_center_window".to_string())
     ).await.unwrap().map(|v| v == "1").unwrap_or(false);
 
-    let shortcut_key = DATABASE_MANAGER.get().unwrap().core(move |c|
-        settings_get(c, "appearance_shortcut_key".to_string())
-    ).await?.unwrap_or("CommandOrControl+Space".to_string());
-
     let debug = env::var("HARANA_DEBUG").is_ok();
-    windows_main::init_main_panel(app_handle.clone(), shortcut_key, always_center, debug);
+    windows_main::init_main_panel(app_handle.clone(), always_center, debug);
     if debug {
         windows_main::disable_auto_hide(app_handle.clone());
     }

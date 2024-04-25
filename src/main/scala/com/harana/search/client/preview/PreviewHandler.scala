@@ -36,7 +36,6 @@ class PreviewHandler extends ActionHandler(zoomTo(_.previewState)) {
     case KeyDown(key, event) =>
       effectOnly {
         event.stopPropagation()
-        event.preventDefault()
 
         key match {
           case Keys.Space | Keys.Escape =>
@@ -54,6 +53,8 @@ class PreviewHandler extends ActionHandler(zoomTo(_.previewState)) {
       }
 
     case KeyUp(key, event) =>
+      event.stopPropagation()
+
       noChange
 
     case LoadDocument(json) =>

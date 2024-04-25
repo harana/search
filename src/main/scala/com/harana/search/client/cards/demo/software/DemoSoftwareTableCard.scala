@@ -46,5 +46,5 @@ object DemoSoftwareTableCard extends Card {
       )
     )
 
-  override def title = Some("Information")
+  override def title = Some("Customer")
 }

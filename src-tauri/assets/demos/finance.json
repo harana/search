@@ -2,11 +2,93 @@
   "virtualerp-accounts": [
     {
       "id": "1",
-      "title": "Title",
+      "title": "Benjamin Jones",
+      "subtitle": "#1010 / 5m",
       "is_file": false,
       "primary_tokens": [],
       "secondary_tokens": [],
-      "cards": []
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "2",
+      "title": "Amanda Smith",
+      "subtitle": "#1011 / 1h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "3",
+      "title": "Dominic Ford",
+      "subtitle": "#1003 / 2h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "4",
+      "title": "Finn Smith",
+      "subtitle": "#1017 / 2h",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "5",
+      "title": "Grace Ford",
+      "subtitle": "#1022 / 1d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "6",
+      "title": "Luna Zimmerman",
+      "subtitle": "#1023 / 2d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "7",
+      "title": "Nora Vasquez",
+      "subtitle": "#1024 / 2d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "8",
+      "title": "Sophia Owens",
+      "subtitle": "#1025 / 3d",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "9",
+      "title": "Willa Ford",
+      "subtitle": "#1009 / 1w",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
+    },
+    {
+      "id": "10",
+      "title": "Xander Jones",
+      "subtitle": "#1010 / 1w",
+      "is_file": false,
+      "primary_tokens": [],
+      "secondary_tokens": [],
+      "cards": ["demo_customer_notes", "demo_customer_info", "demo_customer_timeline", "demo_customer_lastorder", "demo_customer_spend"]
     }
   ],
   "virtualerp-accounts-payable": [

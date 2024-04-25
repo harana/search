@@ -38,7 +38,7 @@ import scala.scalajs.js.JSConverters.JSRichMap
     val systemState = Circuit.state(_.systemState, true)
 
     val drag = new CustomAttribute[Boolean]("data-tauri-drag-region")
-    Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> 465.0).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> 680.0).toJSDictionary)
 
     div(className := "flex min-h-[720px] bg-white rounded-xl")(
       div(className := "flex w-60 flex-col")(

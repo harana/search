@@ -7,6 +7,7 @@ use harana_common::log::debug;
 use harana_database::files_get_document_id::files_get_document_id;
 use harana_document::document::Document;
 use harana_search_extensions::extensions::Extensions;
+use harana_search_tantivy::document::TantivyDocument;
 use harana_thumbnailer_core::image::Image;
 use harana_thumbnailer_core::image::ImageType;
 
@@ -23,9 +24,8 @@ pub async fn get_document(document_id: String) -> Result<(Document, String), Str
     let index_name = Extensions::category(format, extension).index();
     let index = INDEX_MANAGER.get().unwrap().get_index(index_name);
     let document_hit = index.get_document(u64_id.clone()).await.map_err(|e| e.to_string())?;
-    let document = Document::from_hit(document_hit);
+    let document = TantivyDocument::from_hit(document_hit);
     let thumbnailer = Extensions::thumbnailer(None, extension).await.get_name().replace("Thumbnailer", "");
-    println!("Thumbnail {} for file {}", thumbnailer, extension);
     Ok((document, thumbnailer))
 }
 

@@ -12,7 +12,7 @@ object SampleCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default")(
-      img(style := literal("max-width" -> "320px"), src := convertFileSrc(s"assets/card.jpg"))
+      img(style := literal("maxWidth" -> "320px"), src := convertFileSrc(s"assets/card.jpg"))
     )
   }
 }

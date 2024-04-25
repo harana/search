@@ -57,8 +57,21 @@ class WelcomeHandler extends ActionHandler(zoomTo(_.welcomeState)) {
     case CompleteOnboarding =>
       value.statusTimer.get.cancel()
       effectOnly(
-        Effect(Tauri.invoke[Unit]("complete_onboarding", Map()).map(_ => NoChange))
+        Effect(Tauri.invoke[Unit]("complete_onboarding", Map(
+          "allowTelemetry" -> value.allowTelemetry,
+          "anonymousMode" -> value.anonymousMode,
+          "overrideSpotlight" -> value.overrideSpotlight,
+        )).map(_ => NoChange))
       )
+
+    case UpdateAllowTelemetry(allow) =>
+      updated(value.copy(allowTelemetry = allow))
+
+    case UpdateAnonymousMode(anonymous) =>
+      updated(value.copy(anonymousMode = anonymous))
+
+    case UpdateOverrideSpotlight(os) =>
+      updated(value.copy(overrideSpotlight = os))
 
     case UpdateSearchFolderStatus(status) =>
       updated(value.copy(searchFolderStatus = status))

@@ -3,6 +3,7 @@ package com.harana.search.client.models
 import com.harana.search.client.models.Document.DocumentId
 import com.harana.search.client.models.Integration.IntegrationId
 import io.circe.generic.extras.ConfiguredJsonCodec
+import typings.std.global.console
 
 import scala.scalajs.js
 
@@ -55,7 +56,7 @@ case class Document(id: DocumentId,
 object Document {
   type DocumentId = String
 
-  def apply(rd: RawDocument, integrationId: IntegrationId): Document = {
+  def apply(rd: RawDocument, integrationId: IntegrationId): Document =
     Document(
       rd.id,
       integrationId,
@@ -79,5 +80,4 @@ object Document {
       Option(rd.metadata),
       rd.cards.toList
     )
-  }
 }

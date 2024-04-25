@@ -4,25 +4,20 @@ import com.harana.search.client.Circuit
 import com.harana.search.client.cards.CardPanel
 import com.harana.search.client.search.SearchStore._
 import com.harana.search.client.search.ui.rows.{DocumentRow, IntegrationRow}
-import com.harana.search.client.{Tauri => SearchTauri}
 import com.harana.web.components.when
 import com.harana.web.external.tailwind.OutlineIcons._
 import com.harana.web.external.tailwind.SolidIcons._
-import com.harana.web.external.tailwind.dialog._
-import com.harana.web.external.tailwind.popover._
-import com.harana.web.external.tailwind.transition.{Transition, TransitionChild}
+import com.harana.web.external.tailwind.popover.PopoverButton
 import com.harana.web.external.tauri.Tauri
 import com.harana.web.external.virtuoso.{Style, Virtuoso}
-import diode.ActionBatch
 import org.scalajs.dom._
 import slinky.core.annotations.react
 import slinky.core.facade.Hooks.useEffect
-import slinky.core.facade.{Fragment, React}
+import slinky.core.facade.React
 import slinky.core.{CustomAttribute, FunctionalComponent}
 import slinky.web.html._
 
 import scala.scalajs.js
-import scala.scalajs.js.Date
 import scala.scalajs.js.JSConverters._
 
 @react object SearchPanel {
@@ -46,16 +41,16 @@ import scala.scalajs.js.JSConverters._
       Seq.empty
     )
 
-    //Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 466.0 else 58.0)).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 680.0 else 58.0)).toJSDictionary)
 
     val dragRegionAttr = new CustomAttribute[Boolean]("data-tauri-drag-region")
 
     div(
       div(className := "relative", dragRegionAttr := true)(
-        MagnifyingGlassIcon("pointer-events-none absolute left-4 mt-half top-4 h-5 w-5 text-gray-400"),
+        MagnifyingGlassOutlineIcon("pointer-events-none absolute left-4 mt-half top-4 h-5 w-5 text-gray-400"),
 
         input(
-          className := "h-14 w-350 search-input border-0 bg-transparent ml-10 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-md",
+          className := "h-14 w-350 search-input border-0 bg-transparent ml-10 text-gray-900 placeholder:text-gray-600 focus:ring-0 sm:text-md",
           placeholder := "Search...",
           autoComplete := "false",
           ref := inputRef,

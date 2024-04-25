@@ -15,7 +15,9 @@ object ThumbnailCard extends Card {
     if (thumbnail.nonEmpty)
       div(className := s"flex-none card-default card-thumbnail")(img(src := thumbnail.getOrElse("#")))
     else
-      div(className := s"flex-none card-default bg-gradient-to-br from-pink-500 to-orange-400")(
-        span("default-icon")(Integrations.get(integration).icon)
+      div(className := s"flex-none card-default bg-gradient-to-br from-grey-600 to-grey-400")(
+        span(className := "default-icon")(Integrations.get(integration).icon)
       )
+
+  override def showBorder = true
 }

@@ -1094,6 +1094,10 @@ table tbody tr:last-of-type td:last-of-type {
     width: 250px;
 }
 
+.w-275 {
+    width: 275px;
+}
+
 .w-300 {
     width: 300px;
 }

@@ -13,7 +13,7 @@ object CameraCard extends Card {
 
   def element(document: Document, integration: IntegrationId, thumbnail: Option[String]): ReactElement = {
     div(className := s"flex-none card-default bg-gradient-to-br from-purple-600 to-blue-500")(
-      span("default-icon")(Integrations.get(integration).icon)
+      span(className := "default-icon")(Integrations.get(integration).icon)
     )
   }
 }

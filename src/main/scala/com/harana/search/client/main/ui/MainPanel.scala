@@ -27,9 +27,9 @@ import slinky.web.html._
         val keyUpListener = (e: KeyboardEvent) => Circuit.dispatch(KeyUp(e.keyCode, e))
         val blurListener = (_: FocusEvent) => if (!Circuit.state(_.systemState, false).isDebug) Circuit.dispatch(Hide)
 
-        window.addEventListener("keydown", keyDownListener, false)
-        window.addEventListener("keyup", keyUpListener, false)
-        window.addEventListener("blur", blurListener, false)
+        window.addEventListener("keydown", keyDownListener, true)
+        window.addEventListener("keyup", keyUpListener, true)
+        window.addEventListener("blur", blurListener, true)
 
         () => {
           window.removeEventListener("keydown", keyDownListener, false)
@@ -87,7 +87,7 @@ import slinky.web.html._
       )
 
     Transition(show = true, as = Fragment.component, appear = true)(
-      Dialog(as = "div", className = "relative z-10", onClose = (_: Boolean) => {})(
+      Dialog(as = "div", className = "mb-1 relative z-10", onClose = (_: Boolean) => {})(
         TransitionChild(
           as = Fragment.component,
           enter = "ease-out duration-300", enterFrom = "opacity-0", enterTo = "opacity-100",
@@ -101,7 +101,7 @@ import slinky.web.html._
             enter = "ease-out duration-300", enterFrom = "opacity-0 scale-95", enterTo = "opacity-100 scale-100",
             leave = "ease-in duration-200", leaveFrom = "opacity-100 scale-100", leaveTo = "opacity-0 scale-95"
           )(
-            DialogPanel(className := "mx-auto w-full overflow-auto transform divide-y divide-gray-100 rounded-xl bg-white bg-opacity-70 transition-all")(
+            DialogPanel(className := "border border-gray-300 mx-auto w-full overflow-auto transform divide-y divide-gray-100 rounded-xl bg-white bg-opacity-70 transition-all")(
               Popover()(
                 popoverTransition(popoverPanel),
                 div(

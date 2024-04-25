@@ -12,7 +12,7 @@ object DemoCustomerInfoCard extends Card {
       tbody(className := "divide-y divide-gray-200 bg-white")(
         tr(
           td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Total Spend"),
-          td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("$3,5890.03")
+          td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("$35,890.03")
         ),
         tr(
           td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Orders"),
@@ -23,7 +23,7 @@ object DemoCustomerInfoCard extends Card {
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("Hobart, TAS")
         ),
         tr(
-          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-00 sm:pl-0")("Last Order"),
+          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-00 sm:pl-0")("Previous Order"),
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("11 April 2024")
         ),
         tr(
@@ -43,5 +43,5 @@ object DemoCustomerInfoCard extends Card {
       )
     )
 
-  override def title = Some("Information")
+  override def title = Some("Customer")
 }

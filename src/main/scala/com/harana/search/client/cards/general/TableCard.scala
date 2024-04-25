@@ -23,7 +23,7 @@ object TableCard extends Card {
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("@nadenf")
         ),
         tr(
-          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Total Spend"),
+          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Recent Spend"),
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("$230.42")
         ),
         tr(
@@ -35,7 +35,7 @@ object TableCard extends Card {
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("@nadenf")
         ),
         tr(
-          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Total Spend"),
+          td(className := "whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0")("Recent Spend"),
           td(className := "whitespace-nowrap px-3 py-2 text-sm text-gray-500")("$230.42")
         )
       )
