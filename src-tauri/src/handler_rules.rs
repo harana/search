@@ -8,7 +8,6 @@ use harana_database::rules_list::rules_list;
 
 #[cfg(target_os = "linux")]
 use fork::{daemon, Fork};
-use crate::globals::DATABASE_MANAGER;
 use crate::handlers::database_core;
 
 #[tauri::command]

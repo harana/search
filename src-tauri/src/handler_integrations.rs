@@ -1,4 +1,3 @@
-use harana_common::anyhow::Result;
 use harana_common::log::debug;
 use tauri;
 

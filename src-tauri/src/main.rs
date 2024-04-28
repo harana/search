@@ -1,16 +1,15 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::path::Path;
 use std::time::Duration;
+use color_eyre::owo_colors::OwoColorize;
 
 use harana_application::manager::ApplicationManager;
-use harana_common::{serde_json, tauri};
+use harana_common::{rand, serde_json, tauri};
 use harana_common::hashbrown::HashMap;
 use harana_common::log::info;
 use harana_common::num_cpus;
 use harana_common::thread_pools::build_default_pools;
 use harana_common::uuid::Uuid;
-use harana_database::files_count_all::files_count_all;
 use harana_database::manager::DatabaseManager;
 use harana_database::state_get::state_get;
 use harana_job::handler::JobHandler;
@@ -22,13 +21,15 @@ use harana_search_index::thumbnailer::IndexThumbnailer;
 use harana_search_jobs::job_hash::JobHandlerHash;
 use harana_search_jobs::job_index::JobHandlerIndex;
 use harana_search_jobs::job_thumbnail::JobHandlerThumbnail;
+use keyring::Entry;
+use rand::distributions::Alphanumeric;
+use rand::Rng;
 use tauri::{async_runtime, Manager};
 use crate::directories::setup_directories;
 
 use crate::globals::*;
-use crate::handler_settings::get_setting;
 use crate::handler_state::{get_state, update_state};
-use crate::handlers::{database_files, invoke_handler};
+use crate::handlers::{invoke_handler};
 use crate::logging::logging;
 use crate::state::State;
 use crate::system_tray::{create_system_tray, on_system_tray_event};
@@ -114,7 +115,15 @@ fn main() {
                 let _ = INDEX_SEARCHER.set(IndexSearcher::new(INDEX_MANAGER.get().unwrap()).await);
                 let _ = INDEX_THUMBNAILER.set(IndexThumbnailer::new(thumbnails_path, 400, 400).await);
 
-                INDEX_MANAGER.get().unwrap().create_indexes().await;
+
+                let entry = Entry::new("Harana", "index").unwrap();
+                let entry_password = entry.get_password();
+                if entry_password.is_err() {
+                    let mut rng = rand::thread_rng();
+                    let password: String = rng.sample_iter(&Alphanumeric).take(30).map(char::from).collect();
+                    entry.set_password(password.as_str()).unwrap();
+                }
+                INDEX_MANAGER.get().unwrap().create_indexes(entry_password.unwrap()).await;
             });
 
             // Generate user id if needed

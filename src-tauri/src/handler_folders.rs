@@ -8,7 +8,7 @@ use harana_database::private_folders_list::private_folders_list;
 use harana_database::search_folders_list::search_folders_list;
 use harana_database::search_folders_update_enabled::search_folders_update_enabled;
 
-use crate::globals::{DATABASE_MANAGER, FILE_MANAGER};
+use crate::globals::{FILE_MANAGER};
 use crate::handlers::database_core;
 
 #[tauri::command]
