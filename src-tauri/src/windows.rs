@@ -9,7 +9,10 @@ use tauri::{App, AppHandle, Manager};
 
 use crate::globals::*;
 use crate::system_tray::{disable_system_tray, enable_system_tray};
-use crate::{windows_mac, windows_main};
+use crate::windows_main;
+
+#[cfg(target_os = "macos")]
+use crate::windows_mac;
 
 pub async fn create_windows(app: &mut App) -> Result<()> {
     #[cfg(target_os = "macos")]
@@ -60,6 +63,8 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
         let shortcut_key = DATABASE_MANAGER.get().unwrap().core(move |c|
             settings_get(c, "appearance_shortcut_key".to_string())
         ).await?.unwrap();
+
+        #[cfg(target_os = "macos")]
         windows_mac::register_shortcut(app.handle(), shortcut_key.to_string());
 
         enable_system_tray(app.handle()).unwrap();

@@ -63,6 +63,8 @@ mod state;
 mod system_tray;
 mod windows;
 mod windows_main;
+
+#[cfg(target_os = "macos")]
 mod windows_mac;
 
 fn main() {

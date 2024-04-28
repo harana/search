@@ -8,6 +8,8 @@ use tauri::{AppHandle, Wry};
 use crate::globals::{ONBOARDED, WELCOME_WINDOW};
 use crate::handlers::database_core;
 use crate::windows::init_main_window;
+
+#[cfg(target_os = "macos")]
 use crate::windows_mac;
 
 #[tauri::command]
@@ -67,6 +69,8 @@ pub async fn complete_onboarding(app_handle: AppHandle<Wry>, allow_telemetry: bo
     // Init main window
     unsafe { ONBOARDED = true; }
     init_main_window(app_handle.clone()).await.unwrap();
+
+    #[cfg(target_os = "macos")]
     windows_mac::register_shortcut(app_handle.clone(), shortcut_key.to_string());
     Ok(())
 }
