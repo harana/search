@@ -1,6 +1,6 @@
 package com.harana.search.client
 
-import com.harana.js.reactRouterDom.components._
+import com.harana.web.external.router.{Route, Switch, Router => ReactRouter}
 import com.harana.search.client.checkout.ui.CheckoutPanel
 import com.harana.search.client.integrations.ui.IntegrationsPanel
 import com.harana.search.client.login.ui.LoginPanel
@@ -13,6 +13,7 @@ import com.harana.search.client.support.ui.SupportPanel
 import com.harana.search.client.thumbnail.ui.ThumbnailPanel
 import com.harana.search.client.welcome.ui.WelcomePanel
 import com.harana.web.actions.Init
+import com.harana.web.base.Analytics
 import com.harana.web.external.helmet.Helmet
 import com.harana.web.external.ipynb_renderer.ReactIpynbRendererCSS
 import slinky.core.annotations.react
@@ -28,6 +29,7 @@ object Router {
   type Props = Unit
 
   private val didInit = new AtomicReference[Boolean](false)
+  private val browserHistory = new Analytics().history(false)
 
   val component = FunctionalComponent[Unit] { _ =>
 
@@ -40,7 +42,7 @@ object Router {
         }
       })
 
-      BrowserRouter()(
+      ReactRouter(history = browserHistory)(
         div(
           Helmet(
             meta(new CustomAttribute[String]("charSet") := "utf-8"),
@@ -49,19 +51,19 @@ object Router {
             link(rel := "shortcut icon", href := "/favicon.ico"),
             style(`type` := "text/css")(ReactIpynbRendererCSS.toString),
           ),
-          Routes(
-            Route.PathRouteProps.path("/").element(MainPanel.component(())).build,
-            Route.PathRouteProps.path("/auth/signup").element(SignupPanel.component(())).build,
-            Route.PathRouteProps.path("/cart").element(CheckoutPanel.component(())).build,
-            Route.PathRouteProps.path("/changelog").element(CheckoutPanel.component(())).build,
-            Route.PathRouteProps.path("/integrations").element(IntegrationsPanel.component(())).build,
-            Route.PathRouteProps.path("/login").element(LoginPanel.component(())).build,
-            Route.PathRouteProps.path("/preview").element(PreviewPanel.component(())).build,
-            Route.PathRouteProps.path("/settings").element(SettingsPanel.component(())).build,
-            Route.PathRouteProps.path("/support").element(SupportPanel.component(())).build,
-            Route.PathRouteProps.path("/thumbnail/:id").element(ThumbnailPanel.component(())).build,
-            Route.PathRouteProps.path("/welcome").element(WelcomePanel.component(())).build,
-            Route.PathRouteProps.path("*").element(SearchPanel.component(())).build
+          Switch(
+            Route("/", MainPanel.component),
+            Route("/auth/signup", SignupPanel.component),
+            Route("/cart", CheckoutPanel.component),
+            Route("/changelog", CheckoutPanel.component),
+            Route("/integrations", IntegrationsPanel.component),
+            Route("/login", LoginPanel.component),
+            Route("/preview", PreviewPanel.component),
+            Route("/settings", SettingsPanel.component),
+            Route("/support", SupportPanel.component),
+            Route("/thumbnail/:id", ThumbnailPanel.component),
+            Route("/welcome", WelcomePanel.component),
+            Route("*", SearchPanel.component)
           )
         )
       )

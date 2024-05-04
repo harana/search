@@ -3988,9 +3988,9 @@ dependencies = [
 
 [[package]]
 name = "ffmpeg-next"
-version = "6.1.1"
+version = "6.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e72c72e8dcf638fb0fb03f033a954691662b5dabeaa3f85a6607d101569fccd"
+checksum = "f45d337871329d85f5aad1e3d7b09d033cd611d50f734fd6464c731fe7c769bf"
 dependencies = [
  "bitflags 1.3.2",
  "ffmpeg-sys-next",
@@ -5776,6 +5776,8 @@ dependencies = [
  "candle-nn",
  "candle-transformers",
  "common",
+ "ffmpeg-next",
+ "ffmpeg-sys-next",
  "hf-hub",
  "image 0.24.9",
  "imageproc",

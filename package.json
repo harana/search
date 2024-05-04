@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-css": "mkdir -p target && npx tailwindcss -i src/css/core.css -o target/main.css && cp -r src/fonts target && cp src/html/* target",
+    "build-js": ":",
     "preview": "vite preview",
     "package-and-build-arm": "yarn tauri build --target aarch64-apple-darwin && rm -rf ./src-tauri/target/harana_aarch64.dmg && create-dmg --volname harana --volicon './src-tauri/icons/icon.icns' --background './src/dmg-background.png' --window-pos 200 120 --window-size 653 380 --icon-size 115 --icon 'harana.app' 180 189 --hide-extension 'harana.app' --app-drop-link 460 185 ./src-tauri/target/aarch64-apple-darwin/release/bundle/harana_aarch64.dmg ./src-tauri/target/aarch64-apple-darwin/release/bundle/macos/harana.app && mv ./src-tauri/target/aarch64-apple-darwin/release/bundle/harana_aarch64.dmg ./src-tauri/target/",
     "package-and-build-x86_64": "yarn tauri build --target x86_64-apple-darwin && rm -rf ./src-tauri/target/harana_x86_64.dmg && create-dmg --volname harana --volicon './src-tauri/icons/icon.icns' --background './src/dmg-background.png' --window-pos 200 120 --window-size 653 380 --icon-size 115 --icon 'harana.app' 180 189 --hide-extension 'harana.app' --app-drop-link 460 185 ./src-tauri/target/x86_64-apple-darwin/release/bundle/harana_x86_64.dmg ./src-tauri/target/x86_64-apple-darwin/release/bundle/macos/harana.app && mv ./src-tauri/target/x86_64-apple-darwin/release/bundle/harana_x86_64.dmg ./src-tauri/target/",
     "package-and-build": "yarn package-and-build-arm && yarn package-and-build-x86_64 && open ./src-tauri/target/",
-    "tauri": "tauri",
-    "update-assets": "npx tailwindcss -i src/css/core.css -o target/main.css && mkdir -p target && cp -r src/fonts target && cp src/html/* target"
+    "tauri": "tauri"
   },
   "dependencies": {
     "@cantoo/html2canvas": "1.5.7",
@@ -58,8 +59,8 @@
     "react-markdown": "9.0.1",
     "react-pdf": "7.5.1",
     "react-proxy": "1.1.8",
-    "react-router": "6.16.0",
-    "react-router-dom": "6.16.0",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4",
     "react-virtuoso": "4.6.0",
     "seqviz": "3.9.2",
     "source-map": "0.7.3",
