@@ -61,6 +61,7 @@ pub fn invoke_handler(invoke: tauri::Invoke<Wry>) {
             crate::handler_system::quit_app,
             crate::handler_system::update_metric,
             crate::handler_system::update_window_size,
+            crate::handler_system::window_ready,
             crate::handler_thumbnail::get_document,
             crate::handler_thumbnail::has_thumbnail,
             crate::handler_thumbnail::save_thumbnail,

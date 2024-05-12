@@ -1,6 +1,7 @@
 package com.harana.search.client.search
 
 import com.harana.search.client.Circuit.zoomTo
+import com.harana.search.client.Main.analytics
 import com.harana.search.client.cards.CardStore.UpdateCards
 import com.harana.search.client.main.MainStore.UpdateActivePanel
 import com.harana.search.client.main.ui.Panel
@@ -60,6 +61,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         effectOnly(
           Effect(
             Tauri.invoke("search", Map("query" -> term.get)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
+              analytics.pushEvent("search")
               val results = jsResults.toMap.view
                 .map(pair => (pair._1, pair._2.toList.sortBy(_.title.toLowerCase).map(rd => Document(rd, pair._1))))
                 .toList
@@ -105,12 +107,14 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         Effect(
           Tauri.invokeAsAction("open_application",
             Map("path" -> value.searchApplication.get.path),
-            onSuccess = (_: Any) =>
+            onSuccess = (_: Any) => {
+              analytics.pushEvent("open_application")
               ActionBatch(
                 UpdateErrorMessage(None),
                 UpdateSearchApplication(None),
                 UpdateSearchTerm(None)
-              ),
+              )
+            },
             onFailure = (result: scala.Any) => UpdateErrorMessage(Some(result.toString))
           )
         )

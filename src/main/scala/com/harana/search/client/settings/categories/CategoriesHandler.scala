@@ -4,6 +4,7 @@ import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.Tauri
 import com.harana.search.client.settings.categories.CategoriesStore.{UpdateSearchCategories, UpdateSearchCategory}
 import com.harana.web.actions.Init
+import diode.ActionResult.NoChange
 import diode._
 
 class CategoriesHandler extends ActionHandler(zoomTo(_.categoriesState)) {

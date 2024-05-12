@@ -15,7 +15,6 @@ class ShareKeyHandler extends ActionHandler(zoomTo(_.shareState)) {
   override def handle = {
 
     case KeyDown(key, event) =>
-      println("KEY DOWN IN SHARE")
       effectOnly {
         if (key == Keys.Enter)
           action(UpdateActivePanel(Panel.Search))
@@ -24,7 +23,6 @@ class ShareKeyHandler extends ActionHandler(zoomTo(_.shareState)) {
       }
 
     case KeyUp(key, event) =>
-      println("KEY UP IN SHARE")
       effectOnly {
         if (key == Keys.Escape)
           action(UpdateActivePanel(Panel.Search))

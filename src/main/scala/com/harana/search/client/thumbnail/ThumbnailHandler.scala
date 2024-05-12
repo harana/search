@@ -50,7 +50,6 @@ class ThumbnailHandler extends ActionHandler(zoomTo(_.thumbnailState)) {
       effectOnly(
         Effect(
           for {
-            _           <- Future(println("Saving thumbnail .."))
             blob        <- HtmlToImage.toBlob(dom.document.getElementById("root")).toFuture
             buffer      <- blob.arrayBuffer().toFuture
             base64      =  base64Bytes(new Uint8Array(buffer))

@@ -18,9 +18,7 @@ class WelcomeHandler extends ActionHandler(zoomTo(_.welcomeState)) {
   override def handle = {
 
     case Init(preferences) =>
-      effectOnly(
-        Tauri.list("list_search_folders", (list: List[SearchFolder]) => UpdateSearchFolders(list))
-      )
+      effectOnly(Tauri.list("list_search_folders", (list: List[SearchFolder]) => UpdateSearchFolders(list)))
 
     case RefreshStatus =>
       effectOnly(

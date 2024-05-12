@@ -20,6 +20,8 @@ import scala.scalajs.js.Dynamic.{literal => css}
 
     val state = Circuit.state(_.welcomeState, true)
 
+    println("SHOWING WELCOME PANEL")
+
     useEffect(() => {
       if (!state.windowShown)
         Circuit.dispatch(ShowWindow)

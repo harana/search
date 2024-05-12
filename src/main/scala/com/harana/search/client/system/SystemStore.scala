@@ -13,6 +13,8 @@ object SystemStore {
 
   val initialState = State("", "", "", false, false, "")
 
+  case object WindowReady extends Action
+
   case class UpdateAppIconsUrl(url: String) extends Action
   case class UpdateAppAssetsUrl(url: String) extends Action
   case class UpdateIsDebug(debug: Boolean) extends Action

@@ -88,3 +88,10 @@ pub fn update_window_size(width: f64, height: f64, app_handle: AppHandle) {
     let window = app_handle.get_window("search").unwrap();
     window.set_size(Size::Logical(LogicalSize { width, height })).unwrap();
 }
+
+#[tauri::command]
+pub fn window_ready(label: String, app_handle: AppHandle) {
+    debug!("Command: system->window_ready: {}", label);
+    let window = app_handle.get_window(label.as_str()).unwrap();
+    window.emit("push-route", label).unwrap();
+}

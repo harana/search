@@ -19,27 +19,21 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
     app.set_activation_policy(tauri::ActivationPolicy::Prohibited);
 
     let billing_window = app.get_window("billing").unwrap();
-    billing_window.eval("window.location.replace('/billing')").unwrap();
     let _ = BILLING_WINDOW.set(billing_window);
 
     let integrations_window = app.get_window("integrations").unwrap();
-    integrations_window.eval("window.location.replace('/integrations')").unwrap();
     let _ = INTEGRATIONS_WINDOW.set(integrations_window);
 
     let preview_window = app.get_window("preview").unwrap();
-    preview_window.eval("window.location.replace('/preview')").unwrap();
     let _ = PREVIEW_WINDOW.set(preview_window);
 
     let settings_window = app.get_window("settings").unwrap();
-    settings_window.eval("window.location.replace('/settings')").unwrap();
     let _ = SETTINGS_WINDOW.set(settings_window.clone());
 
     let signup_window = app.get_window("signup").unwrap();
-    signup_window.eval("window.location.replace('/auth/signup')").unwrap();
     let _ = SIGNUP_WINDOW.set(signup_window);
 
     let welcome_window = app.get_window("welcome").unwrap();
-    welcome_window.eval("window.location.replace('/welcome')").unwrap();
     let _ = WELCOME_WINDOW.set(welcome_window);
 
     // Load previous search positions

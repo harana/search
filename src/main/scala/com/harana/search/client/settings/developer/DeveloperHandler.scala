@@ -5,6 +5,7 @@ import com.harana.search.client.Tauri
 import com.harana.search.client.settings.developer.DeveloperStore.{UpdateDeveloperSource, UpdateDeveloperSources}
 import com.harana.search.client.settings.folders.FoldersStore._
 import com.harana.web.actions.Init
+import diode.ActionResult.NoChange
 import diode._
 
 class DeveloperHandler extends ActionHandler(zoomTo(_.developerState)) {

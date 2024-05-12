@@ -3,8 +3,9 @@ package com.harana.search.client.system
 import com.harana.search.client.Circuit.zoomTo
 import com.harana.search.client.Tauri
 import com.harana.search.client.system.SystemStore._
-import com.harana.web.actions.Init
+import com.harana.web.actions.{Init, NoChange}
 import com.harana.web.external.tauri.Tauri.convertFileSrc
+import com.harana.web.external.tauri.Window
 import diode._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits._
 
@@ -39,6 +40,9 @@ class SystemHandler extends ActionHandler(zoomTo(_.systemState)) {
           } yield action
         )
       )
+
+    case WindowReady =>
+      effectOnly(Effect(Tauri.invoke[Unit]("window_ready", Map("label" -> Window.getCurrent().label)).map(_ => NoChange)))
 
     case UpdateAppIconsUrl(url) =>
       updated(value.copy(appIconsUrl = url))

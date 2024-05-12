@@ -9,6 +9,7 @@ import io.circe.parser.decode
 import org.scalajs.dom.Window
 import org.scalajs.dom.window.window
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global
+import typings.std.global.console
 
 import scala.concurrent.Future
 import scala.scalajs.js
@@ -92,10 +93,11 @@ object Tauri {
     future
   }
 
-  def listen[T <: js.Any](event: String, handler: T => Unit): Future[Unit] =
+  def listen[T <: js.Any](event: String, handler: T => Unit): Unit =
     Event.listen[T](event, payload => {
+      console.dir(payload)
       handler(payload.payload)
-    }).toFuture.map(_ => ())
+    })
 
   def emit[T <: js.Object](event: String, payload: Option[T] = None): Future[Unit] = {
     Event.emit(event, payload).toFuture

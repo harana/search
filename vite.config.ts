@@ -26,7 +26,7 @@ export default defineConfig(async () => ({
   envPrefix: ['VITE_', 'TAURI_'],
   root: resolve(__dirname, 'target'),
   build: {
-    target: ['es2021', 'chrome97', 'safari13'],
+    target: ['esnext'],
     minify: !process.env.TAURI_DEBUG && 'esbuild',
     sourcemap: true,
     rollupOptions: {
