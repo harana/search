@@ -7,10 +7,10 @@ use tauri::{AppHandle, Wry};
 
 use crate::globals::{ONBOARDED, WELCOME_WINDOW};
 use crate::handlers::database_core;
-use crate::windows::init_main_window;
 
 #[cfg(target_os = "macos")]
 use crate::windows_mac;
+use crate::windows_search::init_search_panel;
 
 #[tauri::command]
 pub async fn get_onboarded() -> Result<bool, String> {
@@ -66,9 +66,8 @@ pub async fn complete_onboarding(app_handle: AppHandle<Wry>, allow_telemetry: bo
             .expect("Failed to apply Spotlight preferences");
     }
 
-    // Init main window
+    // Init search panel
     unsafe { ONBOARDED = true; }
-    init_main_window(app_handle.clone()).await.unwrap();
 
     #[cfg(target_os = "macos")]
     windows_mac::register_shortcut(app_handle.clone(), shortcut_key.to_string());

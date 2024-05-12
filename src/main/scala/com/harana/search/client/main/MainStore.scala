@@ -8,7 +8,7 @@ object MainStore {
 
   case class State(activePanel: Panel)
 
-  val initialState = State(Panel.Search)
+  val initialState = State(Panel.None)
 
   case class KeyDown(key: Int, event: KeyboardEvent) extends DiodeAction
   case class KeyUp(key: Int, event: KeyboardEvent) extends DiodeAction

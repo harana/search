@@ -9,10 +9,11 @@ use tauri::{App, AppHandle, Manager};
 
 use crate::globals::*;
 use crate::system_tray::{disable_system_tray, enable_system_tray};
-use crate::windows_main;
+use crate::windows_search;
 
 #[cfg(target_os = "macos")]
 use crate::windows_mac;
+use crate::windows_search::init_search_panel;
 
 pub async fn create_windows(app: &mut App) -> Result<()> {
     #[cfg(target_os = "macos")]
@@ -26,6 +27,10 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
 
     let preview_window = app.get_window("preview").unwrap();
     let _ = PREVIEW_WINDOW.set(preview_window);
+
+    let search_window = app.get_window("search").unwrap();
+    let _ = SEARCH_WINDOW.set(search_window.clone());
+    init_search_panel(app.handle()).await;
 
     let settings_window = app.get_window("settings").unwrap();
     let _ = SETTINGS_WINDOW.set(settings_window.clone());
@@ -45,39 +50,34 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
         }
     })).await;
     SEARCH_WINDOW_POSITIONS.get_or_init(|| positions.unwrap());
+    Ok(())
+}
 
+pub async fn show_initial_window(app_handle: AppHandle) -> Result<()> {
     // Has Onboarded
     let has_onboarded = DATABASE_MANAGER.get().unwrap().core(move |c|
         state_get(c, "has_onboarded".to_string())
     ).await.unwrap().is_some();
 
-    init_main_window(app.handle()).await.unwrap();
-
+    println!("HAS ONBOARDED = {}", has_onboarded);
     if has_onboarded {
         let shortcut_key = DATABASE_MANAGER.get().unwrap().core(move |c|
             settings_get(c, "appearance_shortcut_key".to_string())
         ).await?.unwrap();
 
         #[cfg(target_os = "macos")]
-        windows_mac::register_shortcut(app.handle(), shortcut_key.to_string());
-
-        enable_system_tray(app.handle()).unwrap();
-        windows_main::show_search(app.handle())
+        windows_mac::register_shortcut(app_handle.clone(), shortcut_key.to_string());
+        enable_system_tray(app_handle.clone()).unwrap();
+        windows_search::show_search(app_handle.clone())
     }else{
-        disable_system_tray(app.handle()).unwrap();
-    }
-    Ok(())
-}
+        disable_system_tray(app_handle.clone()).unwrap();
 
-pub async fn init_main_window(app_handle: AppHandle) -> Result<()> {
-    let always_center = DATABASE_MANAGER.get().unwrap().core(move |c|
-        settings_get(c, "appearance_always_center_window".to_string())
-    ).await.unwrap().map(|v| v == "1").unwrap_or(false);
-
-    let debug = env::var("HARANA_DEBUG").is_ok();
-    windows_main::init_main_panel(app_handle.clone(), always_center, debug);
-    if debug {
-        windows_main::disable_auto_hide(app_handle.clone());
+        // Show Welcome window
+        let window = WELCOME_WINDOW.get().unwrap();
+        window.emit("push-route", "welcome").unwrap();
+        window.set_focus().unwrap();
+        window.center().unwrap();
+        window.show().unwrap();
     }
     Ok(())
 }

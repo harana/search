@@ -5,6 +5,7 @@ import com.harana.search.client.main.MainStore.{KeyDown, KeyUp}
 import com.harana.search.client.search.SearchStore.{Hide, ShowSettings, ShowSupport}
 import com.harana.search.client.search.ui.SearchPanel
 import com.harana.search.client.share.ui.SharePanel
+import com.harana.search.client.welcome.ui.WelcomePanel
 import com.harana.web.external.tailwind.OutlineIcons._
 import com.harana.web.external.tailwind.dialog._
 import com.harana.web.external.tailwind.popover._
@@ -86,35 +87,42 @@ import slinky.web.html._
         leave = "transition ease-in duration-150", leaveFrom = "opacity-100 translate-y-0", leaveTo = "opacity-0 translate-y-1"
       )
 
-    Transition(show = true, as = Fragment.component, appear = true)(
-      Dialog(as = "div", className = "mb-1 relative z-10", onClose = (_: Boolean) => {})(
-        TransitionChild(
-          as = Fragment.component,
-          enter = "ease-out duration-300", enterFrom = "opacity-0", enterTo = "opacity-100",
-          leave = "ease-in duration-200", leaveFrom = "opacity-100", leaveTo = "opacity-0"
-        )(
-          div(className := "fixed inset-0 bg-gray-500 bg-opacity-0 transition-opacity")
-        ),
-        div(className := "fixed inset-0 z-10 overflow-y-hidden")(
+    val activePanel = Circuit.state(_.mainState, true).activePanel
+
+    if (activePanel == Panel.Welcome) {
+      WelcomePanel()
+    } else {
+      Transition(show = true, as = Fragment.component, appear = true)(
+        Dialog(as = "div", className = "mb-1 relative z-10", onClose = (_: Boolean) => {})(
           TransitionChild(
             as = Fragment.component,
-            enter = "ease-out duration-300", enterFrom = "opacity-0 scale-95", enterTo = "opacity-100 scale-100",
-            leave = "ease-in duration-200", leaveFrom = "opacity-100 scale-100", leaveTo = "opacity-0 scale-95"
+            enter = "ease-out duration-300", enterFrom = "opacity-0", enterTo = "opacity-100",
+            leave = "ease-in duration-200", leaveFrom = "opacity-100", leaveTo = "opacity-0"
           )(
-            DialogPanel(className := "border border-gray-300 mx-auto w-full overflow-auto transform divide-y divide-gray-100 rounded-xl bg-white bg-opacity-70 transition-all")(
-              Popover()(
-                popoverTransition(popoverPanel),
-                div(
-                  Circuit.state(_.mainState, true).activePanel match {
-                    case Panel.Search => SearchPanel()
-                    case Panel.Share => SharePanel()
-                  }
+            div(className := "fixed inset-0 bg-gray-500 bg-opacity-0 transition-opacity")
+          ),
+          div(className := "fixed inset-0 z-10 overflow-y-hidden")(
+            TransitionChild(
+              as = Fragment.component,
+              enter = "ease-out duration-300", enterFrom = "opacity-0 scale-95", enterTo = "opacity-100 scale-100",
+              leave = "ease-in duration-200", leaveFrom = "opacity-100 scale-100", leaveTo = "opacity-0 scale-95"
+            )(
+              DialogPanel(className := "border border-gray-300 mx-auto w-full overflow-auto transform divide-y divide-gray-100 rounded-xl bg-white bg-opacity-70 transition-all")(
+                Popover()(
+                  popoverTransition(popoverPanel),
+                  div(
+                    activePanel match {
+                      case Panel.Search => SearchPanel()
+                      case Panel.Share => SharePanel()
+                      case _ => div()
+                    }
+                  )
                 )
               )
             )
           )
         )
       )
-    )
+    }
   }
 }

@@ -62,7 +62,7 @@ mod screen;
 mod state;
 mod system_tray;
 mod windows;
-mod windows_main;
+mod windows_search;
 
 #[cfg(target_os = "macos")]
 mod windows_mac;

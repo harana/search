@@ -6,7 +6,7 @@ use harana_database::settings_upsert::settings_upsert;
 use tauri::AppHandle;
 use crate::globals::{SETTINGS_WINDOW};
 use crate::handlers::database_core;
-use crate::windows_main::{hide_search, show_search};
+use crate::windows_search::{hide_search, show_search};
 
 #[tauri::command]
 pub async fn get_setting(key: String) -> Result<String, String> {

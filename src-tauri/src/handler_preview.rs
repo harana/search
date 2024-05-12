@@ -8,12 +8,12 @@ use tauri;
 use tauri::{AppHandle, Wry};
 
 use crate::{PREVIEW_WINDOW, SEARCH_WINDOW};
-use crate::windows_main;
+use crate::windows_search;
 
 #[tauri::command]
 pub fn show_preview(app_handle: AppHandle<Wry>, document: String) -> Result<(), String> {
     debug!("Command: search->show_preview");
-    windows_main::disable_auto_hide(app_handle);
+    windows_search::disable_auto_hide(app_handle);
     let window = PREVIEW_WINDOW.get().unwrap();
     window.set_focus().unwrap();
     window.center().unwrap();
@@ -23,7 +23,7 @@ pub fn show_preview(app_handle: AppHandle<Wry>, document: String) -> Result<(), 
 #[tauri::command]
 pub fn hide_preview(app_handle: AppHandle<Wry>) -> Result<(), String> {
     debug!("Command: search->hide_preview");
-    windows_main::enable_auto_hide(app_handle);
+    windows_search::enable_auto_hide(app_handle);
     let search_window = SEARCH_WINDOW.get().unwrap();
     let preview_window = PREVIEW_WINDOW.get().unwrap();
     search_window.set_focus().unwrap();

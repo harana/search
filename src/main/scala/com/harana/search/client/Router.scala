@@ -6,10 +6,11 @@ import com.harana.web.external.router.{BrowserRouter, Route, Switch, Router => R
 import com.harana.search.client.checkout.ui.CheckoutPanel
 import com.harana.search.client.integrations.ui.IntegrationsPanel
 import com.harana.search.client.login.ui.LoginPanel
-import com.harana.search.client.main.ui.MainPanel
+import com.harana.search.client.main.ui.{MainPanel, Panel}
 import com.harana.search.client.preview.ui.PreviewPanel
 import com.harana.search.client.settings.ui.SettingsPanel
 import com.harana.search.client.auth.ui.SignupPanel
+import com.harana.search.client.main.MainStore.UpdateActivePanel
 import com.harana.search.client.support.ui.SupportPanel
 import com.harana.search.client.system.SystemStore.WindowReady
 import com.harana.search.client.thumbnail.ui.ThumbnailPanel
@@ -33,11 +34,16 @@ object Router {
   type Props = Unit
 
   private val didInit = new AtomicReference[Boolean](false)
-//  private val browserHistory = analytics.history(false)
 
+  println("ROUTER LAUNCHED")
   Tauri.listen("push-route", (route: String) => {
-    history.pushState("", "", "/" + route)
-    println("Pushed route: " + route + " for window: " + Window.getCurrent().label)
+    println("PUSH ROUTE >> " + route)
+    route match {
+      case "search"   => Circuit.dispatch(UpdateActivePanel(Panel.Search))
+      case "share"    => Circuit.dispatch(UpdateActivePanel(Panel.Share))
+      case "settings" => Circuit.dispatch(UpdateActivePanel(Panel.Settings))
+      case "welcome"  => Circuit.dispatch(UpdateActivePanel(Panel.Welcome))
+    }
   })
 
   val component = FunctionalComponent[Unit] { _ =>
@@ -52,32 +58,7 @@ object Router {
         }
       })
 
-      HashRouter(
-        div(
-          Helmet(
-            meta(new CustomAttribute[String]("charSet") := "utf-8"),
-            meta(name := "viewport", content := "width := device-width, initial-scale=1, shrink-to-fit=no"),
-            meta(name := "theme-color", content := "#000000"),
-            link(rel := "shortcut icon", href := "/favicon.ico"),
-            style(`type` := "text/css")(ReactIpynbRendererCSS.toString),
-          ),
-          Switch(
-            Route("/", MainPanel.component),
-            Route("/auth/signup", SignupPanel.component),
-            Route("/cart", CheckoutPanel.component),
-            Route("/changelog", CheckoutPanel.component),
-            Route("/integrations", IntegrationsPanel.component),
-            Route("/login", LoginPanel.component),
-            Route("/preview", PreviewPanel.component),
-            Route("/search", MainPanel.component),
-            Route("/settings", SettingsPanel.component),
-            Route("/support", SupportPanel.component),
-            Route("/thumbnail/:id", ThumbnailPanel.component),
-            Route("/welcome", WelcomePanel.component),
-            Route("*", MainPanel.component)
-          )
-        )
-      )
+      MainPanel()
     }
   }
 }

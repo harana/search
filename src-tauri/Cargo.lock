@@ -5776,8 +5776,6 @@ dependencies = [
  "candle-nn",
  "candle-transformers",
  "common",
- "ffmpeg-next",
- "ffmpeg-sys-next",
  "hf-hub",
  "image 0.24.9",
  "imageproc",

@@ -69,12 +69,10 @@ macro_rules! nsstring_to_string {
 static INIT: Once = Once::new();
 static PANEL_LABEL: &str = "search";
 
-pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
+pub fn init_search_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
     INIT.call_once(|| {
-        let search_window = app_handle.get_window(PANEL_LABEL).unwrap();
-        let _ = SEARCH_WINDOW.set(search_window.clone());
+        let search_window = SEARCH_WINDOW.get().unwrap();
         set_state!(app_handle, always_center_window, always_center);
-
         unsafe {
             set_state!(app_handle, panel, Some(create_main_panel(&search_window)));
         }
@@ -407,13 +405,11 @@ unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
     handle.setHasShadow_(BOOL::from(false));
     panel.set_level(NSMainMenuWindowLevel + 1);
     panel.set_style_mask(NSWindowStyleMaskNonActivatingPanel);
-
     panel.set_collection_behaviour(
         NSWindowCollectionBehavior::NSWindowCollectionBehaviorTransient
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorFullScreenAuxiliary,
     );
-
     toggle_delegate(panel.clone(), true);
     panel
 }

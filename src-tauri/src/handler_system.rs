@@ -4,6 +4,7 @@ use tauri;
 use tauri::{AppHandle, LogicalSize, Manager, Size, Wry};
 
 use crate::{PREVIEW_WINDOW, SEARCH_WINDOW};
+use crate::windows::show_initial_window;
 
 #[tauri::command]
 pub fn emit_search_message(name: String, payload: String) {
@@ -83,15 +84,17 @@ pub fn update_metric() {
 }
 
 #[tauri::command]
-pub fn update_window_size(width: f64, height: f64, app_handle: AppHandle) {
+pub fn update_window_size(label: String, width: f64, height: f64, app_handle: AppHandle) {
     debug!("Command: system->update_window_size: {} x {}", width, height);
-    let window = app_handle.get_window("search").unwrap();
+    let window = app_handle.get_window(label.as_str()).unwrap();
     window.set_size(Size::Logical(LogicalSize { width, height })).unwrap();
 }
 
 #[tauri::command]
-pub fn window_ready(label: String, app_handle: AppHandle) {
+pub async fn window_ready(label: String, app_handle: AppHandle) {
     debug!("Command: system->window_ready: {}", label);
-    let window = app_handle.get_window(label.as_str()).unwrap();
-    window.emit("push-route", label).unwrap();
+
+    if label == "welcome" {
+        show_initial_window(app_handle).await.unwrap();
+    }
 }
