@@ -15,7 +15,7 @@ import scala.scalajs.js.JSConverters._
 
   val component = FunctionalComponent[Unit] { _ =>
 
-    Tauri.invoke("update_window_size", Map("width" -> 960.0, "height" -> 680.0).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("label" -> "search", "width" -> 960.0, "height" -> 680.0).toJSDictionary)
 
     val buttonClass = "relative inline-flex bg-white py-2 text-xs font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
 

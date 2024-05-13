@@ -20,11 +20,11 @@ import scala.scalajs.js
 
     val state = Circuit.state(_.welcomeState, true)
 
-    span(
-      p(className := titleCls)("Select the folders to search."),
-      div(className := "grid grid-cols-2 gap-4 pt-14 pb-4 pl-4")(
+    span(drag := true)(
+      p(drag := true, className := titleCls)("Select the folders to search."),
+      div(drag := true, className := "grid grid-cols-2 gap-4 pt-14 pb-4 pl-4")(
         state.searchFolders.map(sf =>
-          div(className := "flex items-center")(
+          div(drag := true, className := "flex items-center")(
             div(
               Switch(
                 name = s"folder_${sf.nameOrPath}",
@@ -38,7 +38,7 @@ import scala.scalajs.js
           )
         )
       ),
-      when(state.searchFolderStatus.nonEmpty,
+      when(state.searchFolders.exists(_.enabled),
         continueButton(UpdateSelectedStep(2))
       )
     )

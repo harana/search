@@ -219,7 +219,7 @@
         "width": 800,
         "height": 550,
         "visible": false,
-        "alwaysOnTop": false,
+        "alwaysOnTop": true,
         "decorations": false,
         "transparent": false,
         "center": true,

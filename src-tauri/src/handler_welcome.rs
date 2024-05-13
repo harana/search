@@ -5,12 +5,11 @@ use harana_database::state_upsert::state_upsert;
 use tauri;
 use tauri::{AppHandle, Wry};
 
-use crate::globals::{ONBOARDED, WELCOME_WINDOW};
+use crate::globals::{ONBOARDED};
 use crate::handlers::database_core;
 
 #[cfg(target_os = "macos")]
 use crate::windows_mac;
-use crate::windows_search::init_search_panel;
 
 #[tauri::command]
 pub async fn get_onboarded() -> Result<bool, String> {
@@ -74,18 +73,3 @@ pub async fn complete_onboarding(app_handle: AppHandle<Wry>, allow_telemetry: bo
     Ok(())
 }
 
-#[tauri::command]
-pub fn show_welcome() -> Result<(), String> {
-    let window = WELCOME_WINDOW.get().unwrap();
-    window.set_focus().unwrap();
-    window.center().unwrap();
-    window.show().unwrap();
-    Ok(())
-}
-
-#[tauri::command]
-pub async fn hide_welcome() -> Result<(), String> {
-    let window = WELCOME_WINDOW.get().unwrap();
-    window.hide().unwrap();
-    Ok(())
-}

@@ -20,40 +20,12 @@ class WelcomeHandler extends ActionHandler(zoomTo(_.welcomeState)) {
     case Init(preferences) =>
       effectOnly(Tauri.list("list_search_folders", (list: List[SearchFolder]) => UpdateSearchFolders(list)))
 
-    case RefreshStatus =>
-      effectOnly(
-        Effect(
-          Tauri.invoke("search_folders_status").map((status: js.Dictionary[Boolean]) =>
-            UpdateSearchFolderStatus(status.toMap)
-          )
-        )
-      )
-
-    case ShowWindow =>
-      effectOnly(
-          Effect(
-            for {
-              onboarded   <- Tauri.invoke[Boolean]("get_onboarded")
-              _           <- if (!onboarded) Tauri.invoke[Unit]("show_welcome") else Future()
-              timer       =  {
-                                val timer = new Timer()
-                                timer.scheduleAtFixedRate(new java.util.TimerTask { def run(): Unit = { Circuit.dispatch(RefreshStatus) }}, 0L, 1000L)
-                                timer
-                              }
-            } yield ActionBatch(
-              UpdateStatusTimer(Some(timer)),
-              UpdateWindowShown(true)
-            )
-          )
-      )
-
     case HideWindow =>
       effectOnly(
-        Effect(Tauri.invoke[Unit]("hide_welcome").map(_ => NoChange))
+        Effect(Tauri.invoke[Unit]("hide_window", Map("label" -> "welcome")).map(_ => NoChange))
       )
 
     case CompleteOnboarding =>
-      value.statusTimer.get.cancel()
       effectOnly(
         Effect(Tauri.invoke[Unit]("complete_onboarding", Map(
           "allowTelemetry" -> value.allowTelemetry,
@@ -84,12 +56,5 @@ class WelcomeHandler extends ActionHandler(zoomTo(_.welcomeState)) {
 
     case UpdateSelectedStep(step) =>
       updated(value.copy(selectedStep = step))
-
-    case UpdateStatusTimer(timer) =>
-      updated(value.copy(statusTimer = timer))
-
-    case UpdateWindowShown(shown) =>
-      updated(value.copy(windowShown = shown))
-
   }
 }

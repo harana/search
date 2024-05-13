@@ -3,10 +3,7 @@ use harana_common::log::debug;
 use harana_common::tauri;
 use harana_database::settings_get::settings_get;
 use harana_database::settings_upsert::settings_upsert;
-use tauri::AppHandle;
-use crate::globals::{SETTINGS_WINDOW};
 use crate::handlers::database_core;
-use crate::windows_search::{hide_search, show_search};
 
 #[tauri::command]
 pub async fn get_setting(key: String) -> Result<String, String> {
@@ -26,16 +23,4 @@ pub async fn update_setting(key: String, value: String) -> Result<(), String> {
     database_core(move |c| {
         settings_upsert(c, key, value)
     }).await
-}
-
-#[tauri::command]
-pub fn show_settings(app_handle: AppHandle) {
-    hide_search(app_handle);
-    let _ = SETTINGS_WINDOW.get().unwrap().show();
-}
-
-#[tauri::command]
-pub fn hide_settings(app_handle: AppHandle) {
-    let _ = SETTINGS_WINDOW.get().unwrap().hide();
-    show_search(app_handle);
 }

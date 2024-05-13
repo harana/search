@@ -23,15 +23,15 @@ import scala.scalajs.js
       ("Anonymous Mode", "Disables search history, Airdrop style sharing and", "other related features for the ultimate in privacy.", state.anonymousMode, (_: js.Any) => Circuit.dispatch(UpdateAnonymousMode(!state.anonymousMode))),
     )
 
-    div(
-      p(className := titleCls)("Customise your search experience."),
+    div(drag := true)(
+      p(drag := true, className := titleCls)("Customise your search experience."),
       items.map { item =>
-        div(className := "flex items-center justify-between pb-6 ml-6 mt-2")(
+        div(drag := true, className := "flex items-center justify-between pb-6 ml-6 mt-2")(
           Switch("always_center_window", None, item._4, item._5, ""),
-          span(className := "flex flex-grow flex-col pl-6 pt-4 ml-4")(
-            span(className := "pb-1 text-sm font-small leading-6 text-gray-900")(item._1),
-            span(className := "text-xs font-medium text-gray-500")(item._2),
-            span(className := "text-xs font-medium text-gray-500")(item._3)
+          span(drag := true, className := "flex flex-grow flex-col pl-6 pt-4 ml-4")(
+            span(drag := true, className := "pb-1 text-sm font-small leading-6 text-gray-900")(item._1),
+            span(drag := true, className := "text-xs font-medium text-gray-500")(item._2),
+            span(drag := true, className := "text-xs font-medium text-gray-500")(item._3)
           )
         )
       },

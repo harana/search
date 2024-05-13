@@ -27,14 +27,14 @@ import slinky.web.html._
   )
 
   val component = FunctionalComponent[Unit] { _ =>
-    div(
-      p(className := titleCls)("What to expect over the coming days."),
-      div(className := "grid grid-cols-2 gap-6 pr-8 mb-6")(
+    div(drag := true)(
+      p(drag := true, className := titleCls)("What to expect over the coming days."),
+      div(drag := true, className := "grid grid-cols-2 gap-6 pr-8 mb-6")(
         div(
-          p(className := "mt-1 mb-2 text-sm font-bold leading-8 text-gray-800")("Today"),
+          p(drag := true, className := "mt-1 mb-2 text-sm font-bold leading-8 text-gray-800")("Today"),
           todayItems.map { item => iconRow(item._1, item._2, item._3) },
         ),
-        div(
+        div(drag := true)(
           p(className := "mt-1 mb-2 text-sm font-bold leading-8 text-gray-800")("Later"),
           laterItems.map { item => iconRow(item._1, item._2, item._3) }
         )
@@ -49,11 +49,11 @@ import slinky.web.html._
   }
 
   def iconRow(title: String, icon: ReactElement, description: String) =
-    span(className := "flex items-start gap-x-6 mb-6")(
+    span(drag := true, className := "flex items-start gap-x-6 mb-6")(
       icon,
-      div(
-        div(className := "text-sm font-small leading-6 text-gray-900")(title),
-        div(className := "text-xs mt-1 text-gray-500")(description),
+      div(drag := true)(
+        div(drag := true, className := "text-sm font-small leading-6 text-gray-900")(title),
+        div(drag := true, className := "text-xs mt-1 text-gray-500")(description),
       )
     )
 }

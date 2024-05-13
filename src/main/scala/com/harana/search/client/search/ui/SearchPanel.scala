@@ -41,7 +41,7 @@ import scala.scalajs.js.JSConverters._
       Seq.empty
     )
 
-    Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 680.0 else 58.0)).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("label" -> "search", "width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 680.0 else 58.0)).toJSDictionary)
 
     val dragRegionAttr = new CustomAttribute[Boolean]("data-tauri-drag-region")
 
@@ -65,7 +65,7 @@ import scala.scalajs.js.JSConverters._
         when(state.focusedPanel == SearchColumn.Search)(ApplicationHint()),
         when(state.searchResults.nonEmpty) {
           PopoverButton(
-            onClick = () => Tauri.invoke("update_window_size", Map("width" -> 950.0, "height" -> 680.0).toJSDictionary),
+            onClick = () => Tauri.invoke("update_window_size", Map("label" -> "search", "width" -> 950.0, "height" -> 680.0).toJSDictionary),
             className = "absolute right-4 top-4 h-6 w-5 text-gray-400")(
             Bars3Icon()
           )

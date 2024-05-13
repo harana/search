@@ -4,9 +4,12 @@ import com.harana.search.client.Circuit
 import com.harana.web.components
 import com.harana.web.external.tailwind.{Button, ButtonSize}
 import diode.Action
+import slinky.core.CustomAttribute
 import slinky.web.html.{className, div, style}
 
 package object ui {
+
+  val drag = new CustomAttribute[Boolean]("data-tauri-drag-region")
 
   val titleCls = "mt-4 mb-6 text-lg leading-7 text-gray-500"
 

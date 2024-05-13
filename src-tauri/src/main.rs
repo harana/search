@@ -56,13 +56,13 @@ mod handler_system;
 mod handler_thumbnail;
 mod handler_user;
 mod handler_welcome;
+mod handler_windows;
 mod handlers;
 mod logging;
 mod screen;
 mod state;
 mod system_tray;
 mod windows;
-mod windows_search;
 
 #[cfg(target_os = "macos")]
 mod windows_mac;

@@ -5,15 +5,14 @@ use harana_common::serde_json;
 use harana_database::settings_get::settings_get;
 use harana_database::state_get::state_get;
 use harana_database::state_upsert::state_upsert;
-use tauri::{App, AppHandle, Manager};
+use tauri::{App, AppHandle, Manager, Wry};
 
 use crate::globals::*;
+use crate::handler_windows::show_window;
 use crate::system_tray::{disable_system_tray, enable_system_tray};
-use crate::windows_search;
 
 #[cfg(target_os = "macos")]
 use crate::windows_mac;
-use crate::windows_search::init_search_panel;
 
 pub async fn create_windows(app: &mut App) -> Result<()> {
     #[cfg(target_os = "macos")]
@@ -59,7 +58,6 @@ pub async fn show_initial_window(app_handle: AppHandle) -> Result<()> {
         state_get(c, "has_onboarded".to_string())
     ).await.unwrap().is_some();
 
-    println!("HAS ONBOARDED = {}", has_onboarded);
     if has_onboarded {
         let shortcut_key = DATABASE_MANAGER.get().unwrap().core(move |c|
             settings_get(c, "appearance_shortcut_key".to_string())
@@ -68,18 +66,27 @@ pub async fn show_initial_window(app_handle: AppHandle) -> Result<()> {
         #[cfg(target_os = "macos")]
         windows_mac::register_shortcut(app_handle.clone(), shortcut_key.to_string());
         enable_system_tray(app_handle.clone()).unwrap();
-        windows_search::show_search(app_handle.clone())
+        show_window("search".to_string(), app_handle.clone()).await;
     }else{
         disable_system_tray(app_handle.clone()).unwrap();
-
-        // Show Welcome window
-        let window = WELCOME_WINDOW.get().unwrap();
-        window.emit("push-route", "welcome").unwrap();
-        window.set_focus().unwrap();
-        window.center().unwrap();
-        window.show().unwrap();
+        show_window("welcome".to_string(), app_handle.clone()).await;
     }
     Ok(())
+}
+
+pub async fn init_search_panel(app_handle: AppHandle<Wry>) {
+    let debug = env::var("HARANA_DEBUG").is_ok();
+
+    let always_center = DATABASE_MANAGER.get().unwrap().core(move |c|
+        settings_get(c, "appearance_always_center_window".to_string())
+    ).await.unwrap().map(|v| v == "1").unwrap_or(false);
+
+    #[cfg(target_os = "macos")]
+    windows_mac::init_search_panel(app_handle.clone(), always_center, debug);
+
+    if debug {
+        disable_auto_hide(app_handle.clone());
+    }
 }
 
 pub async fn save_window_positions() {
@@ -88,4 +95,14 @@ pub async fn save_window_positions() {
     let _ = DATABASE_MANAGER.get().unwrap().core(move |c| {
         state_upsert(c, "window_positions".to_string(), window_positions)
     }).await;
+}
+
+pub fn enable_auto_hide(app_handle: AppHandle<Wry>) {
+    #[cfg(target_os = "macos")]
+    windows_mac::enable_auto_hide(app_handle)
+}
+
+pub fn disable_auto_hide(app_handle: AppHandle<Wry>) {
+    #[cfg(target_os = "macos")]
+    windows_mac::disable_auto_hide(app_handle)
 }

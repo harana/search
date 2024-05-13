@@ -88,6 +88,7 @@ import slinky.web.html._
       )
 
     val activePanel = Circuit.state(_.mainState, true).activePanel
+    println("ACTIVE PANEL = " + activePanel)
 
     if (activePanel == Panel.Welcome) {
       WelcomePanel()
