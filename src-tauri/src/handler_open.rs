@@ -28,11 +28,11 @@ use objc::sel_impl;
 #[cfg(target_os = "linux")]
 use fork::{daemon, Fork};
 
-use crate::globals::SEARCH_WINDOW;
+use crate::globals::MAIN_WINDOW;
 
 #[tauri::command]
 pub async fn open_application(path: String) -> Result<(), String> {
-    let _ = SEARCH_WINDOW.get().unwrap().hide();
+    let _ = MAIN_WINDOW.get().unwrap().hide();
 
 
     #[cfg(target_os = "windows")]
@@ -96,7 +96,7 @@ pub async fn open_application(path: String) -> Result<(), String> {
 #[tauri::command]
 pub async fn open_path(path: String) -> Result<(), String> {
     debug!("Command: search->open_path");
-    let _ = SEARCH_WINDOW.get().unwrap().hide();
+    let _ = MAIN_WINDOW.get().unwrap().hide();
 
 
     #[cfg(target_os = "windows")]

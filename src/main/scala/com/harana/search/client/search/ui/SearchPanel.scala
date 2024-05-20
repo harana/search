@@ -41,7 +41,7 @@ import scala.scalajs.js.JSConverters._
       Seq.empty
     )
 
-    Tauri.invoke("update_window_size", Map("label" -> "search", "width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 680.0 else 58.0)).toJSDictionary)
+    Tauri.invoke("update_window_size", Map("label" -> "main", "width" -> 950.0, "height" -> (if (state.searchResults.nonEmpty) 680.0 else 58.0)).toJSDictionary)
 
     val dragRegionAttr = new CustomAttribute[Boolean]("data-tauri-drag-region")
 

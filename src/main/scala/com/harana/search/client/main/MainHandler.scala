@@ -6,7 +6,9 @@ import com.harana.search.client.main.MainStore._
 import com.harana.search.client.main.ui.Panel
 import com.harana.search.client.search.SearchStore.{KeyDown => SearchKeyDown, KeyUp => SearchKeyUp}
 import com.harana.search.client.share.ShareStore.{KeyDown => ShareKeyDown, KeyUp => ShareKeyUp}
+import com.harana.search.client.system.SystemStore.WindowReady
 import com.harana.web.actions._
+import com.harana.web.external.tauri.Window
 import diode.Effect.action
 import diode._
 import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits.global

@@ -36,13 +36,13 @@ pub static JOB_MANAGER: OnceCell<JobManager> = OnceCell::new();
 pub static BACKGROUND_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static BILLING_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static INTEGRATIONS_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
-pub static SEARCH_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
+pub static MAIN_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static SETTINGS_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static SIGNUP_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static PREVIEW_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 pub static WELCOME_WINDOW: OnceCell<Window<Wry>> = OnceCell::new();
 
-pub static SEARCH_WINDOW_POSITIONS: OnceCell<DashMap<String, (f64, f64)>> = OnceCell::new();
+pub static MAIN_WINDOW_POSITIONS: OnceCell<DashMap<String, (f64, f64)>> = OnceCell::new();
 
 pub async fn bool_setting(key: &str) -> bool {
     get_setting(key.to_string()).await.unwrap() == "true"

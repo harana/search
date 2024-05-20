@@ -23,7 +23,7 @@ struct ErrorHandler;
 
 impl StreamErrorHandler for ErrorHandler {
     fn on_error(&self) {
-        eprintln!("ERROR!")
+        println!("ERROR!")
     }
 }
 
@@ -59,16 +59,15 @@ pub unsafe fn init_stream() {
 
     stream.add_output(StoreImageHandler { tx }, SCStreamOutputType::Screen);
 
-    RX.set(rx);
-    STREAM.set(stream);
+    let _ = RX.set(rx);
+    let _ = STREAM.set(stream);
 }
 
 pub unsafe fn screen() {
-
-    STREAM.get().unwrap().start_capture();
+    let _ = STREAM.get().unwrap().start_capture();
 
     let sample_buf = RX.get().unwrap().recv().unwrap();
-    STREAM.get().unwrap().stop_capture();
+    let _ = STREAM.get().unwrap().stop_capture();
     let jpeg_data = sample_buf.image_buf_ref.unwrap().get_data(ImageFormat::JPEG);
     let jpeg_bytes = jpeg_data.bytes();
     // let raw_bytes = JpegDecoder::new(jpeg_bytes).decode().unwrap();

@@ -41,7 +41,7 @@ pub fn on_system_tray_event(app: &AppHandle, event: SystemTrayEvent) -> () {
         SystemTrayEvent::MenuItemClick { id, .. } => {
             match id.as_str() {
                 "Search" => {
-                    let window = SEARCH_WINDOW.get().unwrap();
+                    let window = MAIN_WINDOW.get().unwrap();
                     window.show().unwrap();
                     window.center().unwrap();
                 }

@@ -7,13 +7,12 @@ use harana_search_extensions::extensions::Extensions;
 use tauri;
 use tauri::{AppHandle, Wry};
 
-use crate::{PREVIEW_WINDOW, SEARCH_WINDOW};
-use crate::windows::{disable_auto_hide, enable_auto_hide};
+use crate::{MAIN_WINDOW, PREVIEW_WINDOW, windows_main};
 
 #[tauri::command]
 pub fn show_preview(app_handle: AppHandle<Wry>, _document: String) -> Result<(), String> {
     debug!("Command: search->show_preview");
-    disable_auto_hide(app_handle);
+    windows_main::disable_auto_hide(app_handle);
     let window = PREVIEW_WINDOW.get().unwrap();
     window.set_focus().unwrap();
     window.center().unwrap();
@@ -23,10 +22,10 @@ pub fn show_preview(app_handle: AppHandle<Wry>, _document: String) -> Result<(),
 #[tauri::command]
 pub fn hide_preview(app_handle: AppHandle<Wry>) -> Result<(), String> {
     debug!("Command: search->hide_preview");
-    enable_auto_hide(app_handle);
-    let search_window = SEARCH_WINDOW.get().unwrap();
+    windows_main::enable_auto_hide(app_handle);
+    let main_window = MAIN_WINDOW.get().unwrap();
     let preview_window = PREVIEW_WINDOW.get().unwrap();
-    search_window.set_focus().unwrap();
+    main_window.set_focus().unwrap();
     preview_window.hide().unwrap();
     Ok(())
 }
@@ -34,7 +33,7 @@ pub fn hide_preview(app_handle: AppHandle<Wry>) -> Result<(), String> {
 #[tauri::command]
 pub fn get_viewer(path: String) -> String {
     let path = Path::new(path.as_str());
-    let format = FileFormat::from_file(path.clone()).ok();
+    let format = FileFormat::from_file(path).ok();
     let extension = path.extension().and_then(|e| e.to_str()).unwrap_or_default();
     let viewer = Extensions::viewer(format, extension);
     viewer.to_string()

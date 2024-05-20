@@ -21,7 +21,7 @@ use tauri;
 use tauri::{AppHandle, GlobalShortcutManager, LogicalPosition, Manager, PhysicalPosition, PhysicalSize, Position, Window, Wry};
 use crate::State;
 use crate::{get_state, set_state};
-use crate::globals::{ONBOARDED, SEARCH_WINDOW, SEARCH_WINDOW_POSITIONS, WELCOME_WINDOW};
+use crate::globals::{ONBOARDED, MAIN_WINDOW, MAIN_WINDOW_POSITIONS, WELCOME_WINDOW};
 
 #[link(name = "Foundation", kind = "framework")]
 extern "C" {
@@ -34,7 +34,7 @@ macro_rules! panel {
     ($app_handle:expr) => {{
         let handle = $app_handle.app_handle();
         let panel = handle
-            .state::<$crate::windows_mac::State>()
+            .state::<$crate::windows_main_mac::State>()
             .0
             .lock()
             .unwrap()
@@ -67,18 +67,18 @@ macro_rules! nsstring_to_string {
 }
 
 static INIT: Once = Once::new();
-static PANEL_LABEL: &str = "search";
+static PANEL_LABEL: &str = "main";
 
-pub fn init_search_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
+pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
     INIT.call_once(|| {
-        let search_window = SEARCH_WINDOW.get().unwrap();
+        let main_window = MAIN_WINDOW.get().unwrap();
         set_state!(app_handle, always_center_window, always_center);
         unsafe {
-            set_state!(app_handle, panel, Some(create_main_panel(&search_window)));
+            set_state!(app_handle, panel, Some(create_main_panel(&main_window)));
         }
 
         if show_devtools {
-            search_window.open_devtools();
+            main_window.open_devtools();
         }
     });
 }
@@ -88,7 +88,7 @@ pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
     let window = app_handle.get_window(PANEL_LABEL).unwrap();
 
     let panel = panel!(app_handle);
-    shortcut_manager
+    let _ = shortcut_manager
         .register(shortcut.as_str(), move || {
             if panel.is_visible() {
                 hide_search(window.app_handle());
@@ -111,13 +111,12 @@ pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
                 // let end = Instant::now();
                 //
                 // //info!("Time taken to screenshot = {:?}", end - start);
-                show_search(window.app_handle());
+                show_main(window.app_handle());
             };
-        })
-        .unwrap();
+        });
 }
 
-pub fn show_search(app_handle: AppHandle<Wry>) {
+pub fn show_main(app_handle: AppHandle<Wry>) {
     unsafe {
         let welcome_window = WELCOME_WINDOW.get().unwrap();
         if ONBOARDED && welcome_window.is_visible().unwrap() {
@@ -125,11 +124,11 @@ pub fn show_search(app_handle: AppHandle<Wry>) {
         }
     }
 
-    let window = SEARCH_WINDOW.get().unwrap();
+    let window = MAIN_WINDOW.get().unwrap();
 
     if let Some(monitor) = get_monitor_with_cursor() {
         let monitor_name = &monitor.name.unwrap();
-        let has_existing_position = SEARCH_WINDOW_POSITIONS.get().unwrap().contains_key(monitor_name);
+        let has_existing_position = MAIN_WINDOW_POSITIONS.get().unwrap().contains_key(monitor_name);
 
         if !has_existing_position || get_state!(app_handle, always_center_window) {
             let screen_width = monitor.size.width as f64 / monitor.scale_factor;
@@ -143,7 +142,7 @@ pub fn show_search(app_handle: AppHandle<Wry>) {
                 y: (screen_height - window_height)/2.0
             }));
         }else{
-            let existing_position = SEARCH_WINDOW_POSITIONS.get().unwrap().get(monitor_name).unwrap();
+            let existing_position = MAIN_WINDOW_POSITIONS.get().unwrap().get(monitor_name).unwrap();
             let _ = window.set_position(Position::Logical(LogicalPosition {
                 x: existing_position.value().0,
                 y: existing_position.value().1
@@ -258,9 +257,14 @@ unsafe impl Message for RawNSPanel {}
 
 impl RawNSPanel {
     fn show(&self) {
+        println!(">>>> SHOW");
+        self.make_key_and_order_front(Some(self.content_view()));
+        println!("A");
         self.make_first_responder(Some(self.content_view()));
-        self.order_front_regardless();
-        self.make_key_window();
+        println!("B -- {}", self.is_visible().to_string());
+        println!("C");
+        //self.make_key_window();
+        println!("D");
     }
 
     fn is_visible(&self) -> bool {
@@ -270,6 +274,10 @@ impl RawNSPanel {
 
     fn make_key_window(&self) {
         let _: () = unsafe { msg_send![self, makeKeyWindow] };
+    }
+
+    fn make_key_and_order_front(&self, sender: Option<id>) {
+        let _: () = unsafe { msg_send![self, makeKeyAndOrderFront: sender.unwrap_or(nil)] };
     }
 
     fn order_front_regardless(&self) {
@@ -366,8 +374,8 @@ impl RawNSPanelDelegate {
 
     extern "C" fn window_did_move(_: &Object, _: Sel, _: id) {
         if let Some(name) = get_monitor_with_cursor().and_then(|m| m.name) {
-            let positions = SEARCH_WINDOW_POSITIONS.get().unwrap();
-            let window = SEARCH_WINDOW.get().unwrap();
+            let positions = MAIN_WINDOW_POSITIONS.get().unwrap();
+            let window = MAIN_WINDOW.get().unwrap();
             let window_width = window.inner_position().unwrap().x as f64 / window.scale_factor().unwrap();
             let window_height = window.inner_position().unwrap().y as f64 / window.scale_factor().unwrap();
             positions.insert(name, (window_width, window_height));
@@ -410,7 +418,7 @@ unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorFullScreenAuxiliary,
     );
-    toggle_delegate(panel.clone(), true);
+    //toggle_delegate(panel.clone(), true);
     panel
 }
 

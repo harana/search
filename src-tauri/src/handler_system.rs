@@ -3,7 +3,7 @@ use std::env;
 use tauri;
 use tauri::{AppHandle, Wry};
 
-use crate::{PREVIEW_WINDOW, SEARCH_WINDOW};
+use crate::{PREVIEW_WINDOW, MAIN_WINDOW};
 
 #[tauri::command]
 pub fn get_app_icons_path(app_handle: AppHandle<Wry>) -> String {

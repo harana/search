@@ -2,7 +2,7 @@ use harana_common::log::debug;
 use tauri;
 use tauri::{AppHandle, LogicalSize, Manager, Size};
 
-use crate::windows_mac;
+use crate::windows_main;
 use crate::windows::show_initial_window;
 
 #[tauri::command]
@@ -16,21 +16,19 @@ pub fn update_window_size(label: String, width: f64, height: f64, app_handle: Ap
 pub async fn window_ready(label: String, app_handle: AppHandle) {
     debug!("Command: windows->window_ready: {}", label);
 
-    if label == "welcome" {
+    if label == "welcome" || label == "main" {
         show_initial_window(app_handle).await.unwrap();
     }
 }
 
 #[tauri::command]
 pub async fn show_window(label: String, app_handle: AppHandle) {
-    println!("Command: windows->show_window: {}", label);
+    debug!("Command: windows->show_window: {}", label);
 
-    if label == "search" {
-        #[cfg(target_os = "macos")]
-        windows_mac::show_search(app_handle)
+    if label == "main" {
+        windows_main::show_main(app_handle)
     } else {
         let window = app_handle.get_window(label.as_str()).unwrap();
-        window.emit("update-active-panel", label.as_str()).unwrap();
         window.set_focus().unwrap();
         window.center().unwrap();
         window.show().unwrap();
@@ -39,7 +37,7 @@ pub async fn show_window(label: String, app_handle: AppHandle) {
 
 #[tauri::command]
 pub async fn hide_window(label: String, app_handle: AppHandle) {
-    println!("Command: windows->hide_window: {}", label);
+    debug!("Command: windows->hide_window: {}", label);
     let window = app_handle.get_window(label.as_str()).unwrap();
-    window.hide();
+    window.hide().unwrap();
 }

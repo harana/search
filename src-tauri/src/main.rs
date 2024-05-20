@@ -63,9 +63,10 @@ mod screen;
 mod state;
 mod system_tray;
 mod windows;
+mod windows_main;
 
 #[cfg(target_os = "macos")]
-mod windows_mac;
+mod windows_main_mac;
 
 fn main() {
     color_eyre::install().expect("Failed to install color eyre");
@@ -118,14 +119,14 @@ fn main() {
                 let _ = INDEX_THUMBNAILER.set(IndexThumbnailer::new(thumbnails_path, 400, 400).await);
 
 
-                let entry = Entry::new("Harana", "index").unwrap();
-                let entry_password = entry.get_password();
-                if entry_password.is_err() {
-                    let mut rng = rand::thread_rng();
-                    let password: String = rng.sample_iter(&Alphanumeric).take(30).map(char::from).collect();
-                    entry.set_password(password.as_str()).unwrap();
-                }
-                INDEX_MANAGER.get().unwrap().create_indexes(entry_password.unwrap()).await;
+                // let entry = Entry::new("Harana", "index").unwrap();
+                // let entry_password = entry.get_password();
+                // if entry_password.is_err() {
+                //     let mut rng = rand::thread_rng();
+                //     let password: String = rng.sample_iter(&Alphanumeric).take(30).map(char::from).collect();
+                //     entry.set_password(password.as_str()).unwrap();
+                // }
+                INDEX_MANAGER.get().unwrap().create_indexes("temp".to_string()).await;
             });
 
             // Generate user id if needed
@@ -197,7 +198,7 @@ fn main() {
             async_runtime::spawn(async {
                 let mut previous_pos = "".to_string();
                 loop {
-                    let current_positions = SEARCH_WINDOW_POSITIONS.get().unwrap();
+                    let current_positions = MAIN_WINDOW_POSITIONS.get().unwrap();
                     let new_pos = serde_json::to_string(current_positions).unwrap();
 
                     if previous_pos != new_pos {
