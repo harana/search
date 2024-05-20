@@ -16,6 +16,16 @@ use crate::windows_main;
 pub async fn create_windows(app: &mut App) -> Result<()> {
     let debug = env::var("HARANA_DEBUG").is_ok();
 
+    // Load previous search positions
+    let positions = DATABASE_MANAGER.get().unwrap().core(|c| Ok({
+        if let Some(json) = state_get(c, "window_positions".to_string())? {
+            serde_json::from_str(json.as_str()).unwrap()
+        }else{
+            DashMap::new()
+        }
+    })).await;
+    MAIN_WINDOW_POSITIONS.get_or_init(|| positions.unwrap());
+
     #[cfg(target_os = "macos")]
     app.set_activation_policy(tauri::ActivationPolicy::Prohibited);
 
@@ -25,9 +35,6 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
     let integrations_window = app.get_window("integrations").unwrap();
     let _ = INTEGRATIONS_WINDOW.set(integrations_window);
 
-    let preview_window = app.get_window("preview").unwrap();
-    let _ = PREVIEW_WINDOW.set(preview_window);
-
     let main_window = app.get_window("main").unwrap();
     let _ = MAIN_WINDOW.set(main_window.clone());
 
@@ -35,12 +42,14 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
         settings_get(c, "appearance_always_center_window".to_string())
     ).await.unwrap().map(|v| v == "1").unwrap_or(false);
 
-    println!(">>>> INIT MAIN PANEL");
     windows_main::init_main_panel(app.handle().clone(), always_center, debug);
 
     if debug {
         windows_main::disable_auto_hide(app.handle().clone());
     }
+
+    let preview_window = app.get_window("preview").unwrap();
+    let _ = PREVIEW_WINDOW.set(preview_window);
 
     let settings_window = app.get_window("settings").unwrap();
     let _ = SETTINGS_WINDOW.set(settings_window.clone());
@@ -51,15 +60,8 @@ pub async fn create_windows(app: &mut App) -> Result<()> {
     let welcome_window = app.get_window("welcome").unwrap();
     let _ = WELCOME_WINDOW.set(welcome_window);
 
-    // Load previous search positions
-    let positions = DATABASE_MANAGER.get().unwrap().core(|c| Ok({
-        if let Some(json) = state_get(c, "window_positions".to_string())? {
-            serde_json::from_str(json.as_str()).unwrap()
-        }else{
-            DashMap::new()
-        }
-    })).await;
-    MAIN_WINDOW_POSITIONS.get_or_init(|| positions.unwrap());
+    show_initial_window(app.handle()).await.unwrap();
+
     Ok(())
 }
 

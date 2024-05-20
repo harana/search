@@ -67,7 +67,6 @@ macro_rules! nsstring_to_string {
 }
 
 static INIT: Once = Once::new();
-static PANEL_LABEL: &str = "main";
 
 pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_devtools: bool) {
     INIT.call_once(|| {
@@ -85,13 +84,11 @@ pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_dev
 
 pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
     let mut shortcut_manager = app_handle.global_shortcut_manager();
-    let window = app_handle.get_window(PANEL_LABEL).unwrap();
-
     let panel = panel!(app_handle);
     let _ = shortcut_manager
         .register(shortcut.as_str(), move || {
             if panel.is_visible() {
-                hide_search(window.app_handle());
+                hide_search(app_handle.clone());
             } else {
                 // let start = Instant::now();
                 //
@@ -111,7 +108,7 @@ pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
                 // let end = Instant::now();
                 //
                 // //info!("Time taken to screenshot = {:?}", end - start);
-                show_main(window.app_handle());
+                show_main(app_handle.clone());
             };
         });
 }
@@ -257,14 +254,8 @@ unsafe impl Message for RawNSPanel {}
 
 impl RawNSPanel {
     fn show(&self) {
-        println!(">>>> SHOW");
-        self.make_key_and_order_front(Some(self.content_view()));
-        println!("A");
         self.make_first_responder(Some(self.content_view()));
-        println!("B -- {}", self.is_visible().to_string());
-        println!("C");
-        //self.make_key_window();
-        println!("D");
+        self.make_key_and_order_front(None);
     }
 
     fn is_visible(&self) -> bool {
@@ -418,7 +409,7 @@ unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces
             | NSWindowCollectionBehavior::NSWindowCollectionBehaviorFullScreenAuxiliary,
     );
-    //toggle_delegate(panel.clone(), true);
+    toggle_delegate(panel.clone(), true);
     panel
 }
 

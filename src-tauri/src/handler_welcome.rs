@@ -7,7 +7,6 @@ use tauri::{AppHandle, Wry};
 
 use crate::globals::{ONBOARDED};
 use crate::handlers::database_core;
-
 use crate::windows_main;
 
 #[tauri::command]
@@ -66,6 +65,7 @@ pub async fn complete_onboarding(app_handle: AppHandle<Wry>, allow_telemetry: bo
 
     // Init search panel
     unsafe { ONBOARDED = true; }
+    windows_main::register_shortcut(app_handle.clone(), shortcut_key.to_string());
     Ok(())
 }
 

@@ -13,12 +13,8 @@ pub fn update_window_size(label: String, width: f64, height: f64, app_handle: Ap
 }
 
 #[tauri::command]
-pub async fn window_ready(label: String, app_handle: AppHandle) {
+pub async fn window_ready(label: String, _app_handle: AppHandle) {
     debug!("Command: windows->window_ready: {}", label);
-
-    if label == "welcome" || label == "main" {
-        show_initial_window(app_handle).await.unwrap();
-    }
 }
 
 #[tauri::command]
