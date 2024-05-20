@@ -7,16 +7,14 @@ pub fn init_main_panel(app_handle: AppHandle<Wry>, always_center: bool, show_dev
     windows_main_mac::init_main_panel(app_handle, always_center, show_devtools)
 }
 
-#[tauri::command]
 pub fn show_main(app_handle: AppHandle<Wry>) {
     #[cfg(target_os = "macos")]
     windows_main_mac::show_main(app_handle)
 }
 
-#[tauri::command]
-pub fn hide_search(app_handle: AppHandle<Wry>) {
+pub fn hide_main(app_handle: AppHandle<Wry>) {
     #[cfg(target_os = "macos")]
-    windows_main_mac::hide_search(app_handle)
+    windows_main_mac::hide_main(app_handle)
 }
 
 pub fn enable_auto_hide(app_handle: AppHandle<Wry>) {

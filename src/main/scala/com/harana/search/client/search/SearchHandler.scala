@@ -61,7 +61,6 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
         effectOnly(
           Effect(
             Tauri.invoke("search", Map("query" -> term.get)).map { (jsResults: js.Dictionary[js.Array[RawDocument]]) => {
-              analytics.pushEvent("search")
               val results = jsResults.toMap.view
                 .map(pair => (pair._1, pair._2.toList.sortBy(_.title.toLowerCase).map(rd => Document(rd, pair._1))))
                 .toList

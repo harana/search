@@ -88,7 +88,7 @@ pub fn register_shortcut(app_handle: AppHandle<Wry>, shortcut: String) {
     let _ = shortcut_manager
         .register(shortcut.as_str(), move || {
             if panel.is_visible() {
-                hide_search(app_handle.clone());
+                hide_main(app_handle.clone());
             } else {
                 // let start = Instant::now();
                 //
@@ -150,8 +150,8 @@ pub fn show_main(app_handle: AppHandle<Wry>) {
     panel!(app_handle).show();
 }
 
-pub fn hide_search(app_handle: AppHandle<Wry>) {
-    panel!(app_handle).order_out(None);
+pub fn hide_main(app_handle: AppHandle<Wry>) {
+    panel!(app_handle).hide();
 }
 
 pub fn enable_auto_hide(app_handle: AppHandle<Wry>) {
@@ -256,6 +256,10 @@ impl RawNSPanel {
     fn show(&self) {
         self.make_first_responder(Some(self.content_view()));
         self.make_key_and_order_front(None);
+    }
+
+    fn hide(&self) {
+        self.order_out(Some(self.content_view()));
     }
 
     fn is_visible(&self) -> bool {
@@ -385,7 +389,7 @@ impl RawNSPanelDelegate {
 unsafe impl Message for RawNSPanelDelegate {}
 
 impl INSObject for RawNSPanelDelegate {
-    fn class() -> &'static runtime::Class {
+    fn class() -> &'static Class {
         Self::get_class()
     }
 }
@@ -402,6 +406,7 @@ unsafe fn create_main_panel(window: &Window<Wry>) -> ShareId<RawNSPanel> {
     let panel = panel.share();
 
     handle.setHasShadow_(BOOL::from(false));
+    handle.setReleasedWhenClosed_(BOOL::from(false));
     panel.set_level(NSMainMenuWindowLevel + 1);
     panel.set_style_mask(NSWindowStyleMaskNonActivatingPanel);
     panel.set_collection_behaviour(

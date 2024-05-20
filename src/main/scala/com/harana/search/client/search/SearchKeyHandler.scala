@@ -203,7 +203,7 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
       effectOnly {
         if (key == Keys.Escape)
           if (value.searchTerm.isEmpty) {
-            Tauri.invoke("hide_search")
+            Tauri.invoke("hide_window", Map("label" -> "main"))
             action(NoChange)
           } else
             if (value.focusedPanel != SearchColumn.Search)

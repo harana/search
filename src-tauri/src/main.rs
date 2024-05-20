@@ -226,6 +226,7 @@ fn main() {
                 }
                 _ => {}
             },
+            tauri::RunEvent::ExitRequested { api, .. } => {},
             _ => {}
         })
 }
