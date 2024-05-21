@@ -155,8 +155,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             }
 
           case SearchColumn.Cards =>
-            event.stopPropagation()
-
             val cardState = Circuit.state(_.cardState, false)
             val hasVerticalCards = cardState.cards.nonEmpty && cardState.cards(cardState.middleHorizontalIndex).nonEmpty
 
@@ -196,10 +194,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
       }
 
     case KeyUp(key, event) =>
-      effectOnly(action(NoChange))
-
-      event.stopPropagation()
-
       effectOnly {
         if (key == Keys.Escape)
           if (value.searchTerm.isEmpty) {
@@ -216,8 +210,6 @@ class SearchKeyHandler extends ActionHandler(zoomTo(_.searchState)) {
             else
               action(Search(None))
         else {
-          event.stopPropagation()
-          event.preventDefault()
           action(NoChange)
         }
       }

@@ -36,8 +36,6 @@ pub fn invoke_handler(invoke: tauri::Invoke<Wry>) {
             crate::handler_integrations::remove_integration,
             crate::handler_open::open_application,
             crate::handler_open::open_path,
-            crate::handler_preview::show_preview,
-            crate::handler_preview::hide_preview,
             crate::handler_preview::get_viewer,
             crate::handler_rules::list_rules,
             crate::handler_search::search,

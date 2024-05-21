@@ -10,7 +10,7 @@ import com.harana.web.external.tailwind.OutlineIcons._
 import com.harana.web.external.tailwind.dialog._
 import com.harana.web.external.tailwind.popover._
 import com.harana.web.external.tailwind.transition.{Transition, TransitionChild}
-import org.scalajs.dom.{FocusEvent, KeyboardEvent, window}
+import org.scalajs.dom.{FocusEvent, HTMLInputElement, KeyboardEvent, window}
 import slinky.core.FunctionalComponent
 import slinky.core.annotations.react
 import slinky.core.facade.Fragment
@@ -24,7 +24,14 @@ import slinky.web.html._
 
     useEffect(
       () => {
-        val keyDownListener = (e: KeyboardEvent) => Circuit.dispatch(KeyDown(e.keyCode, e))
+        val keyDownListener = (e: KeyboardEvent) => {
+          Circuit.dispatch(KeyDown(e.keyCode, e))
+
+          if (!e.target.isInstanceOf[HTMLInputElement]) {
+            e.preventDefault()
+            e.stopPropagation()
+          }
+        }
         val keyUpListener = (e: KeyboardEvent) => Circuit.dispatch(KeyUp(e.keyCode, e))
         val blurListener = (_: FocusEvent) => if (!Circuit.state(_.systemState, false).isDebug) Circuit.dispatch(Hide)
 
@@ -88,7 +95,6 @@ import slinky.web.html._
       )
 
     val activePanel = Circuit.state(_.mainState, true).activePanel
-    println("ACTIVE PANEL = " + activePanel)
 
     if (activePanel == Panel.Welcome) {
       WelcomePanel()

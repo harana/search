@@ -19,42 +19,42 @@ class SearchMenuHandler extends ActionHandler(zoomTo(_.searchState)) {
     case ShowBilling =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_billing").map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("show_billing").map(_ => NoChange)
         )
       )
 
     case ShowFeedback =>
       effectOnly(
         Effect(
-          Tauri.invoke("open_url").map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("open_url").map(_ => NoChange)
         )
       )
 
     case ShowHaranaPlus =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_signup").map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("show_signup").map(_ => NoChange)
         )
       )
 
     case ShowLogin =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_login").map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("show_login").map(_ => NoChange)
         )
       )
 
     case ShowSettings =>
       effectOnly(
         Effect(
-          Tauri.invoke("show_settings").map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("show_window", Map("label" -> "settings")).map(_ => NoChange)
         )
       )
 
     case ShowSupport =>
       effectOnly(
         Effect(
-          Tauri.invoke("open_url", Map("url" -> "https://github.com/harana/search/issues")).map((_: js.Any) => NoChange)
+          Tauri.invoke[Unit]("open_url", Map("url" -> "https://github.com/harana/search/issues")).map(_ => NoChange)
         )
       )
   }

@@ -86,7 +86,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
     case Hide =>
       effectOnly(
         Effect(
-          Tauri.invoke[Unit]("hide_search").map(_ => NoChange)
+          Tauri.invoke[Unit]("hide_window", Map("label" -> "main")).map(_ => NoChange)
         )
       )
 
@@ -170,9 +170,7 @@ class SearchHandler extends ActionHandler(zoomTo(_.searchState)) {
       val doc = document(documentId)
       effectOnly(
         if (value.selectedDocumentId.isEmpty || value.selectedDocumentId.get != documentId)
-          Effect(
-            Tauri.invoke[Unit]("emit_preview_message", Map("name" -> "preview_document_changed", "payload" -> doc.asJson.noSpaces)).map(_ => NoChange)
-          ) + (if (doc.path.isDefined) Effect(Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))) else Effect.action(NoChange)) +
+          (if (doc.path.isDefined) Effect(Tauri.invoke[String]("get_viewer", Map("path" -> doc.path.get)).map(viewer => UpdateAllowPreview(viewer != "Noop"))) else Effect.action(NoChange)) +
             action(
               ActionBatch(
                 LoadThumbnail(documentId),

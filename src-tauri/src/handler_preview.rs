@@ -10,27 +10,6 @@ use tauri::{AppHandle, Wry};
 use crate::{MAIN_WINDOW, PREVIEW_WINDOW, windows_main};
 
 #[tauri::command]
-pub fn show_preview(app_handle: AppHandle<Wry>, _document: String) -> Result<(), String> {
-    debug!("Command: search->show_preview");
-    windows_main::disable_auto_hide(app_handle);
-    let window = PREVIEW_WINDOW.get().unwrap();
-    window.set_focus().unwrap();
-    window.center().unwrap();
-    Ok(())
-}
-
-#[tauri::command]
-pub fn hide_preview(app_handle: AppHandle<Wry>) -> Result<(), String> {
-    debug!("Command: search->hide_preview");
-    windows_main::enable_auto_hide(app_handle);
-    let main_window = MAIN_WINDOW.get().unwrap();
-    let preview_window = PREVIEW_WINDOW.get().unwrap();
-    main_window.set_focus().unwrap();
-    preview_window.hide().unwrap();
-    Ok(())
-}
-
-#[tauri::command]
 pub fn get_viewer(path: String) -> String {
     let path = Path::new(path.as_str());
     let format = FileFormat::from_file(path).ok();

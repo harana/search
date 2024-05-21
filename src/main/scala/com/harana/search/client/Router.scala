@@ -4,7 +4,6 @@ import com.harana.search.client.main.MainStore.UpdateActivePanel
 import com.harana.search.client.main.ui.{MainPanel, Panel}
 import com.harana.search.client.system.SystemStore.WindowReady
 import com.harana.web.actions.Init
-import com.harana.web.external.tauri.Window
 import slinky.core.FunctionalComponent
 import slinky.core.annotations.react
 import slinky.core.facade.Hooks.useEffect
