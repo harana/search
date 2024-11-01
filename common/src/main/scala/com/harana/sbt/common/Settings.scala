@@ -22,23 +22,15 @@ object Settings {
   lazy val isRelease = sys.env.get("RELEASE").contains("true")
 
   def common = Seq(
-    scalaVersion                              := "2.13.14",
+    scalaVersion                              := "3.5.2",
     scalacOptions                             ++= Seq(
-                                                    "-deprecation",
-                                                    "-feature",
-                                                    "-unchecked",
-                                                    "-language:experimental.macros",
                                                     "-language:higherKinds",
-                                                    "-language:implicitConversions",
-                                                    "-language:postfixOps",
-                                                    s"-Wconf:any:warning",
 //                                                    s"-Wconf:msg=^Using fallback derivation.*$$:s",
-                                                    "-Xmaxerrs", "10000",
-                                                    "-Ymacro-annotations",
-                                                    "-Yrangepos",
                                                     "-Ybackend-parallelism", "16",
                                                     "-Ybackend-worker-queue", "1000",
-                                                    "-Xlog-implicits"
+                                                    "-Yretain-trees",
+                                                    "-Xmax-inlines", "128",
+                                                    "-Ymacro-annotations"
                                                   ),
     doc / sources                                 := Seq(),
     packageDoc / publishArtifact                  := false,
