@@ -25,11 +25,13 @@ object Plugin extends AutoPlugin {
           name := id,
           githubRepository := id,
           Library.compilerPlugins,
+          scalacOptions := (if (scalaVersion.value.startsWith("3")) Settings.scala3Options else Settings.scala2Options),
           Settings.common,
           Settings.js,
           libraryDependencies ++= Library.common.value,
           libraryDependencies ++=  Library.js.value,
           libraryDependencySchemes ++= Library.libraryDependencySchemes.value,
+          excludeDependencies ++= Library.globalExclusions.value,
           dependencyOverrides := Library.jsOverrides.value,
           unmanagedBase := (ThisBuild / baseDirectory).value / "lib"
         )

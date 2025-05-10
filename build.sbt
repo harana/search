@@ -1,3 +1,4 @@
+import sbt.addDependencyTreePlugin
 
 lazy val commonSettings = Seq(
     version                                   := "0.0.0",
@@ -12,7 +13,7 @@ lazy val commonSettings = Seq(
     Compile / packageSrc / publishArtifact    := false
 )
 
-  lazy val root = Project("sbt-plugin", file("."))
+  lazy val root = Project("sbt-plugin", file(".h"))
     .settings(
       commonSettings,
       moduleName      := "root",
@@ -28,7 +29,6 @@ lazy val commonSettings = Seq(
       moduleName      := "sbt_common",
       name            := "sbt",
 
-      addSbtPlugin("ch.epfl.scala"                  % "sbt-scalafix"              % "0.11.1"),
       addSbtPlugin("com.codecommit"                 % "sbt-github-packages"       % "0.5.3"),
       addSbtPlugin("com.eed3si9n"                   % "sbt-assembly"              % "2.1.5"),
       addSbtPlugin("com.eed3si9n"                   % "sbt-buildinfo"             % "0.11.0"),
@@ -42,9 +42,12 @@ lazy val commonSettings = Seq(
       addSbtPlugin("org.portable-scala"             % "sbt-scalajs-crossproject"  % "1.3.2"),
       addSbtPlugin("org.scalablytyped.converter"    % "sbt-converter"             % "1.0.0-beta44"),
       addSbtPlugin("org.scalameta"                  % "sbt-scalafmt"              % "2.5.2"),
+      addSbtPlugin("com.here.platform"              % "sbt-bom"                   % "1.0.14"),
+      addSbtPlugin("com.github.ghostdogpr"          % "caliban-codegen-sbt"       % "2.10.0"),
       addDependencyTreePlugin
     )
     .enablePlugins(SbtPlugin)
+
 
   lazy val js = project
     .settings(

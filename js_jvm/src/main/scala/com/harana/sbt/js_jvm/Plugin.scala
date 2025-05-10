@@ -47,16 +47,18 @@ object Plugin extends AutoPlugin {
           githubRepository := id,
           Library.compilerPlugins,
           libraryDependencies ++= Library.common.value,
+          excludeDependencies ++= Library.globalExclusions.value,
           Settings.common,
+          scalacOptions := (if (scalaVersion.value.startsWith("3")) Settings.scala3Options else Settings.scala2Options),
           unmanagedBase := (ThisBuild / baseDirectory).value / "lib"
         )
         .jsSettings(
           name := id,
           Library.compilerPlugins,
           dependencyOverrides ++= Library.globalDependencyOverrides.value,
+          excludeDependencies ++= Library.globalExclusions.value,
           libraryDependencySchemes ++= Library.libraryDependencySchemes.value,
           libraryDependencies ++=  Library.js.value,
-          Settings.common,
           Settings.js,
           unmanagedBase := (ThisBuild / baseDirectory).value / "lib"
         )
@@ -67,7 +69,6 @@ object Plugin extends AutoPlugin {
           excludeDependencies ++= Library.globalExclusions.value,
           libraryDependencySchemes ++= Library.libraryDependencySchemes.value,
           libraryDependencies ++= Library.jvm.value,
-          Settings.common,
           Settings.jvm,
           unmanagedBase := (ThisBuild / baseDirectory).value / "lib"
         )

@@ -21,17 +21,42 @@ object Settings {
   lazy val buildOutputDir = taskKey[(Report, File)]("")
   lazy val isRelease = sys.env.get("RELEASE").contains("true")
 
+  lazy val scala2Options = Seq(
+    "-Xcheck-macros",
+    "-Xlog-implicits",
+    "-Xmaxerrs", "100",
+    "-Xprint-types",
+    "-Ybackend-parallelism", "16",
+    "-Ybackend-worker-queue", "1000",
+    "-Ycheck-mods",
+    "-Ycheck:all",
+    "-Ydebug-type-error",
+    "-Ykind-projector:underscores",
+    "-Ymacro-annotations",
+    "-Yrangepos",
+    "-Yshow-print-errors",
+    "-feature",
+    "-language:dynamics",
+    "-language:experimental.macros",
+    "-language:higherKinds",
+    "-language:implicitConversions",
+    "-language:namedTypeArguments",
+    "-language:postfixOps",
+    "-unchecked",
+    s"-Wconf:any:warning",
+  )
+
+  lazy val scala3Options = Seq(
+      "-language:higherKinds",
+      "-Ybackend-parallelism", "16",
+      "-Ybackend-worker-queue", "1000",
+      "-Yretain-trees",
+      "-Xmax-inlines", "128"
+//      "-explain"
+  )
+
   def common = Seq(
-    scalaVersion                              := "3.5.2",
-    scalacOptions                             ++= Seq(
-                                                    "-language:higherKinds",
-//                                                    s"-Wconf:msg=^Using fallback derivation.*$$:s",
-                                                    "-Ybackend-parallelism", "16",
-                                                    "-Ybackend-worker-queue", "1000",
-                                                    "-Yretain-trees",
-                                                    "-Xmax-inlines", "128",
-                                                    "-Ymacro-annotations"
-                                                  ),
+    scalaVersion                                  := "3.7.0",
     doc / sources                                 := Seq(),
     packageDoc / publishArtifact                  := false,
     publishArtifact in (Compile, packageDoc)      := false,
@@ -40,7 +65,7 @@ object Settings {
     maxErrors                                     := 1000,
     fork                                          := true,
     Global / cancelable                           := true,
-
+    ThisBuild / usePipelining                     := true,
     githubOwner                                   := "harana",
     organization                                  := "com.harana",
     githubTokenSource                             := TokenSource.Environment("GITHUB_TOKEN"),
@@ -62,7 +87,7 @@ object Settings {
     unmanagedBase                                 := (ThisProject / unmanagedBase).value,
     libraryDependencySchemes                      ++= Library.libraryDependencySchemes.value,
     externalNpm                                   := {
-                                                        sys.process.Process(Seq("pnpm", "--silent", "--cwd", baseDirectory.value.toString)).!
+                                                        sys.process.Process(Seq("/opt/homebrew/bin/pnpm", "--silent", "--cwd", baseDirectory.value.toString)).!
                                                         baseDirectory.value
                                                      },
     stIgnore                                      ++= List(
@@ -110,11 +135,11 @@ object Settings {
                                                     "vite",
                                                     "xlsx-viewer"
     ),
-    stFlavour                                     := Flavour.Slinky,
-    stMinimize                                    := Selection.AllExcept("@tauri-apps/api"),
-    stOutputPackage                               := "com.harana.js",
-    stEnableLongApplyMethod                       := true,
-    Global / stQuiet                              := true,
+//    stFlavour                                     := Flavour.Slinky,
+//    stMinimize                                    := Selection.AllExcept("@tauri-apps/api"),
+//    stOutputPackage                               := "com.harana.js",
+//    stEnableLongApplyMethod                       := true,
+//    Global / stQuiet                              := true,
     Compile / packageSrc / mappings               ++= {
                                                     val base = (Compile / sourceManaged).value
                                                     val files = (Compile / managedSources).value

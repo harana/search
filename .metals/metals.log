@@ -1,0 +1,355 @@
+2024.12.13 21:32:01 INFO  Started: Metals version 1.4.1 in folders '/Volumes/Developer/harana/sbt-plugin' for client Visual Studio Code 1.96.0.
+2024.12.13 21:32:01 WARN  Flyway upgrade recommended: H2 2.3.232 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.224.
+2024.12.13 21:32:04 INFO  running '/opt/homebrew/bin/sbt -Dbloop.export-jar-classifiers=sources bloopInstall'
+2024.12.13 21:32:04 WARN  no build target for: /Volumes/Developer/harana/sbt-plugin/project/project/metals.sbt
+2024.12.13 21:32:05 WARN  no build target for: /Volumes/Developer/harana/sbt-plugin/project/metals.sbt
+2024.12.13 21:32:05 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:06 INFO  [info] welcome to sbt 1.10.0 (Oracle Corporation Java 21.0.3)
+2024.12.13 21:32:06 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/project/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:07 INFO  [info] loading settings for project sbt-plugin-build-build-build from metals.sbt ...
+2024.12.13 21:32:07 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:07 INFO  [info] loading project definition from /Volumes/Developer/harana/sbt-plugin/project/project/project
+2024.12.13 21:32:08 INFO  [info] loading settings for project sbt-plugin-build-build from metals.sbt ...
+2024.12.13 21:32:08 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:08 INFO  [info] loading project definition from /Volumes/Developer/harana/sbt-plugin/project/project
+2024.12.13 21:32:08 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:09 INFO  [success] Generated .bloop/sbt-plugin-build-build.json
+2024.12.13 21:32:09 INFO  [success] Total time: 1 s, completed 13 Dec 2024, 9:32:09 pm
+2024.12.13 21:32:09 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:09 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:09 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:10 ERROR /Volumes/Developer/harana/sbt-plugin/project/plugins.sbt:1: warning: method sonatypeRepo in class ResolverFunctions is deprecated (since 1.7.0): Use sonatypeOssRepos instead e.g. `resolvers ++= Resolver.sonatypeOssRepos("snapshots")`
+2024.12.13 21:32:10 ERROR resolvers += Resolver.sonatypeRepo("snapshots")
+2024.12.13 21:32:10 ERROR                       ^
+2024.12.13 21:32:10 INFO  [info] loading settings for project sbt-plugin-build from metals.sbt,plugins.sbt ...
+2024.12.13 21:32:10 INFO  [info] loading project definition from /Volumes/Developer/harana/sbt-plugin/project
+2024.12.13 21:32:10 ERROR Warning: Tried to extract the base path for relative glob src/main/scala/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:11 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Library.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:13 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:13 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:15 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:15 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:15 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:15 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:16 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:16 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:17 WARN  no build target for: /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala
+2024.12.13 21:32:17 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:17 INFO  [success] Generated .bloop/sbt-plugin-build.json
+2024.12.13 21:32:17 INFO  [success] Total time: 7 s, completed 13 Dec 2024, 9:32:18 pm
+2024.12.13 21:32:18 ERROR Warning: Tried to extract the base path for relative glob src/main/scala/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+2024.12.13 21:32:17 INFO  [info] loading settings for project sbt-plugin from build.sbt ...
+2024.12.13 21:32:19 INFO  [info] set current project to sbt-plugin (in build file:/Volumes/Developer/harana/sbt-plugin/)
+2024.12.13 21:32:19 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:19 INFO  [success] Generated .bloop/sbt-plugin.json
+2024.12.13 21:32:19 INFO  [success] Generated .bloop/sbt-plugin-test.json
+2024.12.13 21:32:19 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/common.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/common-test.json
+2024.12.13 21:32:20 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:20 WARN  no build target for: /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala
+2024.12.13 21:32:20 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/jvm-test.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/jvm.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/js-test.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/js_jvm.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/js_jvm-test.json
+2024.12.13 21:32:20 INFO  [success] Generated .bloop/js.json
+2024.12.13 21:32:20 INFO  [success] Total time: 2 s, completed 13 Dec 2024, 9:32:20 pm
+2024.12.13 21:32:20 INFO  time: ran 'sbt bloopInstall' in 15s
+2024.12.13 21:32:20 INFO  Attempting to connect to the build server...
+2024.12.13 21:32:20 INFO  Found a Bloop server running
+2024.12.13 21:32:21 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.13 21:32:20 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:20 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:21 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:21 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:23 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:23 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:23 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:23 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:23 INFO  Attempting to connect to the build server...
+2024.12.13 21:32:23 INFO  Found a Bloop server running
+2024.12.13 21:32:23 INFO  Attempting to connect to the build server...
+2024.12.13 21:32:23 INFO  Found a Bloop server running
+2024.12.13 21:32:23 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.13 21:32:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.13 21:32:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.13 21:32:24 INFO  time: Connected to build server in 3.19s
+2024.12.13 21:32:24 INFO  Connected to Build server: Bloop v2.0.5
+2024.12.13 21:32:24 INFO  time: Imported build in 0.14s
+2024.12.13 21:32:24 INFO  running doctor check
+2024.12.13 21:32:24 INFO  java targets: sbt-plugin-build-build, common, js_jvm, sbt-plugin, sbt-plugin-test, js_jvm-test, jvm-test, jvm, js-test, common-test, sbt-plugin-build, js
+2024.12.13 21:32:24 INFO  compiling common (17 scala sources and 1 java source)
+2024.12.13 21:32:24 INFO  Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+Dec 13, 2024 9:32:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 74
+2024.12.13 21:32:29 WARN  Flyway upgrade recommended: H2 2.3.232 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.224.
+2024.12.13 21:32:32 INFO  Compilation completed in 7.496s.
+2024.12.13 21:32:37 INFO  time: indexed workspace in 12s
+2024.12.13 21:32:40 WARN  two feature warnings; re-run with -feature for details
+2024.12.13 21:32:40 INFO  compiling common (17 scala sources and 1 java source)
+2024.12.13 21:32:40 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2024.12.13 21:32:40 INFO  Note: Annotation processing is enabled because one or more processors were found
+2024.12.13 21:32:41 INFO  time: compiled common in 0.62s
+2024.12.13 21:32:41 INFO  Deduplicating compilation of common from bsp client 'Metals 1.4.1' (since 20.752s)
+2024.12.13 21:32:41 INFO  compiling common (17 scala sources and 1 java source)
+2024.12.13 21:32:44 WARN  two feature warnings; re-run with -feature for details
+2024.12.13 21:32:44 WARN  two feature warnings; re-run with -feature for details
+2024.12.13 21:32:44 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2024.12.13 21:32:44 INFO  Note: Annotation processing is enabled because one or more processors were found
+2024.12.13 21:32:44 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2024.12.13 21:32:44 INFO  Note: Annotation processing is enabled because one or more processors were found
+2024.12.13 21:32:44 INFO  time: compiled common in 3.44s
+2024.12.13 21:32:44 INFO  compiling js_jvm (1 scala source)
+2024.12.13 21:32:44 INFO  compiling js (1 scala source)
+2024.12.13 21:32:44 INFO  compiling jvm (1 scala source)
+2024.12.13 21:32:45 INFO  time: compiled js in 0.63s
+2024.12.13 21:32:45 INFO  time: compiled jvm in 0.63s
+2024.12.13 21:32:45 INFO  time: compiled js_jvm in 0.64s
+2024.12.13 21:32:45 INFO  Deduplicating compilation of common from bsp client 'Metals 1.4.1' (since 24.935s)
+2024.12.13 21:33:04 INFO  compiling common (1 scala source)
+2024.12.13 21:33:06 WARN  two feature warnings; re-run with -feature for details
+2024.12.13 21:33:06 INFO  time: compiled common in 1.75s
+Dec 13, 2024 9:42:17 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Dec 13, 2024 10:26:13 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2024.12.13 23:03:45 INFO  Shutting down server
+2024.12.13 23:03:45 INFO  shutting down Metals
+2024.12.13 23:03:46 INFO  Shut down connection with build server.
+2024.12.13 23:03:46 INFO  Shut down connection with build server.
+2024.12.13 23:03:46 INFO  Shut down connection with build server.
+2024.12.13 23:03:45 INFO  Exiting server
+2024.12.18 19:32:28 INFO  Started: Metals version 1.4.2 in folders '/Volumes/Developer/harana/sbt-plugin' for client Visual Studio Code 1.96.0.
+2024.12.18 19:32:28 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/build.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.18 19:32:28 INFO  Attempting to connect to the build server...
+2024.12.18 19:32:28 INFO  Found a Bloop server running
+2024.12.18 19:32:29 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.18 19:32:29 INFO  Attempting to connect to the build server...
+2024.12.18 19:32:29 INFO  Found a Bloop server running
+2024.12.18 19:32:29 INFO  Attempting to connect to the build server...
+2024.12.18 19:32:29 INFO  Found a Bloop server running
+2024.12.18 19:32:29 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.18 19:32:29 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+Dec 18, 2024 7:32:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+Dec 18, 2024 7:32:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2024.12.18 19:32:30 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/build.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.18 19:32:30 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/project/plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.18 19:32:30 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/project/plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.18 19:32:32 INFO  time: Connected to build server in 4.08s
+2024.12.18 19:32:32 INFO  Connected to Build server: Bloop v2.0.6
+2024.12.18 19:32:33 INFO  time: Imported build in 0.12s
+2024.12.18 19:32:33 INFO  running doctor check
+2024.12.18 19:32:33 INFO  java targets: sbt-plugin-build-build, common, js_jvm, sbt-plugin, sbt-plugin-test, js_jvm-test, jvm-test, jvm, js-test, common-test, sbt-plugin-build, js
+2024.12.18 19:32:38 INFO  time: indexed workspace in 5.95s
+2024.12.18 19:32:39 INFO  compiling common (17 scala sources and 1 java source)
+2024.12.18 19:32:39 INFO  Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+2024.12.18 19:32:44 INFO  Compilation completed in 5.064s.
+2024.12.18 19:32:50 INFO  Deduplicating compilation of common from bsp client 'Metals 1.4.2' (since 20.996s)
+2024.12.18 19:32:50 INFO  compiling common (17 scala sources and 1 java source)
+2024.12.18 19:32:51 WARN  two feature warnings; re-run with -feature for details
+2024.12.18 19:32:51 WARN  two feature warnings; re-run with -feature for details
+2024.12.18 19:32:51 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2024.12.18 19:32:51 INFO  Note: Annotation processing is enabled because one or more processors were found
+2024.12.18 19:32:51 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2024.12.18 19:32:51 INFO  Note: Annotation processing is enabled because one or more processors were found
+2024.12.18 19:32:51 INFO  compiling js (1 scala source)
+2024.12.18 19:32:51 INFO  compiling jvm (1 scala source)
+2024.12.18 19:32:51 INFO  compiling js_jvm (1 scala source)
+2024.12.18 19:32:53 INFO  time: compiled common in 3.01s
+2024.12.18 19:32:54 INFO  time: compiled js in 1.49s
+2024.12.18 19:32:54 INFO  time: compiled js_jvm in 1.48s
+2024.12.18 19:32:54 INFO  time: compiled jvm in 1.49s
+2024.12.18 19:39:03 INFO  Shutting down server
+2024.12.18 19:39:03 INFO  shutting down Metals
+2024.12.18 19:39:03 INFO  Shut down connection with build server.
+2024.12.18 19:39:03 INFO  Shut down connection with build server.
+2024.12.18 19:39:03 INFO  Shut down connection with build server.
+2024.12.18 19:39:03 INFO  Exiting server
+2024.12.18 19:51:21 INFO  Started: Metals version 1.4.2 in folders '/Volumes/Developer/harana/sbt-plugin' for client Visual Studio Code 1.96.0.
+2024.12.18 19:51:21 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/build.sbt. Using presentation compiler with project's scala-library version: 3.3.4
+2024.12.18 19:51:21 INFO  Attempting to connect to the build server...
+2024.12.18 19:51:21 INFO  Found a Bloop server running
+2024.12.18 19:51:22 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.18 19:51:22 INFO  Attempting to connect to the build server...
+2024.12.18 19:51:22 INFO  Found a Bloop server running
+2024.12.18 19:51:22 INFO  Attempting to connect to the build server...
+2024.12.18 19:51:22 INFO  Found a Bloop server running
+2024.12.18 19:51:22 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.18 19:51:22 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.12.18 19:51:22 INFO  time: Connected to build server in 0.34s
+2024.12.18 19:51:22 INFO  Connected to Build server: Bloop v2.0.6
+2024.12.18 19:51:22 INFO  time: Imported build in 0.19s
+2024.12.18 19:51:22 INFO  running doctor check
+2024.12.18 19:51:22 INFO  java targets: sbt-plugin-build-build, common, js_jvm, sbt-plugin, sbt-plugin-test, js_jvm-test, jvm-test, jvm, js-test, common-test, sbt-plugin-build, js
+Dec 18, 2024 7:51:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+Dec 18, 2024 7:51:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2024.12.18 19:51:24 INFO  time: indexed workspace in 3.22s
+2024.12.18 21:08:42 INFO  Shutting down server
+2024.12.18 21:08:42 INFO  shutting down Metals
+2024.12.18 21:08:42 INFO  Shut down connection with build server.
+2024.12.18 21:08:42 INFO  Shut down connection with build server.
+2024.12.18 21:08:42 INFO  Shut down connection with build server.
+2024.12.18 21:08:42 INFO  Exiting server
+2025.04.13 15:14:47 INFO  Started: Metals version 1.5.2 in folders '/Volumes/Developer/harana/sbt-plugin' for client Visual Studio Code 1.99.2.
+2025.04.13 15:14:47 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.5
+2025.04.13 15:14:48 INFO  Attempting to connect to the build server...
+2025.04.13 15:14:48 INFO  Found a Bloop server running
+2025.04.13 15:14:48 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:14:51 INFO  Attempting to connect to the build server...
+2025.04.13 15:14:51 INFO  Found a Bloop server running
+2025.04.13 15:14:51 INFO  Attempting to connect to the build server...
+2025.04.13 15:14:51 INFO  Found a Bloop server running
+2025.04.13 15:14:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:14:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:14:51 INFO  time: Connected to build server in 3.72s
+2025.04.13 15:14:51 INFO  Connected to Build server: Bloop v2.0.9
+2025.04.13 15:14:52 INFO  time: Imported build in 0.26s
+Apr 13, 2025 3:14:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+Apr 13, 2025 3:14:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+Apr 13, 2025 3:14:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 12
+Apr 13, 2025 3:14:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17
+2025.04.13 15:14:56 INFO  compiling common (17 scala sources and 1 java source)
+2025.04.13 15:14:56 INFO  Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+2025.04.13 15:15:01 INFO  time: indexed workspace in 8.94s
+2025.04.13 15:15:01 INFO  compiling common (17 scala sources and 1 java source)
+Apr 13, 2025 3:15:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 60
+2025.04.13 15:15:07 INFO  Compilation completed in 10.573s.
+2025.04.13 15:15:23 WARN  two feature warnings; re-run with -feature for details
+2025.04.13 15:15:23 WARN  two feature warnings; re-run with -feature for details
+2025.04.13 15:15:25 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2025.04.13 15:15:25 INFO  Note: Annotation processing is enabled because one or more processors were found
+2025.04.13 15:15:25 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2025.04.13 15:15:25 INFO  Note: Annotation processing is enabled because one or more processors were found
+2025.04.13 15:15:25 INFO  compiling js_jvm (1 scala source)
+2025.04.13 15:15:25 INFO  compiling jvm (1 scala source)
+2025.04.13 15:15:25 INFO  compiling js (1 scala source)
+2025.04.13 15:15:25 INFO  time: compiled common in 24s
+2025.04.13 15:15:27 INFO  time: compiled js in 1.89s
+2025.04.13 15:15:27 INFO  time: compiled jvm in 1.89s
+2025.04.13 15:15:27 INFO  time: compiled js_jvm in 1.9s
+2025.04.13 15:15:43 INFO  compiling common (1 scala source)
+2025.04.13 15:15:43 INFO  time: compiled common in 0.58s
+2025.04.13 15:15:45 INFO  time: compiled common in 24ms
+2025.04.13 15:15:56 INFO  [0m[31m[E][0m Caught java.lang.InterruptedException
+2025.04.13 15:15:56 INFO  [0m[31m[E][0m Caught java.lang.InterruptedException
+2025.04.13 15:15:56 INFO  [0m[31m[E][0m Caught java.lang.InterruptedException
+2025.04.13 15:15:56 ERROR Bloop 'bsp' command exited with code 1. Something may be wrong with the current configuration.
+Running the [1mclean[0m sub-command to clear the working directory and remove caches might help.
+If the error persists, please report the issue as a bug and attach a log with increased verbosity by passing [1m-v -v -v[0m.
+2025.04.13 15:15:56 ERROR Bloop 'bsp' command exited with code 1. Something may be wrong with the current configuration.
+Running the [1mclean[0m sub-command to clear the working directory and remove caches might help.
+If the error persists, please report the issue as a bug and attach a log with increased verbosity by passing [1m-v -v -v[0m.
+2025.04.13 15:15:56 ERROR Bloop 'bsp' command exited with code 1. Something may be wrong with the current configuration.
+Running the [1mclean[0m sub-command to clear the working directory and remove caches might help.
+If the error persists, please report the issue as a bug and attach a log with increased verbosity by passing [1m-v -v -v[0m.
+2025.04.13 15:15:56 INFO  No running Bloop server found, starting one.
+2025.04.13 15:15:56 INFO  No running Bloop server found, starting one.
+2025.04.13 15:15:56 INFO  No running Bloop server found, starting one.
+2025.04.13 15:15:58 INFO  Starting compilation server
+2025.04.13 15:15:58 INFO  Starting compilation server
+2025.04.13 15:15:58 INFO  Starting compilation server
+2025.04.13 15:16:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:16:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:16:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:16:01 INFO  Connected to Build server: Bloop v2.0.9
+2025.04.13 15:16:02 INFO  time: Imported build in 0.37s
+2025.04.13 15:16:07 INFO  time: indexed workspace in 5.76s
+2025.04.13 15:16:09 INFO  compiling common (17 scala sources and 1 java source)
+2025.04.13 15:16:34 WARN  two feature warnings; re-run with -feature for details
+2025.04.13 15:16:36 WARN  Unexpected javac output: Note: Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing..
+2025.04.13 15:16:36 INFO  Note: Annotation processing is enabled because one or more processors were found
+2025.04.13 15:16:36 INFO  compiling js (1 scala source)
+2025.04.13 15:16:36 INFO  compiling js_jvm (1 scala source)
+2025.04.13 15:16:36 INFO  compiling jvm (1 scala source)
+2025.04.13 15:16:36 INFO  time: compiled common in 27s
+2025.04.13 15:16:39 INFO  time: compiled js_jvm in 2.62s
+2025.04.13 15:16:39 INFO  time: compiled js in 2.63s
+2025.04.13 15:16:39 INFO  time: compiled jvm in 2.63s
+2025.04.13 15:17:41 INFO  Started: Metals version 1.5.2 in folders '/Volumes/Developer/harana/sbt-plugin' for client Visual Studio Code 1.99.2.
+2025.04.13 15:17:41 INFO  no build target found for /Volumes/Developer/harana/sbt-plugin/common/src/main/scala/com/harana/sbt/common/Settings.scala. Using presentation compiler with project's scala-library version: 3.3.5
+2025.04.13 15:17:42 INFO  Attempting to connect to the build server...
+2025.04.13 15:17:42 INFO  No running Bloop server found, starting one.
+2025.04.13 15:17:44 INFO  Starting compilation server
+2025.04.13 15:17:46 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:17:47 INFO  Attempting to connect to the build server...
+2025.04.13 15:17:47 INFO  Found a Bloop server running
+2025.04.13 15:17:47 INFO  Attempting to connect to the build server...
+2025.04.13 15:17:47 INFO  Found a Bloop server running
+2025.04.13 15:17:46 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:17:47 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Volumes/Developer/harana/sbt-plugin/project/.metals/bsp.trace.json or /Users/naden/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.04.13 15:17:47 INFO  time: Connected to build server in 5.28s
+2025.04.13 15:17:47 INFO  Connected to Build server: Bloop v2.0.9
+2025.04.13 15:17:47 INFO  time: Imported build in 0.45s
+2025.04.13 15:17:53 INFO  time: indexed workspace in 5.73s
+Apr 13, 2025 5:03:21 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.04.13 17:08:44 INFO  Shutting down server
+2025.04.13 17:08:44 INFO  shutting down Metals
+2025.04.13 17:08:44 INFO  Shut down connection with build server.
+2025.04.13 17:08:44 INFO  Shut down connection with build server.
+2025.04.13 17:08:44 INFO  Shut down connection with build server.
+2025.04.13 17:08:44 INFO  Exiting server
