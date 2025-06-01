@@ -54,6 +54,7 @@ object Library {
     def excludeScalatest = m excludeAll ExclusionRule("org.scalatest")
     def excludeSprayJson = m excludeAll ExclusionRule("io.spray")
     def excludeScalaJs = m excludeAll ExclusionRule("org.scala-js")
+    def excludeScalaJsDom = m excludeAll ExclusionRule("org.scala-js", "scalajs-dom_sjs1")
   }
 
   val airbyte = Def.setting(Seq(
@@ -84,16 +85,16 @@ object Library {
   ))
 
   val awsS3v1 = Def.setting(Seq(
-    "com.amazonaws" % "aws-java-sdk-s3" % "1.12.782"
+    "com.amazonaws" % "aws-java-sdk-s3" % "1.12.783"
   ))
 
-  val awsS3v2Version = "2.31.18"
+  val awsS3v2Version = "2.31.53"
   val awsS3v2 = Def.setting(Seq(
     "software.amazon.awssdk" % "cloudfront" % awsS3v2Version,
     "software.amazon.awssdk" % "iam" % awsS3v2Version,
     "software.amazon.awssdk" % "s3" % awsS3v2Version,
     "software.amazon.awssdk" % "s3-transfer-manager" % awsS3v2Version,
-    "software.amazon.awssdk.crt" % "aws-crt" % "0.38.0"
+    "software.amazon.awssdk.crt" % "aws-crt" % "0.38.3"
   ))
 
   val circe = Def.setting(Seq(
@@ -111,17 +112,17 @@ object Library {
   val compilerPlugins = Seq()
 
   val dockerJava = Def.setting(Seq(
-    "com.github.docker-java" % "docker-java" % "3.5.0",
-    "com.github.docker-java" % "docker-java-transport-zerodep" % "3.5.0"
+    "com.github.docker-java" % "docker-java" % "3.5.1",
+    "com.github.docker-java" % "docker-java-transport-zerodep" % "3.5.1"
   ))
 
   val googleCloud = Def.setting(Seq(
-    "com.google.cloud"      % "google-cloud-dialogflow" % "4.66.0",
-    "com.google.cloud"      % "google-cloud-document-ai" % "2.64.0",
-    "com.google.cloud"      % "google-cloud-kms" % "2.63.0",
-    "com.google.cloud"      % "google-cloud-pubsub" % "1.138.0",
-    "com.google.cloud"      % "google-cloud-secretmanager" % "2.60.0",
-    "com.google.cloud"      % "google-cloud-storage" % "2.50.0",
+    "com.google.cloud"      % "google-cloud-dialogflow" % "4.69.0",
+    "com.google.cloud"      % "google-cloud-document-ai" % "2.67.0",
+    "com.google.cloud"      % "google-cloud-kms" % "2.66.0",
+    "com.google.cloud"      % "google-cloud-pubsub" % "1.139.4",
+    "com.google.cloud"      % "google-cloud-secretmanager" % "2.63.0",
+    "com.google.cloud"      % "google-cloud-storage" % "2.52.3",
   ).map(_.excludeJackson.exclude("com.google.guava", "guava-jdk5")))
 
   val hadoopVersion = "3.4.1"
@@ -138,7 +139,7 @@ object Library {
     "org.http4s" %%% "http4s-ember-server" % http4sVersion,
   ))
 
-  val jacksonVersion = "2.18.23"
+  val jacksonVersion = "2.19.0"
   val jackson = Def.setting(Seq(
     "com.fasterxml.jackson.dataformat"  % "jackson-dataformat-yaml" % jacksonVersion,
     "com.fasterxml.jackson.module"      % "jackson-module-afterburner" % jacksonVersion,
@@ -159,12 +160,11 @@ object Library {
     "org.json4s" %% "json4s-ext" % json4sVersion
   ))
 
-  val langchain4jVersion = "1.0.0-beta3"
   val langchain4j = Def.setting(Seq(
-    "dev.langchain4j" % "langchain4j" % langchain4jVersion,
-    "dev.langchain4j" % "langchain4j-azure-open-ai" % langchain4jVersion,
-    "dev.langchain4j" % "langchain4j-google-ai-gemini" % langchain4jVersion,
-    "dev.langchain4j" % "langchain4j-mcp" % langchain4jVersion
+    "dev.langchain4j" % "langchain4j" % "1.0.1",
+    "dev.langchain4j" % "langchain4j-azure-open-ai" % "1.0.1-beta6",
+    "dev.langchain4j" % "langchain4j-google-ai-gemini" % "1.0.1-beta6",
+    "dev.langchain4j" % "langchain4j-mcp" % "1.0.1-beta6"
   ))
 
   val log4jVersion = "2.24.3"
@@ -177,7 +177,7 @@ object Library {
     "org.slf4j"                 % "slf4j-api" % "2.0.17"
   ))
 
-  val luceneVersion = "10.1.0"
+  val luceneVersion = "10.2.1"
   val lucene = Def.setting(Seq(
     "org.apache.lucene" % "lucene-core" % luceneVersion,
     "org.apache.lucene" % "lucene-queryparser" % luceneVersion
@@ -185,13 +185,13 @@ object Library {
 
   val micrometer = Def.setting(Seq(
     "io.github.mweirauch" % "micrometer-jvm-extras" % "0.2.2",
-    "io.micrometer" % "micrometer-registry-prometheus" % "1.14.5",
-    "io.micrometer" % "micrometer-registry-prometheus-simpleclient" % "1.14.5"
+    "io.micrometer" % "micrometer-registry-prometheus" % "1.15.0",
+    "io.micrometer" % "micrometer-registry-prometheus-simpleclient" % "1.15.0"
   ))
 
   val netty = Def.setting(Seq(
-    "io.netty"            % "netty-resolver-dns-native-macos"             % "4.2.0.Final" classifier "osx-aarch_64",
-    "io.netty"            % "netty-resolver-dns-native-macos"             % "4.2.0.Final" classifier "osx-x86_64",
+    "io.netty"            % "netty-resolver-dns-native-macos"             % "4.2.1.Final" classifier "osx-aarch_64",
+    "io.netty"            % "netty-resolver-dns-native-macos"             % "4.2.1.Final" classifier "osx-x86_64",
     "io.netty"            % "netty-transport-native-epoll"                % "4.2.0.Final" classifier "linux-x86_64",
     "io.netty.incubator"  % "netty-incubator-transport-native-io_uring"   % "0.0.26.Final" classifier "linux-x86_64"
   ))
@@ -279,7 +279,7 @@ object Library {
     "org.osgi" % "org.osgi.core" % "6.0.0"
   ))
 
-  val pac4jVersion = "6.1.2"
+  val pac4jVersion = "6.1.3"
   val pac4j = Def.setting(Seq(
     "org.pac4j" % "pac4j-cas" % pac4jVersion,
     "org.pac4j" % "pac4j-config" % pac4jVersion,
@@ -291,11 +291,11 @@ object Library {
   ))
 
   val parquet = Def.setting(Seq(
-    "com.github.mjakubowski84"  %% "parquet4s-core" % "2.21.0",
-    "org.apache.parquet" % "parquet-avro" % "1.15.1"
+    "com.github.mjakubowski84"  %% "parquet4s-core" % "2.22.0",
+    "org.apache.parquet" % "parquet-avro" % "1.15.2"
   ))
 
-  val sapVersion = "5.17.0"
+  val sapVersion = "5.19.0"
   val sap = Def.setting(Seq(
     "com.sap.cloud.sdk.cloudplatform" % "cloudplatform-core" % sapVersion,
     "com.sap.cloud.sdk.cloudplatform" % "cloudplatform-connectivity" % sapVersion,
@@ -308,7 +308,7 @@ object Library {
     "com.sap.cloud.sdk.s4hana" % "s4hana-connectivity" % sapVersion
   ))
 
-  val sapBom = Bom.dependencies("com.sap.cloud.sdk" % "sdk-bom" % "5.17.0")
+  val sapBom = Bom.dependencies("com.sap.cloud.sdk" % "sdk-bom" % "5.19.0")
 
   val scala2 = Def.setting(Seq(
     "org.scala-lang" % "scala-compiler" % "2.13.16",
@@ -342,14 +342,14 @@ object Library {
     "io.skuber" %%% "skuber-pekko" % skuberVersion
   ))
 
-  val slinkyVersion = "0.7.4+17-f74988fd"
+  val slinkyVersion = "0.7.5+12-4397ac09+20250531-1259"
   val slinky = Def.setting(Seq(
     "me.shadaj" %%% "slinky-core" % slinkyVersion,
     "me.shadaj" %%% "slinky-readwrite" % slinkyVersion,
-    "me.shadaj" %%% "slinky-web" % slinkyVersion,
+    "me.shadaj" %%% "slinky-web" % slinkyVersion
   ))
 
-  val sparkVersion = "3.5.5"
+  val sparkVersion = "4.0.0"
   val spark = Def.setting {
     Seq(
       "org.apache.spark" % "spark-core_2.13" % sparkVersion,
@@ -370,7 +370,7 @@ object Library {
     })
   }
 
-  val sttpVersion = "4.0.3"
+  val sttpVersion = "4.0.7"
   val sttp = Def.setting(Seq(
     "com.softwaremill.sttp.client4" %% "armeria-backend-zio" % sttpVersion,
     "com.softwaremill.sttp.client4" %%% "core" % sttpVersion,
@@ -386,7 +386,7 @@ object Library {
     "org.scalatest" %%% "scalatest" % "3.2.12" % Test,
     "org.scalatestplus" %% "scalacheck-1-15" % "3.2.11.0" % Test,
     "org.scalatestplus" %% "mockito-4-5" % "3.2.12.0" % Test,
-    "org.mockito" % "mockito-core" % "5.17.0" % Test,
+    "org.mockito" % "mockito-core" % "5.18.0" % Test,
     "com.github.tomakehurst" % "wiremock" % "3.0.1" % Test exclude ("com.google.guava", "guava") excludeJackson
   ))
 
@@ -434,16 +434,15 @@ object Library {
     "dev.zio" %% "zio-test-magnolia" % "1.0.18" % "test"
   ))
 
-  val zio2Version = "2.1.17"
+  val zio2Version = "2.1.19"
   val zio2 = Def.setting(Seq(
     "dev.zio" %% "zio" % zio2Version,
     "dev.zio" %% "zio-config" % "4.0.4",
     "dev.zio" %% "zio-config-typesafe" % "4.0.4",
-    "dev.zio" %% "zio-http" % "3.2.0",
+    "dev.zio" %% "zio-http" % "3.3.3",
     "dev.zio" %% "zio-interop-cats" % "23.1.0.5",
     "dev.zio" %% "zio-interop-reactivestreams" % "2.0.2",
     "dev.zio" %% "zio-macros" % zio2Version,
-    "dev.zio" %% "zio-process" % "0.7.2",
     "dev.zio" %% "zio-streams" % zio2Version,
     "dev.zio" %% "zio-test" % zio2Version % "test",
     "dev.zio" %% "zio-test-sbt" % zio2Version % "test",
@@ -451,7 +450,7 @@ object Library {
   ))
 
   val airtable = Def.setting("dev.fuxing" % "airtable-api" % "0.3.2")
-  val auth0 = Def.setting("com.auth0" % "auth0" % "2.20.0")
+  val auth0 = Def.setting("com.auth0" % "auth0" % "2.21.0")
   val automapper = Def.setting("io.bfil"  %% "automapper" % "0.7.0")
   val avro4s = Def.setting("com.sksamuel.avro4s" %% "avro4s-core" % "5.0.14")
   val awsJavaCloudfront = Def.setting("com.amazonaws" % "aws-java-sdk-cloudfront" % "1.12.783" excludeJackson)
@@ -462,10 +461,10 @@ object Library {
   val azureOpenAi = Def.setting("com.azure" %% "azure-ai-openai" % "1.0.0-beta.16")
   val betterFiles = Def.setting("com.github.pathikrit" %% "better-files" % "3.9.2")
   val bouncycastle = Def.setting("org.bouncycastle" % "bcprov-jdk18on" % "1.80")
-  val calciteCore = Def.setting("org.apache.calcite" % "calcite-core" % "1.39.0")
-  val caliban = Def.setting("com.github.ghostdogpr" % "caliban-client" % "2.10.0")
-  val chargebee = Def.setting("com.chargebee" % "chargebee-java" % "3.31.1")
-  val chimney = Def.setting("io.scalaland" %% "chimney" % "1.7.3")
+  val calciteCore = Def.setting("org.apache.calcite" % "calcite-core" % "1.40.0")
+  val caliban = Def.setting("com.github.ghostdogpr" %%% "caliban-client" % "2.10.0")
+  val chargebee = Def.setting("com.chargebee" % "chargebee-java" % "3.32.0")
+  val chimney = Def.setting("io.scalaland" %% "chimney" % "1.8.1")
   val commonsCodec = Def.setting("commons-codec" % "commons-codec" % "1.18.0")
   val commonsCsv = Def.setting("org.apache.commons" % "commons-csv" % "1.14.0")
   val commonsEmail = Def.setting("org.apache.commons" % "commons-email2-jakarta" % "2.0.0-M1")
@@ -492,20 +491,20 @@ object Library {
   val javaxAnnotations = Def.setting("javax.annotation" % "javax.annotation-api" % "1.3.2")
   val javaxInject = Def.setting("javax.inject" % "javax.inject" % "1")
   val jbrowserDriver = Def.setting("com.machinepublishers" % "jbrowserdriver" % "1.1.1")
-  val jgit = Def.setting("org.eclipse.jgit" % "org.eclipse.jgit" % "7.2.0.202503040940-r")
-  val jose = Def.setting("com.nimbusds" % "nimbus-jose-jwt" % "10.2")
+  val jgit = Def.setting("org.eclipse.jgit" % "org.eclipse.jgit" % "7.2.1.202505142326-r")
+  val jose = Def.setting("com.nimbusds" % "nimbus-jose-jwt" % "10.3")
   val jose4j = Def.setting("org.bitbucket.b_c" % "jose4j" % "0.9.6")
   val jsch = Def.setting("com.jcraft" % "jsch" % "0.1.55")
-  val json = Def.setting("org.json" % "json" % "20250107")
+  val json = Def.setting("org.json" % "json" % "20250517")
   val jsonLenses = Def.setting("net.virtual-void" %% "json-lenses" % "0.6.2" excludeSprayJson)
   val jsoup = Def.setting("org.jsoup" % "jsoup" % "1.20.1")
   val jsr305 = Def.setting("com.google.code.findbugs" % "jsr305" % "3.0.2")
   val junixSocketCommon = Def.setting("com.kohlschutter.junixsocket" % "junixsocket-common" % "2.10.1")
   val kryo = Def.setting("com.esotericsoftware" % "kryo" % "5.6.2")
-  val kubernetesClient = Def.setting("io.kubernetes" % "client-java" % "23.0.0")
+  val kubernetesClient = Def.setting("io.kubernetes" % "client-java" % "24.0.0")
   val lombok = Def.setting("org.projectlombok" % "lombok" % "1.18.38")
   val macwire = Def.setting("com.softwaremill.macwire" %% "macros" % "2.6.6" % "provided")
-  val meilisearch = Def.setting("com.meilisearch.sdk" % "meilisearch-java" % "0.14.4")
+  val meilisearch = Def.setting("com.meilisearch.sdk" % "meilisearch-java" % "0.14.6")
   val mixpanel = Def.setting("com.mixpanel" % "mixpanel-java" % "1.5.3")
   val mongodbScala = Def.setting("org.mongodb.scala" % "mongo-scala-driver_2.13" % "5.5.0")
   val neo4j = Def.setting("org.neo4j.driver" % "neo4j-java-driver" % "5.28.5")
@@ -519,31 +518,30 @@ object Library {
   val playExtensions = Def.setting("ai.x" % "play-json-extensions_2.13" % "0.42.0")
   val plexusUtils = Def.setting("org.codehaus.plexus" % "plexus-utils" % "4.0.2")
   val rabbitmq = Def.setting("com.newmotion" %% "akka-rabbitmq" % "6.0.0" excludeAkkaActor)
-  val redisson = Def.setting("org.redisson" % "redisson" % "3.46.0")
+  val redisson = Def.setting("org.redisson" % "redisson" % "3.48.0")
   val reflections = Def.setting("org.reflections" % "reflections" % "0.10.2")
   val scaffeine = Def.setting("com.github.blemale" %% "scaffeine" % "5.3.0")
   val scalaHashing = Def.setting("com.desmondyeung.hashing"%% "scala-hashing" % "0.1.0")
   val scalaXml = Def.setting("org.scala-lang.modules" %%% "scala-xml" % "2.3.0")
-  val scalajsDom213 = Def.setting("org.scala-js" % "scalajs-dom_sjs1_2.13" % "2.8.0")
-  val scalajsDom3 = Def.setting("org.scala-js" %%% "scalajs-dom" % "2.8.0")
+  val scalajsDom = Def.setting("org.scala-js" %%% "scalajs-dom" % "2.8.0")
   val scalajsStubs = Def.setting("org.scala-js" %%% "scalajs-stubs" % "1.1.0")
   val scalate = Def.setting("org.scalatra.scalate" %% "scalate-core" % "1.10.1")
   val scalazCore = Def.setting("org.scalaz" %%% "scalaz-core" % "7.3.3")
   val scopt = Def.setting("com.github.scopt" %% "scopt" % "4.1.0")
-  val segment = Def.setting("com.segment.analytics.java" % "analytics" % "3.5.1")
-  val sentry = Def.setting("io.sentry" % "sentry" % "8.11.1")
+  val segment = Def.setting("com.segment.analytics.java" % "analytics" % "3.5.2")
+  val sentry = Def.setting("io.sentry" % "sentry" % "8.13.2")
   val shapeless = Def.setting("com.chuusai" % "shapeless_2.13" % "2.3.13")
   val shopify = Def.setting("com.channelape" % "shopify-sdk" % "2.9.3" excludeAll ExclusionRule(organization = "com.sun.xml.bind"))
   val siteCrawler = Def.setting("io.github.jasperroel" % "SiteCrawler" % "1.0.0")
-  val slack = Def.setting("com.hubspot.slack" % "slack-java-client" % "1.16.7")
+  val slack = Def.setting("com.hubspot.slack" % "slack-java-client" % "1.16.8")
   val snappy = Def.setting("org.xerial.snappy" % "snappy-java" % "1.1.10.7")
   val snakeYaml = Def.setting("org.yaml" % "snakeyaml" % "2.4")
   val sourcecode = Def.setting("com.lihaoyi" %% "sourcecode" % "0.4.2")
-  val sparkGCSConnector = Def.setting("com.google.cloud.bigdataoss" % "gcs-connector" % "3.1.1" classifier "shaded")
+  val sparkGCSConnector = Def.setting("com.google.cloud.bigdataoss" % "gcs-connector" % "3.1.3" classifier "shaded")
   val sprayJson = Def.setting("io.spray" %%% "spray-json" % "1.4.0")
   val squants = Def.setting("org.typelevel"  %%% "squants" % "1.8.3")
-  val sshj = Def.setting("com.hierynomus" % "sshj" % "0.39.0")
-  val stripe = Def.setting("com.stripe" % "stripe-java" % "29.1.0")
+  val sshj = Def.setting("com.hierynomus" % "sshj" % "0.40.0")
+  val stripe = Def.setting("com.stripe" % "stripe-java" % "29.2.0")
   val sttpQuicklens = Def.setting("com.softwaremill.quicklens" %%% "quicklens" % "1.9.9")
   val sundial = Def.setting("org.knowm" % "sundial" % "2.3.0")
   val thumbnailator = Def.setting("net.coobird" % "thumbnailator" % "0.4.20")
@@ -555,7 +553,7 @@ object Library {
   val webjarsLocator = Def.setting("org.webjars" % "webjars-locator-core" % "0.59")
   val xmemcached = Def.setting("com.googlecode.xmemcached" % "xmemcached" % "2.4.8")
   val xmlApis = Def.setting("xml-apis" % "xml-apis" % "2.0.2")
-  val zendeskClient = Def.setting("com.cloudbees.thirdparty" % "zendesk-java-client" % "1.1.1")
+  val zendeskClient = Def.setting("com.cloudbees.thirdparty" % "zendesk-java-client" % "1.2.0")
   val zeroAllocationHashing = Def.setting("net.openhft" % "zero-allocation-hashing" % "0.16")
   val zip4j = Def.setting("net.lingala.zip4j" % "zip4j" % "2.11.5")
   val zstd = Def.setting("com.github.luben" % "zstd-jni" % "1.5.7-3")
@@ -602,8 +600,7 @@ object Library {
       "org.json4s"              %%  "json4s-jackson"              % "4.1.0-M8",
       "org.json4s"              %%  "json4s-ext"                  % "4.1.0-M8",
       "io.spray"                %%% "spray-json"                  % "1.3.6"
-    )
-  )
+  ))
 
   val libraryDependencySchemes = Def.setting(Seq())
 

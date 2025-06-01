@@ -22,25 +22,19 @@ object Settings {
   lazy val isRelease = sys.env.get("RELEASE").contains("true")
 
   lazy val scala2Options = Seq(
-    "-Xcheck-macros",
     "-Xlog-implicits",
     "-Xmaxerrs", "100",
     "-Xprint-types",
     "-Ybackend-parallelism", "16",
     "-Ybackend-worker-queue", "1000",
-    "-Ycheck-mods",
-    "-Ycheck:all",
     "-Ydebug-type-error",
-    "-Ykind-projector:underscores",
     "-Ymacro-annotations",
     "-Yrangepos",
-    "-Yshow-print-errors",
     "-feature",
     "-language:dynamics",
     "-language:experimental.macros",
     "-language:higherKinds",
     "-language:implicitConversions",
-    "-language:namedTypeArguments",
     "-language:postfixOps",
     "-unchecked",
     s"-Wconf:any:warning",
@@ -51,7 +45,8 @@ object Settings {
       "-Ybackend-parallelism", "16",
       "-Ybackend-worker-queue", "1000",
       "-Yretain-trees",
-      "-Xmax-inlines", "128"
+      "-Xmax-inlines", "128",
+      "-Wconf:msg=Implicit parameters should be provided with a `using` clause:s"
 //      "-explain"
   )
 

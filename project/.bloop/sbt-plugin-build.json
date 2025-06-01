@@ -23,8 +23,6 @@
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/codecommit/sbt-github-packages_2.12_1.0/0.5.3/sbt-github-packages-0.5.3.jar",
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/github/sbt/sbt-native-packager_2.12_1.0/1.9.16/sbt-native-packager_2.12_1.0-1.9.16.jar",
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/here/platform/sbt-bom_2.12_1.0/1.0.14/sbt-bom_2.12_1.0-1.0.14.jar",
-            "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.3/2025.1.5/sbt-structure-extractor-2025.1.5.jar",
-            "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-idea-shell_2.12_1.0/2025.1.4/sbt-idea-shell_2.12_1.0-2025.1.4.jar",
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.10.0/main_2.12-1.10.0.jar",
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.10.0/io_2.12-1.10.0.jar",
             "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/ch/epfl/scala/bloop-config_2.12/2.1.0/bloop-config_2.12-2.1.0.jar",
@@ -127,9 +125,6 @@
             "version": "2.12.19",
             "options": [
                 "-deprecation",
-                "-Ypickle-java",
-                "-Ypickle-write",
-                "/Users/naden/Developer/harana/sbt-plugin/project/target/scala-2.12/sbt-1.0/early/sbt-plugin-build-0.1.0-SNAPSHOT.jar",
                 "-Wconf:cat=unused-nowarn:s",
                 "-Wconf:cat=unused-nowarn:s",
                 "-Xsource:3"
@@ -161,8 +156,8 @@
                 "import _root_.sbt._",
                 "import _root_.sbt.Keys._",
                 "import _root_.sbt.nio.Keys._",
-                "import _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.bloop.integrations.sbt.BloopPlugin.autoImport._, _root_.sbtghpackages.GitHubPackagesPlugin.autoImport._, _root_.com.typesafe.sbt.SbtNativePackager.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jlink.JlinkPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.scripts.BatStartScriptPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemdPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemloaderPlugin.autoImport._, _root_.com.typesafe.sbt.packager.debian.DebianPlugin.autoImport._, _root_.com.typesafe.sbt.packager.docker.DockerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin.autoImport._, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin.autoImport._, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin.autoImport._, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin.autoImport._, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._",
-                "import _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.bloop.integrations.sbt.BloopPlugin, _root_.sbtghpackages.GitHubPackagesPlugin, _root_.com.typesafe.sbt.SbtNativePackager, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin, _root_.com.typesafe.sbt.packager.archetypes.jlink.JlinkPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.AshScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.BatStartScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemVPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemdPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemloaderPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.UpstartPlugin, _root_.com.typesafe.sbt.packager.debian.DebianDeployPlugin, _root_.com.typesafe.sbt.packager.debian.DebianPlugin, _root_.com.typesafe.sbt.packager.debian.JDebPackaging, _root_.com.typesafe.sbt.packager.docker.DockerPlugin, _root_.com.typesafe.sbt.packager.docker.DockerSpotifyClientPlugin, _root_.com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerDeployPlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmDeployPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalDeployPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsDeployPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin"
+                "import _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.bloop.integrations.sbt.BloopPlugin.autoImport._, _root_.sbtghpackages.GitHubPackagesPlugin.autoImport._, _root_.com.typesafe.sbt.SbtNativePackager.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jlink.JlinkPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.scripts.BatStartScriptPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemdPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemloaderPlugin.autoImport._, _root_.com.typesafe.sbt.packager.debian.DebianPlugin.autoImport._, _root_.com.typesafe.sbt.packager.docker.DockerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin.autoImport._, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin.autoImport._, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin.autoImport._, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin.autoImport._",
+                "import _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.bloop.integrations.sbt.BloopPlugin, _root_.sbtghpackages.GitHubPackagesPlugin, _root_.com.typesafe.sbt.SbtNativePackager, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin, _root_.com.typesafe.sbt.packager.archetypes.jlink.JlinkPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.AshScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.scripts.BatStartScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemVPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemdPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.SystemloaderPlugin, _root_.com.typesafe.sbt.packager.archetypes.systemloader.UpstartPlugin, _root_.com.typesafe.sbt.packager.debian.DebianDeployPlugin, _root_.com.typesafe.sbt.packager.debian.DebianPlugin, _root_.com.typesafe.sbt.packager.debian.JDebPackaging, _root_.com.typesafe.sbt.packager.docker.DockerPlugin, _root_.com.typesafe.sbt.packager.docker.DockerSpotifyClientPlugin, _root_.com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerDeployPlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmDeployPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalDeployPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsDeployPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin"
             ]
         },
         "test": {
@@ -227,7 +222,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home",
+                "home": "/Users/naden/Developer/jvm/graalvm-jdk-21.0.3+7.1/Contents/Home",
                 "options": [
                     "-Duser.dir=/Users/naden/Developer/harana/sbt-plugin/project"
                 ]
@@ -236,7 +231,7 @@
                 
             ],
             "runtimeConfig": {
-                "home": "/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home",
+                "home": "/Users/naden/Developer/jvm/graalvm-jdk-21.0.3+7.1/Contents/Home",
                 "options": [
                     "-Duser.dir=/Users/naden/Developer/harana/sbt-plugin/project"
                 ]
@@ -247,8 +242,6 @@
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/codecommit/sbt-github-packages_2.12_1.0/0.5.3/sbt-github-packages-0.5.3.jar",
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/github/sbt/sbt-native-packager_2.12_1.0/1.9.16/sbt-native-packager_2.12_1.0-1.9.16.jar",
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/here/platform/sbt-bom_2.12_1.0/1.0.14/sbt-bom_2.12_1.0-1.0.14.jar",
-                "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.3/2025.1.5/sbt-structure-extractor-2025.1.5.jar",
-                "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-idea-shell_2.12_1.0/2025.1.4/sbt-idea-shell_2.12_1.0-2025.1.4.jar",
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/ch/epfl/scala/bloop-config_2.12/2.1.0/bloop-config_2.12-2.1.0.jar",
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar",
                 "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/ant/ant/1.10.12/ant-1.10.12.jar",
@@ -332,56 +325,6 @@
                             "name": "sbt-bom",
                             "classifier": "sources",
                             "path": "/Users/naden/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/here/platform/sbt-bom_2.12_1.0/1.0.14/sbt-bom_2.12_1.0-1.0.14-sources.jar"
-                        }
-                    ]
-                },
-                {
-                    "organization": "org.jetbrains.scala",
-                    "name": "sbt-structure-extractor",
-                    "version": "2025.1.5",
-                    "configurations": "default",
-                    "artifacts": [
-                        {
-                            "name": "sbt-structure-extractor",
-                            "checksum": {
-                                "type": "sha1",
-                                "digest": "711b56bd53ef49c2765c243ff9f461cd7c20fde8"
-                            },
-                            "path": "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.3/2025.1.5/sbt-structure-extractor-2025.1.5.jar"
-                        },
-                        {
-                            "name": "sbt-structure-extractor",
-                            "classifier": "sources",
-                            "checksum": {
-                                "type": "sha1",
-                                "digest": "58d8279f8239c9c0836c643f09c5701216b695a2"
-                            },
-                            "path": "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.3/2025.1.5/sbt-structure-extractor-2025.1.5-sources.jar"
-                        }
-                    ]
-                },
-                {
-                    "organization": "org.jetbrains.scala",
-                    "name": "sbt-idea-shell",
-                    "version": "2025.1.4",
-                    "configurations": "default",
-                    "artifacts": [
-                        {
-                            "name": "sbt-idea-shell",
-                            "checksum": {
-                                "type": "sha1",
-                                "digest": "0c975199d99ef33daf8726497593745a3623971c"
-                            },
-                            "path": "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-idea-shell_2.12_1.0/2025.1.4/sbt-idea-shell_2.12_1.0-2025.1.4.jar"
-                        },
-                        {
-                            "name": "sbt-idea-shell",
-                            "classifier": "sources",
-                            "checksum": {
-                                "type": "sha1",
-                                "digest": "73ce38f5cddbd7f208143957c083c98ee72a0583"
-                            },
-                            "path": "/Users/naden/Library/Application Support/JetBrains/IntelliJIdea2025.1/plugins/Scala/repo/org/jetbrains/scala/sbt-idea-shell_2.12_1.0/2025.1.4/sbt-idea-shell_2.12_1.0-2025.1.4-sources.jar"
                         }
                     ]
                 },

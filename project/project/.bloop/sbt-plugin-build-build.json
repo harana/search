@@ -117,9 +117,6 @@
             "version": "2.12.19",
             "options": [
                 "-deprecation",
-                "-Ypickle-java",
-                "-Ypickle-write",
-                "/Users/naden/Developer/harana/sbt-plugin/project/project/target/scala-2.12/sbt-1.0/early/sbt-plugin-build-build-0.1.0-SNAPSHOT.jar",
                 "-Wconf:cat=unused-nowarn:s",
                 "-Wconf:cat=unused-nowarn:s",
                 "-Wconf:cat=unused-nowarn:s",
@@ -218,7 +215,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home",
+                "home": "/Users/naden/Developer/jvm/graalvm-jdk-21.0.3+7.1/Contents/Home",
                 "options": [
                     "-Duser.dir=/Users/naden/Developer/harana/sbt-plugin/project/project"
                 ]
@@ -227,7 +224,7 @@
                 
             ],
             "runtimeConfig": {
-                "home": "/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home",
+                "home": "/Users/naden/Developer/jvm/graalvm-jdk-21.0.3+7.1/Contents/Home",
                 "options": [
                     "-Duser.dir=/Users/naden/Developer/harana/sbt-plugin/project/project"
                 ]

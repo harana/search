@@ -49,7 +49,7 @@ object Plugin extends AutoPlugin {
           libraryDependencies ++= Library.common.value,
           excludeDependencies ++= Library.globalExclusions.value,
           Settings.common,
-          scalacOptions := (if (scalaVersion.value.startsWith("3")) Settings.scala3Options else Settings.scala2Options),
+          scalacOptions ++= (if (scalaVersion.value.startsWith("3")) Settings.scala3Options else Settings.scala2Options),
           unmanagedBase := (ThisBuild / baseDirectory).value / "lib"
         )
         .jsSettings(
